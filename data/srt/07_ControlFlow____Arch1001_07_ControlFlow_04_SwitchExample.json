@@ -6,14 +6,14 @@
 "start": "00:00:00,000",
 "end": "00:00:25,920",
 "en": "so now a quick example of another one of the major forms of conditional control flow the switch statement and there's no new assembly instructions here so you should know everything you've seen imul, sub, call mov conditional things looks like we've only got some je here otherwise the rest is jumps. je because it's checking does it equal exactly zero? Does it equal exactly one?",
-"ja": ""
+"ja": "では、条件付きの制御フローの主な形のもうひとつ、switch 文の簡単な例を見ましょう。ここに新しいアセンブリ命令はありません。ですから、これまでに見た imul、sub、call、mov、そして条件付きのものは、すべて分かるはずです。条件付きのものは je だけのようで、あとはジャンプです。je なのは、ちょうど 0 に等しいか、ちょうど 1 に等しいかを調べているからです。"
 },
 {
 "i": 1,
 "start": "00:00:24,000",
 "end": "00:00:53,039",
 "en": "and somehow someway it's going to make its way to the default case so all I really want is for you to get more experience stepping through assembly code understanding the various components like what is this stuff before the sub rsp well we should know from previous examples so go ahead and do the example here so aren't you glad that I'm going to give you another opportunity to step through the assembly code to deepen your experience",
-"ja": ""
+"ja": "そして、なんらかの形で default のケースにたどり着きます。ここで私が望むのは、アセンブリコードをステップ実行する経験をもっと積んで、さまざまな部分を理解してもらうことだけです。たとえば、sub rsp の前にあるこれは何でしょうか。これまでの例から分かるはずです。では、ここで例を試してみてください。経験を深めるために、アセンブリコードをもう一度ステップ実行する機会をあげますよ。うれしいでしょう。"
 }
 ]
 }

@@ -6,7 +6,7 @@
 "start": "00:00:00,080",
 "end": "00:00:25,359",
 "en": "so what's the takeaway from shift example one it's another one of these trivial ones shifts in C are shifts in assembly so that's two more assembly instructions to our bountiful collection and i know you thought you were done when you had consumed the full pie here but wait there's more so we have now as others shift left and shift right",
-"ja": ""
+"ja": "では、shift example one のまとめです。これもごく簡単な例で、C のシフトはアセンブリのシフトになります。これで、たくさん集めたアセンブリ命令がさらに 2 つ増えました。パイをまるごと食べ終えたら終わりだと思っていたでしょうが、まだあります。ここに新しく、シフト左とシフト右が加わりました。"
 }
 ]
 }

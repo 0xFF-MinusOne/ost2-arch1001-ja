@@ -6,70 +6,70 @@
 "start": "00:00:00,000",
 "end": "00:00:30,480",
 "en": "okay so at this point you should have checked out the architecture 1001 source code go ahead and go into there and within there the first example is actually in ExampleSubroutine1 and CallAFunction1.c was the first thing that we had looked at in visual studio and that's the first thing we're going to look at here now in order to compile it we're going to use the no stack protector option we're going to use this option on all of the things even though they don't necessarily all",
-"ja": ""
+"ja": "では、この時点で、architecture 1001 のソースコードをチェックアウトしてあるはずです。その中に入ってください。最初の例は ExampleSubroutine1 の中にあり、CallAFunction1.c が、Visual Studio で最初に見たものです。ここでも最初に見ます。コンパイルするには、no stack protector オプションを使います。すべての例に、このオプションを使います。必ずしも全部に"
 },
 {
 "i": 1,
 "start": "00:00:28,960",
 "end": "00:01:00,800",
 "en": "need it but this will just make the assembly simpler in the same way that we reconfigured the visual studio stuff so you could give it an output and call it you know something but basically in order to make it easier to use the same commands between multiple examples that we're going to be doing in rapid succession i'm just going to give no output command and then the result of that is that it's going to name it a.out now we can debug a.out with gdb and you should have a configuration file",
-"ja": ""
+"ja": "必要なわけではありませんが、Visual Studio の設定を変えたのと同じように、アセンブリを単純にするためです。出力名を指定して、何か名前を付けることもできますが、続けて素早くやっていく複数の例で、同じコマンドを使いやすくするために、出力名は指定せず、その結果、a.out という名前になります。この a.out は、gdb でデバッグできます。設定ファイルが"
 },
 {
 "i": 2,
 "start": "00:00:58,239",
 "end": "00:01:41,520",
 "en": "in your home directory so mine's named gdb config and yours may differ from this slightly but basically i'm displaying you know 10 instructions at rip most of the common registers except some of the higher ones and some stuff for the stack and then starting the program so we would do gdb a.out -q for quiet and -x for our gdp config if we do that then it goes ahead and starts it up quiet mode and immediately starts it because of the start command in there and what we'll see is basically 10 assembly instructions",
-"ja": ""
+"ja": "ホームディレクトリにあるはずです。私のは gdb config という名前で、皆さんのものとは少し違うかもしれません。基本的には、rip の位置の 10 個の命令、よく使うレジスタのほとんど（上位のいくつかは除きます）、そしてスタックに関するいくつかを表示して、プログラムを開始します。ですから、gdb a.out -q、-q は静かにする指定、-x は gdb config の指定、で実行します。そうすると、静かなモードで起動して、中にある start コマンドのおかげで、すぐに開始されます。見えるのは、基本的に 10 個のアセンブリ命令、"
 },
 {
 "i": 3,
 "start": "00:01:39,840",
 "end": "00:02:13,599",
 "en": "all of our registers that we care to look at at the moment and then a updating view of the stack now the first assembly instruction that we see here is called endbr64 and so i'll just you know save you the mystery there this endbr64 is for a new technology that's called intel control flow enhancement technology and so while there's a whole 358 page manual you can read to learn about control flow enhancement technology the important thing that we care about for now is that it says the endbr32",
-"ja": ""
+"ja": "いま見たいレジスタすべて、そして更新されていくスタックの表示です。ここで最初に見えるアセンブリ命令は endbr64 です。なぞ解きはなしにお教えしますと、この endbr64 は、Intel Control-flow Enforcement Technology という新しい技術のためのものです。この技術については 358 ページものマニュアルがありますが、今は大事なことだけ見ておくと、endbr32 と"
 },
 {
 "i": 4,
 "start": "00:02:12,879",
 "end": "00:02:40,560",
 "en": "and endbr64 instructions will have the same effect as a nop instruction on Intel 64 processors that do not support control flow enhancement technology so basically it's saying the compiler is forcing this assembly instruction in here so that if this code ends up being run on some new system that supports this new security mechanism then it'll add some extra security and if it doesn't then it's just going to act like a nop and it's going to do nothing so for all intents and purposes",
-"ja": ""
+"ja": "endbr64 命令は、Control-flow Enforcement Technology に対応していない Intel 64 プロセッサでは、nop 命令と同じ効果を持つ、と書かれています。つまり、このコードが、この新しいセキュリティ機構に対応した新しいシステムで動いたら、セキュリティが少し強くなり、対応していなければ、nop のように何もしない、ということで、コンパイラがこのアセンブリ命令を、ここに強制的に入れています。ですから、実質的には、"
 },
 {
 "i": 5,
 "start": "00:02:38,560",
 "end": "00:03:10,080",
 "en": "basically just assume endbr is going to be a nop until you later on you know can learn more about that technology i'll put a link to a article that talks about how windows uses that technology for instance next to this video so there's not much new and interesting about this assembly basically the typical things we would expect to see the AT&T syntax means there's percent signs in front of registers and dollar signs in front of immediates so it's going to do this first nop so i'm going to do ni for next",
-"ja": ""
+"ja": "あとでその技術についてもっと学べるようになるまでは、endbr は nop だと思っておいてください。たとえば、Windows がその技術をどう使っているかを説明する記事へのリンクを、この動画の横に載せておきます。このアセンブリには、新しくておもしろいものは、あまりありません。基本的に、ふつうに見るはずのものです。AT&T 構文なので、レジスタの前にパーセント記号、即値の前にドル記号が付きます。最初の nop を実行するので、次のアセンブリ命令へ進む ni を使います。"
 },
 {
 "i": 6,
 "start": "00:03:08,879",
 "end": "00:03:47,920",
 "en": "assembly instruction step over that you know then push rbp so do that and there we go we see 0 went on to the top of the stack and rbp is currently set to 0 that's why then move rsp to rbp so AT&T syntax moving from left to right so move rsp which is 0x7ffff some stack location to rbp so step over that and there you go same thing mov 0 to eax step over that and now we're going to want to step into this function that's going to be called function func so si to step into once again we have you",
-"ja": ""
+"ja": "それをステップオーバーして、次に push rbp です。実行すると、スタックの一番上に 0 が入り、rbp は今 0 になっています。だからです。次に、mov rsp, rbp です。AT&T 構文なので、左から右に移動します。0x7ffff で始まるスタックの場所である rsp を rbp に mov します。ステップオーバーすると、そのとおりになっています。次に、0 を eax に mov して、ステップオーバーします。そして、呼び出される関数 func にステップインしたいので、si でステップインします。ここでも、"
 },
 {
 "i": 7,
 "start": "00:03:47,360",
 "end": "00:04:25,919",
 "en": "know this nop instruction this control flow enforcement technology which we're going to just assume is not doing anything so nop step over again it's creating a stack frame because basically optimizations are disabled by default in gcc if you don't you know specify any optimizations so create a stack frame push rbp then move rsp to rbp now you can see that the value that got pushed was the old value of rbp 0xfff dcf60 and then it's going to just mov 0xbeef into eax and this is just",
-"ja": ""
+"ja": "この nop 命令、つまり Control-flow Enforcement Technology がありますが、何もしていないものとして扱います。nop をステップオーバーします。ここでもスタックフレームを作っていますが、それは、gcc では最適化を何も指定しないと、既定で最適化が無効になっているからです。スタックフレームを作るために push rbp をして、そのあと mov rsp, rbp です。push された値は、以前の rbp の値、0xfff dcf60 だと分かります。そのあと、0xbeef を eax に mov します。これは、"
 },
 {
 "i": 8,
 "start": "00:04:23,280",
 "end": "00:04:55,440",
 "en": "always unconditionally done and then it's going to exit out of the function and tear down the stack frame so pop rbp this old value of rbp into the register there we go now it's got the old value and return so it's going to take that value off the stack put it into rip and there we go we're back where we came from but now it's going to just always put 0xf00d into eax it doesn't care about the fact that we returned 0xbeef and rax it's basically just always unconditionally returning 0xf00d",
-"ja": ""
+"ja": "いつも無条件に行われます。そして、関数を抜けて、スタックフレームを取り壊します。pop rbp で、この以前の rbp の値をレジスタに戻します。これで、以前の値が戻りました。そして ret で、スタックからその値を取って rip に入れます。これで、元の場所に戻りました。でも、ここで eax には、必ず 0xf00d が入ります。0xbeef を rax に返したことは関係なく、基本的に、いつも無条件に 0xf00d を返します。"
 },
 {
 "i": 9,
 "start": "00:04:52,960",
 "end": "00:05:14,160",
 "en": "so continue and then now we're into the function epilogue and we're tearing down the stack frame for main next and return and now we're out in the function that called main and we don't particularly care about that so we're done with this example nothing new and interesting there so let's move on to the next example",
-"ja": ""
+"ja": "そこで continue すると、今度は関数エピローグに入り、main のスタックフレームを取り壊しています。次に ret で、main を呼び出した側の関数に出ましたが、そこは特に気にしないので、この例はここまでです。新しくておもしろいものは、特にありませんでした。では、次の例に進みましょう。"
 }
 ]
 }

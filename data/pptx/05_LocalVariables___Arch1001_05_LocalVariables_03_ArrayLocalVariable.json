@@ -5,493 +5,493 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ArrayLocalVariable.c",
-"ja": ""
+"ja": "ArrayLocalVariable.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "ArrayLocalVariable.c",
-"ja": ""
+"ja": "ArrayLocalVariable.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "short a;",
-"ja": ""
+"ja": "short a;"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "a = 0xbabe;",
-"ja": ""
+"ja": "a = 0xbabe;"
 },
 {
 "i": 44,
 "where": "スライド3",
 "en": "Adding and accessing an array local variable",
-"ja": ""
+"ja": "配列のローカル変数の追加とアクセス"
 },
 {
 "i": 46,
 "where": "スライド4",
 "en": "FYI, Visual Studio seems to have a predilection for imul over mul (unsigned multiply). You’ll see it showing up in places you expect mul",
-"ja": ""
+"ja": "参考: Visual Studio は、mul(符号なし乗算)より imul を好むようだ。mul が出そうな場所にも imul が出てくる"
 },
 {
 "i": 47,
 "where": "スライド4",
 "en": "I haven’t been able to get it to generate normal mul for simple examples",
-"ja": ""
+"ja": "単純な例で通常の mul を出させることはできなかった"
 },
 {
 "i": 48,
 "where": "スライド4",
 "en": "Three forms. One, two, or three operands:",
-"ja": ""
+"ja": "3 つの形がある。オペランドは 1 つ、2 つ、または 3 つ:"
 },
 {
 "i": 52,
 "where": "スライド4",
 "en": "Three operands? Possibly the only “basic” instruction (meaning non-added-on-instruction-set(MMX,AVX,AEX,VMX,etc)) of it’s kind?",
-"ja": ""
+"ja": "オペランド 3 つ? 追加命令セット(MMX、AVX、AES、VMX など)ではない「基本」命令では、おそらく唯一の例"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "Book page 65",
-"ja": ""
+"ja": "書籍 65 ページ"
 },
 {
 "i": 56,
 "where": "ノート4",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 57,
 "where": "ノート4",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "There are 13 forms, spread across 3 groups",
-"ja": ""
+"ja": "13 の形があり、3 つのグループに分かれる"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "Can also be seen as 5 groups depending on how you slice the 3-operand groups",
-"ja": ""
+"ja": "3 オペランドのグループの切り方しだいで、5 グループとも見られる"
 },
 {
 "i": 61,
 "where": "スライド5",
 "en": "So I'm going to show you 5 groups to not have too much on a single slide",
-"ja": ""
+"ja": "1 枚に詰め込みすぎないよう、5 グループで示す"
 },
 {
 "i": 62,
 "where": "ノート5",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 63,
 "where": "ノート5",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 65,
 "where": "スライド6",
 "en": "AX = AL * r/m8",
-"ja": ""
+"ja": "AX = AL * r/m8"
 },
 {
 "i": 67,
 "where": "スライド6",
 "en": "DX:AX = AX * r/m16",
-"ja": ""
+"ja": "DX:AX = AX * r/m16"
 },
 {
 "i": 69,
 "where": "スライド6",
 "en": "EDX:EAX = EAX * r/m32",
-"ja": ""
+"ja": "EDX:EAX = EAX * r/m32"
 },
 {
 "i": 71,
 "where": "スライド6",
 "en": "RDX:RAX = RAX * r/m64",
-"ja": ""
+"ja": "RDX:RAX = RAX * r/m64"
 },
 {
 "i": 73,
 "where": "ノート6",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 74,
 "where": "ノート6",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 83,
 "where": "ノート7",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 84,
 "where": "ノート7",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 86,
 "where": "スライド8",
 "en": "Three Operands, 8 Bit Immediate",
-"ja": ""
+"ja": "3 オペランド、8 ビット即値"
 },
 {
 "i": 94,
 "where": "ノート8",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 95,
 "where": "ノート8",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 97,
 "where": "スライド9",
 "en": "Three Operands, 16 Bit Immediate",
-"ja": ""
+"ja": "3 オペランド、16 ビット即値"
 },
 {
 "i": 101,
 "where": "ノート9",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 102,
 "where": "ノート9",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 104,
 "where": "スライド10",
 "en": "Three Operands, 32 Bit Immediate",
-"ja": ""
+"ja": "3 オペランド、32 ビット即値"
 },
 {
 "i": 110,
 "where": "ノート10",
 "en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
-"ja": ""
+"ja": "http://www.microsoft.com/msj/0698/hood0698.aspx -「3 つのオペランドをとる IMUL 命令の形まである。私の知るかぎり、Intel のオペコード体系で、こうした特徴を持つ命令はこれだけ。」"
 },
 {
 "i": 111,
 "where": "ノート10",
 "en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
-"ja": ""
+"ja": "この引用は、Visual Studio に MUL 命令を自然に出力させる方法を探していて見つけた。また、r/mX を含むものは、オペランドが多いニーモニックに見えても、情報は通常の 1〜2 バイトの組に収まっている。"
 },
 {
 "i": 117,
 "where": "スライド11",
 "en": "Registers Before",
-"ja": ""
+"ja": "レジスタ(前)"
 },
 {
 "i": 121,
 "where": "スライド11",
 "en": "AX = AL * r/m8",
-"ja": ""
+"ja": "AX = AL * r/m8"
 },
 {
 "i": 122,
 "where": "スライド11",
 "en": "Registers After",
-"ja": ""
+"ja": "レジスタ(後)"
 },
 {
 "i": 133,
 "where": "スライド12",
 "en": "Registers Before",
-"ja": ""
+"ja": "レジスタ(前)"
 },
 {
 "i": 138,
 "where": "スライド12",
 "en": "Registers After",
-"ja": ""
+"ja": "レジスタ(後)"
 },
 {
 "i": 149,
 "where": "スライド13",
 "en": "Registers Before",
-"ja": ""
+"ja": "レジスタ(前)"
 },
 {
 "i": 154,
 "where": "スライド13",
 "en": "Registers After",
-"ja": ""
+"ja": "レジスタ(後)"
 },
 {
 "i": 157,
 "where": "スライド13",
 "en": "0xE5A3577504602A2C",
-"ja": ""
+"ja": "0xE5A3577504602A2C"
 },
 {
 "i": 160,
 "where": "スライド14",
 "en": "MOVZX - Move with zero extend",
-"ja": ""
+"ja": "MOVZX - ゼロ拡張つきの移動"
 },
 {
 "i": 161,
 "where": "スライド14",
 "en": "MOVSX - Move with sign extend",
-"ja": ""
+"ja": "MOVSX - 符号拡張つきの移動"
 },
 {
 "i": 162,
 "where": "スライド14",
 "en": "Used to move small values (from smaller types) into larger registers (holding larger types)",
-"ja": ""
+"ja": "小さい値(小さい型)を、大きいレジスタ(大きい型)へ移すために使う"
 },
 {
 "i": 163,
 "where": "スライド14",
 "en": "Support same r->r, r->m, m->r, i->m, i->r forms as normal MOV",
-"ja": ""
+"ja": "通常の MOV と同じ r->r、r->m、m->r、i->m、i->r の形に対応"
 },
 {
 "i": 164,
 "where": "スライド14",
 "en": "“Zero extend” means the CPU unconditionally fills the high order bits of the larger register with zeros",
-"ja": ""
+"ja": "「ゼロ拡張」は、CPU が大きいレジスタの上位ビットを無条件に 0 で埋めること"
 },
 {
 "i": 165,
 "where": "スライド14",
 "en": "“Sign extend” means the CPU fills the high order bits of the destination larger register with whatever the sign bit is set to on the small value",
-"ja": ""
+"ja": "「符号拡張」は、CPU が転送先の大きいレジスタの上位ビットを、小さい値の符号ビットと同じ値で埋めること"
 },
 {
 "i": 166,
 "where": "スライド14",
 "en": "Book page 53",
-"ja": ""
+"ja": "書籍 53 ページ"
 },
 {
 "i": 171,
 "where": "スライド15",
 "en": "MOVSXD - Move with sign extend",
-"ja": ""
+"ja": "MOVSXD - 符号拡張つきの移動"
 },
 {
 "i": 172,
 "where": "スライド15",
 "en": "MOVSX technically only sign extends from 8 or 16 bit values",
-"ja": ""
+"ja": "MOVSX が符号拡張できるのは、厳密には 8 ビットまたは 16 ビットの値だけ"
 },
 {
 "i": 173,
 "where": "スライド15",
 "en": "If you want to sign extend a 32 bit value to 64 bits, you need to use MOVSXD",
-"ja": ""
+"ja": "32 ビット値を 64 ビットへ符号拡張したいときは、MOVSXD を使う"
 },
 {
 "i": 174,
 "where": "スライド15",
 "en": "There's no \"MOVZXD\", it's always just MOVZX",
-"ja": ""
+"ja": "「MOVZXD」はなく、常に MOVZX だけ"
 },
 {
 "i": 175,
 "where": "スライド15",
 "en": "I'm not going to give it its own star though 💫",
-"ja": ""
+"ja": "ただし、これには専用の星は付けない 💫"
 },
 {
 "i": 176,
 "where": "スライド15",
 "en": "Book page 53",
-"ja": ""
+"ja": "書籍 53 ページ"
 },
 {
 "i": 183,
 "where": "スライド16",
 "en": "Because the sign bit (most significant bit) of 0xF00DFACE is 1",
-"ja": ""
+"ja": "0xF00DFACE の符号ビット(最上位ビット)が 1 のため"
 },
 {
 "i": 188,
 "where": "スライド17",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 190,
 "where": "スライド17",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 192,
 "where": "ノート17",
 "en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
-"ja": ""
+"ja": "0x38 が解放される直前までステップ実行し、スタックの状態を教えてください。変数 a、b、c がスタックのどこにあるか、どこが未定義かを見分けてみましょう。"
 },
 {
 "i": 196,
 "where": "スライド18",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 206,
 "where": "スライド18",
 "en": "0ba1b0ab`1edb100d",
-"ja": ""
+"ja": "0ba1b0ab`1edb100d"
 },
 {
 "i": 215,
 "where": "スライド19",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 239,
 "where": "スライド19",
 "en": "a = undef  babe (2 bytes)",
-"ja": ""
+"ja": "a = 未定義 babe(2 バイト)"
 },
 {
 "i": 243,
 "where": "スライド19",
 "en": "4-byte-granularity addresses",
-"ja": ""
+"ja": "4 バイト単位のアドレス"
 },
 {
 "i": 244,
 "where": "スライド20",
 "en": "ArrayLocalVariable.c takeaways",
-"ja": ""
+"ja": "ArrayLocalVariable.c のまとめ"
 },
 {
 "i": 245,
 "where": "スライド20",
 "en": "Local variables need not be stored on the stack in the same order they are defined in the high level language",
-"ja": ""
+"ja": "ローカル変数は、高水準言語での定義順にスタックへ置かれるとはかぎらない"
 },
 {
 "i": 246,
 "where": "スライド20",
 "en": "(In VS unoptimized code) Array access is typically done by multiplying the size of the array element (4 bytes for an int in this case), times the index that is desired to be access (indices 1 and 4 in this case)",
-"ja": ""
+"ja": "(VS の最適化なしコードでは)配列アクセスは、要素のサイズ(ここでは int の 4 バイト)に、アクセスしたい添字(ここでは 1 と 4)を掛けて行う"
 },
 {
 "i": 247,
 "where": "スライド20",
 "en": "Moving a small value to a large register will result in a zero extend. Addition using signed values could result in a sign extend, if the arithmetic is done in a larger register",
-"ja": ""
+"ja": "小さい値を大きいレジスタへ移すと、ゼロ拡張になる。符号つきの値の加算は、大きいレジスタで計算すると符号拡張になりうる"
 },
 {
 "i": 249,
 "where": "スライド20",
 "en": "short a;",
-"ja": ""
+"ja": "short a;"
 },
 {
 "i": 252,
 "where": "スライド20",
 "en": "a = 0xbabe;",
-"ja": ""
+"ja": "a = 0xbabe;"
 },
 {
 "i": 279,
 "where": "スライド21",
 "en": "Good quiz question for this section:",
-"ja": ""
+"ja": "この節の良い確認問題:"
 },
 {
 "i": 280,
 "where": "スライド21",
 "en": "If you change the size of the elements of b[] to long long, which lines, would you expect to change from 4 to 8?",
-"ja": ""
+"ja": "b[] の要素の型を long long にすると、4 から 8 に変わるのはどの行だと思いますか?"
 },
 {
 "i": 281,
 "where": "スライド22",
 "en": "Instructions we now know (11)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (11)"
 }
 ]
 }

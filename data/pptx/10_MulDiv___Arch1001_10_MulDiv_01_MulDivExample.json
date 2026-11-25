@@ -5,289 +5,289 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "MulDivExample.c",
-"ja": ""
+"ja": "MulDivExample.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "MulDivExample.c",
-"ja": ""
+"ja": "MulDivExample.c"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "uint64 a = 0xdefec7ed;",
-"ja": ""
+"ja": "uint64 a = 0xdefec7ed;"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "a *= 0xde7ec7ab1e;",
-"ja": ""
+"ja": "a *= 0xde7ec7ab1e;"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "a /= 0x2bad505ad;",
-"ja": ""
+"ja": "a /= 0x2bad505ad;"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "return a;",
-"ja": ""
+"ja": "return a;"
 },
 {
 "i": 37,
 "where": "ノート3",
 "en": "We already saw that when a C operand is a power of 2, it uses shifts instead of multiplies/divides, but this shows that in other cases, it uses multiply or divide instructions.",
-"ja": ""
+"ja": "C のオペランドが 2 の累乗のときは、乗除算ではなくシフトを使うことは見た。ここでは、それ以外の場合に乗算・除算命令を使うことが分かる。"
 },
 {
 "i": 39,
 "where": "スライド4",
 "en": "Three forms",
-"ja": ""
+"ja": "3 つの形"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "Unsigned divide ax by r/m8, al = quotient, ah = remainder",
-"ja": ""
+"ja": "ax を r/m8 で符号なし除算。al = 商、ah = 余り"
 },
 {
 "i": 41,
 "where": "スライド4",
 "en": "Unsigned divide edx:eax by r/m32, eax = quotient, edx = remainder",
-"ja": ""
+"ja": "edx:eax を r/m32 で符号なし除算。eax = 商、edx = 余り"
 },
 {
 "i": 42,
 "where": "スライド4",
 "en": "Unsigned divide rdx:rax by r/m64, rax = quotient, rdx = remainder",
-"ja": ""
+"ja": "rdx:rax を r/m64 で符号なし除算。rax = 商、rdx = 余り"
 },
 {
 "i": 43,
 "where": "スライド4",
 "en": "If dividend is 32/64bits, edx/rdx will just be set to 0 by the compiler before the instruction (as occurred in the MulDivExample.c code)",
-"ja": ""
+"ja": "被除数が 32/64 ビットの場合、命令の前にコンパイラが edx/rdx を 0 にする(MulDivExample.c のコードで見たとおり)"
 },
 {
 "i": 44,
 "where": "スライド4",
 "en": "If the divisor is 0, a divide by zero exception is raised.",
-"ja": ""
+"ja": "除数が 0 の場合は、ゼロ除算例外が発生する。"
 },
 {
 "i": 74,
 "where": "スライド4",
 "en": "Book page 69",
-"ja": ""
+"ja": "書籍 69 ページ"
 },
 {
 "i": 75,
 "where": "ノート4",
 "en": "Note that there’s no form which takes an immediate.",
-"ja": ""
+"ja": "即値をとる形はない点に注意。"
 },
 {
 "i": 77,
 "where": "スライド5",
 "en": "If you were to then change MulDivExample to signed, you would see the IDIV instruction appear",
-"ja": ""
+"ja": "MulDivExample を符号つきに変えると、IDIV 命令が現れる"
 },
 {
 "i": 78,
 "where": "スライド5",
 "en": "Three forms",
-"ja": ""
+"ja": "3 つの形"
 },
 {
 "i": 79,
 "where": "スライド5",
 "en": "Signed divide ax by r/m8, al = quotient, ah = remainder",
-"ja": ""
+"ja": "ax を r/m8 で符号つき除算。al = 商、ah = 余り"
 },
 {
 "i": 80,
 "where": "スライド5",
 "en": "Signed divide edx:eax by r/mX, eax = quotient, edx = remainder",
-"ja": ""
+"ja": "edx:eax を r/mX で符号つき除算。eax = 商、edx = 余り"
 },
 {
 "i": 81,
 "where": "スライド5",
 "en": "Signed divide rdx:rax by r/m64, rax = quotient, rdx = remainder",
-"ja": ""
+"ja": "rdx:rax を r/m64 で符号つき除算。rax = 商、rdx = 余り"
 },
 {
 "i": 82,
 "where": "スライド5",
 "en": "If dividend is 32/64bits, edx/rdx will just be set to 0 by the compiler before the instruction",
-"ja": ""
+"ja": "被除数が 32/64 ビットの場合、命令の前にコンパイラが edx/rdx を 0 にする"
 },
 {
 "i": 83,
 "where": "スライド5",
 "en": "If the divisor is 0, a divide by zero exception is raised.",
-"ja": ""
+"ja": "除数が 0 の場合は、ゼロ除算例外が発生する。"
 },
 {
 "i": 113,
 "where": "スライド5",
 "en": "Book page 69",
-"ja": ""
+"ja": "書籍 69 ページ"
 },
 {
 "i": 114,
 "where": "ノート5",
 "en": "Note that there’s no form which takes an immediate.",
-"ja": ""
+"ja": "即値をとる形はない点に注意。"
 },
 {
 "i": 119,
 "where": "スライド6",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 121,
 "where": "スライド6",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 },
 {
 "i": 123,
 "where": "スライド7",
 "en": "MulDivExample.c Takeaways",
-"ja": ""
+"ja": "MulDivExample.c のまとめ"
 },
 {
 "i": 124,
 "where": "スライド7",
 "en": "When a multiply or divide is not by a power of 2, compilers will use normal multiply/divide instructions",
-"ja": ""
+"ja": "2 の累乗以外での乗算・除算では、コンパイラは通常の乗算・除算命令を使う"
 },
 {
 "i": 125,
 "where": "スライド7",
 "en": "VS compiler prefers IMUL over MUL (unsigned multiply)",
-"ja": ""
+"ja": "VS のコンパイラは、MUL(符号なし乗算)より IMUL を好む"
 },
 {
 "i": 143,
 "where": "スライド7",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 145,
 "where": "スライド7",
 "en": "uint64 a = 0xdefec7ed;",
-"ja": ""
+"ja": "uint64 a = 0xdefec7ed;"
 },
 {
 "i": 146,
 "where": "スライド7",
 "en": "a *= 0xde7ec7ab1e;",
-"ja": ""
+"ja": "a *= 0xde7ec7ab1e;"
 },
 {
 "i": 147,
 "where": "スライド7",
 "en": "a /= 0x2bad505ad;",
-"ja": ""
+"ja": "a /= 0x2bad505ad;"
 },
 {
 "i": 148,
 "where": "スライド7",
 "en": "return a;",
-"ja": ""
+"ja": "return a;"
 },
 {
 "i": 150,
 "where": "ノート7",
 "en": "We already saw that when a C operand is a power of 2, it uses shifts instead of multiplies/divides, but this shows that in other cases, it uses multiply or divide instructions.",
-"ja": ""
+"ja": "C のオペランドが 2 の累乗のときは、乗除算ではなくシフトを使うことは見た。ここでは、それ以外の場合に乗算・除算命令を使うことが分かる。"
 },
 {
 "i": 151,
 "where": "スライド8",
 "en": "Instructions we now know (28)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (28)"
 },
 {
 "i": 162,
 "where": "スライド8",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 202,
 "where": "スライド9",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

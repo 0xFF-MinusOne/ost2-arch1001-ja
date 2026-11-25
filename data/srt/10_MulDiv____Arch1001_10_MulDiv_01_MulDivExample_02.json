@@ -6,7 +6,7 @@
 "start": "00:00:00,000",
 "end": "00:00:29,199",
 "en": "so the takeaways from MulDivExample is that when it's a multiply or divide that is not a power of 2, the compiler will go ahead and use multiply and divide instructions and as before visual studio really prefers imul over mul the unsigned multiply even when you're dealing with unsigned operands two new assembly instructions to the pile div and idiv and where do they show up well we already know we exhausted everything on the pie chart so two more others div and idiv",
-"ja": ""
+"ja": "MulDivExample から学べるのは、2 のべき乗ではない掛け算や割り算のときには、コンパイラが乗算命令や除算命令を使う、ということです。そして前と同じように、Visual Studio は、符号なしのオペランドを扱うときでも、符号なし乗算の mul よりも、imul を強く好みます。これで新しいアセンブリ命令が 2 つ、山に加わりました。div と idiv です。どこに出てくるのでしょうか。円グラフはもう全部使い切ったとわかっているので、その他の 2 つ、div と idiv になります。"
 }
 ]
 }

@@ -5,241 +5,241 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "TooManyParameters.c",
-"ja": ""
+"ja": "TooManyParameters.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "TooManyParameters.c",
-"ja": ""
+"ja": "TooManyParameters.c"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
-"ja": ""
+"ja": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 24,
 "where": "スライド3",
 "en": "000000014000100A  mov  qword ptr [rsp+10h],rdx",
-"ja": ""
+"ja": "000000014000100A  mov  qword ptr [rsp+10h],rdx"
 },
 {
 "i": 35,
 "where": "スライド3",
 "en": "000000014000103A  mov  eax,dword ptr [rsp]",
-"ja": ""
+"ja": "000000014000103A  mov  eax,dword ptr [rsp]"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 55,
 "where": "スライド4",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 57,
 "where": "ノート4",
 "en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
-"ja": ""
+"ja": "0x38 が解放される直前までステップ実行し、スタックの状態を教えてください。変数 a、b、c がスタックのどこにあるか、どこが未定義かを見分けてみましょう。"
 },
 {
 "i": 58,
 "where": "スライド5",
 "en": "The stack looks like this at line 0000000140001031 in func():",
-"ja": ""
+"ja": "func() 内の 0000000140001031 行でのスタックは、次のとおり:"
 },
 {
 "i": 62,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 78,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 80,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 83,
 "where": "スライド5",
 "en": "A pattern emerges! Say hello to the Microsoft “shadow store”!",
-"ja": ""
+"ja": "パターンが見えてきた! Microsoft の「シャドウストア」にご挨拶を!"
 },
 {
 "i": 94,
 "where": "スライド6",
 "en": "\"The x64 Application Binary Interface (ABI) uses a four-register fast-call calling convention by default. Space is allocated on the call stack as a shadow store for callees to save those registers.\"",
-"ja": ""
+"ja": "「x64 アプリケーションバイナリインタフェース(ABI)は、既定で 4 レジスタの fast-call 呼び出し規約を使う。呼び出しスタック上に、呼び出し先がそれらのレジスタを退避するためのシャドウストアとして領域が確保される。」"
 },
 {
 "i": 96,
 "where": "スライド6",
 "en": "\"The caller must always allocate sufficient space to store four register parameters, even if the callee doesn't take that many parameters.\"",
-"ja": ""
+"ja": "「呼び出し先の引数がそれより少なくても、呼び出し元は常にレジスタ引数 4 つぶんの領域を確保しなければならない。」"
 },
 {
 "i": 98,
 "where": "スライド6",
 "en": "\"Any parameters beyond the first four must be stored on the stack after the shadow store before the call.\"",
-"ja": ""
+"ja": "「最初の 4 つを超える引数は、呼び出しの前に、シャドウストアの後ろのスタックへ格納しなければならない。」"
 },
 {
 "i": 100,
 "where": "スライド7",
 "en": "\"The stack will always be maintained 16-byte aligned, except within the prolog (for example, after the return address is pushed) ...\" [1]",
-"ja": ""
+"ja": "「スタックは常に 16 バイトにそろえて維持される。ただしプロローグ内(例: 戻りアドレスが push された後)は除く…」[1]"
 },
 {
 "i": 102,
 "where": "スライド7",
 "en": "I left out further exceptions which you can go read on your own if you'd like",
-"ja": ""
+"ja": "ほかの例外は省略。気になる人は各自で読むこと"
 },
 {
 "i": 104,
 "where": "スライド8",
 "en": "\"Who knows what evil lies in the",
-"ja": ""
+"ja": "「人の心に潜む悪を、"
 },
 {
 "i": 105,
 "where": "スライド8",
 "en": "hearts stacks of men compilers?\"",
-"ja": ""
+"ja": "誰が知るか? コンパイラのスタックに潜む悪を?」"
 },
 {
 "i": 106,
 "where": "ノート8",
 "en": "http://ifanboy.com/wp-content/uploads/2011/10/The-Shadow-Alex-Ross-Cover-1.jpg",
-"ja": ""
+"ja": "http://ifanboy.com/wp-content/uploads/2011/10/The-Shadow-Alex-Ross-Cover-1.jpg"
 },
 {
 "i": 107,
 "where": "スライド9",
 "en": "TooManyParameters.c takeaways",
-"ja": ""
+"ja": "TooManyParameters.c のまとめ"
 },
 {
 "i": 108,
 "where": "スライド9",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 110,
 "where": "スライド9",
 "en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
-"ja": ""
+"ja": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){"
 },
 {
 "i": 111,
 "where": "スライド9",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 144,
 "where": "スライド9",
 "en": "Microsoft compiler specifically implements a \"calling convention\" that not only passes the first 4 arguments through registers, but also reserves “shadow store” for them on the stack.",
-"ja": ""
+"ja": "Microsoft のコンパイラは、最初の 4 つの引数をレジスタで渡すだけでなく、スタック上にそのための「シャドウストア」も確保する「呼び出し規約」を実装している。"
 },
 {
 "i": 145,
 "where": "スライド9",
 "en": "“The callee has the responsibility of dumping the register parameters into their shadow space if needed.”",
-"ja": ""
+"ja": "「必要なら、レジスタ引数をシャドウ領域へ書き出すのは呼び出し先の責任。」"
 },
 {
 "i": 146,
 "where": "スライド9",
 "en": "Compiler reserves this space even if no function parameters are passed to another function",
-"ja": ""
+"ja": "ほかの関数へ引数を渡さない場合でも、コンパイラはこの領域を確保する"
 },
 {
 "i": 148,
 "where": "ノート9",
 "en": "You can confirm that the typical sub rsp, 0x28 that you see is due to shadow space reservation by just changing func() to only take 4 parameters instead of 5, and seeing that it only reserves 0x28 again instead of 0x38 like seen here. But if you then add a local variable, which should technically fit in the reserved stack space (just like this 5th parameter should have), it will again bump it up to 0x38. Still not sure what’s up with the over-allocation of stack space in general (possibly just 0x10 alignment)…",
-"ja": ""
+"ja": "func() の引数を 5 つから 4 つにすると、よく見る sub rsp, 0x28 が、シャドウ領域の確保によるものだと確かめられる。確保量は 0x38 ではなく再び 0x28 になる。ただしローカル変数を足すと(本来は確保済み領域に収まるはず。この 5 番目の引数もそう)、また 0x38 に増える。スタック領域の過剰確保の理由は、まだ不明(0x10 単位の位置合わせかもしれない)…"
 }
 ]
 }

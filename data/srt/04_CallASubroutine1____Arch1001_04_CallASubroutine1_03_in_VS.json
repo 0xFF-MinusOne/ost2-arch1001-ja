@@ -6,63 +6,63 @@
 "start": "00:00:00,160",
 "end": "00:00:33,680",
 "en": "now while showing you a single stepping through the assembly in slides is great that's really just giving you a fish and now i want to teach you to fish and to do that you're going to have to know how to write your own code in an ide and compile it and then disassemble it so for this we're going to be using visual studio 2019 community edition which i'll just refer to as visual studio from now on and this is the typical sort of windows development environment or visual studio is at least usually the pro version and",
-"ja": ""
+"ja": "スライドの上でアセンブリを 1 ステップずつ見せるのも悪くないですが、それは魚を与えているだけです。ここからは魚の釣り方を教えたいと思います。そのためには、自分で IDE にコードを書いて、コンパイルして、逆アセンブルできる必要があります。ここでは Visual Studio 2019 Community Edition を使います。以降は単に Visual Studio と呼びます。これは Windows の一般的な開発環境です。Visual Studio は、たいていプロ版を使いますが、"
 },
 {
 "i": 1,
 "start": "00:00:32,320",
 "end": "00:01:08,720",
 "en": "so the community version is the free version that's missing missing some features that developers would want and also you should be aware that if you compile executables using the community edition you have to use a different installer in order to install the redistributable libraries so over in your windows trial vm that you should have gotten set up as part of the overall lab setup instructions go ahead and paste in the architecture 101 class code zip file from the class and extract that",
-"ja": ""
+"ja": "Community 版は無料版で、開発者が欲しがる機能がいくつか入っていません。また、Community 版で実行ファイルをコンパイルした場合は、再頒布可能ライブラリをインストールするのに、別のインストーラを使う必要があります。では、ラボのセットアップ手順で用意した Windows の試用版 VM の中で、クラスの Architecture 1001 のコードの zip ファイルを貼り付けて、展開してください。"
 },
 {
 "i": 2,
 "start": "00:01:11,600",
 "end": "00:02:16,160",
 "en": "navigate into the code for class and then open specifically the visual studio solution file now from here i want you to do like you did when you're creating the fiber example and create a new project in the context of this by going to add new project select empty project and then next and then let's call this call a subroutine one create it right click on source files add new item and call a subroutine one dot c add now of course you have to insert the assembly code like so save the assembly right click on call a",
-"ja": ""
+"ja": "クラス用のコードのフォルダに移動して、Visual Studio のソリューションファイルを開きます。ここからは、fiber の例で作ったときと同じように、新しいプロジェクトを追加します。新しいプロジェクトの追加から、空のプロジェクトを選んで、次へ進み、名前を call a subroutine one にして作成します。ソースファイルを右クリックして、新しい項目の追加から、call a subroutine one dot c を追加します。そして、もちろんアセンブリのコードをこのように入れます。アセンブリを保存して、call a"
 },
 {
 "i": 3,
 "start": "00:02:14,160",
 "end": "00:02:58,000",
 "en": "subroutine 1 and set as startup project this is very important because this is going to be what gets invoked when you hit the start a debugger and then right click on call a subroutine and set the same sort of compiler options that you used in order to simplify the assembly in fiber so general i'm going to set program database no support for just my code debugging then under advanced notes alright code generation set basic runtime checks to default and set the security check to disabled",
-"ja": ""
+"ja": "subroutine 1 を右クリックして、スタートアッププロジェクトに設定します。これはとても重要です。デバッガの開始を押したときに、これが呼び出されるからです。次に、call a subroutine を右クリックして、fiber のときにアセンブリを単純にするために使ったのと同じコンパイラオプションを設定します。まず全般で、プログラムデータベースを選び、Just My Code デバッグのサポートはなしにします。次に詳細設定の、コード生成で、基本ランタイムチェックを既定に設定して、セキュリティチェックを無効にします。"
 },
 {
 "i": 4,
 "start": "00:02:54,160",
 "end": "00:03:35,680",
 "en": "then under linker your general disable incremental linking and under advanced disable address based layout randomization because otherwise we're all going to be seeing different addresses and you won't be able to follow along when you're done with that hit apply and then ok now go ahead and set a breakpoint on main and start the debugger once you've done this you should have you know already set up your environment however you want whatever windows you want i have the registers at",
-"ja": ""
+"ja": "次にリンカーの全般で、インクリメンタルリンクを無効にして、詳細設定で、アドレス空間配置のランダム化を無効にします。そうしないと、みんな違うアドレスを見ることになって、ついてこられなくなるからです。それが終わったら、適用を押して、OK を押します。そして、main にブレークポイントを置いて、デバッガを開始してください。ここまでできれば、環境はもう整っているはずです。ウィンドウは好きなように並べてください。私はレジスタを"
 },
 {
 "i": 5,
 "start": "00:03:33,920",
 "end": "00:04:10,319",
 "en": "top and you know the notional stack at the bottom i'm gonna change my stack layout to eight bytes at a time and then if you right click here you should see go to disassembly and you may already have a disassembly window open off to the side there we go now you have the same assembly instructions that i was showing you in the slides and you can proceed to step through the code so see rsp minus 28 is what's coming up next we can see that rsp is currently set for 14 fe 08 we can confirm the same thing up in the",
-"ja": ""
+"ja": "上に、スタックを下に表示しています。スタックの表示は、一度に 8 バイトずつに変更します。そして、ここで右クリックすると、逆アセンブリへ移動が出てきます。すでに脇に逆アセンブリのウィンドウが開いているかもしれません。これで、スライドで見せたのと同じアセンブリ命令が表示されました。コードをステップ実行していけます。次に実行されるのは rsp minus 28 です。rsp が今 14 fe 08 に設定されているのが分かります。同じことを上の"
 },
 {
 "i": 6,
 "start": "00:04:08,879",
 "end": "00:04:46,479",
 "en": "register window 14 fe 0 8 and so if we go ahead and step into this assembly instruction it'll execute it and now rsp is set to 14 fde0 and so from here the point is basically you know you can create whatever code you want disassemble whatever code you want step through the code see the changes to the registers the registers will get highlighted in red like so if they're actually changing and this basically just gives you the opportunity to play around so in the overall solution i've included",
-"ja": ""
+"ja": "レジスタのウィンドウでも確認できます。14 fe 0 8 です。では、このアセンブリ命令にステップインすると、命令が実行されて、rsp が 14 fde0 になります。ここでのポイントは、好きなコードを作って、好きなコードを逆アセンブルして、ステップ実行して、レジスタの変化を見られるということです。実際に変化したレジスタは、このように赤く強調表示されます。これで自由に試して遊べます。ソリューション全体には、"
 },
 {
 "i": 7,
 "start": "00:04:45,199",
 "end": "00:05:12,639",
 "en": "a scratch pad entry and so you can just go ahead and you know play around inside of there put whatever code you want disassemble it and see what gets generated so what are our takeaways from call subroutine one well we learned about the sub instruction the call instruction the return instruction the ad instruction the move instruction and we also saw that there was some weirdness going on with an allocation and then removal of 0x28 on stack which we don't really know why yet but i",
-"ja": ""
+"ja": "スクラッチパッドの項目も入れてあります。そこで自由に遊んで、好きなコードを書いて、逆アセンブルして、何が生成されるかを見てください。では、call subroutine one から学んだことは何でしょうか。sub 命令、call 命令、return 命令、add 命令、move 命令について学びました。また、スタックで 0x28 を確保して、そのあと解放するという、おかしな動きがあることも分かりました。その理由はまだ分かりませんが、"
 },
 {
 "i": 8,
 "start": "00:05:10,960",
 "end": "00:05:15,919",
 "en": "added it to the mystery list and we'll dig into it later",
-"ja": ""
+"ja": "ミステリーリストに入れておきました。あとで掘り下げます。"
 }
 ]
 }

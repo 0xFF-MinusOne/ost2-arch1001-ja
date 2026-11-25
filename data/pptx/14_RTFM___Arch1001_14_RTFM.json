@@ -5,799 +5,799 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "READ THE FUN MANUAL!",
-"ja": ""
+"ja": "楽しいマニュアルを読もう!(RTFM)"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド4",
 "en": "Guess what?I have repeatedly misled you!",
-"ja": ""
+"ja": "実は、何度も誤解させる説明をしてきた!"
 },
 {
 "i": 12,
 "where": "スライド4",
 "en": "Simplification is misleading",
-"ja": ""
+"ja": "単純化は誤解のもと"
 },
 {
 "i": 13,
 "where": "スライド4",
 "en": "Time to learn the fascinating truth…",
-"ja": ""
+"ja": "魅力的な真実を学ぶ時間だ…"
 },
 {
 "i": 14,
 "where": "スライド4",
 "en": "Time to RTFM!",
-"ja": ""
+"ja": "RTFM の時間!"
 },
 {
 "i": 15,
 "where": "スライド5",
 "en": "Read The Fun Manuals",
-"ja": ""
+"ja": "楽しいマニュアルを読もう(RTFM)"
 },
 {
 "i": 16,
 "where": "スライド5",
 "en": "http://www.intel.com/products/processor/manuals/",
-"ja": ""
+"ja": "http://www.intel.com/products/processor/manuals/"
 },
 {
 "i": 17,
 "where": "スライド5",
 "en": "Vol.1 is a summary of life, the universe, and everything about x86",
-"ja": ""
+"ja": "Vol.1 は、x86 のすべてをまとめた概要"
 },
 {
 "i": 18,
 "where": "スライド5",
 "en": "Vol. 2a-d explains all the instructions",
-"ja": ""
+"ja": "Vol. 2a〜d は、すべての命令の解説"
 },
 {
 "i": 19,
 "where": "スライド5",
 "en": "Vol. 3a-d are all the gory details for all the extra stuff they’ve added in over the years (MultiMedia eXtentions - MMX, Virtual Machine eXtentions - VMX, virtual memory, 16/64 bit modes, system management mode, etc)",
-"ja": ""
+"ja": "Vol. 3a〜d は、長年追加されてきた機能の詳細(マルチメディア拡張 MMX、仮想マシン拡張 VMX、仮想メモリ、16/64 ビットモード、システム管理モードなど)"
 },
 {
 "i": 20,
 "where": "スライド5",
 "en": "Reminder to use the pre-downloaded Nov 2020 version of the manual which we've been using as the standardized reference throughout this class, so we’re all looking at the same information",
-"ja": ""
+"ja": "この講義で標準の参照先にしている、ダウンロード済みの 2020 年 11 月版マニュアルを使うこと。全員が同じ情報を見るため"
 },
 {
 "i": 21,
 "where": "スライド5",
 "en": "We’re primarily looking at Vol. 2 in this class",
-"ja": ""
+"ja": "この講義で主に見るのは Vol. 2"
 },
 {
 "i": 22,
 "where": "ノート5",
 "en": "Googling is fine to start with, but eventually you need to learn to read the manuals to get the details from the authoritative source",
-"ja": ""
+"ja": "最初は検索でもよいが、いずれは正式な情報源のマニュアルを読んで詳細を得られるようになる必要がある"
 },
 {
 "i": 23,
 "where": "スライド6",
 "en": "Interpreting the Instruction Reference Pages",
-"ja": ""
+"ja": "命令リファレンスのページの読み方"
 },
 {
 "i": 24,
 "where": "スライド6",
 "en": "The correct way to interpret these pages is given in the Intel Manual 2a, Sections 2.1 & 2.2",
-"ja": ""
+"ja": "これらのページの正しい読み方は、Intel マニュアル 2a の 2.1 節と 2.2 節にある"
 },
 {
 "i": 25,
 "where": "スライド6",
 "en": "I will give yet another simplification for now, and have a deeper dive be optional material",
-"ja": ""
+"ja": "ここではさらに単純化した説明にとどめ、深掘りは任意の内容とする"
 },
 {
 "i": 26,
 "where": "スライド6",
 "en": "Moral of the story is that you have to RTFM to RTFM ;)",
-"ja": ""
+"ja": "教訓: RTFM するには、RTFM が必要 ;)"
 },
 {
 "i": 27,
 "where": "スライド7",
 "en": "AND - Bitwise AND",
-"ja": ""
+"ja": "AND - ビットごとの AND"
 },
 {
 "i": 28,
 "where": "スライド7",
 "en": "C binary operator \"&\" (not &&, that's logical AND)",
-"ja": ""
+"ja": "C の二項演算子 \"&\"(&& ではない。それは論理 AND)"
 },
 {
 "i": 29,
 "where": "スライド7",
 "en": "Destination operand can be r/mX or register",
-"ja": ""
+"ja": "転送先オペランドは r/mX またはレジスタ"
 },
 {
 "i": 30,
 "where": "スライド7",
 "en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
-"ja": ""
+"ja": "転送元オペランドは r/mX、レジスタ、または即値(転送元と転送先の両方を r/mX にはできない)"
 },
 {
 "i": 33,
 "where": "スライド7",
 "en": "AND",
-"ja": ""
+"ja": "AND"
 },
 {
 "i": 37,
 "where": "スライド7",
 "en": "and al, bl",
-"ja": ""
+"ja": "and al, bl"
 },
 {
 "i": 40,
 "where": "スライド7",
 "en": "AND",
-"ja": ""
+"ja": "AND"
 },
 {
 "i": 44,
 "where": "スライド7",
 "en": "and al, 0x42",
-"ja": ""
+"ja": "and al, 0x42"
 },
 {
 "i": 45,
 "where": "スライド7",
 "en": "Book page 75",
-"ja": ""
+"ja": "書籍 75 ページ"
 },
 {
 "i": 46,
 "where": "スライド7",
 "en": "What",
-"ja": ""
+"ja": "私が"
 },
 {
 "i": 47,
 "where": "スライド7",
 "en": "I Said:",
-"ja": ""
+"ja": "言ったこと:"
 },
 {
 "i": 48,
 "where": "スライド8",
 "en": "What",
-"ja": ""
+"ja": "マニュアルが"
 },
 {
 "i": 49,
 "where": "スライド8",
 "en": "The",
-"ja": ""
+"ja": "言って"
 },
 {
 "i": 50,
 "where": "スライド8",
 "en": "Manual",
-"ja": ""
+"ja": "いること"
 },
 {
 "i": 51,
 "where": "スライド8",
 "en": "Says",
-"ja": ""
+"ja": "いること"
 },
 {
 "i": 53,
 "where": "スライド9",
 "en": "Opcode Column",
-"ja": ""
+"ja": "オペコード列"
 },
 {
 "i": 54,
 "where": "スライド9",
 "en": "Represents the literal byte value(s) which correspond to the given instruction",
-"ja": ""
+"ja": "その命令に対応する、バイト値そのものを表す"
 },
 {
 "i": 55,
 "where": "スライド9",
 "en": "In this case, if you were to see a 0x24 followed by a byte, or 0x25 followed by 4 bytes, you would know they were specific forms of the AND instruction",
-"ja": ""
+"ja": "ここでは、0x24 の後に 1 バイト、または 0x25 の後に 4 バイトが続いていれば、AND 命令の特定の形だと分かる"
 },
 {
 "i": 56,
 "where": "スライド9",
 "en": "For more detail, see Intel Vol. 2a section 3.1.1.1",
-"ja": ""
+"ja": "詳細は Intel Vol. 2a の 3.1.1.1 節を参照"
 },
 {
 "i": 57,
 "where": "スライド9",
 "en": "“Opcode Column in the Instruction Summary Table (Instructions without VEX Prefix)”",
-"ja": ""
+"ja": "「命令概要表のオペコード列(VEX プレフィックスなしの命令)」"
 },
 {
 "i": 59,
 "where": "スライド10",
 "en": "If it was 0x25, how would you know whether it should be followed by 2 bytes (imm16) or 4 bytes (imm32)?",
-"ja": ""
+"ja": "0x25 の場合、後に続くのが 2 バイト(imm16)か 4 バイト(imm32)か、どう分かる?"
 },
 {
 "i": 60,
 "where": "スライド10",
 "en": "The length of the operand depends on if the processor is in 16-bit, 32-bit, or 64-bit mode",
-"ja": ""
+"ja": "オペランドの長さは、プロセッサが 16 ビット、32 ビット、64 ビットのどのモードかで決まる"
 },
 {
 "i": 61,
 "where": "スライド10",
 "en": "Each mode has a default operand size (i.e. the size of the value)",
-"ja": ""
+"ja": "各モードには既定のオペランドサイズ(値の大きさ)がある"
 },
 {
 "i": 63,
 "where": "ノート10",
 "en": "There are many instructions which are “overloaded” with equivalent 16 bit and 32 bit versions shown in the manual.",
-"ja": ""
+"ja": "マニュアルには、16 ビット版と 32 ビット版の等価な形が「オーバーロード」された命令が多数ある。"
 },
 {
 "i": 64,
 "where": "スライド11",
 "en": "For 64-bit mode, the default operand size is 32-bits for most instructions and the default address size is 64-bits",
-"ja": ""
+"ja": "64 ビットモードでは、ほとんどの命令で既定のオペランドサイズは 32 ビット、既定のアドレスサイズは 64 ビット"
 },
 {
 "i": 65,
 "where": "スライド11",
 "en": "This means the default interpretation will usually be the ones with the r/m32, r32, imm32, or in this case a specific register like EAX, unless explicitly overridden with special instruction prefixes",
-"ja": ""
+"ja": "つまり、特別な命令プレフィックスで明示的に変えないかぎり、既定では r/m32、r32、imm32、またはここでは EAX のような特定のレジスタの形で解釈される"
 },
 {
 "i": 66,
 "where": "スライド11",
 "en": "These are talked about later in optional material",
-"ja": ""
+"ja": "プレフィックスは、あとで任意の内容として説明する"
 },
 {
 "i": 68,
 "where": "ノート11",
 "en": "There are many instructions which are “overloaded” with equivalent 16 bit and 32 bit versions shown in the manual.",
-"ja": ""
+"ja": "マニュアルには、16 ビット版と 32 ビット版の等価な形が「オーバーロード」された命令が多数ある。"
 },
 {
 "i": 69,
 "where": "スライド12",
 "en": "Instruction Column",
-"ja": ""
+"ja": "命令列"
 },
 {
 "i": 70,
 "where": "スライド12",
 "en": "The human-readable mnemonic which is used to represent the instruction.",
-"ja": ""
+"ja": "命令を表す、人が読めるニーモニック。"
 },
 {
 "i": 71,
 "where": "スライド12",
 "en": "This will frequently contain special encodings such as the “r/mX format” which I’ve previously discussed",
-"ja": ""
+"ja": "前に説明した「r/mX 形式」のような、特別な符号化を含むことが多い"
 },
 {
 "i": 73,
 "where": "スライド12",
 "en": "For more detail, see Intel Vol. 2a section 3.1.1.3",
-"ja": ""
+"ja": "詳細は Intel Vol. 2a の 3.1.1.3 節を参照"
 },
 {
 "i": 74,
 "where": "スライド12",
 "en": "“Instruction Column in the Opcode Summary Table”",
-"ja": ""
+"ja": "「オペコード概要表の命令列」"
 },
 {
 "i": 75,
 "where": "スライド13",
 "en": "\"Operand Encoding\" Column",
-"ja": ""
+"ja": "「オペランド符号化」列"
 },
 {
 "i": 76,
 "where": "スライド13",
 "en": "Indicates what forms the operands can take",
-"ja": ""
+"ja": "オペランドがとりうる形を示す"
 },
 {
 "i": 78,
 "where": "スライド13",
 "en": "For more detail, see Intel Vol. 2a section 3.1.1.4",
-"ja": ""
+"ja": "詳細は Intel Vol. 2a の 3.1.1.4 節を参照"
 },
 {
 "i": 79,
 "where": "スライド13",
 "en": "“Operand Encoding Column in the Instruction Summary Table”",
-"ja": ""
+"ja": "「命令概要表のオペランド符号化列」"
 },
 {
 "i": 81,
 "where": "スライド14",
 "en": "Whether or not the opcode is valid in 64 bit mode",
-"ja": ""
+"ja": "64 ビットモードで、そのオペコードが有効かどうか"
 },
 {
 "i": 83,
 "where": "スライド14",
 "en": "For more detail, see Intel Vol. 2a section 3.1.1.5",
-"ja": ""
+"ja": "詳細は Intel Vol. 2a の 3.1.1.5 節を参照"
 },
 {
 "i": 84,
 "where": "スライド14",
 "en": "“64/32-bit Mode Column in the Instruction Summary Table”",
-"ja": ""
+"ja": "「命令概要表の 64/32 ビットモード列」"
 },
 {
 "i": 86,
 "where": "スライド14",
 "en": "Should say \"Valid\" and \"Invalid\"",
-"ja": ""
+"ja": "「Valid」と「Invalid」と書くべきところ"
 },
 {
 "i": 87,
 "where": "スライド15",
 "en": "Compatibility/Legacy Mode Column",
-"ja": ""
+"ja": "互換モード/レガシーモード列"
 },
 {
 "i": 88,
 "where": "スライド15",
 "en": "Whether or not the opcode is valid in 32/16 bit code",
-"ja": ""
+"ja": "32/16 ビットコードで、そのオペコードが有効かどうか"
 },
 {
 "i": 90,
 "where": "スライド15",
 "en": "For more detail, see Intel Vol. 2a section 3.1.1.5",
-"ja": ""
+"ja": "詳細は Intel Vol. 2a の 3.1.1.5 節を参照"
 },
 {
 "i": 91,
 "where": "スライド15",
 "en": "“64/32-bit Mode Column in the Instruction Summary Table”",
-"ja": ""
+"ja": "「命令概要表の 64/32 ビットモード列」"
 },
 {
 "i": 93,
 "where": "スライド15",
 "en": "Should say \"Valid\" and \"Invalid\"",
-"ja": ""
+"ja": "「Valid」と「Invalid」と書くべきところ"
 },
 {
 "i": 94,
 "where": "スライド16",
 "en": "Description Column",
-"ja": ""
+"ja": "説明列"
 },
 {
 "i": 95,
 "where": "スライド16",
 "en": "Simple description of the action performed by the instruction",
-"ja": ""
+"ja": "命令が行う動作の簡単な説明"
 },
 {
 "i": 96,
 "where": "スライド16",
 "en": "Typically this just conveys the flavor of the instruction, but the majority of the details are in the main description text",
-"ja": ""
+"ja": "通常は命令の雰囲気を伝えるだけで、詳細の大部分は本文の説明にある"
 },
 {
 "i": 97,
 "where": "スライド16",
 "en": "See Intel Vol. 2a section 3.1.1.7",
-"ja": ""
+"ja": "Intel Vol. 2a の 3.1.1.7 節を参照"
 },
 {
 "i": 98,
 "where": "スライド16",
 "en": "“Description Column in the Instruction Summary Table”",
-"ja": ""
+"ja": "「命令概要表の説明列」"
 },
 {
 "i": 100,
 "where": "スライド18",
 "en": "Further AND variations",
-"ja": ""
+"ja": "AND のそのほかの形"
 },
 {
 "i": 101,
 "where": "スライド18",
 "en": "Looking at some other forms, we now see those “r/mX” things I told you about",
-"ja": ""
+"ja": "ほかの形を見ると、前に説明した「r/mX」が出てくる"
 },
 {
 "i": 102,
 "where": "スライド18",
 "en": "The main thing you need to know is that any time you see a r/mX, it can be either a register or memory value.",
-"ja": ""
+"ja": "重要なのは、r/mX が出てきたら、レジスタかメモリの値のどちらでもよい、ということ。"
 },
 {
 "i": 103,
 "where": "スライド18",
 "en": "Looking at the opcode column, we can infer that /r is probably a register placeholder, but what is the REX or REX.W?",
-"ja": ""
+"ja": "オペコード列から、/r はおそらくレジスタのプレースホルダと推測できるが、REX や REX.W とは?"
 },
 {
 "i": 104,
 "where": "スライド18",
 "en": "As mentioned before, the in-depth understanding of the opcode column is in optional material",
-"ja": ""
+"ja": "前に述べたとおり、オペコード列の詳しい理解は任意の内容にある"
 },
 {
 "i": 106,
 "where": "スライド19",
 "en": "Which Description Is Buggy?",
-"ja": ""
+"ja": "どの説明にバグがある?"
 },
 {
 "i": 107,
 "where": "スライド20",
 "en": "Which Description Is Buggy?",
-"ja": ""
+"ja": "どの説明にバグがある?"
 },
 {
 "i": 110,
 "where": "スライド20",
 "en": "Bugs!🐞🐜🐛",
-"ja": ""
+"ja": "バグ!🐞🐜🐛"
 },
 {
 "i": 111,
 "where": "スライド20",
 "en": "The point of the \"REX variants, is to allow 64 bit code to access 64-bit only byte registers like SPL, BPL, SIL, DIL, and R8L-R15L",
-"ja": ""
+"ja": "「REX」版の目的は、64 ビットコードから、SPL、BPL、SIL、DIL、R8L〜R15L のような 64 ビット専用のバイトレジスタにアクセスできるようにすること"
 },
 {
 "i": 114,
 "where": "ノート20",
 "en": "Switch to ODA to show example encoding. E.g. \"20 C0\" and then \"40 20 C0\" to show they're the same. And then \"40 20 C4\" through C5 followed by \"41 20 C0\" through CF (for r8l-",
-"ja": ""
+"ja": "ODA に切り替えて、符号化の例を見せる。たとえば「20 C0」と「40 20 C0」で、同じものだと示す。続けて「40 20 C4」〜C5、「41 20 C0」〜CF(r8l-"
 },
 {
 "i": 115,
 "where": "スライド22",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 1"
 },
 {
 "i": 116,
 "where": "スライド22",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 117,
 "where": "スライド23",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 2"
 },
 {
 "i": 118,
 "where": "スライド23",
 "en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
-"ja": ""
+"ja": "(注: 以前は *SP、*BP、*SI、*DI の下位バイトにはアクセスできなかった!)"
 },
 {
 "i": 119,
 "where": "スライド23",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 120,
 "where": "スライド24",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 3"
 },
 {
 "i": 121,
 "where": "スライド24",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 122,
 "where": "ノート24",
 "en": "note to scornwell: maybe a simple game here like:",
-"ja": ""
+"ja": "scornwell へのメモ: ここで簡単なゲームをしてもよい。たとえば:"
 },
 {
 "i": 123,
 "where": "ノート24",
 "en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
-"ja": ""
+"ja": "「DIL は、どの 64 ビットレジスタの下位 8 ビットへのアクセスか?」(RDI)"
 },
 {
 "i": 124,
 "where": "ノート24",
 "en": "“What is the word-sized access register for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 のワードサイズのアクセス用レジスタは何と呼ぶか?」(R14W)"
 },
 {
 "i": 125,
 "where": "ノート24",
 "en": "“What is the 16 bit access for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 の 16 ビットアクセスは何と呼ぶか?」(R14W)"
 },
 {
 "i": 126,
 "where": "スライド25",
 "en": "AND Details",
-"ja": ""
+"ja": "AND の詳細"
 },
 {
 "i": 130,
 "where": "スライド29",
 "en": "Less Obvious",
-"ja": ""
+"ja": "分かりにくい点"
 },
 {
 "i": 131,
 "where": "スライド29",
 "en": "It turns out that for instructions that set status flags (e.g. arithmetic operations), the hardware just does the operation and sets flags as if the operands were both unsigned and signed",
-"ja": ""
+"ja": "ステータスフラグを設定する命令(算術演算など)では、ハードウェアはオペランドを符号なしとしても符号つきとしても扱ったかのように、演算してフラグを設定するだけ"
 },
 {
 "i": 132,
 "where": "スライド29",
 "en": "Basically the hardware doesn’t know or care about whether the humans are currently interpreting the bits as signed or unsigned. That’s the compiler’s problem to sort out.",
-"ja": ""
+"ja": "要するにハードウェアは、人間がビットを符号つきと符号なしのどちらで解釈しているかを知らず、気にもしない。それを整理するのはコンパイラの仕事"
 },
 {
 "i": 133,
 "where": "スライド29",
 "en": "The compiler must emit instructions which treat the bits as signed or unsigned based on what’s specified in the high level language",
-"ja": ""
+"ja": "コンパイラは、高水準言語での指定に基づき、ビットを符号つきまたは符号なしとして扱う命令を出力しなければならない"
 },
 {
 "i": 136,
 "where": "スライド32",
 "en": "Jcc Revisited",
-"ja": ""
+"ja": "Jcc 再訪"
 },
 {
 "i": 137,
 "where": "スライド32",
 "en": "If you look closely, you will see that there are multiple mnemonics for the same opcodes. The opcodes prove they're the same instructions",
-"ja": ""
+"ja": "よく見ると、同じオペコードに複数のニーモニックがある。オペコードが同じなので、同じ命令だと分かる"
 },
 {
 "i": 138,
 "where": "スライド32",
 "en": "Which mnemonic is displayed is disassembler-dependent",
-"ja": ""
+"ja": "どのニーモニックが表示されるかは、逆アセンブラしだい"
 },
 {
 "i": 139,
 "where": "スライド33",
 "en": "Jcc Revisited",
-"ja": ""
+"ja": "Jcc 再訪"
 },
 {
 "i": 140,
 "where": "スライド33",
 "en": "A \"short\" control flow displacement is always specified by a signed 8-bit number",
-"ja": ""
+"ja": "「short」の制御フロー変位は、常に符号つき 8 ビットの数で指定される"
 },
 {
 "i": 141,
 "where": "スライド33",
 "en": "A \"near\" control flow displacement could be a signed 16-bit (except when running in 64-bit mode) or signed 32-bit number",
-"ja": ""
+"ja": "「near」の制御フロー変位は、符号つき 16 ビット(64 ビットモードでは除く)または符号つき 32 ビットの数になりうる"
 },
 {
 "i": 145,
 "where": "スライド34",
 "en": "Jcc Revisited",
-"ja": ""
+"ja": "Jcc 再訪"
 },
 {
 "i": 146,
 "where": "スライド34",
 "en": "The \"Operation\" section is now a little more complicated w/ its own conditional control flow pseudocode!",
-"ja": ""
+"ja": "「Operation」の節は、条件つき制御フローの疑似コードが入り、少し複雑になった!"
 },
 {
 "i": 147,
 "where": "スライド34",
 "en": "This probably should be updated to have a \"IF 64-bit Mode\" like JMP does...",
-"ja": ""
+"ja": "JMP のように「IF 64-bit Mode」を加えるよう、更新したほうがよいかもしれない…"
 },
 {
 "i": 155,
 "where": "スライド37",
 "en": "There's no \"call short\"",
-"ja": ""
+"ja": "「call short」は存在しない"
 },
 {
 "i": 156,
 "where": "スライド37",
 "en": "\"Absolute indirect\" form calculates an absolute address, using either just an address in a register, or an address calculated with the r/m64 \"base + index*scale + displacement\" form",
-"ja": ""
+"ja": "「絶対間接」形は、レジスタ内のアドレスだけ、または r/m64 の「ベース + インデックス*スケール + ディスプレースメント」形で計算したアドレスを使って、絶対アドレスを計算する"
 },
 {
 "i": 157,
 "where": "スライド38",
 "en": "\"Far\" control flow transfer involves the specification of a \"segment selector\". We learn about those in Arch2001",
-"ja": ""
+"ja": "「Far」の制御フロー転送では、「セグメントセレクタ」を指定する。これは Arch2001 で学ぶ"
 },
 {
 "i": 159,
 "where": "スライド39",
 "en": "That's all Arch2001 stuff!",
-"ja": ""
+"ja": "これはすべて Arch2001 の内容!"
 },
 {
 "i": 160,
 "where": "スライド40",
 "en": "Because of the implications of the different distance variants, privilege transitions, different execution modes, CET, and, the pseudocode for the call instruction is about 9.75 pages long!",
-"ja": ""
+"ja": "距離の違い、特権遷移、実行モードの違い、CET などの影響で、call 命令の疑似コードは約 9.75 ページにもなる!"
 },
 {
 "i": 163,
 "where": "スライド42",
 "en": "RET supports both \"near\" & \"far\" control flow transfer. But you'll almost only ever see the near return (0xC3)",
-"ja": ""
+"ja": "RET は「near」と「far」の両方の制御フロー転送に対応する。ただし、実際に見るのはほぼ near リターン(0xC3)だけ"
 },
 {
 "i": 164,
 "where": "スライド42",
 "en": "This also shows that second form of RET I mentioned where it can also add some number of bytes to the stack pointer",
-"ja": ""
+"ja": "これは、前に述べた RET の 2 つ目の形、スタックポインタに何バイトか加算する形も示している"
 },
 {
 "i": 165,
 "where": "スライド42",
 "en": "About 10 pages of Operation pseudocode here too :-/",
-"ja": ""
+"ja": "ここにも約 10 ページの Operation 疑似コードがある :-/"
 },
 {
 "i": 168,
 "where": "スライド44",
 "en": "The typical 8/16/32 byte relative displacements as well as absolute indirect",
-"ja": ""
+"ja": "通常の 8/16/32 バイトの相対変位と、絶対間接"
 },
 {
 "i": 169,
 "where": "スライド44",
 "en": "~5 pages of pseudocode. It's almost like control flow transfer is hard!",
-"ja": ""
+"ja": "疑似コードは約 5 ページ。制御フロー転送は、やはり難しい!"
 },
 {
 "i": 170,
 "where": "スライド45",
 "en": "Also supports the far displacement we don't know about yet",
-"ja": ""
+"ja": "まだ知らない far 変位にも対応"
 },
 {
 "i": 173,
 "where": "スライド48",
 "en": "Ok. That's enough for now",
-"ja": ""
+"ja": "よし、今日はここまで"
 },
 {
 "i": 174,
 "where": "スライド49",
 "en": "MiniExercise:",
-"ja": ""
+"ja": "ミニ演習:"
 },
 {
 "i": 175,
 "where": "スライド49",
 "en": "Go change the MulDivExample.c to use a signed \"long long\" variable instead of \"unsigned long long\"",
-"ja": ""
+"ja": "MulDivExample.c を、「unsigned long long」ではなく符号つきの「long long」変数を使うよう変更する"
 },
 {
 "i": 176,
 "where": "スライド49",
 "en": "Who doth appear, and why?",
-"ja": ""
+"ja": "現れるのは誰? それはなぜ?"
 },
 {
 "i": 177,
 "where": "スライド49",
 "en": "Read and understand the code",
-"ja": ""
+"ja": "コードを読んで理解する"
 },
 {
 "i": 178,
 "where": "スライド50",
 "en": "Exercise:",
-"ja": ""
+"ja": "演習:"
 },
 {
 "i": 179,
 "where": "スライド50",
 "en": "How do these instructions behave when using 16 or 32 bit values?",
-"ja": ""
+"ja": "16 ビットまたは 32 ビットの値では、これらの命令はどう動く?"
 },
 {
 "i": 180,
 "where": "スライド51",
 "en": "Exercise:",
-"ja": ""
+"ja": "演習:"
 },
 {
 "i": 181,
 "where": "スライド51",
 "en": "What happens if you divide a large 16 bit value by 1?",
-"ja": ""
+"ja": "大きな 16 ビット値を 1 で割ると、どうなる?"
 },
 {
 "i": 182,
 "where": "スライド51",
 "en": "That doesn't seem like it will fit into AL...",
-"ja": ""
+"ja": "AL には収まらないように見える…"
 }
 ]
 }

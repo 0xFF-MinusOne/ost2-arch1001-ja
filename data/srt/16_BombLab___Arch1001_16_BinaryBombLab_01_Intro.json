@@ -6,91 +6,91 @@
 "start": "00:00:00,960",
 "end": "00:00:32,800",
 "en": "welcome at last my friends to the binary bomb lab I say without a doubt and without hyperbole that this is the most important assembly exercise you will ever do so just like college classes have weed out courses which are basically designed to dissuade someone from continuing in a particular major if they're not cut out for it this lab is kind of the weed out exercise for the learning paths that continue to build on this knowledge so things like reverse engineering for purposes of understanding",
-"ja": ""
+"ja": "みなさん、ようやくバイナリボムラボです。誇張なしで断言しますが、これは、この先で行うどのアセンブリの演習よりも大切です。大学の授業には、ふるい落とし科目というものがあります。ある専攻に向いていない人に、続けるのをやめさせるためのものです。このラボは、この知識の上に積み上げていく学習経路への、ふるい落としの演習のようなものです。たとえば、脆弱性やマルウェア、あるいはソフトウェア全般を理解するためのリバースエンジニアリングのように、"
 },
 {
 "i": 1,
 "start": "00:00:31,519",
 "end": "00:01:01,440",
 "en": "vulnerabilities or malware or just software in general these things that build on top of this you have to have a particular personality type that allows you to be you know very detail-oriented very single-mindedly focused so that you can understand what exactly is going on with software when faced with a lot of ambiguity and a lot of difficult choices so it's better for you to find out now that this is not for you than to continue on because there's nothing wrong with not having this",
-"ja": ""
+"ja": "この上に積み上げていくものには、ある性格のタイプが必要です。とても細かいところまで気を配り、一つのことに集中できる人です。たくさんのあいまいさや難しい選択に直面しても、ソフトウェアで何が起きているかを正確に理解するためです。ですから、続ける前に、今のうちに、これは自分に向いていないと分かるほうが良いのです。この"
 },
 {
 "i": 2,
 "start": "00:00:59,520",
 "end": "00:01:34,320",
 "en": "particular personality type it's just the kind of thing where we know that there are different types of people who work better in different types of jobs so this binary bomb lab is derived from the carnegie mellon computer architecture course and you can find the course at this url now I originally had this in undergrad at the university of minnesota as opposed to carnegie mellon and of course as you might expect the class was a little bit less rigorous at the university of minnesota than cmu",
-"ja": ""
+"ja": "性格のタイプでなくても、何も悪くありません。人にはいろいろなタイプがいて、タイプによって向いている仕事が違う、というだけのことです。このバイナリボムラボは、Carnegie Mellon のコンピュータアーキテクチャの授業から来ています。その授業は、この URL にあります。私がもともとこれを学んだのは、Carnegie Mellon ではなく、ミネソタ大学の学部でした。当然ながら、ミネソタ大学の授業は、CMU より少しだけ厳しくありませんでした。"
 },
 {
 "i": 3,
 "start": "00:01:32,560",
 "end": "00:02:01,759",
 "en": "and you know my anecdote for this particular material goes like this so when I was first taking this college class I was paying my way through college working night audit at a hotel basically stay up overnight audit their books and ostensibly I was supposed to be able to work on my homework all night in order to you know give me more time and make some money at the same time now the reality of this situation is it didn't work out well at all that particular semester I got three C's",
-"ja": ""
+"ja": "この教材について、私のこんな体験談があります。この大学の授業を最初に取ったとき、私はホテルの夜間監査の仕事をして、学費を稼いでいました。夜通し起きて、帳簿を監査する仕事です。建前では、夜通し宿題ができるはずで、時間も増えて、お金も稼げる、という考えでした。実際にはまったくうまくいきませんでした。その学期は、C が 3 つ、"
 },
 {
 "i": 4,
 "start": "00:02:00,799",
 "end": "00:02:30,319",
 "en": "and a B which meant that later on I had to come back and retake this course to try to bring up my gpa now when I first took this class me plus a partner took about 2 weeks in order to complete the binary bomb lab that's you know off and on between courses whenever we would get together that kind of thing later on when I retook the class of course everything was much easier and that's kind of you know hint for people when you have something difficult especially here on open security",
-"ja": ""
+"ja": "B が 1 つで、あとでこの科目を取り直して、GPA を上げなければなりませんでした。この授業を最初に取ったとき、私はパートナーと二人で、バイナリボムラボを終えるのに 2 週間ほどかかりました。授業の合間や、集まれるときに少しずつです。あとで取り直したときは、もちろんすべてがずっと簡単でした。難しいものがあるときのヒントです。特にここ Open Security Training では、"
 },
 {
 "i": 5,
 "start": "00:02:29,680",
 "end": "00:02:59,599",
 "en": "training just take the class again it's always easier the second time around well the second time around through the computer architecture class it only took me perhaps a day by myself and so these days you know just to see approximately how long you know to give some kind of gauge these days being you know extremely rusty because having worked at apple for the last five years I didn't have to look at assembly most of the time I just forced you know third party vendors to give me the source code and I",
-"ja": ""
+"ja": "もう一度その授業を取ってみてください。2 回目は、いつも簡単です。コンピュータアーキテクチャの授業の 2 回目は、私一人で、たぶん 1 日しかかかりませんでした。今の時間の目安を知ってもらうために言うと、私は今ではとてもさび付いています。この 5 年間、Apple で働いていて、ほとんどの場合アセンブリを見る必要がなく、サードパーティのベンダーにソースコードを出させて、"
 },
 {
 "i": 6,
 "start": "00:02:58,000",
 "end": "00:03:40,640",
 "en": "just read that instead so I'm extremely rusty at this and still it only took me about 2 hours to do the entire binary bomb lab so somewhere between 2 weeks and 2 hours is approximately how long it should take you to do this so basically this is an intentionally difficult exercise and it's the kind of thing where there's going to be a lot of situations where you're blocked and you can't understand what's going on and you know you're just hitting your head against the wall and that's by design so you know I",
-"ja": ""
+"ja": "それを読んでいたからです。そんなにさび付いていても、バイナリボムラボ全体を終えるのに、2 時間ほどしかかかりませんでした。ですから、2 週間から 2 時間のどこかが、かかる時間のおおよその目安です。これは意図的に難しい演習で、行き詰まって、何が起きているか分からず、壁に頭をぶつけているような状況がたくさんあります。それは設計どおりです。この"
 },
 {
 "i": 7,
 "start": "00:03:38,720",
 "end": "00:04:08,000",
 "en": "didn't make this original material but I found it to be extremely useful and I found it to be very indicative of whether a particular person is good at this kind of material or not so I have to give thanks to the professors for the architecture class professor Bryant and O'Hallaron basically they provided me the source code for the binary bomb a long time ago when I was still at mitre I asked for the source code so that I could you know port it to 64-bit before they had a 64-bit version of",
-"ja": ""
+"ja": "元の教材は私が作ったものではありませんが、とても役に立つと思いましたし、ある人がこの種の内容に向いているかどうかを、とてもよく示すと思いました。ですから、アーキテクチャの授業の教授である Bryant 教授と O'Hallaron 教授に感謝しなければなりません。ずっと前、私がまだ MITRE にいたころに、バイナリボムのソースコードをいただきました。64 ビット版がまだなかったので、64 ビットに移植するためにソースコードをお願いしたのです。"
 },
 {
 "i": 8,
 "start": "00:04:07,040",
 "end": "00:04:35,280",
 "en": "their course port it to Windows port it to arm and so you know I definitely appreciate them providing this so that we can use this as kind of a common material for learning different assembly languages learning more about reverse engineering that kind of thing because this was not originally you know intentionally a security or reverse engineering type exercise it just happens to work really well for that and so the textbooks for their course is here if you want to you know find the",
-"ja": ""
+"ja": "Windows への移植や、arm への移植もしました。ですから、これを提供してもらえたことに、心から感謝しています。おかげで、いろいろなアセンブリ言語を学んだり、リバースエンジニアリングをもっと学んだりするための、共通の教材として使えます。これはもともと、セキュリティやリバースエンジニアリングの演習として意図されたものではありません。たまたま、それにとても向いていたのです。その授業の教科書はここにあります。あとで動画の下にあるリンクから、"
 },
 {
 "i": 9,
 "start": "00:04:33,360",
 "end": "00:05:06,160",
 "en": "link below the video later on go check it out you can learn about their you know similar architecture the the y86 architecture that they teach in the class as a way to try to build you up on x86 but but here I want to just like get directly to it and so we we learn x86 directly so what is the binary bomb well it is a simple binary that we provide you and your goal is to figure out what the inputs are that this binary is expecting of you you're provided no other information it's just",
-"ja": ""
+"ja": "ぜひ見てみてください。その授業で教えている、似たアーキテクチャである y86 アーキテクチャについて学べます。x86 を身につけるための手段として教えているものです。ここでは、それを飛ばして直接 x86 を学びます。では、バイナリボムとは何でしょうか。こちらがみなさんに渡す単純なバイナリで、みなさんの目標は、このバイナリがどんな入力を期待しているかを突き止めることです。ほかの情報は渡されません。ただ"
 },
 {
 "i": 10,
 "start": "00:05:04,320",
 "end": "00:05:37,039",
 "en": "run the executable and if you give the wrong input it explodes and if you give the right input it continues on so your job is to avoid the explosion so I'm going to walk through the very first phase with you in the actual architecture class you didn't even get that much but here just to show you in the particular tools that we've been learning about in this course this will help you understand a bit of you know how you should continue on through the subsequent phases so we're going to have a variety of",
-"ja": ""
+"ja": "実行ファイルを動かし、間違った入力を与えると爆発し、正しい入力を与えると先に進みます。みなさんの仕事は、爆発を避けることです。では、最初のフェーズを一緒に見ていきます。実際のアーキテクチャの授業では、これほどの説明もありませんでした。ここでは、この講義で学んできた特定のツールで見せます。これで、続くフェーズにどう進めばよいかが少し分かるでしょう。Open Security Training のサイトでは、いろいろな"
 },
 {
 "i": 11,
 "start": "00:05:35,199",
 "end": "00:06:07,199",
 "en": "different debuggers that we will teach about on the open security training site and so depending on you know what you think you're going to be using this material for later on in your career or the learning path that you're taking you're going to want to use you know gdb if you're going to be using Linux systems a lot you're going to use windbg if you're going to work on Windows or possibly will eventually have some of the what I call multi-tools the professional reverse engineers tools things like IDA",
-"ja": ""
+"ja": "デバッガについて教えます。ですから、このあと、仕事でこの教材を何に使うつもりか、どの学習経路を選ぶかによって、使いたいものが決まります。Linux システムをよく使うなら gdb、Windows で仕事をするなら windbg を使います。あるいは、いずれは、私がマルチツールと呼んでいる、プロのリバースエンジニア向けのツールも出てくるでしょう。IDA、"
 },
 {
 "i": 12,
 "start": "00:06:03,840",
 "end": "00:06:29,759",
 "en": "uh Ghidra Radare2 things like that so basically you're going to want to pick the specific tool for your eventual learning path in your eventual focus area but we'll teach a bunch of different tools and then it's up to you to decide what's the right one for you so now let's go see some videos where I walk through the first phase and then we'll come back and get a few more comments afterwards",
-"ja": ""
+"ja": "Ghidra、Radare2 のようなものです。最終的な学習経路や重点分野に合わせて、特定のツールを選びたくなるでしょう。ここではいろいろなツールを教えるので、自分に合うものを決めるのはみなさんです。では、最初のフェーズを一緒に見ていく動画を見てみましょう。そのあと戻ってきて、いくつかコメントを足します。"
 }
 ]
 }

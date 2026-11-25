@@ -5,229 +5,229 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "IfExample2.c",
-"ja": ""
+"ja": "IfExample2.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "IfExample2.c",
-"ja": ""
+"ja": "IfExample2.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "unsigned int a = -1, b = 2;",
-"ja": ""
+"ja": "unsigned int a = -1, b = 2;"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "if (a == b) {",
-"ja": ""
+"ja": "if (a == b) {"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "if (a > b) {",
-"ja": ""
+"ja": "if (a > b) {"
 },
 {
 "i": 20,
 "where": "スライド3",
 "en": "if (a < b) {",
-"ja": ""
+"ja": "if (a < b) {"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "000000014000101A  jne  0000000140001023",
-"ja": ""
+"ja": "000000014000101A  jne  0000000140001023"
 },
 {
 "i": 36,
 "where": "スライド3",
 "en": "000000014000102A  jbe  0000000140001033",
-"ja": ""
+"ja": "000000014000102A  jbe  0000000140001033"
 },
 {
 "i": 41,
 "where": "スライド3",
 "en": "000000014000103A  jae  0000000140001043",
-"ja": ""
+"ja": "000000014000103A  jae  0000000140001043"
 },
 {
 "i": 50,
 "where": "スライド3",
 "en": "Jcc",
-"ja": ""
+"ja": "Jcc"
 },
 {
 "i": 51,
 "where": "スライド4",
 "en": "Mnemonic translations",
-"ja": ""
+"ja": "ニーモニックの読み方"
 },
 {
 "i": 52,
 "where": "スライド4",
 "en": "B = below, unsigned notion",
-"ja": ""
+"ja": "B = below(下)。符号なしの考え方"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "A = above, unsigned notion",
-"ja": ""
+"ja": "A = above(上)。符号なしの考え方"
 },
 {
 "i": 54,
 "where": "スライド4",
 "en": "N = Not (like “Not less than:” JNL)",
-"ja": ""
+"ja": "N = Not(否定)(「Not less than」の JNL など)"
 },
 {
 "i": 55,
 "where": "スライド4",
 "en": "G = greater than, signed notion",
-"ja": ""
+"ja": "G = greater than(より大きい)。符号つきの考え方"
 },
 {
 "i": 56,
 "where": "スライド4",
 "en": "L = less than, signed notion",
-"ja": ""
+"ja": "L = less than(より小さい)。符号つきの考え方"
 },
 {
 "i": 57,
 "where": "スライド4",
 "en": "E = Equal (same a Z, zero flag set)",
-"ja": ""
+"ja": "E = Equal(等しい)(Z と同じ。ゼロフラグがセット)"
 },
 {
 "i": 58,
 "where": "スライド4",
 "en": "Some Notable Jcc Instructions 3",
-"ja": ""
+"ja": "主な Jcc 命令 3"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "Inference…",
-"ja": ""
+"ja": "推論…"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "There are different conditions for unsigned (above) vs. signed (greater than)…",
-"ja": ""
+"ja": "符号なし(above)と符号つき(greater than)では、条件が違う…"
 },
 {
 "i": 61,
 "where": "スライド5",
 "en": "Which leads to different assembly instructions for unsigned (JA) vs. signed (JG) comparisons…",
-"ja": ""
+"ja": "そのため、符号なし(JA)と符号つき(JG)の比較で、アセンブリ命令が変わる…"
 },
 {
 "i": 62,
 "where": "スライド5",
 "en": "Which implies the compiler emits different code depending on whether the programmer declared variables as unsigned vs. signed…",
-"ja": ""
+"ja": "つまりコンパイラは、プログラマが変数を符号なしと符号つきのどちらで宣言したかに応じて、違うコードを出力する…"
 },
 {
 "i": 63,
 "where": "スライド5",
 "en": "Which a reverse engineer / decompiler can use to infer whether variables are likely unsigned or signed",
-"ja": ""
+"ja": "リバースエンジニアや逆コンパイラは、これを手がかりに、変数が符号なしか符号つきかを推測できる"
 },
 {
 "i": 64,
 "where": "スライド6",
 "en": "Less Obvious",
-"ja": ""
+"ja": "分かりにくい点"
 },
 {
 "i": 65,
 "where": "スライド6",
 "en": "It turns out that for instructions that set status flags (e.g. arithmetic operations), the hardware just does the operation and sets flags as if the operands were both unsigned and signed",
-"ja": ""
+"ja": "ステータスフラグを設定する命令(算術演算など)では、ハードウェアはオペランドを符号なしとしても符号つきとしても扱ったかのように、演算してフラグを設定するだけ"
 },
 {
 "i": 66,
 "where": "スライド6",
 "en": "Basically the hardware doesn’t know or care about whether the humans are currently interpreting the bits as signed or unsigned. That’s the compiler’s problem to sort out.",
-"ja": ""
+"ja": "要するにハードウェアは、人間がビットを符号つきと符号なしのどちらで解釈しているかを知らず、気にもしない。それを整理するのはコンパイラの仕事"
 },
 {
 "i": 67,
 "where": "スライド6",
 "en": "The compiler must emit instructions which treat the bits as signed or unsigned based on what’s specified in the high level language",
-"ja": ""
+"ja": "コンパイラは、高水準言語での指定に基づき、ビットを符号つきまたは符号なしとして扱う命令を出力しなければならない"
 },
 {
 "i": 72,
 "where": "スライド7",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 74,
 "where": "スライド7",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 }
 ]
 }

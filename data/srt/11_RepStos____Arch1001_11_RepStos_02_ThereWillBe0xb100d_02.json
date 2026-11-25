@@ -6,7 +6,7 @@
 "start": "00:00:00,160",
 "end": "00:00:25,760",
 "en": "so even when you step through the assembly and draw a stack diagram you may still not know exactly what's going on so if I might make a modest proposal I suggest that you increment the buffer index to the point where it goes past the end of the buffer and just go ahead and run that code and see what happens",
-"ja": ""
+"ja": "アセンブリをステップ実行して、スタック図を描いても、何が起きているのか、はっきりわからないかもしれません。そこで、控えめな提案をさせてください。バッファのインデックスを増やして、バッファの終わりを超えるところまで進め、そのコードをそのまま実行して、何が起きるか見てみてください。"
 }
 ]
 }

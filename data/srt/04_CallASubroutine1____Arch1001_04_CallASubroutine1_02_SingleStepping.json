@@ -6,119 +6,119 @@
 "start": "00:00:00,000",
 "end": "00:00:30,880",
 "en": "so now for this first example only i want to give you sort of a slideware virtual debugging version of stepping through the assembly code and seeing what all changes so we're going to basically go through all of this code we're going to see what changes on the stack we're going to see what changes in the registers and so i have a particular key here that will apply to all these upcoming slides so this blue x or blue text will mean that that has been an assembly instruction which has just been executed",
-"ja": ""
+"ja": "では、この最初の例だけは、アセンブリコードを仮想的にデバッグしながらステップ実行するスライド版をお見せします。何が変わるかを見ていきます。このコード全体を順に追って、スタックで何が変わるか、レジスタで何が変わるかを確認します。これからのスライドすべてに当てはまる凡例があります。青い x、または青い文字は、実行されたばかりのアセンブリ命令を表します。"
 },
 {
 "i": 1,
 "start": "00:00:29,119",
 "end": "00:01:02,879",
 "en": "we haven't actually executed any of them yet red values for modified values as a result of a particular assembly instruction execution and green for the starting values before anything has actually happened here so let's assume that the rip is set for one four zero zero ten ten aka the start of main and no assembly instruction has been executed yet so what are the initial values that we see and we'll say has one i mean these values are taken from the debugger later on so that they completely correspond to",
-"ja": ""
+"ja": "まだどれも実行していません。赤い値は、特定のアセンブリ命令の実行によって変更された値で、緑は、まだ何も起きていない開始時点の値です。では、rip が 0x140001010、つまり main の先頭に設定されていて、まだアセンブリ命令が実行されていないとします。最初に見える値は何でしょうか。ここでは 1 としましょう。これらの値は、あとでデバッガから取ってきたもので、完全に対応しています。"
 },
 {
 "i": 2,
 "start": "00:01:02,320",
 "end": "00:01:40,079",
 "en": "that but rax has one rsp is set to 14fe08 so somewhere up here on the stack and it has a particular value stored in it right now which is going to actually be the return address because we're saying we're on this line but we haven't actually executed it which means someone somewhere had to call main and when they call main a return address got placed onto the stack so that we can get back to whatever that code was that called main so rsp starts here all right now blue x we have executed sub rsp28",
-"ja": ""
+"ja": "rax は 1 です。rsp は 14fe08 に設定されていて、スタックのこのあたりにあります。そこには今、ある値が入っていて、それは実は戻りアドレスです。この行にいるけれども、まだ実行していない、という状況です。つまり、どこかの誰かが main を呼び出したはずで、main を呼ぶときに戻りアドレスがスタックに置かれ、main を呼んだコードに戻れるようになっています。ですから rsp はここから始まります。では、青い x です。sub rsp, 0x28 を実行しました。"
 },
 {
 "i": 3,
 "start": "00:01:38,320",
 "end": "00:02:16,239",
 "en": "so that's going to take rsp current value minus 28 and store the value back into rsp so rsp was up here and now subtracts or goes down by hex 28 and we can see the corresponding change over here in the rsp register next assembly instruction call func and the particular address that funk is at is fourteen zero zero one one zero zero and so the side effect of the call assembly instruction we said is that a return address will get placed onto the stack so what is the return address one",
-"ja": ""
+"ja": "これは rsp の現在の値から 0x28 を引いて、その値を rsp に書き戻します。rsp はここにありましたが、16 進数の 0x28 だけ下がります。こちらの rsp レジスタにも、対応する変化が見えます。次のアセンブリ命令は call func です。func のアドレスは 0x140001100 です。call 命令の副作用として、戻りアドレスがスタックに置かれると言いました。では、その戻りアドレスは何でしょうか。"
 },
 {
 "i": 4,
 "start": "00:02:12,959",
 "end": "00:02:47,840",
 "en": "four thousand ten nineteen one four thousand ten nineteen is the address of the assembly instruction after the call assembly instruction so call we'll jump to function and when function returns back it's going to not go back to the call because that would cause an infinite loop it's going to go back to the assembly instruction after the call so rsp moved down it was up here and then it moved down by eight because of this return address being pushed onto the stack value change there as well all right",
-"ja": ""
+"ja": "0x140001019 です。0x140001019 は、call 命令の次のアセンブリ命令のアドレスです。call は関数にジャンプし、関数が戻るときには、call に戻るのではありません。それでは無限ループになってしまうからです。call の次のアセンブリ命令に戻ります。rsp は、ここにあったのが、この戻りアドレスがスタックに push されたために 8 だけ下がりました。値もここで変わっています。では、"
 },
 {
 "i": 5,
 "start": "00:02:46,239",
 "end": "00:03:23,680",
 "en": "next assembly instructions so you can see that the rip has moved up here to 14 00 0 1000 now when this assembly instruction is executed it's not going to do anything to the stack no changes there no changes here but it is going to change the value of eax or rax to hex beef now you can't tell in this particular example but we you saw that the assembly moved it to eax not rax and so in reality when you move a value to eax it's going to actually zero extend the value so basically it's going to fill in",
-"ja": ""
+"ja": "次のアセンブリ命令です。rip がここ、0x140001000 に動いたのが分かります。このアセンブリ命令が実行されても、スタックには何も起きません。ここにも変化はありません。ただ、eax、つまり rax の値が 16 進数の beef に変わります。この例では分かりませんが、アセンブリは rax ではなく eax に移していました。実際には、eax に値を移すと、値がゼロ拡張されます。つまり、"
 },
 {
 "i": 6,
 "start": "00:03:22,159",
 "end": "00:03:56,000",
 "en": "the top 32 bits with zeros now previous versions of the class had you know just happened to have a nice rax value that showed that you were smashing the upper bits but this one it doesn't show so i just have to point it out to you and here's the section from the manual that says if you have a 32-bit operand uh it's going to zero extend into a 64-bit result in the general purpose register now one quick point i want to make this zero extension only applies when you're writing to registers",
-"ja": ""
+"ja": "上位 32 ビットがゼロで埋められます。以前の版の講義では、たまたま rax にきれいな値が入っていて、上位ビットが潰れるのが見えました。今回は見えないので、こちらから指摘しておきます。マニュアルには、32 ビットのオペランドなら、汎用レジスタの 64 ビットの結果にゼロ拡張される、と書かれています。ここで一つ注意してほしいのは、このゼロ拡張は、レジスタに書き込むときだけ当てはまることです。"
 },
 {
 "i": 7,
 "start": "00:03:53,519",
 "end": "00:04:29,759",
 "en": "not to memory so if you move 32 bits into memory only 32 bits are going to change when you're moving this you know 32-bit operand the eax of a assembly instruction that's you know moving into a register then the code is then the hardware is going to behave as per the manual says and it's going to stick zeros into the upper 32 bits all right and then so just pausing here briefly we are having executed this assembly line we've put hex beef into eax rax and so what is the state of the",
-"ja": ""
+"ja": "メモリに書き込むときは当てはまりません。32 ビットをメモリに移す場合は、32 ビットだけが変わります。一方、レジスタに移すアセンブリ命令の、この 32 ビットのオペランド、つまり eax の場合は、ハードウェアがマニュアルのとおりに動いて、上位 32 ビットにゼロを入れます。では、ここでいったん止まります。このアセンブリ行を実行して、16 進数の beef を eax、つまり rax に入れました。では、今のスタックの状態はどうなっているでしょうか。"
 },
 {
 "i": 8,
 "start": "00:04:28,479",
 "end": "00:05:02,880",
 "en": "stack right now well we said that the beginning of the stack was this return address back to whatever function was executing before main so this is part of the frame of the function that executed before main and then we have main which had you know some undefined big chunk of allocation that it did this rsp28 so hex 28 worth of space right here and then when main called to funk it pushed a return address onto the stack so we consider those return addresses part of the calling functions frame",
-"ja": ""
+"ja": "スタックの先頭は、この戻りアドレスだと言いました。これは main の前に実行されていた関数への戻りアドレスです。ですから、これは main の前に実行していた関数のフレームの一部です。そして main は、この rsp から 0x28 の、サイズの決まっていない大きな領域を確保しました。つまり 16 進数で 0x28 バイトの領域がここにあります。そして main が func を呼んだとき、戻りアドレスがスタックに push されました。この戻りアドレスは、呼び出し元の関数のフレームの一部と考えます。"
 },
 {
 "i": 9,
 "start": "00:05:00,639",
 "end": "00:05:35,280",
 "en": "so caller was right here was the function before main so the return address is part of its frame the caller here is main and so the return address is part of mains frame but we actually never see func make use of its stack frame in any way because it's such a trivially simple function it just moves a value into eax or rax which is the return register by convention and then it's gonna return so basically there's never even a stack frame for function all right back to execution well return",
-"ja": ""
+"ja": "ここで、呼び出し元は main の前の関数だったので、戻りアドレスはそのフレームの一部です。いま呼び出し元は main なので、戻りアドレスは main のフレームの一部です。ただ、func がスタックフレームを使うところは、実は一度も出てきません。とても単純な関数だからです。慣習で戻り値用のレジスタである eax、つまり rax に値を移して、戻るだけです。ですから、func にはスタックフレームすらありません。では、実行に戻ります。ret を"
 },
 {
 "i": 10,
 "start": "00:05:34,240",
 "end": "00:06:07,120",
 "en": "is now going to execute and so it's going to pop the value off the top of the stack what was that value it was this address of the assembly instruction after call so it's going to pop that value into rip so that the next code is going to execute here rather than you know for instance just falling through to here and then we're going to consider that undefined because the popping automatically increments rsp by 8 and so now rsp is pointing right here next assembly instruction to execute is",
-"ja": ""
+"ja": "これから実行します。ret はスタックの先頭から値を pop します。その値は何だったかというと、call の次のアセンブリ命令のアドレスです。その値を rip に pop するので、次のコードはここから実行されます。たとえば、ここにそのまま落ちていくのではありません。そうなると未定義になってしまいます。そして pop は rsp を自動的に 8 増やすので、rsp はここを指します。次に実行するアセンブリ命令は、"
 },
 {
 "i": 11,
 "start": "00:06:05,759",
 "end": "00:06:40,160",
 "en": "the one at 14 000 1019 the move assembly instruction so you can see it doesn't even care what was returned in rax it's just going to immediately collaborate with 0xf00d instead no changes to the stack on this particular assembly instruction and then add rsp plus 28 so we saw subtract here and then it's balancing it out so rather than using a bunch of push push push push push pop pop pop it's just subtracting the stack pointer down and adding the stack pointer back up to balance it out",
-"ja": ""
+"ja": "0x140001019 にある mov 命令です。rax に何が返されたかはまったく気にしていなくて、すぐに 0xf00d で上書きします。この命令ではスタックに変化はありません。そして add rsp, 0x28 です。ここで引き算をしたので、それとつり合いを取ります。push を何回もして pop を何回もするのではなく、スタックポインタを引いて下げ、足して戻すことでつり合いを取っています。"
 },
 {
 "i": 12,
 "start": "00:06:39,360",
 "end": "00:07:18,639",
 "en": "so that the next assembly instruction ret can pop the return address off the stack and go back to whichever function called main and that value was 14000 1349 and again automatically as part of that return is the increment of rsp plus 8. so a couple of notes about that call of subroutine one the first is that obviously func is basically dead code it returns a value that is never used and practically speaking if you had any sort of optimizations on the compiler would know that this thing",
-"ja": ""
+"ja": "これで、次のアセンブリ命令 ret が、スタックから戻りアドレスを pop して、main を呼んだ関数に戻れます。その値は 0x140001349 でした。この場合も、ret の一部として、rsp が自動的に 8 増えます。では、この call a subroutine 1 についていくつかメモがあります。一つ目は、func は明らかにデッドコードだということです。使われない値を返しています。実際、コンパイラの最適化が少しでも有効だったら、コンパイラは、これが"
 },
 {
 "i": 13,
 "start": "00:07:16,880",
 "end": "00:07:47,039",
 "en": "only ever returns hex food and it would just optimize it all out and throw it away but that's specifically why we turn off some of the compiler optimization so that we can show you simple assembly for simple c code also we don't really know why it did that sub rsp 28 and add rsp 28 didn't seem to have a lot of point to it you could imagine that for instance when it was right here it could have just not done that and then allowed main to you know push a return address here instead of like",
-"ja": ""
+"ja": "常に 0xf00d を返すだけだと分かって、全部最適化して捨ててしまいます。だからこそ、コンパイラの最適化を切っています。単純な C コードから単純なアセンブリをお見せするためです。もう一つ、なぜ sub rsp, 0x28 と add rsp, 0x28 をしたのかは分かりません。あまり意味がないように見えます。たとえば、ここにいたときに、それをせずに、main がここに戻りアドレスを push するようにもできたはずです。そうすれば、"
 },
 {
 "i": 14,
 "start": "00:07:46,400",
 "end": "00:08:17,919",
 "en": "jumping down jumping back up so we're going to consider that yet another mystery for our mystery listery and we'll come back to that later on after we've learned a little bit more about how function calling works okay and building up our simple stack diagram a little bit more this is the same assembly code as we showed before and so what is the first thing that's going to go on to the stack it's going to be the return address of the thing that invokes maine which happens to be called invoke main",
-"ja": ""
+"ja": "下にジャンプして、また上に戻る、ということをしなくて済みます。これも、謎のリストの新しい謎として扱います。関数呼び出しがどう動くかをもう少し学んだあとで、また戻ってきます。では、簡単なスタックの図をもう少し組み立てていきます。これは先ほど見たのと同じアセンブリコードです。では、最初にスタックに載るものは何でしょうか。main を呼び出すもの、つまり invoke main と呼ばれるものの戻りアドレスです。"
 },
 {
 "i": 15,
 "start": "00:08:14,639",
 "end": "00:08:49,680",
 "en": "push that onto the stack then main is going to have its own sort of notional frame and when main calls to foo it's going to have a return address pushed onto the stack when foo calls to bar it's going to have a return address pushed onto the stack and bar will have notionally a frame which will have some stuff stored in it that we don't know about yet so again this is the slightly more complex version now that we know about calling functions in C equals call ret assembly instructions we know that the",
-"ja": ""
+"ja": "それをスタックに push します。次に main が、概念上の自分のフレームを持ちます。main が foo を呼ぶと、戻りアドレスがスタックに push されます。foo が bar を呼ぶと、戻りアドレスがスタックに push されます。そして bar は、概念上のフレームを持ち、その中にまだ分からないものが入っています。これは、少し複雑になった版です。C の関数呼び出しが call と ret のアセンブリ命令だと分かったので、"
 },
 {
 "i": 16,
 "start": "00:08:47,839",
 "end": "00:09:21,360",
 "en": "stack frames are going to have return addresses inside the stack frame of whichever function calls the next function okay so we relatively quickly just added five new assembly instructions and so boom boom boom oh move was a lot look at that look at all that well that's not bad like we already only a couple of modules in already know well over 50 of the assembly instructions that exist in web browsers so we are just chugging along at an incredible pace",
-"ja": ""
+"ja": "スタックフレームには、次の関数を呼ぶ関数のスタックフレームの中に、戻りアドレスが入ると分かります。では、かなり短い時間で、新しいアセンブリ命令を 5 つ追加しました。ほら、move はたくさんありましたね。まだ数モジュールなのに、Web ブラウザに存在するアセンブリ命令の 50 パーセント以上を、もう知っています。信じられないペースで進んでいます。"
 }
 ]
 }

@@ -6,28 +6,28 @@
 "start": "00:00:00,080",
 "end": "00:00:29,599",
 "en": "now intel had some register usage conventions that they suggested in their manuals and frequently these had to do with like the naming actually and had to do with the usage but in this class we're not going to necessarily see all of these recommendations so i've labeled in green the ones that we're specifically going to see in the class and red as things we're not going to see in this class so for instance rax in this class we will see it storing function return values also you know",
-"ja": ""
+"ja": "Intel は、マニュアルの中でレジスタの使い方の慣習をいくつか提案していて、これは名前にも関係していますし、使い方にも関係しています。ただ、この講義では、これらの推奨をすべて見るわけではありません。そこで、この講義で実際に見るものは緑、見ないものは赤で示しています。たとえば rax は、この講義では関数の戻り値を格納するものとして出てきます。"
 },
 {
 "i": 1,
 "start": "00:00:28,320",
 "end": "00:00:58,879",
 "en": "what we're not going to see in the class is that intel originally suggested that a be the accumulator and that you the assembly would just accumulate so if you do you know one plus two the result should go back into a register the ax register the rax register but we're not actually going to see that that much compilers don't tend to necessarily do that that much anymore so rbx base pointer to the data section i have seen this before but our assembly is going to be so simple here that we're not really going to see",
-"ja": ""
+"ja": "この講義で見ないのは、Intel がもともと、A はアキュムレータであるべきだと提案していたことです。アセンブリでは値を累積していくので、たとえば 1 足す 2 をしたら、結果は ax レジスタ、つまり rax レジスタに戻るはずだ、というものです。ただ、最近のコンパイラは、あまりそうしないので、実際にはそれほど見ません。rbx は、データセクションへのベースポインタです。これは見たことがありますが、ここで扱うアセンブリはとても単純なので、ほとんど見ることはありません。"
 },
 {
 "i": 2,
 "start": "00:00:56,840",
 "end": "00:01:33,280",
 "en": "that rcx c for counter is frequently used for looping operations and so c for counter rdx we're not going to see it used as an I/O pointer in this class but we will in a future architecture class then for rsi source index pointer for string operations we'll see towards the end of the class a looping string operation thing where rsi will have a special usage rdi is destination index so source to destination but again those are just sort of naming and recommendations they can be just used as any old general",
-"ja": ""
+"ja": "rcx は、C がカウンタの C なので、ループ処理によく使われます。rdx は、この講義では I/O ポインタとしては使いませんが、今後のアーキテクチャの講義では使います。rsi はソースインデックスで、文字列操作のためのポインタです。講義の終わりのほうで、文字列を扱うループ処理が出てきて、そこで rsi が特別な使われ方をします。rdi はデスティネーションインデックスで、ソースからデスティネーションへ、という意味です。ただ、これらはあくまで名前と推奨であって、ふつうの汎用"
 },
 {
 "i": 3,
 "start": "00:01:31,280",
 "end": "00:01:57,119",
 "en": "purpose register if the compiler wants rsp sp for stack pointer points at the top of the stack meaning the last value that was put on the stack rbp stack frame base pointer it's used to point at the base of the current stack frame and talk about stack next and rip it points at the next instruction the instruction pointer points at the next instruction that the processor should execute",
-"ja": ""
+"ja": "レジスタとして使っても構いません。コンパイラがそうしたければ、です。rsp は、sp がスタックポインタで、スタックの先頭、つまりスタックに最後に積まれた値を指します。rbp はスタックフレームのベースポインタで、現在のスタックフレームの底を指すのに使われます。スタックについては、このあと説明します。そして rip は、次の命令を指します。命令ポインタは、プロセッサが次に実行すべき命令を指しています。"
 }
 ]
 }

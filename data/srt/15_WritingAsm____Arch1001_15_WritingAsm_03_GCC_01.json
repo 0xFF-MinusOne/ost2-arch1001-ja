@@ -6,70 +6,70 @@
 "start": "00:00:00,160",
 "end": "00:00:33,440",
 "en": "unlike with the microsoft compiler gcc still allows you to create inline assembly even for 64-bit code microsoft used to allow that for 32-bit but then they deprecated it and disallowed it in 64-bit code so when you're writing in-line assembly for gcc you're going to use the canoe assembler or gas syntax and it's going to expect things to be written in at t syntax the general form is that you will have the keyword asm parentheses quotes and then some number of instructions separated by a explicit",
-"ja": ""
+"ja": "Microsoft のコンパイラと違って、gcc では、64 ビットのコードでもインラインアセンブリを書けます。Microsoft は 32 ビットでは許可していましたが、その後非推奨にして、64 ビットのコードでは許可しなくなりました。gcc でインラインアセンブリを書くときは、GNU アセンブラ、つまり gas の構文を使い、AT&T 構文で書くことが想定されています。基本の形は、キーワード asm、かっこ、引用符、そして何個かの命令を、明示的な"
 },
 {
 "i": 1,
 "start": "00:00:31,599",
 "end": "00:01:05,040",
 "en": "slash n new line close print uh close quotes close parentheses semicolon so you could have a single instruction like this asm no op and then semicolon it's done sm move one two three four to eax and then it's done but if you don't want to keep writing the asm over and over again instead you would write asm once you'd have quotes and then you would have however many assembly instructions you want with an explicit slash n between the assembly instructions so here we can see something that's six instructions long",
-"ja": ""
+"ja": "バックスラッシュ n の改行で区切って並べ、引用符を閉じ、かっこを閉じ、セミコロンで終わります。ですから、asm nop とセミコロンのように、命令を一つだけ書くこともできます。それで終わりです。1234 を eax に mov して、それで終わり、というのもあります。ただ、asm を何度も書き続けたくなければ、asm を一度だけ書いて、引用符を置き、好きなだけアセンブリ命令を、命令の間に明示的なバックスラッシュ n を入れて書きます。ここには、6 命令のものがあります。"
 },
 {
 "i": 2,
 "start": "00:01:03,120",
 "end": "00:01:32,320",
 "en": "now i highly recommend that you take a look at this gas syntax tutorial because it's extremely helpful for letting you get much more deep than i'm going to go into one of the important things that is talked about in that how-to guide is extended asm syntax in this form you can have the assembly template separated by a colon from output operands input operands and a list of clobbered registers meaning things that this assembly is guaranteed to be overwriting it's basically a hint",
-"ja": ""
+"ja": "この gas 構文のチュートリアルを、ぜひ見てください。私がこれから説明する以上に、ずっと深いところまで分かって、とても役に立ちます。そのガイドで説明されている大切なことの一つが、拡張 asm 構文です。この形では、アセンブリのテンプレートの後ろに、コロンで区切って、出力オペランド、入力オペランド、そして破壊されるレジスタ、つまり、このアセンブリが必ず上書きするもののリストを書けます。これは基本的に、"
 },
 {
 "i": 3,
 "start": "00:01:30,560",
 "end": "00:01:58,399",
 "en": "to the compiler saying hey just so you know this assembly sequence is going to destroy the value in this register so you should you know perhaps save it before you get in here or restore it afterwards now each of these things output operands input operands and cloud registers is optional so it's not actually required but when you're using extended asm you would still need to have these colons and you just put nothing in between them so down here let's look at an example we have a",
-"ja": ""
+"ja": "コンパイラへのヒントで、このアセンブリの並びはこのレジスタの値を壊すので、ここに入る前に保存するか、あとで復元しておいたほうがよい、と伝えるものです。出力オペランド、入力オペランド、破壊されるレジスタは、どれも省略できます。必須ではありません。ただ、拡張 asm を使うときは、これらのコロンは必要で、間には何も書きません。では、下の例を見ましょう。"
 },
 {
 "i": 4,
 "start": "00:01:56,000",
 "end": "00:02:32,000",
 "en": "single local variable myvar which is an int set to abcd and if the assembly wanted to make use of that myvar value then they could for instance have a move long and this percent 0 is basically going to be something that's interpolated or filled in with some other value and the value that it's going to be filled in with is the myvar so move percent 0 comma and then now it starts using double percents percent percent so that it's kind of differentiating a single percent is used for interpolation of some input or",
-"ja": ""
+"ja": "ローカル変数 myvar が一つあり、int で、abcd に設定されています。アセンブリでこの myvar の値を使いたければ、たとえば movl を書いて、この %0 が、基本的に、別の値で置き換えられるものになります。その置き換えられる値が myvar です。つまり mov %0、カンマ、そしてここから %% の二重のパーセントを使います。区別のためで、パーセント一つは、入力や"
 },
 {
 "i": 5,
 "start": "00:02:29,520",
 "end": "00:03:01,120",
 "en": "output operand and double percent signs are then used for just saying you know specifically some register so it's moving percent 0 which is going to be my var that is going to be an input operand so we can see that we've got the assembly template here then there's a colon and there's nothing written here so that would be the output operands there's no output operands and then a colon and the input operands so input operands is this quote r for register and then parenthesis my var to",
-"ja": ""
+"ja": "出力のオペランドの置き換えに使い、二重のパーセントは、特定のレジスタを指すために使います。ここでは %0 を移していて、これは myvar で、入力オペランドになります。ここにアセンブリのテンプレートがあり、次にコロンがあり、ここには何も書かれていません。これが出力オペランドで、出力オペランドはありません。そしてコロンのあとが入力オペランドです。入力オペランドは、この引用符つきの r、つまりレジスタで、そしてかっこの中の myvar です。"
 },
 {
 "i": 6,
 "start": "00:02:58,239",
 "end": "00:03:31,360",
 "en": "say it's basically pulling my var into you know this location right here so this would be reading in my var into the ax register then you could have some other assembly that just covers the value with one two three four into eax and then if you wrote that as output you would have move al eax which was now one two three four and that would be written into percent zero which will be the zero with output operand so you can see here we have the colon and then output operands this is",
-"ja": ""
+"ja": "つまり、myvar をこの場所に取り込む、ということです。ここでは myvar を ax レジスタに読み込みます。そのあと、別のアセンブリで、1234 を eax に入れて値を上書きします。そしてそれを出力として書くなら、いまは 1234 になっている eax を、%0 に書き込みます。これは出力オペランドの 0 番目です。ここには、コロンのあとに出力オペランドがあって、これは"
 },
 {
 "i": 7,
 "start": "00:03:28,640",
 "end": "00:03:58,480",
 "en": "equals r and it's saying it's going into the myvar and then we don't see a colon and empty input operands because those are optional the only reason it was necessary here was to make it explicitly clear that this was being used as an input operand not an output operand so basically this assembly just takes my var sticks in the ax doesn't care about that re-writes it with one two three four and then takes that value and writes it back out to my bar so you would expect this code to print out my",
-"ja": ""
+"ja": "=r で、myvar に入る、と言っています。そのあとには、コロンと空の入力オペランドが見えません。それらは省略できるからです。ここで必要だったのは、これが出力オペランドではなく入力オペランドとして使われている、と明示するためだけでした。つまり、このアセンブリは、myvar を ax に入れ、それは気にせず、1234 で書き換えて、その値を myvar に書き戻します。ですから、このコードは、my"
 },
 {
 "i": 8,
 "start": "00:03:55,760",
 "end": "00:04:32,160",
 "en": "var equals one two three four another thing you can do with inline assembly syntax is you can specify raw bytes using the dot byte keyword and then you can say i want to emit exactly this byte into the code and that byte should then subsequently be interpreted by the processor as instructions so asm dot byte x90 well that's a noaa and then if you were to look through the manual to find other things you could see dot byte 55 is push rbp top byte 48 and then we would separate it with a",
-"ja": ""
+"ja": "var は 1234 と出力すると予想されます。インラインアセンブリの構文でできることがもう一つあります。.byte キーワードで生のバイトを指定して、このバイトをそのままコードに出力したいと言えます。そのバイトは、そのあとでプロセッサに命令として解釈されます。asm .byte 0x90 は nop です。マニュアルを調べると、ほかのものも分かります。.byte 0x55 は push rbp で、.byte 0x48 があり、それをセミコロンで区切って、"
 },
 {
 "i": 9,
 "start": "00:04:28,400",
 "end": "00:04:43,040",
 "en": "colon dot light 89 colon sorry semicolon semicolon dot byte 89 semicolon dot byte e5 that would be a move the in atm t syntax rsp to rbp",
-"ja": ""
+"ja": "セミコロン、.byte 0x89、セミコロン、.byte 0xe5 と続けます。これは、AT&T 構文で、rsp から rbp への mov になります。"
 }
 ]
 }

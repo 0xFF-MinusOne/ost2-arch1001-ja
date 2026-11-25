@@ -6,49 +6,49 @@
 "start": "00:00:00,080",
 "end": "00:00:32,079",
 "en": "so the takeaways from IfExample.c is that conditional logic like if statements turns into jcc jump condition code type jumps, where it says if this condition is true I shall jump to the address specified, if not I will fall through and just go to the next assembly instruction. But here you can see that it'll eventually run into this unconditional jump which will bounce it down towards the end of the function. Very frequently when you see checks that are involving equality or inequality such as we have",
-"ja": ""
+"ja": "IfExample.c から得られる教訓は、if 文のような条件ロジックが、jcc、つまり条件コードつきの jmp になるということです。この条件が真なら、指定したアドレスに飛び、そうでなければ、そのまま次のアセンブリ命令に進みます。ただ、ここを見ると、最終的には無条件の jmp にぶつかり、関数の末尾のほうに飛ばされることが分かります。等しいか等しくないかを調べる場合は、たいていここにあるように、"
 },
 {
 "i": 1,
 "start": "00:00:31,679",
 "end": "00:00:37,680",
 "en": "here that's going to turn into a cmp instruction.",
-"ja": ""
+"ja": "cmp 命令になります。"
 },
 {
 "i": 2,
 "start": "00:00:35,200",
 "end": "00:00:41,360",
 "en": "And cmp again is just a sub instruction where you throw away the result.",
-"ja": ""
+"ja": "cmp は、結果を捨てる sub 命令にすぎません。"
 },
 {
 "i": 3,
 "start": "00:00:39,760",
 "end": "00:00:50,160",
 "en": "So it's going to take this, it's going to subtract that, but then it's not going to store it back into memory. It's just going to set the flags and throw the result away.",
-"ja": ""
+"ja": "これを取って、あれを引きますが、結果をメモリに書き戻しません。フラグを設定して、結果を捨てるだけです。"
 },
 {
 "i": 4,
 "start": "00:00:48,239",
 "end": "00:01:11,760",
 "en": "And after it set those flags it's ultimately the rflags register, which these conditional jump instructions are checking for whether or not they're going to take the jump. Okay, so we just picked up two quote unquote new assembly instructions: the family of jcc and cmp. So where does jcc show up on the pie chart?",
-"ja": ""
+"ja": "そして、フラグが設定されたあと、最終的に、条件つき jmp 命令が、ジャンプするかどうかを調べるのは、rflags レジスタです。これで、いわゆる新しいアセンブリ命令を 2 つ覚えました。jcc の仲間と cmp です。では、jcc は円グラフのどこに出てくるでしょうか。"
 },
 {
 "i": 5,
 "start": "00:01:08,080",
 "end": "00:01:45,119",
 "en": "Multiple places: we've got at 1% js jump sign. So I said sign bit is one of the bits I want you to care about, that's if the most significant bit of result is one then the signed flag will be set. And jnz and jz so the zero flag jumps if it's zero flag is not set to 1 and jumps if zero flag is set to 1. So you can see even just statistically like my intuition from my personal experience of sign and zero flag are the things that I really care about most of the time kind of reflected here in the fact that",
-"ja": ""
+"ja": "何か所もあります。1% のところに js、jump sign があります。符号ビットは、気にしてほしいビットの 1 つだと言いました。結果の最上位ビットが 1 なら、符号フラグが設定されます。それから jnz と jz があります。jnz はゼロフラグが 1 に設定されていないときに飛び、jz はゼロフラグが 1 に設定されているときに飛びます。統計的にも、私が経験から、符号フラグとゼロフラグがほとんどの場合に一番気にするものだと感じていたことが、ここに表れています。"
 },
 {
 "i": 6,
 "start": "00:01:43,439",
 "end": "00:01:59,600",
 "en": "these assembly instructions dealing with sign and zero flags are some of the most common. Then we also have cmp coming in at 5% of the code because typically there's going to be cmp right before these conditional jump instructions.",
-"ja": ""
+"ja": "符号フラグとゼロフラグを扱うこれらのアセンブリ命令は、最もよく出てくるものの 1 つです。それから、cmp もコードの 5% を占めています。たいてい、これらの条件つき jmp 命令の直前に cmp が来るからです。"
 }
 ]
 }

@@ -6,56 +6,56 @@
 "start": "00:00:00,240",
 "end": "00:00:31,840",
 "en": "now the first thing to say about using inline assembly in visual studio is that strictly speaking you may not even need to visual studio has this notion of intrinsics which are basically wrappers around assembly and they provide a function like representation so instead of needing to write the rep stos or rep movs assembly instruction you can use these __stos and then there's going to be a size like 32.",
-"ja": ""
+"ja": "Visual Studio でインラインアセンブリを使うことについて、最初に言っておきたいのは、厳密には、使う必要すらないかもしれない、ということです。Visual Studio には、イントリンシックという考え方があります。これは基本的に、アセンブリを包むラッパーで、関数のような形で提供されます。ですから、rep stos や rep movs というアセンブリ命令を書く代わりに、__stos のようなものを使えます。その後ろに、32 のようなサイズが付きます。"
 },
 {
 "i": 1,
 "start": "00:00:34,160",
 "end": "00:01:08,880",
 "en": "and that will behind the scenes generate a rep stos and you know you'll give it some addresses of locations that you want to you know store to string you can see a list of the visual studio intrinsics at this link which will be put down below the video but most of these end up being more relevant to architecture 2001. basically they're there to help you know the microsoft kernel team interact with control registers and things like that people interact with model specific registers and a bunch of other stuff",
-"ja": ""
+"ja": "すると、裏で rep stos が生成されます。そして、文字列に格納したい場所のアドレスを渡します。Visual Studio のイントリンシックの一覧は、このリンクで見られます。動画の下に載せておきます。ただし、そのほとんどは、Architecture 2001 により関係するものです。基本的には、Microsoft のカーネルチームが、制御レジスタなどを扱うのを助けるためのものです。モデル固有レジスタを扱う人や、そのほかいろいろなことのためのものです。"
 },
 {
 "i": 2,
 "start": "00:01:06,159",
 "end": "00:01:10,400",
 "en": "you'll learn about in architecture 2001.",
-"ja": ""
+"ja": "それは Architecture 2001 で学びます。"
 },
 {
 "i": 3,
 "start": "00:01:08,880",
 "end": "00:01:42,079",
 "en": "in general they don't tend to have intrinsics for the super simple assembly instructions that we learn about in this class the things like add sub etc because you don't need intrinsics for that you just use adds and subs in your C code now as previously mentioned visual studio does support inline assembly for 32-bit code but not for 64-bit code so instead for our purposes you're going to have to write code in a masm file microsoft assembler using its particular syntax it goes into a .asm file and it needs",
-"ja": ""
+"ja": "一般に、このクラスで学ぶ、add や sub のような、とても単純なアセンブリ命令には、イントリンシックはありません。それは、イントリンシックが必要ないからです。C のコードで、足し算や引き算をそのまま使えばよいからです。さて、前に言ったように、Visual Studio は 32 ビットのコードではインラインアセンブリに対応していますが、64 ビットのコードでは対応していません。ですから、私たちの目的では、masm、つまり Microsoft アセンブラのファイルに、その構文でコードを書く必要があります。それは .asm ファイルに入れ、"
 },
 {
 "i": 4,
 "start": "00:01:40,240",
 "end": "00:02:10,560",
 "en": "to have something like an exported function name that then can be called from within the C code so the C code just treats it as some external undefined function and then the linker links it all together and makes it so that the C code can call the assembly code we will have a quick example of how to create a new project that has masm support just so that you can see the one little tweak that it takes to make that work but if you want to skip that you can pretty much just use the scratchpad_asm",
-"ja": ""
+"ja": "エクスポートされた関数名のようなものが必要で、それを C のコードの中から呼び出せるようにします。C のコードは、それを外部の未定義の関数として扱い、リンカがすべてをリンクして、C のコードがアセンブリのコードを呼び出せるようにします。masm に対応した新しいプロジェクトの作り方の簡単な例を、あとでお見せします。それを動かすのに必要な、小さな 1 つの調整を見てもらうためです。でも、それを飛ばしたければ、提供された Visual Studio のソリューションの中の scratchpad_asm プロジェクトを、そのまま使えます。"
 },
 {
 "i": 5,
 "start": "00:02:08,720",
 "end": "00:02:46,959",
 "en": "project within the visual studio solution which was provided now I said before that writing raw bytes can be useful as a way to confirm your understanding once you've read the fun manuals and so the way that you do that in masm syntax is you write db for data byte and then xx and h for hex so db 04h followed by db 01h or you can just put commas in between them so a single line db 04h, 01h now if you were to put this into your assembly file it would just get stuck into the assembly stream like",
-"ja": ""
+"ja": "前に、生のバイトを書くことは、おもしろいマニュアルを読んだあとで、理解を確かめる方法として役に立つと言いました。masm の構文でそれをするには、データバイトの db に、xx と、16 進を表す h を書きます。db 04h のあとに db 01h を続けるか、間にコンマを入れて、1 行で db 04h, 01h と書けます。これをアセンブリファイルに入れると、ほかのものと同じように、アセンブリのストリームに"
 },
 {
 "i": 6,
 "start": "00:02:45,920",
 "end": "00:03:18,319",
 "en": "anything else and when the CPU eventually comes along and interprets that it would say okay I see the number 4 that is the opcode for an add assembly instruction and I'm going to expect that there's going to be a 1 byte immediate value followed and I will treat that immediate value as something that is to be added to the al register one quick thing to help you avoid some headaches is that masm doesn't like immediates that start with an alphabetical character even if you're telling it that it's hex so you",
-"ja": ""
+"ja": "そのまま入ります。そして、CPU がそれを解釈するときに、数 4 が見えます。これは add アセンブリ命令のオペコードで、そのあとに 1 バイトの即値が続くと期待し、その即値を、al レジスタに足すものとして扱います。頭痛を避けるための小さなヒントは、masm は、16 進だと指定していても、アルファベットで始まる即値を受け付けない、ということです。ですから、"
 },
 {
 "i": 7,
 "start": "00:03:16,159",
 "end": "00:03:40,480",
 "en": "can't do something like move rax e blah blah blah blah like I sort of mentioned offhandedly quite a while ago in the class instead you need to prefix that with a 0 and once you do that then it's all good and the same thing applies if you're outputting raw bytes you can't just do db c3h you have to do db 0c3h and then it interprets it and compiles it fine",
-"ja": ""
+"ja": "mov rax, e なんとか、のようには書けません。これは、このクラスのかなり前に、ついでに触れたことです。代わりに、前に 0 を付ける必要があります。そうすれば、問題なく動きます。生のバイトを出力する場合も同じです。db c3h とは書けず、db 0c3h と書く必要があります。そうすれば解釈されて、問題なくコンパイルされます。"
 }
 ]
 }

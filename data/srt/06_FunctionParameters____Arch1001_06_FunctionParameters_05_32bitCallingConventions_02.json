@@ -6,189 +6,189 @@
 "start": "00:00:00,044",
 "end": "00:00:32,094",
 "en": "So your stack diagram should look something like this You have your typical return address of whoever called main And then you would have noticed that the very first thing that you see inside of main is a push ebp So whatever the ebp register was pointing out that gets pushed onto the stack Then you start seeing your parameters for the call to func being pushed on the stack from right to left So push 55 push 44 push 33 so forth That's to make them basically take this ordering And this looks very much like the shadow stack diagram",
-"ja": ""
+"ja": "スタックの図は、だいたいこのようになるはずです。まず、main を呼び出した側への、典型的な戻りアドレスがあります。そして、main の中で最初に見える命令が push ebp であることに気づいたと思います。ebp レジスタが指していたものが、スタックに push されます。それから、func の呼び出しのための引数が、右から左の順にスタックに push されていくのが見えます。push 55、push 44、push 33、といった具合です。こうして、基本的にこの順序になります。これは、前に 64 ビットで見たシャドウスタックの図に、とてもよく似ています。"
 },
 {
 "i": 1,
 "start": "00:00:32,094",
 "end": "00:01:03,004",
 "en": "that we saw before in 64 bit that we have 1, 2, 3, 4, 5 upwards But this is not the Shadow Stack This is just how the calling convention works out in 32 bit systems Then, when main called the func, you'd get a return address again func First thing push ebp, and there's no sort of padding, no alignment attempts here,",
-"ja": ""
+"ja": "前に見たように、1、2、3、4、5 と上に向かって並びます。でも、これはシャドウスタックではありません。32 ビットのシステムで、呼び出し規約がこうなっているだけです。そして、main が func を呼び出すと、また戻りアドレスが入ります。func では、最初に push ebp をします。ここには、パディングも、アラインメントを合わせる工夫もなく、"
 },
 {
 "i": 2,
 "start": "00:01:03,005",
 "end": "00:01:37,022",
 "en": "so it just does the math of a + b - c + d - e sticks it into \"i\" So this would be \"i\" down here So here's the assembly that I saw and a common thing about 32-bit code is that if you see a bunch of pushes right before a call that typically gives you a very good hint of this is how many arguments there are and what the particular values are that this particular function was being called. In more complicated code there could be more additional manipulation that's going onto the stack so that it's not literally every argument as a",
-"ja": ""
+"ja": "そのまま a + b - c + d - e の計算をして、それを「i」に入れます。この「i」は、ここの下にあります。これが、私が見たアセンブリです。32 ビットのコードによくあるのは、call の直前に push がたくさん並んでいるのを見たら、それが、引数がいくつあって、この関数がどんな値で呼び出されたかを、とてもよく示す手がかりになる、ということです。もっと複雑なコードでは、スタックに対して追加の操作が入って、すべての引数が文字どおり"
 },
 {
 "i": 3,
 "start": "00:01:37,022",
 "end": "00:02:07,002",
 "en": "push It could just be moved onto the stack after some math But this gives you a pretty good idea of what's going on with functions in 32-bit code Also, you could be forgiven if you thought this push ecx right at the beginning of func was something like a calle's register save But it's actually not the reason that you shouldn't think that is because you don't see balance here There's no push ecx and corresponding pop ecx restoration at the end And with a callee save register,",
-"ja": ""
+"ja": "push になるとはかぎりません。何か計算をしてから、スタックに mov されることもあります。それでも、32 ビットのコードで関数がどうなっているかについて、かなりよい見当がつきます。それから、func の一番最初にある push ecx を、呼び出し先によるレジスタの保存のようなものだと思っても、無理はありません。でも、実はそうではありません。そう考えてはいけない理由は、対応する釣り合いが見えないからです。最後に、push ecx に対応する pop ecx による復元がありません。呼び出し先が保存するレジスタなら、"
 },
 {
 "i": 4,
 "start": "00:02:07,002",
 "end": "00:02:30,009",
 "en": "we would expect saving at the beginning of the function and restoring at the end Also, now that I'm showing you the 32 bit caller versus callee-save regs ecx is not a callee-save reg anyways so these are all the exact same things that you saw on the 64 bit esi edi Instead of rsi rdi all the same conventions,",
-"ja": ""
+"ja": "関数の最初で保存して、最後で復元するはずです。また、ここで 32 ビットの、呼び出し元が保存するレジスタと呼び出し先が保存するレジスタをお見せすると、ecx は、そもそも呼び出し先が保存するレジスタではありません。ですから、64 ビットで見たものと、すべてまったく同じで、esi、edi も、rsi、rdi の代わりになるだけで、規約はすべて同じです。"
 },
 {
 "i": 5,
 "start": "00:02:30,009",
 "end": "00:02:51,016",
 "en": "it's just 32 bit e register forms instead of 64 bit r registered forms But here's an interesting difference between the calling convention that we've seen on the Microsoft visual studio thus far in these 32 bit calling conventions, both cdecl and standard call Do what I call explicit stack frame linkage So each time you enter a new function,",
-"ja": ""
+"ja": "64 ビットの r レジスタの形が、32 ビットの e レジスタの形になるだけです。ただ、ここまで Microsoft の Visual Studio で見てきた呼び出し規約と、これらの 32 ビットの呼び出し規約、つまり cdecl と standard call には、おもしろい違いがあります。私が、明示的なスタックフレームのリンクと呼んでいるものを行います。新しい関数に入るたびに、"
 },
 {
 "i": 6,
 "start": "00:02:51,017",
 "end": "00:03:15,023",
 "en": "the old ebp gets pushed onto the stack We saw that in the code we're just looking at as a reminder ebp the bp stands for stack frame base pointer So it's sort of a base of a stack frame and we also saw that the new esp gets moved into ebp So the sort of like second assembly instruction is usually move esp to ebp Again,",
-"ja": ""
+"ja": "古い ebp がスタックに push されます。いま見ていたコードで、それが見えました。念のためですが、ebp の bp は、スタックフレームのベースポインタという意味です。つまり、スタックフレームの底のようなものです。また、新しい esp が ebp に mov されるのも見ました。つまり、2 番目のアセンブリ命令は、たいてい mov ebp, esp です。繰り返しますが、"
 },
 {
 "i": 7,
 "start": "00:03:15,023",
 "end": "00:03:42,023",
 "en": "the esp is the top of the stack pointer gets moved into ebp, the base of the stack frame So what's going on there So let's look at that in a simpler example than the TooManyParameters So back to this very simple calling a function This was the code in 64 bit, and this is what the code would look like in 32 bit So I've created a nice new coloring pneumonic be for balanced push,",
-"ja": ""
+"ja": "スタックの一番上へのポインタである esp が、スタックフレームの底である ebp に mov されます。ここで何が起きているのでしょうか。TooManyParameters より単純な例で見てみましょう。この、とても単純な関数呼び出しに戻ります。これは 64 ビットのコードで、32 ビットだと、コードはこのようになります。色分けの覚え方も新しく作りました。釣り合う push と"
 },
 {
 "i": 8,
 "start": "00:03:42,023",
 "end": "00:04:05,009",
 "en": "pop push pop and lavender for linkage So let's see what's going on here We're going to draw this in our sort of simplified stack diagram that we have been building up So when main starts running, of course, there's a return address on the top of the stack esp is pointing at the return address, and ebp is pointing somewhere else And I'm going to say it's,",
-"ja": ""
+"ja": "pop、push と pop は、リンクは薄紫です。では、ここで何が起きているか見ましょう。これまで積み上げてきた、簡略化したスタックの図に描いていきます。main が動き始めるとき、もちろん、スタックの一番上に戻りアドレスがあって、esp は戻りアドレスを指し、ebp はどこか別の場所を指しています。それは、"
 },
 {
 "i": 9,
 "start": "00:04:05,009",
 "end": "00:04:42,046",
 "en": "you know, at some higher address than esp So main's frame is now created because we're into main First thing main is going to do is push the ebp So esp moves down, automatically decremented by the push assembly instruction and that pushed ebp So ebp register points at some address up here that saved ebp is actually pointing at wherever ebp is pointing The next assembly instruction is doing mov esp to ebp so that's going to move ebp So that's pointing at the same place as esp So they're now both pointing out this lot",
-"ja": ""
+"ja": "esp より高いアドレスのどこかだとします。main に入ったので、main のフレームが作られます。main が最初にすることは、ebp を push することです。esp は下がります。push のアセンブリ命令で、自動的に減らされ、ebp が push されます。ebp レジスタが指していたここのアドレスの上に、保存された ebp があり、それは、ebp が指していたところを指しています。次のアセンブリ命令は mov ebp, esp なので、ebp が動きます。それで、esp と同じ場所を指します。つまり、両方がこの場所を指しています。"
 },
 {
 "i": 10,
 "start": "00:04:42,047",
 "end": "00:05:07,007",
 "en": "And this lot, in some notional sense is pointing back wherever ebp used to point before it just got moved here and then main is going to call func So that's going to push your return address onto the stack decrementing esp func now has a notional stack frame First thing func does with that stack frame is it's going to push the ebp esp decrements ebp,",
-"ja": ""
+"ja": "そして、この場所は、概念的には、ここに動かされる前に ebp が指していた場所を指しています。そのあと、main は func を呼び出します。戻りアドレスをスタックに push して、esp が下がります。func にも、概念的なスタックフレームができます。func がそのスタックフレームで最初にすることは、ebp を push することです。esp が下がります。ebp は、"
 },
 {
 "i": 11,
 "start": "00:05:07,071",
 "end": "00:05:36,009",
 "en": "which still points up here It's pointing out this address on the stack It's going to push that address of this location on the stack So in some notional sense, it is pointing back at where ebp pointed is currently pointing rather And then again, the next assembly instruction mov esp to ebp thereby moving down ebp So this is the sort of linkage that I'm talking about ebp is always kind of being kept pointing at the base of each stack frame,",
-"ja": ""
+"ja": "まだ上のここを指していて、スタック上のこのアドレスを指しています。このアドレスをスタックに push します。つまり、概念的には、ebp が今指しているところを指しています。そして、次のアセンブリ命令は mov ebp, esp で、ebp が下に動きます。これが、私の言うリンクです。ebp は、いつも、それぞれのスタックフレームの底を指し続けますが、"
 },
 {
 "i": 12,
 "start": "00:05:36,091",
 "end": "00:05:58,027",
 "en": "but the the value at that base is pointing back at the previous bases, pointing back at the previous base So let's put together more what this code would look like that we've been building up are stacked diagrams for throughout the class If we were doing the 32 bit calling convention, So ebp is pointing somewhere on the stack. And when main gets called,",
-"ja": ""
+"ja": "その底にある値は、前の底を指していて、さらにその前の底を指しています。では、クラスを通して作ってきたスタックの図を使って、このコードがどうなるかを、もっとまとめてみましょう。32 ビットの呼び出し規約を使うとします。ebp はスタック上のどこかを指しています。そして、main が呼び出されると、"
 },
 {
 "i": 13,
 "start": "00:05:58,028",
 "end": "00:06:18,032",
 "en": "the return address of whoever called main is going to be there esp now points there Stack frame exists for main, and first assembly instruction in main would be the push ebp, and that would cause this sort of notional linkage back to the previous value of ebp Next assembly instruction would be anticipated to be mov esp to ebp,",
-"ja": ""
+"ja": "main を呼び出した側の戻りアドレスがそこにあり、esp はそこを指します。main のスタックフレームがあり、main の最初のアセンブリ命令は push ebp で、これによって、前の ebp の値への概念的なリンクができます。次のアセンブリ命令は、mov ebp, esp のはずで、"
 },
 {
 "i": 14,
 "start": "00:06:18,051",
 "end": "00:06:48,006",
 "en": "pulling it down and pointing it at the beginning of this new stack frame And then, in this particular case, main has a single local variable C, so it would allocate some space for a local variable Then it would further allocate some space It would push onto the stack 7 as the parameter to foo, So push the function arguments 7, esp moving down once again and then call into the function and it's going to push the return address onto the stack Then we're going to be in foo and the first",
-"ja": ""
+"ja": "それを下に引っ張って、新しいスタックフレームの先頭を指すようにします。そして、この例では、main にはローカル変数 C が 1 つあるので、ローカル変数のための領域を確保します。それから、さらに領域を確保します。foo の引数として 7 をスタックに push します。つまり、関数の引数 7 を push して、esp がもう一度下がり、関数を call すると、戻りアドレスがスタックに push されます。そこで foo に入り、最初に"
 },
 {
 "i": 15,
 "start": "00:06:48,006",
 "end": "00:07:13,036",
 "en": "thing we would expect in that sort of function prologue using this new term, that first little bit of assembly at the beginning of the function we call the function prologue First bit of assembly push ebp So a new stack frame, push ebp, which has the value that points up here at the previous saved ebp and then mov esp to ebp There you go Move it down Now it's pointing at the base of this stack frame Alright,",
-"ja": ""
+"ja": "期待するのは、この新しい用語を使うと、関数のプロローグです。関数の最初にある、この小さなアセンブリを、関数プロローグと呼びます。最初のアセンブリは push ebp です。新しいスタックフレームで、push ebp をすると、ここの前に保存した ebp を指す値が入ります。それから mov ebp, esp です。これで下に動きます。いま、このスタックフレームの底を指しています。では、"
 },
 {
 "i": 16,
 "start": "00:07:13,036",
 "end": "00:07:40,067",
 "en": "\"b\" has a single, sorry foo has a single local variable of \"b\" so that would get allocated and placed under the stack And then any function parameters such as this \"b\", which acts as the \"y\" for bar is going to be pushed onto the stack And then when you call the function, the return address is going to get pushed on the stack So now, you're notionally in the bar frame and we expect the first assembly instruction to be push ebp it's going to save ebp,",
-"ja": ""
+"ja": "foo にはローカル変数 b が 1 つあるので、それが確保されて、スタックの下に置かれます。そして、bar の y として働く、この b のような関数の引数が、スタックに push されます。関数を call すると、戻りアドレスがスタックに push されます。これで、概念的には bar のフレームの中にいて、最初のアセンブリ命令は push ebp のはずです。ebp を保存します。"
 },
 {
 "i": 17,
 "start": "00:07:40,067",
 "end": "00:08:07,041",
 "en": "which points back here, where ebp currently points and then mov esp to ebp to move it down There is a single local variable \"a\" in bar, so it would allocate space for that, it would fill in the value of three times \"y\" and do all the math there bar does call other functions so it would actually push the parameters This a pointer to a string for printf and the value of \"a\". But we're just going to stop there to keep it simple for now So at this point,",
-"ja": ""
+"ja": "それは、ここ、つまり ebp が今指している場所を指しています。そして mov ebp, esp で下に動かします。bar にはローカル変数 a が 1 つあるので、その領域を確保して、y の 3 倍の値を入れて、そこで計算を全部します。bar は別の関数も呼び出すので、実際には引数を push します。printf 用の文字列へのポインタと、a の値です。ただ、今は簡単にするために、ここまでにします。さて、ここまで来れば、"
 },
 {
 "i": 18,
 "start": "00:08:07,041",
 "end": "00:08:29,092",
 "en": "I think you're ready to see the sort of maximum stack diagram This is the thing that I said was super complicated and I tried to get into it too early in previous classes But now that we've learned all about calling functions and passing parameters and local variables callee-save registers, caller-save registers We can finally see sort of what all is going to be in a maximum stack So again,",
-"ja": ""
+"ja": "最大のスタックの図を見る準備ができたと思います。これは、とても複雑だと言ったもので、以前のクラスでは、早すぎる段階で説明しようとしていました。でも今は、関数の呼び出し、引数の渡し方、ローカル変数、呼び出し先が保存するレジスタ、呼び出し元が保存するレジスタを、全部学んだので、ようやく、最大のスタックに何が入るかが見えます。繰り返しますが、"
 },
 {
 "i": 19,
 "start": "00:08:29,092",
 "end": "00:08:53,026",
 "en": "we would have ebp, esp And so we've got the return address from main to whoever called main as the first thing, always some new stack frame Then, in a 32 bit world with 32 bit stack calling conventions, you would have always saved ebp as the first thing on that frame You have local variables stored on the stack frame If any local variables,",
-"ja": ""
+"ja": "ebp と esp があります。そして、main から、main を呼び出した側への戻りアドレスが、最初にあります。これは必ず、新しいスタックフレームです。次に、32 ビットのスタックの呼び出し規約がある 32 ビットの世界では、そのフレームの最初に、いつも保存した ebp があります。スタックフレームには、ローカル変数が格納されます。ローカル変数があれば、"
 },
 {
 "i": 20,
 "start": "00:08:53,064",
 "end": "00:09:14,022",
 "en": "you would have callee save registers, if any And then before it starts calling a function, it would save any callers, save registers, and it would push any function arguments And when it finally calls it, it would have the return address to get back to main So this is sort of the maximum stack contents But see that it says,",
-"ja": ""
+"ja": "呼び出し先が保存するレジスタがあれば、それも入ります。そして、関数を呼び出し始める前に、呼び出し元が保存するレジスタを保存して、関数の引数を push します。最後に call すると、main に戻るための戻りアドレスが入ります。これが、スタックの内容の最大のものです。ただ、ここに書いてあるように、"
 },
 {
 "i": 21,
 "start": "00:09:14,023",
 "end": "00:09:47,019",
 "en": "if any, all of these places So, quite frankly, there could be no local variables There could be no callee-save registers, caller-save registers or function arguments If this was a leaf node, of course, it would have just saved ebp, like we saw in our simple example before and no further usage of the stack frame And so that would continue as a function calls other functions, saved ebp go first and so forth, all the stuff that we just saw in the previous example And when we finally get to a leaf node,",
-"ja": ""
+"ja": "これらの場所は、すべて「あれば」です。率直に言って、ローカル変数がないこともあり、呼び出し先が保存するレジスタも、呼び出し元が保存するレジスタも、関数の引数もないことがあります。葉のノード、つまり別の関数を呼ばない関数なら、前の単純な例で見たように、保存した ebp だけがあって、スタックフレームのそれ以上の使い方はありません。そして、関数が別の関数を呼び出していくと、保存した ebp が最初にあって、といった具合に、前の例で見たものがすべて続きます。そして、最後に葉のノードに来たら、"
 },
 {
 "i": 22,
 "start": "00:09:47,023",
 "end": "00:10:05,046",
 "en": "we would expect the leaf node and the leaf function to have only these things only potentially call the same registers local variables and the saved ebp No caller save registers, no function arguments and no return address if it doesn't call anything And so one little helpful thing if you happen to be looking at 32 bit code,",
-"ja": ""
+"ja": "その葉のノード、葉の関数には、これらだけがあるはずです。同じレジスタを呼ぶとすれば、ローカル変数と保存した ebp だけです。何も呼び出さないなら、呼び出し元が保存するレジスタも、関数の引数も、戻りアドレスもありません。32 ビットのコードを見ているときに、少し役立つことがあります。"
 },
 {
 "i": 23,
 "start": "00:10:05,074",
 "end": "00:10:33,072",
 "en": "is that frequently you will see function parameters getting referenced as ebp plus something and local variables as ebp minus something Or depending on the compiler, it might be esp plus something So you can see that if this was our final sort of stack diagram, and ebp is always kind of pointing at the beginning of a particular frame for the function that you're in then ebp plus something is going to be the function arguments If you're in bar,",
-"ja": ""
+"ja": "それは、関数の引数が ebp プラス何か、ローカル変数が ebp マイナス何か、として参照されることがよくある、ということです。コンパイラによっては、esp プラス何か、のこともあります。これが最終的なスタックの図で、ebp はいつも、いまいる関数のフレームの先頭を指しているとすると、ebp プラス何かは、関数の引数になります。bar の中にいれば、"
 },
 {
 "i": 24,
 "start": "00:10:33,072",
 "end": "00:10:53,065",
 "en": "the functional arguments are here If you're in foo function, arguments are here, but they're always kind of ebp plus something and the local variables would then be a ebp minus something that would be typical of a local variable access But some compilers or some compiler options Instead, they index things as esp plus something,",
-"ja": ""
+"ja": "関数の引数はここです。foo の関数の中なら、引数はここですが、いつも、ebp プラス何か、です。そして、ローカル変数は ebp マイナス何かで、それがローカル変数へのアクセスの典型です。ただ、コンパイラやコンパイラのオプションによっては、代わりに esp プラス何か、で添字を付けることもあります。"
 },
 {
 "i": 25,
 "start": "00:10:54,004",
 "end": "00:11:14,036",
 "en": "and sometimes it's mixed, so they'll still do ebp plus something for function arguments and esp plus something for locals Or it might just be esp plus something for all of it But that's just a basic heuristic for you If you happen to be looking at 32-bit code and you see ebp plus something, it's probably a function argument If you see ebp minus something,",
-"ja": ""
+"ja": "混ざることもあります。関数の引数は ebp プラス何か、ローカル変数は esp プラス何か、にします。あるいは、全部 esp プラス何か、にすることもあります。でも、これは基本的な目安です。32 ビットのコードを見ていて、ebp プラス何かがあれば、たぶん関数の引数です。ebp マイナス何かがあれば、"
 },
 {
 "i": 26,
 "start": "00:11:14,049",
 "end": "00:11:16,036",
 "en": "it's probably a local variable access",
-"ja": ""
+"ja": "たぶんローカル変数へのアクセスです。"
 }
 ]
 }

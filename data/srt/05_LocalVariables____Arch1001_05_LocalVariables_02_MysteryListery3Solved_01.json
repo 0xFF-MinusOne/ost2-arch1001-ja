@@ -6,63 +6,63 @@
 "start": "00:00:00,084",
 "end": "00:00:23,039",
 "en": "Okay, so we seem to be pushing a little bit too much stuff onto our mystery list So let's go ahead and try to solve one of these mysteries, specifically the one about why Visual Studio is over allocating space for local variables So this is what we saw before function with a single local variable allocated 0x18 worth of space So in order to investigate this mystery,",
-"ja": ""
+"ja": "さて、謎のリストに、ちょっと盛り込みすぎているようですね。では、この謎のうちの 1 つを解いてみましょう。Visual Studio がローカル変数の領域を余分に確保しているのはなぜか、という謎です。これは前に見たものです。ローカル変数が 1 つだけの関数が、0x18 バイト分の領域を確保していました。この謎を調べるために、"
 },
 {
 "i": 1,
 "start": "00:00:23,039",
 "end": "00:00:55,086",
 "en": "let's go ahead and expand it out So if we, for instance, have a bit of code that has main calling func and func, doing nothing other than calling func2, func2 having a single local variable and calling func3 and func3 having only a single local variable so func3 in Main are like we saw before But func allows us to now see what is the effects of just calling a function And this allows us func to allows us to see the effects of both calling a function and allocating a local variable",
-"ja": ""
+"ja": "コードを広げてみましょう。たとえば、main が func を呼び、func は func2 を呼ぶだけで、func2 にはローカル変数が 1 つあって func3 を呼び、func3 にはローカル変数が 1 つだけある、というコードがあるとします。func3 と main は前に見たとおりです。でも func を見れば、関数を呼ぶだけの影響が分かります。そして func2 を見れば、関数を呼ぶことと、ローカル変数を確保することの、両方の影響が分かります。"
 },
 {
 "i": 2,
 "start": "00:00:56,024",
 "end": "00:01:21,014",
 "en": "So between between these different things, we should be able to see certain behavior for this and this we'd expect them to be the same, but maybe they will be Maybe they won't be We'd expect this to be included within this, and so this should be sort of the combination of whatever is going on here Whatever is going on here So let's see what this assembly looks like So here's the Assembly,",
-"ja": ""
+"ja": "ですから、これらの違いを比べれば、ある挙動が見えてくるはずです。これとこれは同じになると予想しますが、違うかもしれません。これはこの中に含まれるはずなので、ここで起きていることと、ここで起きていることを合わせたものになるはずです。では、このアセンブリを見てみましょう。これがアセンブリです。"
 },
 {
 "i": 3,
 "start": "00:01:21,002",
 "end": "00:01:40,082",
 "en": "and you know, there's definitely clues within this assembly So we saw this mysterious 0x28 worth of stack allocation space That's not really what we're looking into right now We're trying to figure out what's up with this 18 but we can see the 0x28 happens here, and it happens equivalently and func So whatever this 0x28 is,",
-"ja": ""
+"ja": "このアセンブリの中には、確かに手がかりがあります。0x28 バイト分のスタック領域という謎がありましたね。今調べているのはそれではなく、この 18 が何なのかですが、0x28 はここで確保されていて、func でも同じように確保されています。つまり、この 0x28 が何であれ、"
 },
 {
 "i": 4,
 "start": "00:01:40,082",
 "end": "00:02:14,065",
 "en": "it must not have anything to do with being main specific or anything like that seems to be Just, you know, if you call a single function, you get 0x28 worth of space And now func3 is 0x18 as before, so that makes sense and that it's consistent But what's interesting here is that func2 which should be the combination of this 0x28 and this 0x18 is 0x38 instead of 0x40 So if it was just pure combination 0x28 + 0x18 would be 0x40 but it's not 0x40 So you know what's going on here?",
-"ja": ""
+"ja": "main だけに固有のものではなさそうです。関数を 1 つ呼ぶと、0x28 バイト分の領域ができる、ということです。そして func3 は前と同じ 0x18 なので、一貫していて納得できます。でも面白いのは、この 0x28 とこの 0x18 を合わせたものになるはずの func2 が、0x40 ではなく 0x38 になっていることです。単純に足せば 0x28 + 0x18 で 0x40 になるのに、0x40 ではありません。何が起きているのでしょうか。"
 },
 {
 "i": 5,
 "start": "00:02:15,004",
 "end": "00:02:23,011",
 "en": "Well, if you go ahead and start stepping through this code then you should be able to see how the stack is being used.",
-"ja": ""
+"ja": "では、このコードをステップ実行してみてください。そうすれば、スタックがどう使われているか見えるはずです。"
 },
 {
 "i": 6,
 "start": "00:02:23,012",
 "end": "00:02:29,026",
 "en": "And you can start creating your own theories about what exactly is going on in the stack with this particular thing.",
-"ja": ""
+"ja": "そして、このスタックで実際に何が起きているのか、自分なりの仮説を立ててみてください。"
 },
 {
 "i": 7,
 "start": "00:02:29,064",
 "end": "00:02:33,015",
 "en": "So go ahead and stop and go through the code.",
-"ja": ""
+"ja": "では、ここで一時停止して、コードを追ってみてください。"
 },
 {
 "i": 8,
 "start": "00:02:33,015",
 "end": "00:02:39,095",
 "en": "Build up a stack diagram showing what's allocated, what's not allocated, what variables are where, and then we will go over it next.",
-"ja": ""
+"ja": "何が確保されていて、何が確保されていないか、どの変数がどこにあるかを示す、スタックの図を作ってください。そのあとで、次に一緒に確認します。"
 }
 ]
 }

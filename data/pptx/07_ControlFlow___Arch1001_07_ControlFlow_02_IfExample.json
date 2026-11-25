@@ -5,697 +5,697 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "IfExample.c",
-"ja": ""
+"ja": "IfExample.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "IfExample.c",
-"ja": ""
+"ja": "IfExample.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "int a = -1, b = 2;",
-"ja": ""
+"ja": "int a = -1, b = 2;"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "if(a == b){",
-"ja": ""
+"ja": "if(a == b){"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "if(a > b){",
-"ja": ""
+"ja": "if(a > b){"
 },
 {
 "i": 20,
 "where": "スライド3",
 "en": "if(a < b){",
-"ja": ""
+"ja": "if(a < b){"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "000000014000101A  jne  0000000140001023",
-"ja": ""
+"ja": "000000014000101A  jne  0000000140001023"
 },
 {
 "i": 36,
 "where": "スライド3",
 "en": "000000014000102A  jle  0000000140001033",
-"ja": ""
+"ja": "000000014000102A  jle  0000000140001033"
 },
 {
 "i": 41,
 "where": "スライド3",
 "en": "000000014000103A  jge  0000000140001043",
-"ja": ""
+"ja": "000000014000103A  jge  0000000140001043"
 },
 {
 "i": 52,
 "where": "スライド3",
 "en": "Jcc",
-"ja": ""
+"ja": "Jcc"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "Ghost of Xmas Future:",
-"ja": ""
+"ja": "未来のクリスマスの亡霊:"
 },
 {
 "i": 54,
 "where": "スライド4",
 "en": "Tools you won’t get to use today",
-"ja": ""
+"ja": "今日は使えないツール"
 },
 {
 "i": 55,
 "where": "スライド4",
 "en": "generate a Control Flow Graph (CFG)",
-"ja": ""
+"ja": "制御フローグラフ(CFG)を生成する"
 },
 {
 "i": 56,
 "where": "スライド4",
 "en": "which looks much nicer.",
-"ja": ""
+"ja": "ずっと見やすくなる。"
 },
 {
 "i": 57,
 "where": "スライド4",
 "en": "Not that that helps you. Just sayin’ :)",
-"ja": ""
+"ja": "役に立つとは言っていない ;)"
 },
 {
 "i": 58,
 "where": "スライド5",
 "en": "Jcc - Jump If Condition Is Met",
-"ja": ""
+"ja": "Jcc - 条件が満たされたらジャンプ"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "If a condition is true, the jump is taken. Otherwise it proceeds to the next instruction",
-"ja": ""
+"ja": "条件が真ならジャンプする。そうでなければ次の命令へ進む"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "There are more than 4 pages of conditional jump types! Luckily a bunch of them are synonyms for each other.",
-"ja": ""
+"ja": "条件ジャンプの種類は 4 ページ以上ある! 幸い、その多くは互いに同義語"
 },
 {
 "i": 61,
 "where": "スライド5",
 "en": "JNE == JNZ (Jump if not equal, Jump if not zero, both check if the Zero Flag (ZF) == 0)",
-"ja": ""
+"ja": "JNE == JNZ(等しくなければジャンプ、ゼロでなければジャンプ。どちらもゼロフラグ(ZF)== 0 を調べる)"
 },
 {
 "i": 62,
 "where": "スライド5",
 "en": "Book page 93",
-"ja": ""
+"ja": "書籍 93 ページ"
 },
 {
 "i": 65,
 "where": "スライド6",
 "en": "Jcc - Jump If Condition Is Met",
-"ja": ""
+"ja": "Jcc - 条件が満たされたらジャンプ"
 },
 {
 "i": 66,
 "where": "スライド6",
 "en": "If a condition is true, the jump is taken. Otherwise it proceeds to the next instruction",
-"ja": ""
+"ja": "条件が真ならジャンプする。そうでなければ次の命令へ進む"
 },
 {
 "i": 67,
 "where": "スライド6",
 "en": "There are more than 4 pages of conditional jump types! Luckily a bunch of them are synonyms for each other.",
-"ja": ""
+"ja": "条件ジャンプの種類は 4 ページ以上ある! 幸い、その多くは互いに同義語"
 },
 {
 "i": 68,
 "where": "スライド6",
 "en": "JNE == JNZ (Jump if not equal, Jump if not zero, both check if the Zero Flag (ZF) == 0)",
-"ja": ""
+"ja": "JNE == JNZ(等しくなければジャンプ、ゼロでなければジャンプ。どちらもゼロフラグ(ZF)== 0 を調べる)"
 },
 {
 "i": 69,
 "where": "スライド6",
 "en": "Book page 93",
-"ja": ""
+"ja": "書籍 93 ページ"
 },
 {
 "i": 73,
 "where": "スライド7",
 "en": "Architecture - RFLAGS",
-"ja": ""
+"ja": "アーキテクチャ - RFLAGS"
 },
 {
 "i": 74,
 "where": "スライド7",
 "en": "Intel Vol 1 Sec 3.4.3.4 - page 3-18 - Jan 2020 manuals",
-"ja": ""
+"ja": "Intel Vol 1 Sec 3.4.3.4 - 3-18 ページ - 2020 年 1 月版マニュアル"
 },
 {
 "i": 75,
 "where": "スライド7",
 "en": "“In 64-bit mode, EFLAGS is extended to 64 bits and called RFLAGS. The upper 32 bits of RFLAGS register is reserved. The lower 32 bits of RFLAGS is the same as EFLAGS.”",
-"ja": ""
+"ja": "「64 ビットモードでは、EFLAGS は 64 ビットに拡張され、RFLAGS と呼ばれる。RFLAGS の上位 32 ビットは予約済み。下位 32 ビットは EFLAGS と同じ。」"
 },
 {
 "i": 76,
 "where": "スライド8",
 "en": "Architecture - RFLAGS",
-"ja": ""
+"ja": "アーキテクチャ - RFLAGS"
 },
 {
 "i": 77,
 "where": "スライド8",
 "en": "RFLAGS register holds many single bit flags. Will only ask you to remember the following for now:",
-"ja": ""
+"ja": "RFLAGS レジスタは、1 ビットのフラグを多数保持する。今は次のものだけ覚えればよい:"
 },
 {
 "i": 78,
 "where": "スライド8",
 "en": "Zero Flag (ZF) - Set if the result of some instruction is zero; cleared otherwise.",
-"ja": ""
+"ja": "ゼロフラグ(ZF)- 命令の結果がゼロならセット、それ以外はクリア。"
 },
 {
 "i": 79,
 "where": "スライド8",
 "en": "Sign Flag (SF) - Set equal to the most-significant bit of the result, which is the sign bit of a signed integer. (0 indicates a positive value and 1 indicates a negative value.)",
-"ja": ""
+"ja": "符号フラグ(SF)- 結果の最上位ビット(符号つき整数の符号ビット)と同じ値にセット。(0 は正、1 は負)"
 },
 {
 "i": 80,
 "where": "スライド8",
 "en": "Other flags will be optional material",
-"ja": ""
+"ja": "ほかのフラグは任意の内容"
 },
 {
 "i": 88,
 "where": "スライド10",
 "en": "This Class",
-"ja": ""
+"ja": "この講義"
 },
 {
 "i": 102,
 "where": "スライド11",
 "en": "This Class",
-"ja": ""
+"ja": "この講義"
 },
 {
 "i": 106,
 "where": "スライド11",
 "en": "Future Class",
-"ja": ""
+"ja": "今後の講義"
 },
 {
 "i": 117,
 "where": "スライド11",
 "en": "IF",
-"ja": ""
+"ja": "IF"
 },
 {
 "i": 157,
 "where": "スライド12",
 "en": "Intel Vol 1 Sec 3.4.3.1 - page 3-21 - May 2012 manuals",
-"ja": ""
+"ja": "Intel Vol 1 Sec 3.4.3.1 - 3-21 ページ - 2012 年 5 月版マニュアル"
 },
 {
 "i": 162,
 "where": "スライド14",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 1"
 },
 {
 "i": 163,
 "where": "スライド14",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 164,
 "where": "スライド15",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 2"
 },
 {
 "i": 165,
 "where": "スライド15",
 "en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
-"ja": ""
+"ja": "(注: 以前は *SP、*BP、*SI、*DI の下位バイトにはアクセスできなかった!)"
 },
 {
 "i": 166,
 "where": "スライド15",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 167,
 "where": "スライド16",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアドレッシング 3"
 },
 {
 "i": 168,
 "where": "スライド16",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 169,
 "where": "ノート16",
 "en": "note to scornwell: maybe a simple game here like:",
-"ja": ""
+"ja": "scornwell へのメモ: ここで簡単なゲームをしてもよい。たとえば:"
 },
 {
 "i": 170,
 "where": "ノート16",
 "en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
-"ja": ""
+"ja": "「DIL は、どの 64 ビットレジスタの下位 8 ビットへのアクセスか?」(RDI)"
 },
 {
 "i": 171,
 "where": "ノート16",
 "en": "“What is the word-sized access register for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 のワードサイズのアクセス用レジスタは何と呼ぶか?」(R14W)"
 },
 {
 "i": 172,
 "where": "ノート16",
 "en": "“What is the 16 bit access for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 の 16 ビットアクセスは何と呼ぶか?」(R14W)"
 },
 {
 "i": 173,
 "where": "スライド17",
 "en": "Some Notable Jcc Instructions",
-"ja": ""
+"ja": "主な Jcc 命令"
 },
 {
 "i": 174,
 "where": "スライド17",
 "en": "JZ/JE: if ZF == 1",
-"ja": ""
+"ja": "JZ/JE: ZF == 1 なら"
 },
 {
 "i": 175,
 "where": "スライド17",
 "en": "JNZ/JNE: if ZF == 0",
-"ja": ""
+"ja": "JNZ/JNE: ZF == 0 なら"
 },
 {
 "i": 176,
 "where": "スライド17",
 "en": "JLE/JNG : if ZF == 1 or SF != OF",
-"ja": ""
+"ja": "JLE/JNG: ZF == 1 または SF != OF なら"
 },
 {
 "i": 177,
 "where": "スライド17",
 "en": "JGE/JNL : if SF == OF",
-"ja": ""
+"ja": "JGE/JNL: SF == OF なら"
 },
 {
 "i": 178,
 "where": "スライド17",
 "en": "JBE/JNA: if CF == 1 OR ZF == 1",
-"ja": ""
+"ja": "JBE/JNA: CF == 1 または ZF == 1 なら"
 },
 {
 "i": 179,
 "where": "スライド17",
 "en": "JB: if CF == 1",
-"ja": ""
+"ja": "JB: CF == 1 なら"
 },
 {
 "i": 180,
 "where": "スライド17",
 "en": "Note: Don’t get hung up on memorizing which flags are set for what. More often than not, you will be running code in a debugger, not just reading it. In the debugger you can just look at RFLAGS and/or watch whether it takes a jump.",
-"ja": ""
+"ja": "注: どの命令でどのフラグが立つかを暗記しすぎないこと。実際にはコードを読むだけでなく、デバッガで実行することが多い。デバッガなら RFLAGS を見るか、ジャンプするかを観察すればよい。"
 },
 {
 "i": 181,
 "where": "スライド18",
 "en": "Some Notable Jcc Instructions 2",
-"ja": ""
+"ja": "主な Jcc 命令 2"
 },
 {
 "i": 182,
 "where": "スライド18",
 "en": "Mnemonic translations",
-"ja": ""
+"ja": "ニーモニックの読み方"
 },
 {
 "i": 183,
 "where": "スライド18",
 "en": "A = above, unsigned notion",
-"ja": ""
+"ja": "A = above(上)。符号なしの考え方"
 },
 {
 "i": 184,
 "where": "スライド18",
 "en": "B = below, unsigned notion",
-"ja": ""
+"ja": "B = below(下)。符号なしの考え方"
 },
 {
 "i": 185,
 "where": "スライド18",
 "en": "G = greater than, signed notion",
-"ja": ""
+"ja": "G = greater than(より大きい)。符号つきの考え方"
 },
 {
 "i": 186,
 "where": "スライド18",
 "en": "L = less than, signed notion",
-"ja": ""
+"ja": "L = less than(より小さい)。符号つきの考え方"
 },
 {
 "i": 187,
 "where": "スライド18",
 "en": "E = Equal (same a Z, zero flag set)",
-"ja": ""
+"ja": "E = Equal(等しい)(Z と同じ。ゼロフラグがセット)"
 },
 {
 "i": 188,
 "where": "スライド18",
 "en": "N = Not (like “Not less than:” JNL)",
-"ja": ""
+"ja": "N = Not(否定)(「Not less than」の JNL など)"
 },
 {
 "i": 189,
 "where": "スライド19",
 "en": "Mnemonic translations",
-"ja": ""
+"ja": "ニーモニックの読み方"
 },
 {
 "i": 190,
 "where": "スライド19",
 "en": "B = below, unsigned notion",
-"ja": ""
+"ja": "B = below(下)。符号なしの考え方"
 },
 {
 "i": 191,
 "where": "スライド19",
 "en": "A = above, unsigned notion",
-"ja": ""
+"ja": "A = above(上)。符号なしの考え方"
 },
 {
 "i": 192,
 "where": "スライド19",
 "en": "N = Not (like “Not less than:” JNL)",
-"ja": ""
+"ja": "N = Not(否定)(「Not less than」の JNL など)"
 },
 {
 "i": 193,
 "where": "スライド19",
 "en": "G = greater than, signed notion",
-"ja": ""
+"ja": "G = greater than(より大きい)。符号つきの考え方"
 },
 {
 "i": 194,
 "where": "スライド19",
 "en": "L = less than, signed notion",
-"ja": ""
+"ja": "L = less than(より小さい)。符号つきの考え方"
 },
 {
 "i": 195,
 "where": "スライド19",
 "en": "E = Equal (same a Z, zero flag set)",
-"ja": ""
+"ja": "E = Equal(等しい)(Z と同じ。ゼロフラグがセット)"
 },
 {
 "i": 196,
 "where": "スライド19",
 "en": "Final Fantasy 7",
-"ja": ""
+"ja": "Final Fantasy 7"
 },
 {
 "i": 197,
 "where": "スライド19",
 "en": "Crystal Bangle",
-"ja": ""
+"ja": "クリスタルの腕輪"
 },
 {
 "i": 198,
 "where": "スライド19",
 "en": "Unlocked!",
-"ja": ""
+"ja": "解放!"
 },
 {
 "i": 199,
 "where": "スライド19",
 "en": "Some Notable Jcc Instructions 3",
-"ja": ""
+"ja": "主な Jcc 命令 3"
 },
 {
 "i": 200,
 "where": "スライド20",
 "en": "Flag Setting",
-"ja": ""
+"ja": "フラグの設定"
 },
 {
 "i": 201,
 "where": "スライド20",
 "en": "Before you can do a conditional jump, you need something to set the condition status flags for you",
-"ja": ""
+"ja": "条件ジャンプの前に、条件を表すステータスフラグを設定する何かが必要"
 },
 {
 "i": 202,
 "where": "スライド20",
 "en": "Typically done with CMP, TEST, or whatever instructions are already inline and happen to have flag-setting side-effects",
-"ja": ""
+"ja": "通常は CMP、TEST、またはフラグを変える副作用をたまたま持つ、近くの命令で行う"
 },
 {
 "i": 204,
 "where": "スライド21",
 "en": "“The comparison is performed by subtracting the second operand from the first operand and then setting the status flags in the same manner as the SUB instruction.”",
-"ja": ""
+"ja": "「比較は、第 1 オペランドから第 2 オペランドを引き、SUB 命令と同じ方法でステータスフラグを設定して行う。」"
 },
 {
 "i": 205,
 "where": "スライド21",
 "en": "What’s the difference from just doing SUB? Difference is that with SUB the result has to be stored somewhere. With CMP the result is computed, the flags are set, but the result is discarded",
-"ja": ""
+"ja": "SUB との違いは? SUB は結果をどこかへ格納する必要がある。CMP は結果を計算してフラグを設定するが、結果は捨てる"
 },
 {
 "i": 206,
 "where": "スライド21",
 "en": "Modifies CF, OF, SF, ZF, AF, and PF",
-"ja": ""
+"ja": "CF、OF、SF、ZF、AF、PF を変更する"
 },
 {
 "i": 207,
 "where": "スライド21",
 "en": "Book page 93",
-"ja": ""
+"ja": "書籍 93 ページ"
 },
 {
 "i": 210,
 "where": "スライド22",
 "en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
-"ja": ""
+"ja": "Xeno 流: 特定のフラグを(ほぼ)気にしないための手引き"
 },
 {
 "i": 229,
 "where": "スライド23",
 "en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
-"ja": ""
+"ja": "Xeno 流: 特定のフラグを(ほぼ)気にしないための手引き"
 },
 {
 "i": 251,
 "where": "スライド24",
 "en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
-"ja": ""
+"ja": "Xeno 流: 特定のフラグを(ほぼ)気にしないための手引き"
 },
 {
 "i": 264,
 "where": "スライド25",
 "en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
-"ja": ""
+"ja": "Xeno 流: 特定のフラグを(ほぼ)気にしないための手引き"
 },
 {
 "i": 267,
 "where": "スライド25",
 "en": "Is \"[rsp+4] != eax\"?",
-"ja": ""
+"ja": "\"[rsp+4] != eax\" か?"
 },
 {
 "i": 271,
 "where": "スライド25",
 "en": "Is \"[rsp+4] <= eax\"?",
-"ja": ""
+"ja": "\"[rsp+4] <= eax\" か?"
 },
 {
 "i": 272,
 "where": "スライド25",
 "en": "(Signed, because “less”, not “below”)",
-"ja": ""
+"ja": "(「below」ではなく「less」なので符号つき)"
 },
 {
 "i": 276,
 "where": "スライド25",
 "en": "Is \"[rsp+4] >= eax\"?",
-"ja": ""
+"ja": "\"[rsp+4] >= eax\" か?"
 },
 {
 "i": 277,
 "where": "スライド25",
 "en": "(Unsigned, because “above”, not “greater”)",
-"ja": ""
+"ja": "(「greater」ではなく「above」なので符号なし)"
 },
 {
 "i": 278,
 "where": "スライド25",
 "en": "Warning: Operands are backwards in AT&T syntax, so you can’t just drop the operation in-between the operands!",
-"ja": ""
+"ja": "警告: AT&T 構文ではオペランドの順序が逆。演算子をオペランドの間にそのまま置いてはいけない!"
 },
 {
 "i": 283,
 "where": "スライド26",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 285,
 "where": "スライド26",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 },
 {
 "i": 287,
 "where": "スライド27",
 "en": "IfExample.c Takeaways",
-"ja": ""
+"ja": "IfExample.c のまとめ"
 },
 {
 "i": 288,
 "where": "スライド27",
 "en": "Conditional logic, like if statements, manifests in assembly as conditional jumps (Jcc). “If condition true, jump there, else fall through”",
-"ja": ""
+"ja": "if 文のような条件ロジックは、アセンブリでは条件ジャンプ(Jcc)になる。「条件が真ならそこへジャンプ、そうでなければ次へ進む」"
 },
 {
 "i": 289,
 "where": "スライド27",
 "en": "Conditions involving in/equality are often checked with a CMP instruction, which is the same thing as a SUB, but it just throws the results away after the relevant RFLAGS bits are set",
-"ja": ""
+"ja": "等値・不等値の条件は、よく CMP 命令で調べる。CMP は SUB と同じだが、関連する RFLAGS のビットを設定した後、結果を捨てる"
 },
 {
 "i": 290,
 "where": "スライド27",
 "en": "The RFLAGS bits are fundamentally what are checked by the Jccs",
-"ja": ""
+"ja": "Jcc が調べるのは、基本的に RFLAGS のビット"
 },
 {
 "i": 297,
 "where": "スライド27",
 "en": "000000014000101A  jne  0000000140001023",
-"ja": ""
+"ja": "000000014000101A  jne  0000000140001023"
 },
 {
 "i": 302,
 "where": "スライド27",
 "en": "000000014000102A  jle  0000000140001033",
-"ja": ""
+"ja": "000000014000102A  jle  0000000140001033"
 },
 {
 "i": 307,
 "where": "スライド27",
 "en": "000000014000103A  jge  0000000140001043",
-"ja": ""
+"ja": "000000014000103A  jge  0000000140001043"
 },
 {
 "i": 314,
 "where": "スライド27",
 "en": "int a = -1, b = 2;",
-"ja": ""
+"ja": "int a = -1, b = 2;"
 },
 {
 "i": 315,
 "where": "スライド27",
 "en": "if(a == b){",
-"ja": ""
+"ja": "if(a == b){"
 },
 {
 "i": 318,
 "where": "スライド27",
 "en": "if(a > b){",
-"ja": ""
+"ja": "if(a > b){"
 },
 {
 "i": 321,
 "where": "スライド27",
 "en": "if(a < b){",
-"ja": ""
+"ja": "if(a < b){"
 },
 {
 "i": 326,
 "where": "スライド28",
 "en": "Instructions we now know (15)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (15)"
 }
 ]
 }

@@ -6,70 +6,70 @@
 "start": "00:00:00,080",
 "end": "00:00:32,239",
 "en": "so what you should have seen for your stack diagram is something like this first of course there's the return address on the stack from whoever called main then there's going to be the hex 28 worth of allocation for main and i'm going to start adding some color coding here which will you know give you a hint at you know what's going on hex 28 worth of stuff from main main calls func that's going to push return address for getting back from func to main then func does the same thing hex 28",
-"ja": ""
+"ja": "皆さんのスタック図は、おそらくこんな感じになったはずです。まず、main を呼び出した側から積まれた戻りアドレスがスタックにあります。次に、main の分として 16 進数の 28 バイトぶんの領域があります。ここから色分けをしていきます。何が起きているかのヒントになります。main の 16 進数 28 バイトぶんです。main が func を呼ぶと、func から main に戻るための戻りアドレスが push されます。そして func も同じように、16 進数の 28"
 },
 {
 "i": 1,
 "start": "00:00:29,439",
 "end": "00:01:01,199",
 "en": "worth of space and a return address when it calls func2 then we have our hex 38 worth of space and specifically we're going to see the 'tale' 0x7a1e is placed at this location 0xfd90 so that's the overall situation and then when func calls func sorry func2 calls func3 then it'll put a return address onto the stack and func3 will only allocate hex 18.",
-"ja": ""
+"ja": "バイトぶんの領域を確保します。func2 を呼ぶときには戻りアドレスが積まれて、そのあと 16 進数の 38 バイトぶんの領域があります。特に 0xfd90 の位置には 'tale'、つまり 0x7a1e が置かれているのが分かります。これが全体の状況です。そして、func、いえ、func2 が func3 を呼ぶと、戻りアドレスがスタックに置かれて、func3 は 16 進数の 18 だけを確保します。"
 },
 {
 "i": 2,
 "start": "00:00:59,039",
 "end": "00:01:35,759",
 "en": "so i've added my little color coding here to give you the hint of what's going to be going on but even without the color coding you might have sort of started to see a pattern of okay well the hex 18 is here and I can see that hex 18 out of that hex 38 is right here and that leaves hex 20. and so if this hex 20 is you know related to calling a function maybe these hex 28s are actually hex 20 plus 8, hex 20 plus 8 and you know maybe this is hex 10 plus 8 and hex 20 hex 10 plus 8. and so that's kind of",
-"ja": ""
+"ja": "ここまでに、何が起きているかのヒントとして、ちょっとした色分けを加えました。でも色分けがなくても、パターンが見えてきたかもしれません。16 進数の 18 がここにあって、16 進数の 38 のうちの 18 がここだと分かります。すると、残りは 16 進数の 20 です。この 16 進数の 20 が関数の呼び出しに関係しているなら、この 16 進数の 28 は、16 進数の 20 足す 8 なのかもしれません。16 進数の 20 足す 8、そしてこちらは 16 進数の 10 足す 8、と 16 進数の 20、16 進数の 10 足す 8、というわけです。それが、"
 },
 {
 "i": 3,
 "start": "00:01:34,640",
 "end": "00:02:04,159",
 "en": "what's going on here so now this is the most important bit about justifying you know what's going on this is from microsoft's documentation about stack usage and specifically they say the stack will always be maintained 16 byte aligned except within the prologue for example after return address is pushed so there's some you know exceptions to that rule but in general what we should think of is that the microsoft compiler is trying to maintain a 16 byte alignment when it's allocating",
-"ja": ""
+"ja": "ここで起きていることです。ここからが、何が起きているかを裏づける、いちばん重要な部分です。これはスタックの使い方についての Microsoft のドキュメントからです。そこには、スタックは、プロローグの中、たとえば戻りアドレスが push された直後などを除いて、常に 16 バイト境界にそろえて維持される、と書かれています。例外はいくつかありますが、一般的には、Microsoft のコンパイラは、スタックに領域を確保するとき、"
 },
 {
 "i": 4,
 "start": "00:02:03,040",
 "end": "00:02:37,360",
 "en": "space on the stack so therefore what i'm going to make is an assertion i'm going to assert that these initial yellow on depths are actually 16 byte stack alignment padding if that's true then okay great we've got these you know weird hex 20s going on here but you know we start to see some you know more pattern furthermore i'm going to make a further alignment assertion that the green undefined area is actually 16 byte alignment padding because visual studio is trying to keep these local",
-"ja": ""
+"ja": "16 バイト境界を保とうとしていると考えてよいということです。そこで、ひとつ主張をします。この最初の黄色の未定義の部分は、実際には 16 バイトのスタックアラインメントのためのパディングだ、という主張です。それが本当なら、この奇妙な 16 進数の 20 も説明がつきますし、パターンがもっと見えてきます。さらに、緑色の未定義の領域も、実際には 16 バイトアラインメントのためのパディングだ、とも主張します。Visual Studio は、ローカル"
 },
 {
 "i": 5,
 "start": "00:02:36,080",
 "end": "00:03:06,159",
 "en": "variable space hex 16 byte aligned so the first thing would be 16 byte alignment in order to pad out the return address so if they're trying to stay 16 by the line so an address that ends in zero here if they're trying to stay 16 byte aligned and then they call a function that's going to naturally unalign it because the return address is going to get put on the stack and so then the compiler is going to compensate for that by adding at least hex 8 of padding in order to get back to a 16",
-"ja": ""
+"ja": "変数の領域を 16 バイト境界にそろえようとしているからです。まず、戻りアドレスのぶんを埋めるための 16 バイトアラインメントがあります。つまり、0 で終わるアドレスのように、16 バイト境界にそろえようとしているときに、関数を呼ぶと、戻りアドレスがスタックに置かれるので、当然そろわなくなります。そこでコンパイラは、少なくとも 16 進数の 8 のパディングを足して、16"
 },
 {
 "i": 6,
 "start": "00:03:04,959",
 "end": "00:03:36,879",
 "en": "byte aligned thing but then when it goes on to allocate space for local variables, I'm going to claim again it shall allocate in not less than hex 16 bytes at a time hex 10 at a time and that's what's going to lead to this over allocation for a single local variable but you might be saying to yourself you know that doesn't really add up because if that's all they were trying to do then you know why would they have this 16 and this 6 sorry this 8 and this 8 they could have left both of those out",
-"ja": ""
+"ja": "バイト境界に戻します。そして、ローカル変数の領域を確保するときには、一度に 16 バイト未満では確保せず、16 進数の 10 ずつ確保する、とここでもう一度主張します。それが、ローカル変数ひとつに対して多めに確保される理由です。でも、それだと辻褄が合わないと思うかもしれません。それだけが目的なら、この 16 と、この、すみません、この 8 と、この 8 は、どちらもなくてよいはずです。"
 },
 {
 "i": 7,
 "start": "00:03:36,000",
 "end": "00:04:07,920",
 "en": "and they would have still yielded a 16 by the line address this tail could have been placed right here and then everything would have still worked out all right well so you know why would i say something so controversial yet so brave the answer is because the data backs me up we can start doing simple empirical tests to try to see whether or not that holds true so i'm going to have some new simple code and i'm going to have two local variables i and j this one is a \"foldable football\"",
-"ja": ""
+"ja": "それでも 16 バイト境界のアドレスにはなったはずで、この tail はここに置けたはずですし、それでもちゃんと動いたはずです。では、なぜこんな物議をかもす、勇ましい主張をするのでしょうか。答えは、データが私を裏づけているからです。それが本当かどうかを、簡単な実験で確かめていきます。新しい簡単なコードを用意します。ローカル変数は i と j の 2 つです。こちらは「foldable football」"
 },
 {
 "i": 8,
 "start": "00:04:06,959",
 "end": "00:04:43,600",
 "en": "and this one is \"obstacles\" so paper football so you can now go ahead and build a stack diagram for this code and you should see some proof of what i was saying if i say that the allocations for local variables are in hex 16 sorry 16 hex 10 byte chunks at a time and microsoft wants to do not less than that then that would imply that when we have at least 16 bytes worth of data then it should perfectly fill this up without adding extra undefined padding on either side of it so let's see if",
-"ja": ""
+"ja": "で、こちらは「obstacles」です。紙のフットボールですね。では、このコードのスタック図を作ってみてください。私の言ったことの証拠が見えるはずです。ローカル変数の領域の確保が、16 進数の 10 バイト、つまり 16 バイトずつのかたまりで行われて、Microsoft がそれ未満にはしたくないのだとしたら、少なくとも 16 バイトぶんのデータがあるときには、両側に余分な未定義のパディングを足さずに、ぴったり埋まるはずです。では、それが"
 },
 {
 "i": 9,
 "start": "00:04:42,639",
 "end": "00:04:56,320",
 "en": "that's true go ahead and stop and go through the double local variable example and draw a stack diagram and see how it all plays out",
-"ja": ""
+"ja": "本当かどうか見てみましょう。ここで止めて、2 つのローカル変数の例を通して、スタック図を描いて、どうなるか確かめてください。"
 }
 ]
 }

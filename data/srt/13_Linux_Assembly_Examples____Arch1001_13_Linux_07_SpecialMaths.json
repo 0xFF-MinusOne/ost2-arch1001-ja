@@ -6,119 +6,119 @@
 "start": "00:00:00,080",
 "end": "00:00:35,840",
 "en": "okay the next example is SpecialMaths which before we went into specifically to see whether or not the special math form that we chose would cause an lea instruction to be generated because basically we said the math like this visual studio would prefer to create an lea so that it could do the base plus index time scale plus displacement so let's see if we get the same thing again so let's compile it and debug it okay so standard function prolog although this time we see that it is",
-"ja": ""
+"ja": "では次の例は SpecialMaths です。前に Visual Studio で見たときは、選んだ特別な計算の形で lea 命令が生成されるかどうかを確かめました。このような計算は、Visual Studio なら lea を作って、ベース + インデックス × スケール + ディスプレースメントを一度に計算したがる、と言いました。同じことが起きるか見てみましょう。コンパイルして、デバッグします。では、ふつうの関数のプロローグですが、今回は、"
 },
 {
 "i": 1,
 "start": "00:00:35,040",
 "end": "00:01:11,920",
 "en": "choosing to subtract from rsp so it's not going to be using the red zone for its stack frame it's going to create a more explicit one so actually I just realized we need to exit out because this takes an argvv of 1 so I was right to be doing this so we need to pass a argv of 1 into this thing so some number that's going to be passed to atoi and it from a string to an integer so let's pick a completely random number and let's restart it all right so stepping in all right right before subtracting 0x20 from the stack",
-"ja": ""
+"ja": "rsp からの引き算をしています。つまり、スタックフレームにレッドゾーンを使わず、もっとはっきりしたフレームを作るということです。そういえば、これは argv に 1 つ引数を取るので、いったん抜けなければなりません。やっておいて正解でした。atoi に渡して文字列から整数に変換するための、何かの数を、argv に 1 つ渡す必要があります。完全に適当な数を選んで、再起動しましょう。では、ステップインして、スタックから 0x20 を引く直前です。"
 },
 {
 "i": 2,
 "start": "00:01:08,880",
 "end": "00:01:52,159",
 "en": "let's step one more and now we have the stack pointer down at df40 and the base pointer at df60 so the first thing that's going to be done is moving edi to rbp minus 14. now we didn't see edi get set with anything because edi is one of the command was one of the arguments to the function main right so this main took an argc and an argv pointer to a pointer right so edi is the first argument it's going to be the argc so if we step over this we will see that edi or rdi was 2 and it was set to rbp minus 14. oh",
-"ja": ""
+"ja": "もう 1 ステップ進めると、スタックポインタが df40 に、ベースポインタが df60 になりました。最初にやるのは、edi を rbp - 14 に移すことです。edi に何かが設定されるのは見ていません。edi は、関数 main の引数の 1 つだからです。この main は、argc と、ポインタへのポインタである argv を取ります。edi は最初の引数で、argc になります。これをステップオーバーすると、edi、つまり rdi が 2 で、それが rbp - 14 に入るのが分かります。あ、"
 },
 {
 "i": 3,
 "start": "00:01:49,840",
 "end": "00:02:32,319",
 "en": "i forgot to put my display i'm going to put a display of we're gonna make these as let's do 8 bytes because this next thing's gonna be a pointer because it's putting rdi so 8 bytes at a time let's go with 4 giant words in hex at rbp minus 0x20 so this right there is rbp minus 8 10 and then 14. it's the most significant bytes of that particular 8 byte value so that's the 2 that just got written the argc and next the argv which is a char star star it's a pointer to a pointer array is going to",
-"ja": ""
+"ja": "display を入れるのを忘れていました。次は rdi を入れるのでポインタなので、8 バイトずつにしましょう。rbp - 0x20 から、16 進数で、ジャイアントワードを 4 つ表示します。ここが rbp - 8、10、そして 14 です。この 8 バイトの値の最上位のバイトで、今書き込まれた 2 が argc です。次に、char のポインタのポインタである argv、つまりポインタの配列は、"
 },
 {
 "i": 4,
 "start": "00:02:30,800",
 "end": "00:02:40,400",
 "en": "be put at rbp minus 20. so step over that and that's the value put to rbp minus 20.",
-"ja": ""
+"ja": "rbp - 20 に入れられます。これをステップオーバーすると、その値が rbp - 20 に入りました。"
 },
 {
 "i": 5,
 "start": "00:02:38,879",
 "end": "00:03:15,120",
 "en": "now if we wanted to see what our argv of 0 and argv of 1 looked like because we know it's a two element array we could take this and we could display it as two pointers so let's display two giant word pointers at that particular address and this is basically going to be argv of 0 and this is going to be argv of 1 we know that by convention argv of 0 is typically in for normal programs it's filled in with the name of the func of the executable that's actually running so if we examined this as a string and",
-"ja": ""
+"ja": "argv of 0 と argv of 1 が何なのか見たいときは、2 要素の配列だと分かっているので、これを 2 つのポインタとして表示できます。そのアドレスで、ジャイアントワードのポインタを 2 つ表示しましょう。これが argv of 0 で、これが argv of 1 です。慣例として、ふつうのプログラムの argv of 0 には、実行されている実行ファイルの名前が入っています。これを文字列として調べて、"
 },
 {
 "i": 6,
 "start": "00:03:13,680",
 "end": "00:03:48,959",
 "en": "then we put that address in we would expect to see the name of the executable and indeed that's what we see the full path to the name of the executable because we just let it be the default a.out and then we expect that this argv of 1 should be a string version of the number that we passed as the first parameter 31337 all right so that's what we would expect the argv of 0 and argv of 1 they're getting stored off into this saved area on the stack so let's keep on trucking it's going to pull out the argv",
-"ja": ""
+"ja": "そのアドレスを入れると、実行ファイルの名前が見えるはずで、実際にそのとおり、実行ファイルの名前のフルパスが見えます。デフォルトの a.out のままにしたからです。そして、この argv of 1 は、最初の引数として渡した数、31337 の文字列のはずです。はい、argv of 0 と argv of 1 は、そうなると予想できますね。これらは、スタックのこの保存用の領域に保存されます。では、進めましょう。argv を取り出して、"
 },
 {
 "i": 7,
 "start": "00:03:46,400",
 "end": "00:04:21,280",
 "en": "and put it into rax and then it's going to add 8 to that so basically the argv is going to be this and then add 8 means it's basically indexing in from argv of 0 which is what you'd get if you just took that address directly to argv of 1 so step over that add 8 and now it's going to actually dereference that address because basically it's holding the address pointing to argv of 1 but it needs to dereference that to get the pointer out the pointer that is pointing to the actual string",
-"ja": ""
+"ja": "rax に入れて、そこに 8 を足します。つまり、argv はこれで、8 を足すということは、argv of 0 から、そのアドレスをそのまま使った場合の、argv of 1 までインデックスで進める、ということです。ステップオーバーして、8 を足しました。次は、そのアドレスを実際に参照外しします。今持っているのは argv of 1 を指すアドレスですが、実際の文字列を指すポインタを取り出すために、参照外しが必要だからです。"
 },
 {
 "i": 8,
 "start": "00:04:17,359",
 "end": "00:04:53,680",
 "en": "so step over that that's in rax now and as you know again just to confirm to display that as a string that is the string for argv 1 like we would expect that's being passed as the first argument into atoi and so to be the first argument it needs to be moved from rax into rdi the register that's used for passing the first argument so step to that and then let's step over let's do next instruction to step over this call to ati atoi and then the rax value after atoi is the return value and so 7a69 is",
-"ja": ""
+"ja": "ステップオーバーすると、それが rax に入りました。もう一度、確認のために文字列として表示すると、それが argv 1 の文字列です。予想どおりです。これが、atoi の最初の引数として渡されます。最初の引数にするには、rax から rdi に移す必要があります。最初の引数を渡すのに使うレジスタです。そこまでステップして、次に、next instruction で、atoi の呼び出しをステップオーバーします。atoi のあとの rax の値が戻り値で、7a69 が、"
 },
 {
 "i": 9,
 "start": "00:04:52,360",
 "end": "00:05:29,039",
 "en": "31337 in hex so going back and looking at our source code for a second the output of atoi was put into a and then we're going to expect two times argc plus a coming up next okay so it's going to take the output of the atoi and put it into a so this would be where we would expect the a variable let's do that and we see it right there and then now rbp minus 14 is where the argc was stored before when it was storing the parameters passed into the function so it's pulling that out getting argc",
-"ja": ""
+"ja": "16 進数の 31337 です。ここでソースコードに戻って見ると、atoi の出力は a に入れられて、そのあとに、2 × argc + a が来るはずです。では、atoi の出力を取って a に入れるので、ここに a の変数があるはずです。表示すると、ほら、そこにあります。そして、rbp - 14 は、関数に渡されたパラメータを保存したときに argc を保存した場所です。そこから取り出して、argc を"
 },
 {
 "i": 10,
 "start": "00:05:26,880",
 "end": "00:06:05,120",
 "en": "back out putting into rax and then now it does have an lea but it's not the same sort of lea as we saw before whereas before visual studio set the base to the a and the index equal to the argc and the scale to be 2 because 2 times argc this is essentially doing argc plus argc it's doing argc plus argc plus 1 or times 1 rather uh and so that's basically just the 2 times argc using an lea as opposed to a multiply and so be it that's certainly one way you could do it and then it puts it into",
-"ja": ""
+"ja": "取り戻して、rax に入れます。そして今度は lea がありますが、前に見たものと同じ種類の lea ではありません。前に Visual Studio では、ベースを a に、インデックスを argc に、スケールを 2 にしていました。2 × argc だからです。今回は、実質的に argc + argc をしています。argc + argc + 1 ではなく、× 1 です。つまり、掛け算の代わりに lea を使って、2 × argc をしているだけです。それも 1 つのやり方です。そして、それを"
 },
 {
 "i": 11,
 "start": "00:06:02,880",
 "end": "00:06:44,160",
 "en": "edx and we can see that it's going to then take the value that it is stored for a pull it out and do the addition so this was the 2 argc going into eax or sorry edx and then that plus eax is going to be the plus a so step over that step over that and we'll just say rdx is 4, 2 times 2 step over that that's our 31337 and just add them together and the result goes into rax and so 7a 6d and then now we have a new assembly instruction leave leave before the return so what is this doing",
-"ja": ""
+"ja": "edx に入れます。そのあと、a に保存した値を取り出して足し算をします。2 × argc が eax、いえ edx に入っていて、それに eax を足すと、足し算の a の分になります。これをステップオーバー、これもステップオーバーして、rdx は 4 で、2 × 2 です。ステップオーバーすると、それが 31337 で、足し合わせた結果が rax に入ります。7a 6d です。そして、新しいアセンブリ命令の leave が、return の前にあります。これは何をしているのでしょうか。"
 },
 {
 "i": 12,
 "start": "00:06:42,639",
 "end": "00:07:16,160",
 "en": "now let's take a quick look at the stack again just to make sure so what leave does is it's basically very simply just taking what would be two assembly instructions and putting them into one that's the benefits of a complex architecture so basically you frequently would see in the past for unoptimized code that you know some compilers would generate instruction like move rbp to rsp and pop rbp because basically however much down the stack pointer has moved for creating the stack frame",
-"ja": ""
+"ja": "もう一度、念のためにスタックを少し見てみましょう。leave がやっているのは、とても単純で、2 つのアセンブリ命令になるものを 1 つにまとめることです。複雑なアーキテクチャの利点ですね。昔、最適化されていないコードでは、コンパイラによっては、rbp を rsp に移して、rbp を pop する命令を生成するのをよく見ました。スタックフレームを作るためにスタックポインタが下がった分、"
 },
 {
 "i": 13,
 "start": "00:07:14,160",
 "end": "00:07:45,759",
 "en": "if the rbp is always pointing at the base of the stack frame then you just move the stack pointer up to the base and then you pop off the saved rbp so what did our stack frame look like in this example well basically there's the return address to get outside of main there's the saved rbp right at the beginning of maine and then the first thing it did was sub rsp 0x20 so it went down by 0x20 allocated some space you got space for a which gets the a to atoi output and you've got the argc and argv the first",
-"ja": ""
+"ja": "rbp が常にスタックフレームの底を指しているなら、スタックポインタをその底まで戻して、保存された rbp を pop すればいいからです。では、この例のスタックフレームはどうなっていたでしょうか。main の外に出るための戻りアドレスがあって、main のいちばん最初に保存された rbp があり、そして最初にしたのが sub rsp 0x20 で、0x20 だけ下げて、領域を確保しました。a の領域があって、atoi の出力が a に入ります。そして argc と argv があります。最初と"
 },
 {
 "i": 14,
 "start": "00:07:43,680",
 "end": "00:08:14,000",
 "en": "and second parameter passed into main stored in this function parameter passing storage area red zone it's not touched at all in this code so basically you can see that the leave instruction by doing basically setting rsp equal to rbp it slides the rbp r sorry slides the rsp back up to here and then now the pop rbp is just going to take this old value and stick it back in before the return instruction just goes back to the previous code so basically you can just think of it like a",
-"ja": ""
+"ja": "2 番目のパラメータが、main に渡されて、この関数のパラメータ受け渡し用の保存領域に保存されます。レッドゾーンは、このコードではまったく触られていません。leave 命令は、基本的に rsp を rbp と等しくすることで、rsp をここまで戻します。そのあと pop rbp が、この古い値を取り出して、元に戻します。そして return 命令が前のコードに戻ります。つまり、そのように考えるだけで構いません。"
 },
 {
 "i": 15,
 "start": "00:08:12,000",
 "end": "00:08:48,080",
 "en": "leave is tearing down the stack frame all in one assembly instruction before you call the return instruction in order to return back to where you came from of course that doesn't exactly make thanos happy because he likes to see a good push at the beginning of a function and a pop at the end but you know so be it so we got another assembly instruction 31 and boom let the confetti fly and this is something that we'll see in other functions because this just happens to be something that",
-"ja": ""
+"ja": "leave は、return 命令で元の場所に戻る前に、スタックフレームの後始末を、1 つのアセンブリ命令でまとめてやってくれます。もちろん、関数の最初の良い push と最後の pop が好きなサノスは、これでは満足しませんが、まあ仕方ありません。これで、アセンブリ命令がもう 1 つ増えて、31 になりました。ドン、紙吹雪を飛ばしましょう。この命令は、ほかの関数でも見ることになります。たまたま、"
 },
 {
 "i": 16,
 "start": "00:08:43,680",
 "end": "00:08:48,080",
 "en": "gcc prefers to generate",
-"ja": ""
+"ja": "gcc が生成したがるものだからです。"
 }
 ]
 }

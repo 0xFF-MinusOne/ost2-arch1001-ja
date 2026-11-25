@@ -6,7 +6,7 @@
 "start": "00:00:00,080",
 "end": "00:00:36,640",
 "en": "now I know ThereWillBe0xb100d was probably one of your favorite examples but I'm here to tell you that that is a very boring example here because the use of rep stos in that case in order to you know set the thing to 0xCCs was just something that is visual studio runtime debugging exclusive so when we compile this and we debug it the output is that boring version of just doing exactly what you expect just putting 42 into the array sorry",
-"ja": ""
+"ja": "ThereWillBe0xb100d は、たぶん皆さんのお気に入りの例の一つだったと思いますが、こちらでは、とても退屈な例になります。あの例で rep stos を使って 0xCC で埋めていたのは、Visual Studio のランタイムデバッグだけの動作だったからです。これをコンパイルしてデバッグすると、出力は、期待したとおりのことをするだけの、退屈な版です。配列に 42 を入れるだけです、すみません。"
 }
 ]
 }

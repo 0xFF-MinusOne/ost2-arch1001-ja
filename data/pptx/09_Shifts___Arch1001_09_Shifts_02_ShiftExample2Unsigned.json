@@ -5,121 +5,121 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ShiftExample2.c",
-"ja": ""
+"ja": "ShiftExample2.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "ShiftExample2Unsigned.c",
-"ja": ""
+"ja": "ShiftExample2Unsigned.c"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "unsigned int a, b, c;",
-"ja": ""
+"ja": "unsigned int a, b, c;"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "a = atoi(argv[1]);",
-"ja": ""
+"ja": "a = atoi(argv[1]);"
 },
 {
 "i": 30,
 "where": "スライド3",
 "en": "😱Where are the multiply and divide instructions?!🙀",
-"ja": ""
+"ja": "😱乗算命令と除算命令はどこ?!🙀"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "Note: Compiled with /O2 “Maximize Speed”, to clear away a bit of cruft",
-"ja": ""
+"ja": "注: 余分なものを減らすため、/O2「速度の最大化」でコンパイル"
 },
 {
 "i": 32,
 "where": "スライド4",
 "en": "ShiftExample2Unsigned.c Takeaway",
-"ja": ""
+"ja": "ShiftExample2Unsigned.c のまとめ"
 },
 {
 "i": 33,
 "where": "スライド4",
 "en": "When a multiply or divide is by a power of 2, compilers prefer shift instructions as a more efficient way to perform the computation",
-"ja": ""
+"ja": "2 の累乗での乗算・除算では、コンパイラはより効率的なシフト命令を選ぶ"
 },
 {
 "i": 38,
 "where": "スライド5",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 40,
 "where": "スライド5",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 }
 ]
 }

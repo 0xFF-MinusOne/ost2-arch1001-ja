@@ -6,42 +6,42 @@
 "start": "00:00:00,240",
 "end": "00:00:31,279",
 "en": "so like I said because there's a bitwise and but it's not actually storing the result anywhere the compiler generates a test which does an and but doesn't store the result and then I said you should understand all the other assembly in here but if you went through this example and you read it carefully you should basically say no professor X you know I don't understand why there's two jumps like this jump should never ever be reachable it's not referenced anywhere nothing else says like jump to",
-"ja": ""
+"ja": "先ほど言ったように、ビット単位の and はありますが、結果をどこにも保存していないので、コンパイラは、and を行って結果を保存しない test を生成します。ここにあるそのほかのアセンブリは、すべて理解できるはずだと言いました。でも、この例をよく読んだ方は、こう言うでしょう。「X 教授、なぜここに jmp が 2 つあるのか分かりません。この jmp には絶対に到達できないはずです。どこからも参照されていませんし、ほかに 1029 へ jump するというものもありません。"
 },
 {
 "i": 1,
 "start": "00:00:28,560",
 "end": "00:01:07,680",
 "en": "1029 and this jump immediately before it is going to jump over it and so you're right it doesn't make a lick of sense and that's because we are again doing unoptimized code generation so if you tell the compiler to be stupid it's going to be stupid and it's going to just generate things on different patterns that it has about how it should behave based on the source code so this is straight up an artifact and unreachable and an unreachable instruction so we picked up one more assembly",
-"ja": ""
+"ja": "その直前の jmp が、これを飛び越えてしまいます」。そのとおりで、まったく意味がありません。これは、今回も最適化なしのコード生成をしているからです。コンパイラに「愚かであれ」と指示すれば、そのとおり愚かになります。ソースコードにもとづいて、どうふるまうべきかというパターンから、そのまま生成するだけです。つまり、これは完全にコンパイラの副産物で、到達できない命令です。これで、アセンブリ命令をもう 1 つ覚えました。"
 },
 {
 "i": 2,
 "start": "00:01:06,479",
 "end": "00:01:27,040",
 "en": "instruction that is the test instruction coming in at a whopping six percent and with that achievement unlocked we've now completed the 100% of all these assembly instructions and what are we on we're only on assembly instruction 22.",
-"ja": ""
+"ja": "test 命令で、なんと 6% を占めています。これで、これらのアセンブリ命令の 100% を達成しました。覚えたアセンブリ命令は、まだ 22 個です。"
 },
 {
 "i": 3,
 "start": "00:01:23,920",
 "end": "00:01:55,360",
 "en": "that is super cool! Now theoretically you can go read web browser assembly and understand everything that goes on there except for this other which covers a bunch of miscellaneous stuff who knows what that covers but great kid don't get cocky, you basically just learned how to pronounce the alphabet! So yes you've just learned you know 22 assembly instructions and yes that covered all the assembly instructions in that particular case but the reality is that reading assembly is kind of like",
-"ja": ""
+"ja": "これはすごいことです。理論上は、Web ブラウザのアセンブリを読んで、そこで起きていることを、すべて理解できます。ただし、さまざまなものをまとめた、この other は別です。何が入っているかは分かりません。でも、調子に乗らないでください。アルファベットの発音を覚えたばかりなのですから。そう、22 個のアセンブリ命令を覚えましたし、その場合は、すべてのアセンブリ命令を網羅しました。でも実際には、アセンブリを読むことは、ちょうど"
 },
 {
 "i": 4,
 "start": "00:01:53,759",
 "end": "00:02:20,879",
 "en": "learning another language and so you may go off and learn how to pronounce the alphabet, you may learn a few couple words but you're not really going to understand the language until you practice it a bunch. You have to read a ton of assembly, you need to write a little bit of assembly but you have to do it over and over and over and over again just like learning any other normal human language so while this is a super important and noteworthy achievement you are probably not going to be able to",
-"ja": ""
+"ja": "別の言語を学ぶようなものです。アルファベットの発音や、いくつかの単語は覚えられても、たくさん練習しないと、その言語は理解できません。大量のアセンブリを読み、少しのアセンブリを書き、それを何度も何度も繰り返す必要があります。ふつうの人間の言語を学ぶのと同じです。ですから、これはとても重要で注目すべき成果ですが、おそらく"
 },
 {
 "i": 5,
 "start": "00:02:18,959",
 "end": "00:02:41,760",
 "en": "just go off and disassemble a complete web browser and expect to be able to read things you're going to need a lot of practice between now and then and hopefully this class will give you plenty of practice and that's why we're going to have a lab example later on just to show you how difficult it is to go from memorizing assembly instructions to actually reading code",
-"ja": ""
+"ja": "完全な Web ブラウザを逆アセンブルして、すぐに読めるわけではありません。それまでには、たくさんの練習が必要で、この講座で十分な練習ができるとよいと思います。そのため、あとで演習の例を用意しています。アセンブリ命令を暗記することと、実際にコードを読むことの間に、どれほどの難しさがあるかを示すためです。"
 }
 ]
 }

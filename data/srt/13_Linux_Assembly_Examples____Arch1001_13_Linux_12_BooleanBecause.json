@@ -6,42 +6,42 @@
 "start": "00:00:00,160",
 "end": "00:00:38,960",
 "en": "we're going to do some examples that should cause boolean operations to appear so let's start with BooleanBecause and as a reminder this was taking 0x50da into i 0xc0ffee into j 0x7ea707a11ed into k and then from the order of operations it would do i and j and then it would not that result and then it would or that result with 0x7ab00 and then it would xor that result with k and store it back into k because this is an xor equals it's basically k xor k stored back into k sorry k xor end",
-"ja": ""
+"ja": "論理演算が出てくるはずの例をいくつかやります。まず BooleanBecause から始めます。思い出してください。これは、0x50da を i に、0xc0ffee を j に、0x7ea707a11ed を k に入れます。そして、演算の順序に従って、i と j の and を取り、その結果の not を取り、その結果と 0x7ab00 の or を取り、その結果と k の xor を取って、k に戻します。これは xor イコールなので、基本的に k と、これまでの結果との xor を、k に戻します。"
 },
 {
 "i": 1,
 "start": "00:00:36,880",
 "end": "00:01:18,560",
 "en": "result of this store back into k all right so let's compile that and see the assembly so from before we expected that an and would happen first and then a not on the result and then an or with 0x7ab00 and then an xor of k back into the result of all this so let's go ahead and just you know step through and watch the what's the wonder of the math so stack frame setup and then 0x50da into i so i must be at rbp minus 4 j must be at rbp minus 8 and k 0x7ea707a11ed into rax but then rax goes",
-"ja": ""
+"ja": "では、コンパイルして、アセンブリを見てみましょう。前に見たとおり、最初に and があり、その結果の not があり、そのあと 0x7ab00 との or があり、最後に k とこれまでの結果との xor がある、と予想できます。では、ステップ実行して、計算の不思議を見ていきましょう。まず、スタックフレームを作り、0x50da を i に入れます。つまり、i は rbp マイナス 4、j は rbp マイナス 8 のはずで、k の 0x7ea707a11ed は rax に入りますが、そのあと rax が"
 },
 {
 "i": 2,
 "start": "00:01:16,799",
 "end": "00:01:21,200",
 "en": "into rbp minus 10.",
-"ja": ""
+"ja": "rbp マイナス 10 に入ります。"
 },
 {
 "i": 3,
 "start": "00:01:18,560",
 "end": "00:02:06,880",
 "en": "so step step step writing some stuff there and then pulling it back out so we're gonna take the i and we're going to put in the eax and we're going to and that with the j and then put that result back into eax so step 0x50da and added together is going to yield 0x50ca and then notted 0xffffaf35 and ored with 0x7ab00 and no meaningful change there did i it's going back in the same register yes it is so none of the bits sort of were different there faf3 yup same thing all right and then mov eax to eax",
-"ja": ""
+"ja": "ステップ、ステップ、ステップ。ここで何か書き込んで、また取り出します。i を取って eax に入れて、j と and を取って、その結果を eax に戻します。ステップ。0x50da との and を取ると 0x50ca になり、not を取ると 0xffffaf35 になり、0x7ab00 と or を取っても、意味のある変化はありません。同じレジスタに戻るでしょうか。はい、そうです。どのビットも変わりませんでした。faf3、はい、同じです。そのあと mov eax, eax です。"
 },
 {
 "i": 4,
 "start": "00:02:04,560",
 "end": "00:02:17,920",
 "en": "whole bunch of nothing going on there thanks to unoptimized compilation now xor rax with rbp minus 10.",
-"ja": ""
+"ja": "最適化されていないコンパイルのおかげで、何も起きない命令がたくさんあります。次に、rax と rbp マイナス 10 の xor です。"
 },
 {
 "i": 5,
 "start": "00:02:15,120",
 "end": "00:02:48,000",
 "en": "that was the 0x7ea707a11ed that was the k value so this was the result and it's taking the result right here and xoring it with the k value and then it's going to store it back into k and sorry to be clear it's taking this value out of memory xoring it with the result that we have thus far and storing it back in because you know the operations are this xor that into that step and then plucking it out of that and putting in an rax so we can return it and that is the net result",
-"ja": ""
+"ja": "それが 0x7ea707a11ed で、k の値でした。ここにある結果を取って、k の値と xor して、それを k に戻します。はっきり言うと、メモリからこの値を取り出して、これまでの結果と xor して、格納し直します。演算が、これとあれの xor で、あれに入れる、というものだからです。ステップ。そして、それを取り出して rax に入れて、返せるようにします。これが最終的な結果です。"
 }
 ]
 }

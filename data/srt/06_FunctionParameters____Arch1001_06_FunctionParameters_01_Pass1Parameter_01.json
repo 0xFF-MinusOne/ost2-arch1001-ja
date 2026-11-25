@@ -6,7 +6,7 @@
 "start": "00:00:00,000",
 "end": "00:00:24,560",
 "en": "so thus far we've seen calling a function and we've seen local variables and now we're going to expand that by calling a function that takes a parameter so what do you think i'm going to want out of you in this exercise the same thing we do every exercise step through the assembly draw stack diagram and try to take over the world",
-"ja": ""
+"ja": "ここまでで、関数を呼び出すことと、ローカル変数を見てきました。今度は、引数を 1 つ取る関数を呼び出す例で、それを広げます。この演習で、私が皆さんに求めることは何でしょうか。毎回の演習と同じです。アセンブリをステップ実行して、スタックの図を描いて、世界征服を目指してください。"
 }
 ]
 }

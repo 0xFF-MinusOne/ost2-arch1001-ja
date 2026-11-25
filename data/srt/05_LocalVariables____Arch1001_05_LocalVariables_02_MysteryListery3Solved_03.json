@@ -6,21 +6,21 @@
 "start": "00:00:00,04",
 "end": "00:00:27,8",
 "en": "Okay, So what you should have seen is proof of what I was saying in that when we have 16 bytes worth of local variables than visual studio perfectly fills it in with 16 bytes, there's no extra padding associated with it Only this extra alignment padding that comes after the return address So that basically is separating local variable padding to keep it 16 byte aligned from return address padding in order to keep it 16 byte aligned And again,",
-"ja": ""
+"ja": "では、私が言っていたことの裏づけが見えたはずです。ローカル変数が 16 バイト分あるときは、Visual Studio はちょうど 16 バイトで埋めていて、余分なパディングはありません。あるのは、戻りアドレスのあとに来る、このアラインメントのためのパディングだけです。つまり、ローカル変数のパディングは 16 バイトにそろえるためのもので、戻りアドレスのパディングも 16 バイトにそろえるためのもので、この二つは別のものです。そしてここでも、"
 },
 {
 "i": 1,
 "start": "00:00:27,81",
 "end": "00:00:49,3",
 "en": "Microsoft could have over optimize and when you have only a single variable they could have collapsed it down But you know, it's much better to have sort of simple code doing the same thing in all cases, instead of trying to over optimize for one particular case just to save a couple of bytes that really has no implication on code,",
-"ja": ""
+"ja": "Microsoft は過剰に最適化して、変数が一つだけのときは小さくまとめることもできたはずです。でも、特定の場合のために過剰に最適化して、数バイトを節約しようとするより、どの場合でも同じことをする単純なコードのほうが、ずっと良いのです。数バイト節約しても、コードの実行時間などには"
 },
 {
 "i": 2,
 "start": "00:00:49,3",
 "end": "00:01:16,75",
 "en": "execution time or anything else And just in case you don't believe me yet, we can have one further empirical test where we can go greater than 16 bytes, so we can now have three local variables and let's see what the stack is going to look like For that Go ahead, stop and walk through the assembly, draw a stack diagram and see whether or not they keep the local variable space 16 byte aligned and whether or not there's any padding within there",
-"ja": ""
+"ja": "何の影響もありません。まだ信じられないという人のために、さらにもう一つ、実際に確かめる方法があります。16 バイトより大きい場合を見てみましょう。ローカル変数を三つにして、スタックがどうなるか見ます。ここで一度止めて、アセンブリを順に追い、スタックの図を描いて、ローカル変数の領域が 16 バイトにそろっているか、その中にパディングがあるかを確かめてください。"
 }
 ]
 }

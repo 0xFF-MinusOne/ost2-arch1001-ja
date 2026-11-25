@@ -6,217 +6,217 @@
 "start": "00:00:00,480",
 "end": "00:00:39,920",
 "en": "all right let's see how we run the binary bomb lab on a Windows system in windbg so inside of the source code that you checked out for this class there is a folder binary bom lab and inside of that is Windows folder with a bomb.exe and a bomb.pdb let's go ahead and copy those to our desktop and then we're going to open up windbg from within windbg we go to file open executable and on our desktop we open the bomb.exe okay so there's no output yet because it's broken at the standard system break",
-"ja": ""
+"ja": "では、Windows システムの windbg で、バイナリ爆弾ラボを実行する方法を見ましょう。この講義のためにチェックアウトしたソースコードの中に、binary bomb lab というフォルダがあって、その中に Windows フォルダがあり、bomb.exe と bomb.pdb が入っています。それをデスクトップにコピーして、windbg を開きます。windbg で、ファイルから実行ファイルを開くを選び、デスクトップの bomb.exe を開きます。まだ何も出力がありません。最初の標準のシステムブレーク"
 },
 {
 "i": 1,
 "start": "00:00:38,559",
 "end": "00:01:12,640",
 "en": "point at the beginning so let's just go ahead and hit g for go to see what happens after I bump up the font size a little bit for you all right g to go go back to the executable user interface it prints out welcome to my fiendish little bomb you have 6 phases with which to blow yourself up have a nice day and then we've got a little blinking cursor here so it's probably expecting some sort of input so I'm going to go ahead and give it some sort of input and when I hit enter boom the binary",
-"ja": ""
+"ja": "ポイントで止まっているからです。では、g で実行を再開して、何が起きるか見ましょう。その前に、フォントを少し大きくします。では、g で実行ファイルのユーザーインターフェースに戻ると、welcome to my fiendish little bomb you have 6 phases with which to blow yourself up have a nice day と表示されて、点滅するカーソルがあります。何か入力を待っているようなので、何か入力してみます。Enter を押すと、ドン。バイナリ"
 },
 {
 "i": 2,
 "start": "00:01:12,080",
 "end": "00:01:47,119",
 "en": "bomb has blown up so the goal of this lab is to figure out what are the inputs that this binary executable is expecting in order to avoid these explosions so what does one do when one is faced with a completely black box binary executable that is doing something that we have no idea how to influence its behavior well we look at the assembly of course so let's go ahead and restart this and try again we can you know just look at the assembly straight up but hey we've got a debugger and so",
-"ja": ""
+"ja": "爆弾が爆発しました。このラボの目標は、この爆発を避けるために、このバイナリの実行ファイルが期待している入力が何なのかを、突き止めることです。では、挙動をどう左右すればいいか全然分からない、完全なブラックボックスのバイナリの実行ファイルを前にしたら、何をすればいいでしょうか。もちろん、アセンブリを見ます。では、再起動して、もう一度やりましょう。アセンブリをそのまま見ることもできますが、せっかくデバッガがあるので、"
 },
 {
 "i": 3,
 "start": "00:01:44,960",
 "end": "00:02:21,040",
 "en": "since we're not you know analyzing known malware we should always use a debugger or use dynamic analysis whenever possible and you know use our supplemental static analysis are reading the code as you know appropriate so let's go ahead and restart the program and it's going to be broken up system breakpoint again now I gave you the pdb file for this that's the debug symbol information so you're not going to have that for most real programs but we've got it so let's use it so reload the symbols and let's",
-"ja": ""
+"ja": "既知のマルウェアを解析しているわけではないので、できる限りデバッガを使う、つまり動的解析を使うべきです。そして、コードを読む静的解析は、適切なときに補助として使います。では、プログラムを再起動しましょう。またシステムブレークポイントで止まります。今回は、このための pdb ファイルを渡してあります。デバッグシンボルの情報です。ふつうの実際のプログラムには、これはありませんが、今回はあるので、使いましょう。シンボルを再読み込みして、"
 },
 {
 "i": 4,
 "start": "00:02:18,720",
 "end": "00:03:05,200",
 "en": "examine let's first set a breakpoint at main and then using gdb syntax breakpoint at main and then let's unassemble the function main and just kind of like skim over it and see you know what do we see what's going on at this thing all right so at the very beginning of main we see some stuff that looks sort of like stores to the shadow stack or shadow store rather we see push rbp push rdi and if we see a balance to that then we might expect that it is a caller-save register save and",
-"ja": ""
+"ja": "調べましょう。まず main にブレークポイントを置きます。gdb の構文で、main にブレークポイントです。そのあと、main 関数を逆アセンブルして、ざっと眺めて、何が見えるか、何が起きているか確認しましょう。main のいちばん最初に、シャドウスタック、いえシャドウストアへの格納のように見えるものがあります。push rbp、push rdi があって、それとつり合うものがあれば、呼び出し先が保存するレジスタの保存だと予想できます。"
 },
 {
 "i": 5,
 "start": "00:03:03,519",
 "end": "00:03:38,159",
 "en": "indeed we do see balance we see the corresponding pops at the end so perfectly balanced as all things should be all right what else do we see we see a sub allocating some space on the stack lea mov blah blah blah we've got a rep stos and we've got CCs so that seems to be that kind of buffer initialization stuff that we see in debug build code seems like when I compiled this I didn't turn off all of that cruft so you're going to see some cruft here which you should of course ignore",
-"ja": ""
+"ja": "実際に、つり合うものがあって、最後に対応する pop が見えます。すべてのものがそうあるべきように、完璧にバランスが取れています。ほかに何があるでしょうか。スタックに領域を確保する sub があって、lea、mov、などがあります。rep stos と、CC があるので、デバッグビルドのコードによく見る、バッファの初期化のようなものです。コンパイルしたときに、そうしたよけいなものを全部は切っていなかったようです。ここには、無視してよいよけいなものがあります。"
 },
 {
 "i": 6,
 "start": "00:03:36,239",
 "end": "00:04:16,320",
 "en": "got other stuff like this check for debugger just my code that has to do with the just my code debugging stuff that we normally turned off but which I left on here so cruft cruft you know skip the cruft and then you know we could keep reading we could see okay setting eax ecx to 0 call to imp acrt_iob_func you know I don't know what that is whatever just keep going all right next call imp fopen all right I might know what fopen is that seems to be file system opening from normal you know file system",
-"ja": ""
+"ja": "ほかに、デバッガのチェックのようなものや、just my code のものがあります。これは、ふだんは切っているものですが、ここでは入れたままにしてあります。よけいなものは、飛ばしましょう。そして、さらに読み進めると、eax と ecx を 0 にして、imp acrt_iob_func の呼び出しがあります。それが何かは分かりませんが、気にせず進みます。次に imp fopen の呼び出しです。fopen は、たぶん分かります。ふつうのファイルシステムへのアクセスで、ファイルを開くもののようです。"
 },
 {
 "i": 7,
 "start": "00:04:13,760",
 "end": "00:04:47,600",
 "en": "access stuff uh we got some stuff that looks like indexes you got you know movs and imuls you know index 1 index 0 something uh we got a call to printf we got a call to exit and you know quite frankly we can just keep reading this but again static analysis where appropriate but we've got a debugger so let's go ahead and use it so let's go ahead and continue on let's go and let the thing run now we're going to hit the break point on main that I set so we're now in main and let's just go ahead and you",
-"ja": ""
+"ja": "インデックスのように見えるものがあります。movs と imul があって、インデックス 1、インデックス 0 のようなものです。printf の呼び出しと、exit の呼び出しがあります。正直なところ、このまま読み進めることもできますが、静的解析は適切なときに使うもので、デバッガがあるので、使いましょう。では、続行して、動かしてみましょう。置いておいた main のブレークポイントに止まりました。今は main の中にいます。では、"
 },
 {
 "i": 8,
 "start": "00:04:46,320",
 "end": "00:05:20,960",
 "en": "know step through main and see where it goes down here in the disassembly window we've got set to at dollar sign scopeip so it's going to be just following along as we go so let's put in p for step and that'll be doing a step over of these various assembly instructions so let's just you know step and see where it leads us so I can just keep hitting enter it'll just keep repeating the p command step over the cruft buffer initialization rep stops just my code debugging stepping stepping",
-"ja": ""
+"ja": "main の中をステップ実行して、どこに行くか見ましょう。ここの逆アセンブルのウィンドウは、at dollar sign scopeip に設定されているので、進むのについてきます。では、ステップの p を入力します。これで、いろいろなアセンブリ命令をステップオーバーします。ステップして、どこに行くか見てみましょう。Enter を押し続けると、p コマンドが繰り返されます。よけいなバッファ初期化の rep stos と、just my code のデバッグを、ステップオーバーします。ステップ、ステップ、"
 },
 {
 "i": 9,
 "start": "00:05:20,080",
 "end": "00:05:53,440",
 "en": "stepping don't know what they do cool oh whoa where did what just happened all right I just jumped somewhere and where I jumped to was a call to initialize bomb all right well that's interesting and I stepped over it and doesn't look like there was any output so whatever now I see some printfs coming up so a printf a printf and then something called read line all right well we know it takes some sort of input so that's probably where it's getting its input let's go ahead and step over these first",
-"ja": ""
+"ja": "ステップ。何をするものかは分かりません。いいですね。おっと、何が起きたのでしょうか。どこかにジャンプして、ジャンプした先は initialize bomb の呼び出しでした。それは面白いですね。それをステップオーバーしましたが、何も出力はなかったようです。まあいいでしょう。次に printf がいくつか来ます。printf、printf、そして read line というものがあります。何か入力を受け取るはずなので、おそらくそこで入力を受け取るのでしょう。まず、最初の"
 },
 {
 "i": 10,
 "start": "00:05:52,320",
 "end": "00:06:29,680",
 "en": "printf all right that's the first line step over the second printf and that is the second line so now this read line is probably where it's going to be expecting my input so let's go ahead and step over that and now you can see that all of a sudden the debugger becomes inaccessible I can't put commands in the window it says busy here and that's because basically this is sitting here waiting for input continuously so we need to provide some sort of input and we do that and then finally it you know steps the",
-"ja": ""
+"ja": "printf をステップオーバーします。これが 1 行目です。2 つ目の printf をステップオーバーします。これが 2 行目です。そして、この read line が、おそらく入力を待つところです。これをステップオーバーすると、急に、デバッガが操作できなくなります。ウィンドウにコマンドを入れられず、ここに busy と表示されます。ずっと入力を待ち続けているからです。そこで、何か入力を与える必要があります。入力すると、やっと、"
 },
 {
 "i": 11,
 "start": "00:06:28,240",
 "end": "00:07:03,680",
 "en": "step over read line finishes and now we've exited the read line function all right so from this point next up I see some calls to phase 1 phase defused I see a printf and I see a read line okay so let's just keep you know stepping see what happens so phase 1 and phase 1 defused are right adjacent to each other so I would expect that if I even get out of phase 1 I should immediately go into phase defused uh skimming down again printf read line but then I can see phase 2 coming up",
-"ja": ""
+"ja": "read line のステップオーバーが終わって、read line 関数から出ました。ここから先に、phase 1 と phase defused の呼び出しが見えます。printf と、read line があります。では、ステップを続けて、何が起きるか見てみましょう。phase 1 と phase 1 defused は、すぐ隣にあります。ですから、phase 1 を抜けられたら、すぐに phase defused に入るはずです。もう一度ざっと下を見ると、printf と read line があって、その先に phase 2 も見えます。"
 },
 {
 "i": 12,
 "start": "00:07:02,240",
 "end": "00:07:42,240",
 "en": "here as well so basically what I expect is phase 1 is going to be expecting some input and if I successfully get out of it phase is defused and then it moves on to phase 2 so that means I need to figure out what phase 1 is expecting that probably is where the the checks of input are happening so let's step into phase 1 instead of stepping over it oops sorry gdb syntax again it's getting me t for trace to step into phase 1 all right there's a extra little jump thing again because of the",
-"ja": ""
+"ja": "ここにもあります。つまり、phase 1 が何か入力を期待していて、うまく抜けると phase defused になって、phase 2 に進む、と予想できます。ということは、phase 1 が何を期待しているかを突き止めればよく、おそらくそこで入力のチェックが行われています。では、phase 1 をステップオーバーせずに、ステップインしましょう。おっと、また gdb の構文でした。トレースの t で、phase 1 にステップインします。コンパイルの仕方のせいで、また余分な小さなジャンプがあります。"
 },
 {
 "i": 13,
 "start": "00:07:38,880",
 "end": "00:08:21,120",
 "en": "particular way I compiled it okay so now we're in phase 1 and again if we unassemble function phase 1 you can see you know what's going on at a high level view okay so we've got some cruft here again yep so phase 1 starts right there got some cruft we got rep stos we got check for debugger let's skip all over that and then what do we got all right we have an lea of something into rdx we've got a mov of a qword some in some data into rcx and then we have a strings not equal function being",
-"ja": ""
+"ja": "さて、phase 1 の中に来ました。また、phase 1 関数を逆アセンブルすると、高いレベルから見て何が起きているか分かります。ここにまたよけいなものがありますね。phase 1 はそこから始まります。rep stos と、デバッガのチェックがありますが、そこは全部飛ばしましょう。それで、何があるでしょうか。何かを rdx に lea しています。データのクワッドワードを rcx に mov しています。そして、strings not equal 関数が"
 },
 {
 "i": 14,
 "start": "00:08:20,000",
 "end": "00:08:50,560",
 "en": "called now I don't know about you but if I see something called strings not equal I am thinking that probably the code is going to take 2 pointers to strings and then go through and walk through byte by byte and see whether they're equal or not so what I really want to do is I want to step right up to the strings not equal I don't necessarily want to go into it yet I could I could go you know disassemble it but I just want to see what are the inputs to strings not equal so let's go ahead and you know run to",
-"ja": ""
+"ja": "呼ばれています。みなさんは分かりませんが、私は、strings not equal という名前のものを見たら、おそらくこのコードは、文字列へのポインタを 2 つ受け取って、1 バイトずつたどって、等しいかどうかを調べるのだろうと思います。ですから、strings not equal の直前まで進めたいのです。まだ中に入る必要はありません。逆アセンブルすることもできますが、strings not equal への入力が何かを見たいだけです。では、"
 },
 {
 "i": 15,
 "start": "00:08:49,760",
 "end": "00:09:22,240",
 "en": "cursor and get ourselves right up to that so I'm going to scroll down I'm going to click on this line I'm going to hit this run to cursor all right right up to strings not equal now the question is you know what are the inputs to that well we can see there's you know rcx is getting set rdx is getting set right before that so that kind of implies that those are two different parameters here now if you don't remember the calling conventions for Windows you can of course go back and",
-"ja": ""
+"ja": "カーソルまで実行して、その直前まで進めましょう。下にスクロールして、この行をクリックして、カーソルまで実行を押します。はい、strings not equal の直前まで来ました。さて、その入力は何でしょうか。直前に、rcx と rdx が設定されているので、これらが 2 つの別々の引数だと推測できます。Windows の呼び出し規約を覚えていなければ、もちろん戻って"
 },
 {
 "i": 16,
 "start": "00:09:20,720",
 "end": "00:09:58,240",
 "en": "look at it but the first argument it would be into rcx and the second argument into rdx so therefore I want to see what is rcx what is rdx well both of them look kind of like pointerish values you know they don't look like specific constants or anything like that so if I think these are pointers and if I think they're pointing at strings then it behooves me to go examine those things as strings so the da command lets you look at display memory as a ASCII string so I'm going to go ahead and do da on",
-"ja": ""
+"ja": "確認できますが、最初の引数は rcx に、2 番目の引数は rdx に入ります。そこで、rcx と rdx が何かを見たいです。どちらも、ポインタのような値に見えます。特定の定数のようには見えません。これらがポインタで、文字列を指していると考えるなら、それを文字列として調べるのがよさそうです。da コマンドを使うと、メモリを ASCII 文字列として表示できます。では、rcx に da を使ってみましょう。"
 },
 {
 "i": 17,
 "start": "00:09:57,200",
 "end": "00:10:26,240",
 "en": "rcx that's my first argument if I do that I get input that was the input that I gave the binary bomb now let's do da on the second argument and see what I see there all right da on that is going to give me the string I am just a renegade hockey mom.",
-"ja": ""
+"ja": "これが最初の引数です。実行すると、input が出ました。これは、バイナリ爆弾に私が入力したものです。では、2 番目の引数にも da を使って、何が見えるか見ましょう。da を実行すると、I am just a renegade hockey mom. という文字列が出ました。"
 },
 {
 "i": 18,
 "start": "00:10:24,560",
 "end": "00:10:36,399",
 "en": "okay well that's interesting we have a thing called strings not equal being called where it's taking my input and it's taking a string I am just a renegade hockey mom.",
-"ja": ""
+"ja": "面白いですね。strings not equal というものが呼ばれて、私の入力と、I am just a renegade hockey mom. という文字列を受け取っています。"
 },
 {
 "i": 19,
 "start": "00:10:34,720",
 "end": "00:11:10,160",
 "en": "which I definitely didn't put into this program so one might reasonably expect that this is the input that it's expecting but we now are feeding an input it's you know not expecting so let's see what happens next well after this call there is a test eax eax and basically if the result of that is 0 it's going to jump somewhere and if the result of that is non-zero then it's going to call explode bomb on this next line well that's obviously something we want to avoid we don't want to explode this",
-"ja": ""
+"ja": "この文字列は、私がこのプログラムに入力したものではありません。ですから、これが期待されている入力だと考えるのは妥当ですが、今は期待していない入力を与えています。では、次に何が起きるか見てみましょう。この呼び出しのあとに test eax eax があって、その結果が 0 ならどこかにジャンプし、0 以外なら、次の行で explode bomb を呼びます。それは明らかに避けたいことです。この爆弾を"
 },
 {
 "i": 20,
 "start": "00:11:09,200",
 "end": "00:11:52,720",
 "en": "bomb so we want this to be 0 because test is like an and instruction and 0 and 0 will be 0 and jump equal would then jump over it specifically to 2062 which if we check is right here right after 2062 so it's basically just jumping over the call to explode bomb so we want this to return 0 let's see what it actually returns by stepping over it all right we see rax is equal to 1 so that's not 0 that's not what we want and that means that this thing is going to call to explode bomb there we go the jump",
-"ja": ""
+"ja": "爆発させたくありません。ですから、これは 0 にしたいのです。test は and 命令のようなもので、0 and 0 は 0 になり、jump equal が、それを飛び越えてジャンプするからです。具体的には 2062 で、確認すると、ここにあります。2062 のすぐあとです。つまり、explode bomb の呼び出しを飛び越えるだけです。ですから、これが 0 を返してほしいのです。ステップオーバーして、実際に何が返るか見てみましょう。rax が 1 になっています。0 ではないので、望んだ結果ではありません。つまり、explode bomb が呼ばれます。ほら、ジャンプ"
 },
 {
 "i": 21,
 "start": "00:11:50,480",
 "end": "00:12:28,320",
 "en": "zero was not taken the jump equal was not taken and so now it's going to call to explode bomb if we do that step over that then boom this process is terminated and the output is boom the bomb has blown up okay well now we have a reasonable expectation that probably the thing that this program is looking for for this particular phase is I am just a renegade hockey mom. so let's go ahead and restart the program and try providing that as the input restart the program set our break point",
-"ja": ""
+"ja": "zero は実行されず、jump equal は実行されなかったので、これから explode bomb が呼ばれます。それをステップオーバーすると、ドン。プロセスが終了して、出力は、ドン、爆弾が爆発しました、です。さて、これで、この phase でこのプログラムが探しているのは、おそらく I am just a renegade hockey mom. だと、合理的に予想できます。では、プログラムを再起動して、それを入力として与えてみましょう。プログラムを再起動して、ブレークポイントを設定します。"
 },
 {
 "i": 22,
 "start": "00:12:26,240",
 "end": "00:13:18,560",
 "en": "on main reload the symbols go all right now I'm going to also set a break point on phase 1 and while I'm at it why not set one on phase 2 on the hopes that I will get past this all right so break point phase 1 and break point phase 2 and let's just go ahead and go here's our typical output now let's provide the input that it's expecting harder in a vm with different macintosh keyboard I am just a renegade hockey mom. hit enter all right it hits the breakpoint at phase 1 and let's just go ahead and you know",
-"ja": ""
+"ja": "main に置いて、シンボルを再読み込みして、実行します。さらに、phase 1 にもブレークポイントを置いて、ついでに、通過できることを期待して phase 2 にも置いておきましょう。phase 1 のブレークポイントと phase 2 のブレークポイントを置いて、実行します。ここに、いつもの出力が出ます。では、期待されている入力を与えましょう。VM の中で、違う Macintosh のキーボードだと入力しにくいですが、I am just a renegade hockey mom. と入力して、Enter を押します。phase 1 のブレークポイントで止まりました。では、"
 },
 {
 "i": 23,
 "start": "00:13:16,240",
 "end": "00:14:02,320",
 "en": "step and see what we're going to see in terms of the output from strings not equal so stepping over stepping over stepping over we're up to strings not equal we could do a quick sanity check that we successfully got the right value in here so let's do da and that okay cool this rcx which was previously our input is now this input I am renegade hockey mom. so let's step over strings not equal the output is rax is 0 great so 0 and 0 is 0 so the jump zero should be taken and indeed we",
-"ja": ""
+"ja": "ステップして、strings not equal の出力がどうなるか見ましょう。ステップオーバー、ステップオーバー、ステップオーバーして、strings not equal の直前まで来ました。ここで、正しい値が入っているか、簡単に確認できます。da を実行しましょう。いいですね。この rcx は、前は私の入力でしたが、今は、この入力 I am renegade hockey mom. になっています。では、strings not equal をステップオーバーします。出力は rax が 0 です。いいですね。0 and 0 は 0 なので、jump zero は実行されるはずで、実際に、"
 },
 {
 "i": 24,
 "start": "00:14:01,199",
 "end": "00:14:39,920",
 "en": "successfully jumped over the explode bomb and we will now return out of the function so step step step step and boom I returned out phase defused cool gonna just keep stepping keep going keep going some printf some read line let's go ahead and step over the read line and let's examine the new output all right it says phase 1 defused how about the next one and it is once again looking for some sort of input so I can give it some sort of input and I can continue the process and try",
-"ja": ""
+"ja": "explode bomb を飛び越えてジャンプできました。そして、この関数から戻ります。ステップ、ステップ、ステップ、ステップ、ドン。戻れました。phase defused です。いいですね。このままステップを続けます。printf と、read line があります。read line をステップオーバーして、新しい出力を確認しましょう。phase 1 defused と出ました。次はどうでしょうか。また何か入力を待っているので、何か入力を与えて、処理を続けて、もう一度"
 },
 {
 "i": 25,
 "start": "00:14:38,480",
 "end": "00:15:18,399",
 "en": "it all over again next up phase 2 all right well this is where I'm going to mostly leave you basically saying you know this is the game like figure out to the rest of the inputs that is needed for this particular binary executable to successfully complete it without exploding one little thing that I should tell you this particular executable accepts a file provided on the command line with solutions one per line so in order to do that we would open up notepad my nano and notepad kind of guy",
-"ja": ""
+"ja": "やってみることができます。次は phase 2 です。さて、ここからは、ほとんどお任せします。このゲームでは、このバイナリの実行ファイルが爆発せずに最後まで完了するために必要な、残りの入力を突き止めてください。1 つだけ伝えておくと、この実行ファイルは、コマンドラインで、1 行に 1 つずつ解答を書いたファイルを受け取れます。そのために、メモ帳を開きます。私は nano 派ではなく、メモ帳派ですが、"
 },
 {
 "i": 26,
 "start": "00:15:15,920",
 "end": "00:15:25,600",
 "en": "so we need to provide the you know right input there was I am just a renegade hockey mom.",
-"ja": ""
+"ja": "正しい入力を与える必要があります。それは、I am just a renegade hockey mom. でした。"
 },
 {
 "i": 27,
 "start": "00:15:23,199",
 "end": "00:16:05,279",
 "en": "that may have copied that may have not oh success all right and now I'm going to save this file as a.txt on my desktop a.txt on my desktop and so the way that we would provide a.txt so you can basically provide as you solve this each time you solve the phase just put the new solution here and then you can set a break point in a later phase and these solutions will be fed into each phase you know one at a time and so the right way to do that is quit this out open executable select your bomb.exe",
-"ja": ""
+"ja": "それをコピーしたかもしれませんし、してないかもしれません。あ、うまくいきました。では、このファイルをデスクトップに a.txt として保存します。この a.txt を渡す方法です。この問題を解くとき、phase を解くたびに、新しい解答をここに書き足していけば、あとの phase にブレークポイントを置いたときに、これらの解答が、1 つずつ各 phase に渡されます。そのためには、まずこれを終了して、実行ファイルを開き、bomb.exe を選んで、"
 },
 {
 "i": 28,
 "start": "00:16:02,880",
 "end": "00:16:42,639",
 "en": "and then under arguments the first command line argument needs to be the path to your solutions file so mine is users\\user\\ desktop\\a.txt so if I run the program like that and I just go ahead and hit g for go then I probably specified something wrong about the path so let's try that again okay no it wasn't that i had the path wrong it was just that you need to have a new line after this so it needs to be I am just a renegade hockey mom. and then new line so that there's a blank line",
-"ja": ""
+"ja": "そして、引数の欄で、最初のコマンドライン引数に、解答ファイルのパスを指定します。私の場合は users\\user\\desktop\\a.txt です。このようにプログラムを実行して、g で実行すると、おそらくパスの指定のどこかが間違っていたようです。もう一度やってみましょう。いえ、パスが間違っていたのではなく、この文字列のあとに改行が必要でした。ですから、I am just a renegade hockey mom. のあとに改行を入れて、空行ができるように"
 },
 {
 "i": 29,
 "start": "00:16:41,040",
 "end": "00:17:20,559",
 "en": "afterwards so let's go ahead and open it again open executable C:\\users\\user\\desktop\\a.txt select the bomb and this time as long as we have the right new line there if we just hit go we will see that it says phase 1 defused how about the next one and it'll basically be waiting for the phase 2 input so you could basically set a phase 2 breakpoint provide your solutions in your a.txt and then just continue on you know provide a proposed solution for the next phase like so and then just",
-"ja": ""
+"ja": "します。では、もう一度開きましょう。実行ファイルを開いて、C:\\users\\user\\desktop\\a.txt を指定し、bomb を選びます。今度は、改行が正しく入っていれば、go を押すと、phase 1 defused と出ます。次はどうでしょうか。phase 2 の入力を待つはずです。ですから、phase 2 のブレークポイントを置いて、a.txt に解答を入れて、続行して、次の phase に対する解答の候補を、こんなふうに入力して、そのあと"
 },
 {
 "i": 30,
 "start": "00:17:18,000",
 "end": "00:17:31,520",
 "en": "continue on and analyze the code to see how it's actually used alright this is where I will leave you and now it's time for you to dig into the guts of the binary bomb lab good luck",
-"ja": ""
+"ja": "続行して、コードを解析し、実際にどう使われているかを調べます。ここから先は、みなさんにお任せします。では、バイナリ爆弾ラボの中身に取り組んでください。幸運を祈ります。"
 }
 ]
 }

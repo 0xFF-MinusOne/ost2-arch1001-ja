@@ -5,169 +5,169 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "SpecialMaths.c",
-"ja": ""
+"ja": "SpecialMaths.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "with GCC",
-"ja": ""
+"ja": "GCC 版"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 5,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 9,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 11,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "SpecialMaths.c",
-"ja": ""
+"ja": "SpecialMaths.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "int a;",
-"ja": ""
+"ja": "int a;"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "a = atoi(argv[1]);",
-"ja": ""
+"ja": "a = atoi(argv[1]);"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "return 2*argc + a;",
-"ja": ""
+"ja": "return 2*argc + a;"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "With command line arguments, 2 function parameters, and special maths known to generate particular asm as a teachable moment :)",
-"ja": ""
+"ja": "コマンドライン引数、2 つの関数引数、そして特定のアセンブリを生成することで知られる「特別な計算」。学びの機会です :)"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "0x000055555555516a <+33>: callq  0x555555555050 <atoi@plt>",
-"ja": ""
+"ja": "0x000055555555516a <+33>: callq  0x555555555050 <atoi@plt>"
 },
 {
 "i": 39,
 "where": "スライド4",
 "en": "The stack looks like this at line 0x00005555`55555175 in func():",
-"ja": ""
+"ja": "func() の 0x00005555`55555175 行でのスタックは次のとおりです:"
 },
 {
 "i": 45,
 "where": "スライド4",
 "en": "a = atoi(argv[1])",
-"ja": ""
+"ja": "a = atoi(argv[1])"
 },
 {
 "i": 73,
 "where": "スライド4",
 "en": "Red zone",
-"ja": ""
+"ja": "レッドゾーン"
 },
 {
 "i": 75,
 "where": "スライド5",
 "en": "LEAVE - Exit a function",
-"ja": ""
+"ja": "LEAVE - 関数から抜ける"
 },
 {
 "i": 76,
 "where": "スライド5",
 "en": "It's literally just the same thing as the two instructions you'd typically expect to see right before you return from a function that using stack frames:",
-"ja": ""
+"ja": "スタックフレームを使う関数から戻る直前に、ふつう見かける 2 つの命令と、文字どおり同じです:"
 },
 {
 "i": 80,
 "where": "スライド5",
 "en": "Book page 113",
-"ja": ""
+"ja": "書籍 113 ページ"
 },
 {
 "i": 83,
 "where": "スライド6",
 "en": "DON'T MAKE IT",
-"ja": ""
+"ja": "それを作らないで"
 },
 {
 "i": 85,
 "where": "スライド7",
 "en": "Instructions we now know (31)",
-"ja": ""
+"ja": "ここまでに分かった命令 (31)"
 },
 {
 "i": 96,
 "where": "スライド7",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 139,
 "where": "スライド8",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

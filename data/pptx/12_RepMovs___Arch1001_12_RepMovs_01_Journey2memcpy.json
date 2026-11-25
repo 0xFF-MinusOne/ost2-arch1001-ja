@@ -5,499 +5,499 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "JourneyToTheCenterOfMemcpy.c",
-"ja": ""
+"ja": "JourneyToTheCenterOfMemcpy.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 13,
 "where": "スライド4",
 "en": "JourneyToTheCenterOfMemcpy.c",
-"ja": ""
+"ja": "JourneyToTheCenterOfMemcpy.c"
 },
 {
 "i": 14,
 "where": "スライド4",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 25,
 "where": "スライド4",
 "en": "mystruct_t a, b;",
-"ja": ""
+"ja": "mystruct_t a, b;"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "a.var1 = 0xFF;",
-"ja": ""
+"ja": "a.var1 = 0xFF;"
 },
 {
 "i": 27,
 "where": "スライド4",
 "en": "memcpy(&b, &a, sizeof(mystruct_t));",
-"ja": ""
+"ja": "memcpy(&b, &a, sizeof(mystruct_t));"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "mov  dword ptr [a],0FFh",
-"ja": ""
+"ja": "mov  dword ptr [a],0FFh"
 },
 {
 "i": 33,
 "where": "スライド4",
 "en": "lea  rdx,[a]",
-"ja": ""
+"ja": "lea  rdx,[a]"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "STEP INTO THE UNKNOWN!",
-"ja": ""
+"ja": "未知の世界へ踏み込もう!"
 },
 {
 "i": 42,
 "where": "スライド5",
 "en": "Find REP MOVS!",
-"ja": ""
+"ja": "REP MOVS を探そう!"
 },
 {
 "i": 47,
 "where": "スライド6",
 "en": "THE MEMCPY ASSEMBLY",
-"ja": ""
+"ja": "MEMCPY のアセンブリ"
 },
 {
 "i": 49,
 "where": "スライド6",
 "en": "FIND REP MOVS",
-"ja": ""
+"ja": "REP MOVS を探す"
 },
 {
 "i": 51,
 "where": "スライド6",
 "en": "WRITE DOWN PSEUDOCODE",
-"ja": ""
+"ja": "そこへ至る経路の"
 },
 {
 "i": 52,
 "where": "スライド6",
 "en": "FOR THE PATH THAT LEADS TO IT",
-"ja": ""
+"ja": "疑似コードを書き留める"
 },
 {
 "i": 54,
 "where": "スライド7",
 "en": "We'll Do It Live!",
-"ja": ""
+"ja": "ライブでやってみよう!"
 },
 {
 "i": 56,
 "where": "スライド8",
 "en": "Repeat Move Data String to String",
-"ja": ""
+"ja": "データ文字列を文字列へ繰り返し移動"
 },
 {
 "i": 57,
 "where": "スライド8",
 "en": "MOVS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
-"ja": ""
+"ja": "MOVS は、「rep」プレフィックスを付けられる命令の 1 つ。単一の命令を複数回繰り返す"
 },
 {
 "i": 58,
 "where": "スライド8",
 "en": "MOVS is actually its own instruction which can be called without the REP instruction prefix",
-"ja": ""
+"ja": "MOVS は、REP 命令プレフィックスなしでも呼び出せる独立した命令"
 },
 {
 "i": 59,
 "where": "スライド8",
 "en": "All rep operations use *cx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements *cx. Once *cx == 0, it continues to the next instruction",
-"ja": ""
+"ja": "rep 命令はすべて、*cx レジスタをループ回数の「カウンタ」に使う。実行のたびに *cx を減らし、*cx == 0 になると次の命令へ進む"
 },
 {
 "i": 62,
 "where": "スライド8",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101〜102 ページ"
 },
 {
 "i": 64,
 "where": "スライド9",
 "en": "Repeat Move Data String to String",
-"ja": ""
+"ja": "データ文字列を文字列へ繰り返し移動"
 },
 {
 "i": 65,
 "where": "スライド9",
 "en": "REP MOVS stores 1, 2, 4, or 8 bytes at a time",
-"ja": ""
+"ja": "REP MOVS は 1、2、4、8 バイトずつ格納する"
 },
 {
 "i": 66,
 "where": "スライド9",
 "en": "Either fill 1 byte from [si] to [di] with or fill 1/2/4/8 bytes at a time from [*si] to [*di]",
-"ja": ""
+"ja": "[si] から [di] へ 1 バイトずつ、または [*si] から [*di] へ 1/2/4/8 バイトずつ埋める"
 },
 {
 "i": 67,
 "where": "スライド9",
 "en": "Moves the *di and *si registers forward 1/2/4/8 at a time, so that the repeated store operation is storing into consecutive locations.",
-"ja": ""
+"ja": "*di と *si を 1/2/4/8 ずつ進めるので、繰り返しのストアは連続した場所へ書き込む。"
 },
 {
 "i": 68,
 "where": "スライド9",
 "en": "So there are 3 pieces which must happen before the actual rep movs occurs:",
-"ja": ""
+"ja": "実際の rep movs の前に、3 つの準備が必要:"
 },
 {
 "i": 69,
 "where": "スライド9",
 "en": "Set *si to the start source",
-"ja": ""
+"ja": "*si に転送元の先頭を設定"
 },
 {
 "i": 70,
 "where": "スライド9",
 "en": "Set *di to the start destination",
-"ja": ""
+"ja": "*di に転送先の先頭を設定"
 },
 {
 "i": 71,
 "where": "スライド9",
 "en": "Set *cx to the number of times to store",
-"ja": ""
+"ja": "*cx にストアする回数を設定"
 },
 {
 "i": 74,
 "where": "スライド9",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101〜102 ページ"
 },
 {
 "i": 76,
 "where": "スライド10",
 "en": "Repeat Move Data String to String",
-"ja": ""
+"ja": "データ文字列を文字列へ繰り返し移動"
 },
 {
 "i": 77,
 "where": "スライド10",
 "en": "Note: Unlike MOV, MOVS can move memory to memory…but only between [*si] and [*di]",
-"ja": ""
+"ja": "注: MOV と違い、MOVS はメモリからメモリへ移動できる。ただし [*si] と [*di] の間だけ"
 },
 {
 "i": 78,
 "where": "スライド10",
 "en": "A lot of people don’t pay attention to the fact that it’s REP MOVS, not REP MOV (even though you may say it like “rep-move”)",
-"ja": ""
+"ja": "REP MOV ではなく REP MOVS である点に、多くの人は注意を払わない(「rep-move」と読んでしまっても)"
 },
 {
 "i": 81,
 "where": "スライド10",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101〜102 ページ"
 },
 {
 "i": 82,
 "where": "スライド11",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元が保存"
 },
 {
 "i": 92,
 "where": "スライド11",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先が保存"
 },
 {
 "i": 102,
 "where": "スライド11",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 104,
 "where": "スライド11",
 "en": "Caller-saved",
-"ja": ""
+"ja": "呼び出し元が保存"
 },
 {
 "i": 114,
 "where": "スライド11",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 116,
 "where": "スライド11",
 "en": "Callee-saved",
-"ja": ""
+"ja": "呼び出し先が保存"
 },
 {
 "i": 127,
 "where": "スライド11",
 "en": "Caller vs. Callee-save Regs",
-"ja": ""
+"ja": "呼び出し元保存と呼び出し先保存のレジスタ"
 },
 {
 "i": 128,
 "where": "スライド12",
 "en": "High level pseudo-code approximation",
-"ja": ""
+"ja": "高水準の疑似コードによる近似"
 },
 {
 "i": 129,
 "where": "スライド12",
 "en": "(how interesting…it’s like I went in reverse of the normal software engineering process…)",
-"ja": ""
+"ja": "(面白い…通常のソフトウェア工学の手順と逆に進んだようだ…)"
 },
 {
 "i": 131,
 "where": "スライド12",
 "en": "if(len <= 0x10)",
-"ja": ""
+"ja": "if(len <= 0x10)"
 },
 {
 "i": 132,
 "where": "スライド12",
 "en": "goto 00007FFB76491350 // 2x MOV",
-"ja": ""
+"ja": "goto 00007FFB76491350 // MOV 2 回"
 },
 {
 "i": 133,
 "where": "スライド12",
 "en": "if(len <= 0x20)",
-"ja": ""
+"ja": "if(len <= 0x20)"
 },
 {
 "i": 134,
 "where": "スライド12",
 "en": "goto 00007FFB76491330 // AHHHH! MOVUPS! IDEKWTFBBQ!",
-"ja": ""
+"ja": "goto 00007FFB76491330 // うわあ! MOVUPS! 意味不明!"
 },
 {
 "i": 136,
 "where": "スライド12",
 "en": "if(src >= dst)",
-"ja": ""
+"ja": "if(src >= dst)"
 },
 {
 "i": 138,
 "where": "スライド12",
 "en": "else { // if (src < len)",
-"ja": ""
+"ja": "else { // if (src < len)"
 },
 {
 "i": 139,
 "where": "スライド12",
 "en": "if(dst < (src+dst)) // if (src < dst < (src + len)",
-"ja": ""
+"ja": "if(dst < (src+dst)) // if (src < dst < (src + len)"
 },
 {
 "i": 140,
 "where": "スライド12",
 "en": "goto 00007FFB764915F0",
-"ja": ""
+"ja": "goto 00007FFB764915F0"
 },
 {
 "i": 142,
 "where": "スライド12",
 "en": "if (len < 0x80){",
-"ja": ""
+"ja": "if (len < 0x80){"
 },
 {
 "i": 143,
 "where": "スライド12",
 "en": "goto 00007FFB76491530 // AHHHH! MOVUPS! IDEKWTFBBQ!",
-"ja": ""
+"ja": "goto 00007FFB76491530 // うわあ! MOVUPS! 意味不明!"
 },
 {
 "i": 146,
 "where": "スライド12",
 "en": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!",
-"ja": ""
+"ja": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!"
 },
 {
 "i": 147,
 "where": "スライド12",
 "en": "goto 00007FFB76491480 // not taken ¯\\_(ツ)_/¯",
-"ja": ""
+"ja": "goto 00007FFB76491480 // 実行されない ¯\\_(ツ)_/¯"
 },
 {
 "i": 149,
 "where": "スライド12",
 "en": "goto 00007FFB764912D0 // HERE BE REP MOVS!",
-"ja": ""
+"ja": "goto 00007FFB764912D0 // ここに REP MOVS あり!"
 },
 {
 "i": 152,
 "where": "スライド13",
 "en": "High level pseudo-code approximation",
-"ja": ""
+"ja": "高水準の疑似コードによる近似"
 },
 {
 "i": 153,
 "where": "スライド13",
 "en": "(how interesting…it’s like I went in reverse of the normal software engineering process…)",
-"ja": ""
+"ja": "(面白い…通常のソフトウェア工学の手順と逆に進んだようだ…)"
 },
 {
 "i": 155,
 "where": "スライド13",
 "en": "if(len <= 0x10)",
-"ja": ""
+"ja": "if(len <= 0x10)"
 },
 {
 "i": 156,
 "where": "スライド13",
 "en": "goto 00007FFB76491350 // 2x MOV",
-"ja": ""
+"ja": "goto 00007FFB76491350 // MOV 2 回"
 },
 {
 "i": 157,
 "where": "スライド13",
 "en": "if(len <= 0x20)",
-"ja": ""
+"ja": "if(len <= 0x20)"
 },
 {
 "i": 158,
 "where": "スライド13",
 "en": "goto 00007FFB76491330 // AHHHH! MOVUPS! IDEKWTFBBQ!",
-"ja": ""
+"ja": "goto 00007FFB76491330 // うわあ! MOVUPS! 意味不明!"
 },
 {
 "i": 159,
 "where": "スライド13",
 "en": "if (src < dst)",
-"ja": ""
+"ja": "if (src < dst)"
 },
 {
 "i": 160,
 "where": "スライド13",
 "en": "if(dst < (src+len)) // Uh oh, overlap!",
-"ja": ""
+"ja": "if(dst < (src+len)) // まずい、重なっている!"
 },
 {
 "i": 161,
 "where": "スライド13",
 "en": "goto 00007FFB764915F0 // not taken",
-"ja": ""
+"ja": "goto 00007FFB764915F0 // 実行されない"
 },
 {
 "i": 163,
 "where": "スライド13",
 "en": "if (len < 0x80){",
-"ja": ""
+"ja": "if (len < 0x80){"
 },
 {
 "i": 164,
 "where": "スライド13",
 "en": "goto 00007FFB76491530 // AHHHH! MOVUPS! IDEKWTFBBQ!",
-"ja": ""
+"ja": "goto 00007FFB76491530 // うわあ! MOVUPS! 意味不明!"
 },
 {
 "i": 167,
 "where": "スライド13",
 "en": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!",
-"ja": ""
+"ja": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!"
 },
 {
 "i": 168,
 "where": "スライド13",
 "en": "goto 00007FFB76491480 // not taken ¯\\_(ツ)_/¯",
-"ja": ""
+"ja": "goto 00007FFB76491480 // 実行されない ¯\\_(ツ)_/¯"
 },
 {
 "i": 170,
 "where": "スライド13",
 "en": "goto 00007FFB764912D0 // HERE BE REP MOVS!",
-"ja": ""
+"ja": "goto 00007FFB764912D0 // ここに REP MOVS あり!"
 },
 {
 "i": 181,
 "where": "スライド14",
 "en": "This Class",
-"ja": ""
+"ja": "この講義"
 },
 {
 "i": 193,
 "where": "スライド15",
 "en": "Instructions we now know (30)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (30)"
 },
 {
 "i": 204,
 "where": "スライド15",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 246,
 "where": "スライド16",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

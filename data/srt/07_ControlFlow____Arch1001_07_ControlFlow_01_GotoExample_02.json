@@ -6,7 +6,7 @@
 "start": "00:00:00,160",
 "end": "00:00:31,840",
 "en": "so the takeaways from the goto example are very trivial the basic point is that the goto C statement directly translates into a jump statement goto always unconditionally goes to whatever the label is that specified and a jump assembly instruction always unconditionally goes to the address that's specified so we picked up another assembly instruction jump and where is it on our chart here it is 3% of the slice of the pie here",
-"ja": ""
+"ja": "goto の例から得られる教訓は、とても単純です。要点は、C の goto 文が、そのまま jmp 命令に変換されるということです。goto は、指定されたラベルに、常に無条件で移動します。jmp というアセンブリ命令も、指定されたアドレスに、常に無条件で移動します。これで、アセンブリ命令の jmp を、また 1 つ覚えました。この表のどこにあるかというと、ここです。円グラフの 3% を占めています。"
 }
 ]
 }

@@ -6,112 +6,112 @@
 "start": "00:00:00,240",
 "end": "00:00:32,320",
 "en": "so when we dug into the microsoft documentation we saw talking about calling convention that it used with the shadow space so let's learn more about calling conventions in general first of all there's sort of two sub elements of importance in a calling convention the first are the register conventions about which registers belong to the caller versus callee function and the second is the parameter passing conventions of how a caller passes parameters to a callee and how the callee",
-"ja": ""
+"ja": "Microsoft のドキュメントを調べたとき、呼び出し規約でシャドウスペースが使われていると書かれていました。そこで、呼び出し規約について全般的に学んでいきましょう。まず、呼び出し規約には、大事な要素が 2 つあります。ひとつはレジスタ規約で、どのレジスタが呼び出し元の関数のもので、どのレジスタが呼び出し先の関数のものかを決めます。もうひとつは引数の渡し方の規約で、呼び出し元が呼び出し先に引数をどう渡し、呼び出し先が"
 },
 {
 "i": 1,
 "start": "00:00:29,279",
 "end": "00:01:03,840",
 "en": "passes a return value back it's important to know that calling conventions are always compiler dependent so unless specifically some GCC compiler is trying to abide by a calling convention to work with microsoft code they will frequently generate mutually incompatible code this was much more of a problem when there were many many more compiler makers running around but over time the number of compiler makers has decreased in this class we're only going to be talking about the microsoft x64 ABI",
-"ja": ""
+"ja": "戻り値をどう返すかを決めます。呼び出し規約は、常にコンパイラごとに決まるものだということが大事です。たとえば GCC のコンパイラが、Microsoft のコードと連携するためにわざわざ呼び出し規約に合わせようとしていない限り、お互いに互換性のないコードが生成されることがよくあります。コンパイラを作る会社がもっとたくさんあった頃は、これがずっと大きな問題でした。時間がたって、コンパイラを作る会社は減りました。このクラスでは、Microsoft x64 ABI だけを扱います。"
 },
 {
 "i": 2,
 "start": "00:01:01,120",
 "end": "00:01:38,560",
 "en": "which is used by the compiler behind visual studio and the System V x86-x64 ABI which is used by Unix-derived systems like linux BSDs and also macOS the links to the ABI documentation are given at the bottom of this page and there's a lot of interesting bits and caveats and things that I'm just glossing over in this class so I recommend you check out that documentation later okay so the first sub element of a calling convention the register conventions we have the caller-saved registers",
-"ja": ""
+"ja": "これは Visual Studio のコンパイラが使っています。もうひとつは System V x86-x64 ABI で、Linux、BSD、macOS のような Unix 系のシステムで使われています。ABI のドキュメントへのリンクはこのページの下にあります。このクラスでは省略している面白い点や注意点がたくさんあるので、あとでドキュメントを見ておくことをおすすめします。では、呼び出し規約の最初の要素、レジスタ規約です。呼び出し元保存レジスタがあります。"
 },
 {
 "i": 3,
 "start": "00:01:36,479",
 "end": "00:02:07,680",
 "en": "these are also called volatile registers by microsoft because basically a caller, a function which is calling some other function, a caller should assume that they will be changed by the callee and therefore the caller is responsible for saving those registers before calling something so that it can restore them later on if it doesn't want to deal with the fact that they've been smashed by the callee so the conventions for visual studio is that these registers are the caller-save registers rax rcx",
-"ja": ""
+"ja": "これは、Microsoft では揮発性レジスタとも呼ばれます。ほかの関数を呼び出す関数、つまり呼び出し元は、これらのレジスタが呼び出し先に変更されると考えておくべきだからです。そのため、呼び出し先に壊されたくないなら、呼び出し元が、呼び出す前にこれらのレジスタを保存して、あとで復元する責任を持ちます。Visual Studio の規約では、呼び出し元保存レジスタは rax、rcx、"
 },
 {
 "i": 4,
 "start": "00:02:06,159",
 "end": "00:02:44,080",
 "en": "rdx etc and for GCC these are the registers so these register lists only differ in terms of rdi and rsi so GCC and other System V derived ABI using compilers will save the rdi and rsi in the caller and so since visual studio doesn't that kind of implies that instead those two registers are callee- save registers so the callee-save register also called non-volatile registers are something where the caller should assume they will not be changed by the callee and if the callee is changing",
-"ja": ""
+"ja": "rdx などです。GCC の場合は、こちらのレジスタです。この 2 つのレジスタの一覧は、rdi と rsi だけが違います。GCC やほかの System V 系の ABI を使うコンパイラは、rdi と rsi を呼び出し元で保存します。Visual Studio はそうしないので、この 2 つは逆に呼び出し先保存レジスタだということになります。呼び出し先保存レジスタは、不揮発性レジスタとも呼ばれます。呼び出し元は、これらが呼び出し先に変更されないと考えてよく、呼び出し先が変更している"
 },
 {
 "i": 5,
 "start": "00:02:42,640",
 "end": "00:03:15,440",
 "en": "them they're misbehaving and could lead to broken code so these are registers that belong to the caller and therefore the callee needs to save them and restore them so that it doesn't break anything in the caller so again the register list is given below and it differs only in terms of rdi and rsi and when it comes to saving registers both the caller and the callee are responsible for balancing any register saves they perform where they're adding things to the stack with restores where they remove things",
-"ja": ""
+"ja": "なら、それは規約違反で、コードが壊れる原因になります。これらは呼び出し元のレジスタなので、呼び出し先は、呼び出し元を壊さないように、保存して復元する必要があります。もう一度言うと、レジスタの一覧は下にあって、違うのは rdi と rsi だけです。レジスタを保存するときは、呼び出し元も呼び出し先も、スタックにものを積む保存と、スタックから取り除く復元とを、必ず対応させて"
 },
 {
 "i": 6,
 "start": "00:03:14,480",
 "end": "00:03:46,720",
 "en": "from the stack this of course earns a thumbs up from Thanos the caller will typically like most assembly code you're going to see generated by these compilers it will typically save the registers save the caller-save registers right before a call and then it will typically restore them right after a call so sort of a way to infer what's going on if you see a bunch of register saves right before a call and you see a balanced register restore right after the call that is the caller",
-"ja": ""
+"ja": "釣り合わせる責任があります。これには、Thanos からも親指を立ててもらえます。呼び出し元は、これらのコンパイラが生成するほとんどのアセンブリコードと同じように、たいてい、呼び出しの直前に呼び出し元保存レジスタを保存して、呼び出しの直後に復元します。何が起きているかを推測する方法として、呼び出しの直前にレジスタの保存がいくつか並んでいて、呼び出しの直後にそれと釣り合う復元があれば、それは呼び出し元が"
 },
 {
 "i": 7,
 "start": "00:03:43,920",
 "end": "00:04:14,879",
 "en": "saving some caller-save registers and of course you can double check against the list to make sure that they are caller-save registers on the list that I gave previously similarly typically a callee will save registers right at the beginning of the function and it's going to restore them right at the end of the function so that again will be your hint that it's callee-save registers that are being saved and restored if you see it at the beginning and balanced at the end of the function",
-"ja": ""
+"ja": "呼び出し元保存レジスタを保存しているということです。もちろん、先ほど出した一覧と照らして、本当に呼び出し元保存レジスタか確かめることもできます。同じように、呼び出し先は、たいてい関数の最初でレジスタを保存して、関数の最後で復元します。関数の最初で保存して、最後で釣り合う復元をしていれば、それは呼び出し先保存レジスタが保存、復元されているというヒントになります。"
 },
 {
 "i": 8,
 "start": "00:04:12,080",
 "end": "00:04:51,520",
 "en": "so here's a visual representation of the different conventions in use we said that all of the registers are the same except rdi and rsi so a visual studio has these registers as caller-save and these registers as callee-save well it's the same for the System V derived things rax is caller-saved rcx is caller-saved rdx is caller-saved but they differ in terms of rsi and rdi now let's talk about the second sub element of a calling convention the parameter passing conventions so both the System V ABI and the visual",
-"ja": ""
+"ja": "では、使われている規約を図で見てみましょう。rdi と rsi 以外はすべて同じだと言いました。Visual Studio では、これらのレジスタが呼び出し元保存で、これらが呼び出し先保存です。System V 系も同じで、rax は呼び出し元保存、rcx も呼び出し元保存、rdx も呼び出し元保存ですが、rsi と rdi だけが違います。では、呼び出し規約の 2 つ目の要素、引数の渡し方の規約です。System V ABI も、Visual"
 },
 {
 "i": 9,
 "start": "00:04:49,600",
 "end": "00:05:24,960",
 "en": "studio or microsoft x64 ABI these compilers use a subset of the caller- save registers to pass parameters into and out of functions the first one rax both compilers use rax as a caller-save register rax is special in that it's always going to be passing back passing out the return value so if it's a 64-bit value or smaller which is typically what you're going to see then rax is actually acting by convention as the return value and so that's very common that you'll see things being",
-"ja": ""
+"ja": "Studio、つまり Microsoft x64 ABI も、どちらのコンパイラも、呼び出し元保存レジスタの一部を使って、関数への引数の受け渡しと、関数からの値の返しを行います。最初は rax です。どちらのコンパイラも rax を呼び出し元保存レジスタとして使います。rax は特別で、常に戻り値を返すのに使われます。64 ビット以下の値、つまりたいていはそうですが、その場合、rax が規約によって戻り値になります。そのため、関数から戻る直前に、戻り値を持たせるために"
 },
 {
 "i": 10,
 "start": "00:05:23,840",
 "end": "00:05:59,360",
 "en": "moved into eax rax and so forth right before the return out of a function that's holding a return value it's a return value in the C sense of the word and that when you have a function it returns one return value it can also be the case like if you see this sometime and you're wondering what's up it can be the case that 128 bit value can be returned by using the concatenation of rdx for the top 64 bits and rax for the bottom 64 bits so that's the common elements of both of the compilers now let's see the",
-"ja": ""
+"ja": "eax や rax に値が move されているのを、よく見かけます。これは C の意味での戻り値です。関数は戻り値をひとつ返します。もしこれを見かけて不思議に思ったときのために言うと、128 ビットの値が返されることもあります。その場合は、上位 64 ビットが rdx、下位 64 ビットが rax で、これらをつなげたものが返されます。ここまでが、2 つのコンパイラに共通する部分です。では次に、違いを見てみましょう。"
 },
 {
 "i": 11,
 "start": "00:05:57,680",
 "end": "00:06:37,039",
 "en": "differences so in the microsoft x64 ABI the first four parameters four parameters from left to right are put into rcx rdx r8 r9 respectively now we already actually saw this in too many parameters you would see the value of \"a\" going into rcx, \"b\" going to rdx, \"c\" going to r8, \"d\" going to r9 and then any parameters past that \"e\" or if we add an \"f\", \"g\", \"h\", etc those parameters are pushed onto the stack so the remaining parameters are pushed onto the stack so that the leftmost parameter is at the",
-"ja": ""
+"ja": "Microsoft x64 ABI では、最初の 4 つの引数が、左から順に rcx、rdx、r8、r9 に入ります。これは too many parameters の例で、すでに見ています。a の値が rcx、b が rdx、c が r8、d が r9 に入っていました。それ以降の引数、つまり e や、f、g、h などを足した場合の引数は、スタックに push されます。残りの引数は、いちばん左の引数が"
 },
 {
 "i": 12,
 "start": "00:06:34,319",
 "end": "00:07:09,120",
 "en": "lowest address essentially it's you know it would basically be pushed in the reverse order push push push and then this thing would be at the lowest address or just you know moving it on to the stack using mov instructions which is more typical by contrast the System V x86-64 ABI has six parameters from the caller-saved registers which can be used for passing parameters and the ordering is rdi rsi rdx rcx r8 r9 so in this quote unquote too many parameters we actually don't have",
-"ja": ""
+"ja": "最も低いアドレスになるように、スタックに置かれます。基本的には逆の順番で push、push、push として、これが最も低いアドレスになるか、あるいは、よくあるのは mov 命令でスタックに移します。これに対して、System V x86-64 ABI では、呼び出し元保存レジスタのうち 6 つを引数の受け渡しに使えて、順番は rdi、rsi、rdx、rcx、r8、r9 です。この、いわゆる too many parameters の例では、実は"
 },
 {
 "i": 13,
 "start": "00:07:07,440",
 "end": "00:07:45,280",
 "en": "too many parameters for the x86-64 ABI used on system V systems it would basically be rdi rsi rdx rcx r8 and there would be yet another parameter just freely available to pass more stuff if necessary but if you added two more arguments to this function then this next one would be passed in r9 and the next one after that would be pushed onto the stack notionally pushed onto the stack practically speaking frequently moved on to the stack and so if we expand out that table from before again",
-"ja": ""
+"ja": "System V 系で使う x86-64 ABI にとっては、引数が多すぎません。基本的には rdi、rsi、rdx、rcx、r8 に入り、さらに引数をもうひとつ自由に渡せます。でもこの関数に引数をあと 2 つ足すと、次の引数は r9 で渡されて、その次はスタックに push されます。概念上は push されますが、実際には、スタックへ move されることがよくあります。先ほどの表をもう一度広げると、"
 },
 {
 "i": 14,
 "start": "00:07:43,599",
 "end": "00:08:23,360",
 "en": "you know everything's the same except rsi and rdi we just expanded some of this rh through r11 to make it so that it's more visible that visual studio passes argument 1 in rcx argument 2 and rdx argument 3 and r8 argument 4 in r9 and then System V you know it just got to be difficult here passing it sort of backwards from this visualization parameter 1 in rdi, 2 in rsi, 3 in rdx 4 in rcx and then jump over here to r8 gets parameter 5, r9 gets parameter 6 so I have no idea how they came up with",
-"ja": ""
+"ja": "rsi と rdi 以外は、すべて同じです。ここでは、r8 から r11 までを広げて、見やすくしました。Visual Studio では、引数 1 が rcx、引数 2 が rdx、引数 3 が r8、引数 4 が r9 で渡されます。System V のほうは、ここがややこしくて、この図で見ると逆向きに渡します。引数 1 が rdi、2 が rsi、3 が rdx、4 が rcx で、そのあとここに飛んで、r8 が引数 5、r9 が引数 6 です。なぜこんな"
 },
 {
 "i": 15,
 "start": "00:08:21,599",
 "end": "00:08:53,120",
 "en": "this particular ordering maybe it was just to be different from intel different from microsoft. I don't know doesn't make any more sense if we look at it in this sort of registers view of the world the visual studio is one two three four sure great makes sense and the System V is one two hop up here backwards three four up over here downwards five six so I don't know how they came up with that if anyone knows and would like to enlighten me let me know",
-"ja": ""
+"ja": "順番になったのか、私には分かりません。Intel とも Microsoft とも違うものにしたかっただけかもしれません。分かりません。このレジスタの並びで見ても、意味が通りません。Visual Studio は 1、2、3、4 と並んでいて、なるほど、納得です。System V は 1、2 と来て、ここに戻って 3、4、そしてここに飛んで下向きに 5、6 です。どうしてこうなったのか、ご存じの方がいたら、ぜひ教えてください。"
 }
 ]
 }

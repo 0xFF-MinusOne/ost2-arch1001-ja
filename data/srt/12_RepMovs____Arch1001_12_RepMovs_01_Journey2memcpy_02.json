@@ -6,196 +6,196 @@
 "start": "00:00:00,080",
 "end": "00:00:34,160",
 "en": "so I said that typically I taught this and I would step through slides explaining every single one so that someone could read it later but thanks to the video format of this class now i can just save myself all that work of writing out all those slides and we'll do it live so here we are over in JourneyToThe CenterOfMemcpy.c so to get the show on the road we need to have a break point at the entry point of main and we want to step into memcpy so let's go ahead and start the debugger",
-"ja": ""
+"ja": "いつもは、これを教えるとき、スライドを 1 枚ずつ順に説明して、あとで誰かが読めるようにしていました。でも、この講義はビデオ形式なので、スライドをすべて書き出す手間は省いて、ライブでやってみましょう。ここは JourneyToTheCenterOfMemcpy.c です。まず始めるために、main のエントリポイントにブレークポイントを置いて、memcpy にステップインしたいので、デバッガを開始しましょう。"
 },
 {
 "i": 1,
 "start": "00:00:35,280",
 "end": "00:01:12,080",
 "en": "over to the disassembly view and let's step into step into step into until we step into the memcpy now you should expect just based on what the source code is that rcx which is the first argument is going to be the address of b and you can see in this mode where we have the symbol names on that that's the address of b and this is the address of a so that's fine you can go ahead and see the symbol names little extra help never hurt and r8 the third argument is going to be 8 that's the current",
-"ja": ""
+"ja": "逆アセンブリのビューに切り替えて、ステップインを繰り返して、memcpy の中に入るまで進めます。ソースコードから考えて、最初の引数である rcx は b のアドレスになるはずです。シンボル名を表示するこのモードなら、それが b のアドレスで、これが a のアドレスだと分かります。シンボル名があると、ちょっと助かりますね。そして、3 番目の引数の r8 は 8 になるはずです。それが今の"
 },
 {
 "i": 2,
 "start": "00:01:08,720",
 "end": "00:01:58,640",
 "en": "size of our struct so let's step into and there's some jump to memcpy sure whatever all right and now we are at the memcpy assembly so I'm going to start writing down a little bit of notes and pseudo code in order to help me remember what's going on here so first of all rcx into r11 so r11 equals rcx and what is rcx it's the first argument to memcpy so that is going to be the address of b our destination then we have rdx into r10 so r10 equals rdx equals the address of a our source",
-"ja": ""
+"ja": "構造体のサイズだからです。では、ステップインします。memcpy へのジャンプがありますが、まあいいでしょう。さて、これで memcpy のアセンブリまで来ました。ここで起きていることを覚えておくために、メモと擬似コードを少し書き留めていきます。まず、rcx を r11 に入れています。つまり r11 = rcx です。rcx は何かというと、memcpy の最初の引数なので、コピー先である b のアドレスです。次に、rdx を r10 に入れています。つまり r10 = rdx で、コピー元である a のアドレスです。"
 },
 {
 "i": 3,
 "start": "00:01:55,119",
 "end": "00:02:56,800",
 "en": "and then you see a comparison of r8 to r10 well maybe a little preface here that it was r8 which got the length in the memcpy call so an immediate check of is r8 below or equal 10 0x10. so what would that look like in pseudocode that would be something like if r8 which is len is less than or equal to below or equal so what is below below is the unsigned notion so is it below 0x10 and if so go to this particular address all right so let's see if that's going to be taken and we know from r8 is",
-"ja": ""
+"ja": "それから、r8 と r10 の比較が出てきますが、その前にひとこと。memcpy の呼び出しで長さを受け取ったのは r8 でした。ですから、すぐあとにあるのは、r8 が 0x10 以下か、という確認です。擬似コードにすると、r8、つまり len が、below or equal で 以下なら、という形になります。below とは何かというと、符号なしの考え方です。ですから 0x10 未満か以下で、そうなら、このアドレスに進みます。では、そのジャンプが実行されるか見てみましょう。r8 は、"
 },
 {
 "i": 4,
 "start": "00:02:54,800",
 "end": "00:03:44,879",
 "en": "8 because our size of our struct is 8 so 8 is less than 0x10 so we know that that's going to be taken step into and there we go we're now at that address so let's go ahead and write out what is at that address so we have move rcx into rax and let's just go ahead and call it like it is the address would be our destination next we have lea of some random memory address into r9 so that's literally just going to take this exact value and put it into r9 and we can confirm that by stepping over",
-"ja": ""
+"ja": "8 だと分かっています。構造体のサイズが 8 だからです。8 は 0x10 以下なので、ジャンプが実行されると分かります。ステップインすると、そのアドレスに来ました。では、そのアドレスに何があるか書き出しましょう。rcx を rax に移す命令があります。これは、コピー先のアドレスと呼んでおきましょう。次に、ある適当なメモリアドレスを r9 に lea する命令があります。これは文字どおり、この値をそのまま r9 に入れるだけで、ステップオーバーすれば確認できます。"
 },
 {
 "i": 5,
 "start": "00:03:42,000",
 "end": "00:04:40,960",
 "en": "it in the assembly step step and r9 is indeed a seven f f b seven sixty four nine zero zero zero seven f f b seven sixty nine zero zero zero all right next we have r9 which is that number plus our 8 which is our size times 4 plus 0x27000 don't know what's up with that but whatever let's just see what gets plucked out of memory there and put into ecx step ecx rcx gets this value so let's just go ahead and note that down and then it adds r9 r9 has this value which we wrote right there so basically",
-"ja": ""
+"ja": "アセンブリをステップ実行すると、r9 は確かに 7ffb7649000 になっています。続いて 7ffb769000 です。次は r9 があり、その数に、サイズの 8 の 4 倍を足し、さらに 0x27000 を足しています。何なのかは分かりませんが、とにかくそこでメモリから何が取り出されて ecx に入るか見てみましょう。ステップすると、rcx にこの値が入りました。それをメモしておきましょう。そのあと、r9 を足します。r9 には、ここに書いたこの値が入っているので、"
 },
 {
 "i": 6,
 "start": "00:04:36,000",
 "end": "00:05:30,160",
 "en": "rcx is getting a plus equals of that value and then what does it do with it it actually uses it as a address to jump to so this is the jump indirect so it's just calculating an address and then it's jumping to that location so that is a new address we're gonna find out what's at that address so basically it's just doing go to rcx which is that let's put that down and say what is the code there step into and what do we have we have a move quad word from rdx well what is rdx at this point",
-"ja": ""
+"ja": "rcx には、その値が足されます。そしてそれをどうするかというと、ジャンプ先のアドレスとして使います。つまり、間接ジャンプです。アドレスを計算して、その場所にジャンプしているのです。これは新しいアドレスなので、そこに何があるかを調べます。基本的には、この値の rcx に go to するわけです。それを書いておいて、そこのコードを見てみましょう。ステップインします。何があるでしょうか。rdx からのクワッドワードの move があります。では、この時点の rdx は何でしょうか。"
 },
 {
 "i": 7,
 "start": "00:05:30,800",
 "end": "00:06:16,160",
 "en": "rdx is still the address of a so it's plucking 8 bytes qword pointer plucking 8 bytes out of the source and putting it into rcx what does it do next it takes that 8 bytes and it puts it into the memory specified by rax what is rax rax is rcx is the address of b so it's plucking 8 bytes out of the source and writing 8 bytes to the destination using two move instructions and it can do that because r8 which is our length was 8 bytes so that is doing the mem copy and we're done we're done with the memcpy yay",
-"ja": ""
+"ja": "rdx はまだ a のアドレスのままです。ですから、コピー元から 8 バイトを、qword pointer で取り出して、rcx に入れています。次は何をするでしょうか。その 8 バイトを、rax が指すメモリに入れます。rax は何かというと、rcx、つまり b のアドレスです。つまり、2 つの move 命令を使って、コピー元から 8 バイトを取り出し、コピー先に 8 バイトを書き込んでいます。r8、つまり長さが 8 バイトだったので、それでできるのです。これで memcpy が終わりました。memcpy は終わりです。やった。"
 },
 {
 "i": 8,
 "start": "00:06:13,840",
 "end": "00:06:51,919",
 "en": "except we didn't find the elusive rep movs which we're searching for so that's no good we need to try try again so based on this pseudo code we have right now the most interesting bit the only sort of conditional control flow bit that we ran into is this check of if the length is less than or equal to 0x10 it go here so we want to not go there so we need to make sure that the length is greater than 0x10 so we can easily do that by sticking in 0x10 in this variable 2 and now 0x10 plus 4 for the int will",
-"ja": ""
+"ja": "でも、探している rep movs は見つかりませんでした。これではだめなので、もう一度やってみましょう。ここまでの擬似コードを見ると、いちばん面白くて、唯一の条件つき制御フローは、長さが 0x10 以下ならここに行く、という確認でした。そこには行きたくないので、長さが 0x10 より大きくなるようにしなければなりません。それは簡単で、この variable 2 に 0x10 を入れればできます。すると、0x10 に int の 4 を足した値は、"
 },
 {
 "i": 9,
 "start": "00:06:51,599",
 "end": "00:07:42,560",
 "en": "be definitely greater than 0x10. so let's start it all over again boo diagnostics all right disassembly step step step step step step into the breach step step step all right now this time r8 is 0x20 sorry decimal 20 which is greater than 0x10 so it's not going to take the jump boom but then we have an immediate compare of r8 against 0x20 so 22 hex sorry hex sorry decimal 20 to decimal 32 and jump if below or equal well that's definitely below or equal so let's update our pseudo code if you",
-"ja": ""
+"ja": "確実に 0x10 より大きくなります。では、最初からやり直しましょう。ブー、診断。逆アセンブリで、ステップ、ステップ、ステップ、ステップ、ステップ、いざ突入、ステップ、ステップ、ステップ。さて、今度は r8 が、10 進数の 20 で、0x10 より大きいので、ジャンプは実行されません。ドン。そのあと、r8 を 0x20 と比べる命令があります。10 進数の 20 と、10 進数の 32 です。すみません、16 進数です。そして below or equal ならジャンプします。これは確実に below or equal になるので、擬似コードを更新しましょう。ジャンプが実行"
 },
 {
 "i": 10,
 "start": "00:07:41,199",
 "end": "00:07:52,720",
 "en": "don't take the jump then r8 which is your length and now our length is 0x14.",
-"ja": ""
+"ja": "されなければ、r8、つまり長さは、今は 0x14 です。"
 },
 {
 "i": 11,
 "start": "00:07:50,160",
 "end": "00:08:40,240",
 "en": "if the length is less than or equal to 0x20 then where's it going to go it's going to go right there so because that's the value right now it will take that jump and where does it land a bunch of movups with xmmo registers and xmmword pointers and that's scary so we're just going to escape okay there we go I just stepped and I eventually stepped out of the memcpy well the main point there is that we did not see rep movs on that path and so we gotta try try again so I'll update my pseudo code a little",
-"ja": ""
+"ja": "長さが 0x20 以下なら、どこに行くかというと、すぐそこに行きます。今の値ではそのジャンプが実行されるので、どこに着くかというと、xmm0 レジスタと xmmword pointer を使った movups がたくさんあって、怖いので、抜けましょう。はい、できました。ステップして、最終的に memcpy から抜けました。ここで大事なのは、この経路では rep movs が出てこなかったことです。ですから、もう一度やってみなければなりません。その前に、擬似コードを少し"
 },
 {
 "i": 12,
 "start": "00:08:37,440",
 "end": "00:09:37,839",
 "en": "bit before i do that just to say that at this particular address that was this first path was 2 mov instructions copying 8 bytes and then returning and this path is some movs movups instructions which are scary so once again we have a situation where the only conditional control flow was the 0x10 check which we bypassed by increasing the size now there's a 0x20 check and we should probably bypass that by increasing the size so 0x20 let's go disassembly step step step step step",
-"ja": ""
+"ja": "更新します。このアドレスにある最初の経路は、8 バイトをコピーする 2 つの mov 命令で、そのあと戻る経路でした。そしてこの経路は、いくつかの movups 命令で、怖いものです。今回も、条件つきの制御フローは 0x10 の確認だけで、それはサイズを増やして避けました。今度は 0x20 の確認があるので、これもサイズを増やして避ければよさそうです。0x20 にしましょう。逆アセンブリで、ステップ、ステップ、ステップ、ステップ、ステップ、"
 },
 {
 "i": 13,
 "start": "00:09:34,839",
 "end": "00:10:22,720",
 "en": "step now our r8 is 0x24 so we're going to step step step step until we get to this compare against 0x20 we are greater than 0x20 now hold on a sec let's get this into hex view hexadecimal display much better all right so now it is not going to take this jump below or equal so it's going to fall through so let's go ahead and fall through and let's get a sense of what's coming up next so didn't take the jump below now we fall through let's pseudo code out what happens if we fall through",
-"ja": ""
+"ja": "ステップ。今度は r8 が 0x24 になりました。0x20 との比較まで、ステップ、ステップ、ステップ、ステップと進めます。0x20 より大きくなりました。ちょっと待ってください。これを 16 進数の表示にしましょう。16 進数表示のほうがずっと見やすいです。さて、今度は below or equal のジャンプは実行されないので、そのまま下に進みます。では、下に進んで、次に何が来るか見てみましょう。below のジャンプは実行されず、下に進みました。そのまま進んだ場合に何が起きるか、擬似コードにしてみましょう。"
 },
 {
 "i": 14,
 "start": "00:10:24,959",
 "end": "00:11:16,720",
 "en": "so it's going to take rdx and subtract rcx from it and stick the value back into rdx well what is rdx at this point rdx is the source so it's basically rd rdx equals rdx minus rcx which basically means which basically means take the source address and subtract the destination address okay it does that subtract but then there's an immediate jump above or equal so it's kind of like that's being used as a compare except that they are actually still storing the result of that comparison",
-"ja": ""
+"ja": "rdx から rcx を引いて、その値を rdx に戻します。この時点の rdx は何かというと、コピー元です。つまり rdx = rdx - rcx で、コピー元のアドレスから、コピー先のアドレスを引いている、ということです。引き算はしますが、そのすぐあとに jump above or equal があります。つまり、比較として使われているようなものですが、その比較の結果は、実際には"
 },
 {
 "i": 15,
 "start": "00:11:13,680",
 "end": "00:12:03,200",
 "en": "back into rdx so jump above or equal is this going to be taken well the way we would interpret that is is this greater than or equal to rcx so let's look at the registers quick rdx 0x14fdb0 and rcx 0x14fdd8 so is this greater than this the answer is no this one ends in b0 this one ends in d0 so cx is greater than dx so we don't expect this jump to actually be taken so do so we're going to put in our conditional control flow we're going to say well they're going to use this for",
-"ja": ""
+"ja": "rdx に戻して残しています。では、jump above or equal は実行されるでしょうか。それは、これが rcx 以上か、と解釈できます。レジスタを見てみましょう。rdx は 0x14fdb0 で、rcx は 0x14fdd8 です。これはこれより大きいでしょうか。答えはノーです。こちらは b0 で終わっていて、こちらは d0 で終わっているので、cx のほうが dx より大きいのです。ですから、このジャンプは実行されないと予想できます。条件つきの制御フローに、これを使うと書き入れましょう。"
 },
 {
 "i": 16,
 "start": "00:11:59,600",
 "end": "00:13:12,240",
 "en": "if rdx let's just put yeah if rdx which is the source is above or equal rcx which is the dest then it's going to go to here but it is not going to actually take that jump this time because it is not so let's keep stepping didn't take the jump now we have an lea so what's going on with the lea it is doing r8 plus r10 and it's putting it into rax well what is r8 r8 is our length r10 is our source so it's basically going to say rax equals r10 plus source plus r8 which is length but it's basically the address",
-"ja": ""
+"ja": "もし rdx、つまりコピー元が、rcx、つまりコピー先以上なら、ここに行きますが、今回は、そうではないので、ジャンプは実行されません。では、ステップを続けましょう。ジャンプは実行されませんでした。次は lea があります。この lea は何をするかというと、r8 と r10 を足して rax に入れます。r8 は何かというと、長さです。r10 はコピー元です。つまり、rax = r10 + r8 で、コピー元に長さを足したもので、基本的にはそのアドレス、"
 },
 {
 "i": 17,
 "start": "00:13:09,760",
 "end": "00:14:19,360",
 "en": "of that right this is basically an address this is basically a size and so it's going to get a new address which is basically the end of the source buffer so end of the source buffer all right and what's next it's going to compare rcx to rax so compare is if rcx is below so if rcx is strictly below rax then it's going to take this jump so let's do a little bit of interpretation of this stuff that we're seeing so far let's add some curly braces so let's look at this sort of nested if",
-"ja": ""
+"ja": "つまり、これはアドレスで、こちらはサイズなので、新しいアドレスができます。それは、コピー元のバッファの終わりです。コピー元のバッファの終わりですね。次は何でしょうか。rcx と rax を比較します。比較して、rcx が rax より厳密に below なら、このジャンプが実行されます。ここまで見てきたものを、少し解釈してみましょう。波括弧を足して、この入れ子になった if の"
 },
 {
 "i": 18,
 "start": "00:14:17,760",
 "end": "00:15:32,160",
 "en": "condition that we have so we have if source is greater than or equal to dest that implies that the else is if if source is less than dest and then what is this rax was this end of source buffer and rcx is equal to the dest so this is basically if dest is less than source plus length and because this if is nested inside of this if the way that you actually get to this goto is if source is less than dest and dest is less than source plus length ah what is it doing there we go so you go here if essentially",
-"ja": ""
+"ja": "条件を見てみましょう。まず、コピー元がコピー先以上なら、という条件があります。ということは、else は、コピー元がコピー先より小さい場合です。そして、これは何でしょうか。rax はコピー元バッファの終わりで、rcx はコピー先と等しいので、つまり、コピー先がコピー元 + 長さより小さい場合です。そして、この if は、こちらの if の中に入れ子になっているので、この goto に実際に着くのは、コピー元がコピー先より小さく、かつコピー先がコピー元 + 長さより小さいときです。そこで何をしているのかというと、ここに来るのは、基本的に、"
 },
 {
 "i": 19,
 "start": "00:15:29,600",
 "end": "00:16:07,040",
 "en": "your destination is overlapping with your source so destination is greater than source but it's less than source plus length and that means the place that you're mem copying into is going to be a place that is within the source buffer so that could potentially be a problem but let's see whether it actually takes that jump here so compare jump below and it did not take that jump so it just fell through to this next thing compare r8 to 0x80. so great we didn't do any of that so let's",
-"ja": ""
+"ja": "コピー先がコピー元と重なっているときです。つまり、コピー先がコピー元より大きいけれど、コピー元 + 長さよりは小さい場合で、これは、memcpy でコピーする先が、コピー元のバッファの中にある、ということです。それは問題になる可能性がありますが、実際にこのジャンプが実行されるか見てみましょう。比較して、jump below があり、そのジャンプは実行されなかったので、次のところにそのまま進みました。r8 を 0x80 と比較しています。このあたりは何もしなくて済みました。では、"
 },
 {
 "i": 20,
 "start": "00:16:05,600",
 "end": "00:16:54,800",
 "en": "just go out here and say if r8 less than 0x80. now why am i putting it out here well because it turns out that if you look back at the actual addresses here this jump above right here actually transfers down to here so this is a little nested condition inside of here and if this condition doesn't hold then you just kind of jump over this extra check so you know probably the better place to put it would be right here so i guess i'll just put it there for now all right compare against 0x80 well we",
-"ja": ""
+"ja": "ここに、r8 が 0x80 より小さければ、と書きましょう。なぜここに書くのかというと、実際のアドレスを見直すと、この jump above が、実際にはここまで飛び越えるからです。つまり、これはこの中の入れ子になった小さな条件で、この条件が成り立たなければ、この追加の確認を飛ばすだけです。ですから、書く場所は、たぶんここのほうがよかったですね。とりあえず、ここに書いておきます。さて、0x80 との比較です。0x80 より大きくないことは、"
 },
 {
 "i": 21,
 "start": "00:16:52,639",
 "end": "00:16:58,959",
 "en": "know that we're not greater than 0x80.",
-"ja": ""
+"ja": "分かっています。"
 },
 {
 "i": 22,
 "start": "00:16:54,800",
 "end": "00:17:37,120",
 "en": "so is it going to take this below you betcha all right take the jump and ah some more movups let's get out of here step step let's step until the return head for the exit there we go we're out we're safe well this again suggests that we need to do something that's length greater than 0x80.",
-"ja": ""
+"ja": "では、この below のジャンプは実行されるでしょうか。もちろんです。ジャンプが実行されて、また movups がいくつかあります。ここから抜けましょう。ステップ、ステップ、return までステップして、出口に向かいます。はい、抜けました。無事です。つまり、これはまた、長さが 0x80 より大きくなるようにする必要がある、ということです。"
 },
 {
 "i": 23,
 "start": "00:17:34,960",
 "end": "00:18:50,400",
 "en": "so let's go ahead and put that down here somewhere 49 15 30 49 13 30 yep so let's loop down that's on that path let's bump the size to 0x80 and once more and now we know that we are greater than 0x80 so this below or equal is not going to be taken so it'll just fall through to the next stuff so test all right so if this go there else stuff so it's doing some sort of test of a byte pointer against 2 well let's check what's at that byte pointer paste that in and it looks like the",
-"ja": ""
+"ja": "では、それをこのあたりに書いておきましょう。この経路は、これで見終わりました。サイズを 0x80 にして、もう一度やってみましょう。これで 0x80 より大きいと分かったので、この below or equal のジャンプは実行されず、そのまま次に進みます。test があります。これがそうなら、そこに行き、そうでなければ、ほかの処理です。byte pointer を 2 と test しているようです。その byte pointer の先に何があるか確かめましょう。ペーストします。すると、"
 },
 {
 "i": 24,
 "start": "00:18:47,840",
 "end": "00:19:45,200",
 "en": "memory at that address is actually 2 and it's a byte pointer so we may as well display it one byte at a time so it's going to pluck memory out of that value and it's going to test it against 2 now test we said is an and instruction that throws away the results so the way we might interpret this and there's a jump equal immediately after so it's an and with a jump equal so if some value equals zero then it's going to take the jump and what is that value well that value is this byte pointer anded with 2",
-"ja": ""
+"ja": "そのアドレスのメモリは、実際に 2 で、byte pointer なので、1 バイトずつ表示してもよさそうです。その値からメモリを取り出して、2 と test します。test は、結果を捨てる and 命令だと言いました。そこで、こう解釈できます。すぐあとに jump equal があるので、and と jump equal の組み合わせです。つまり、ある値が 0 に等しければジャンプします。その値は何かというと、この byte pointer の値と 2 の and です。"
 },
 {
 "i": 25,
 "start": "00:19:42,480",
 "end": "00:20:35,440",
 "en": "so i might say that this is the dereferencing of a byte pointer char star not a car char char star of this value dereferenced so get to memory grab that value out it's grabbing a byte because it's a char star and then bitwise and it with 2 so if the result of that bitwise and is equal to zero then it's going to take the jump and if not it's going to go somewhere else you can see there's a hard coded jump if it doesn't take that so if else and we looked at memory so we know that",
-"ja": ""
+"ja": "ですから、これは byte pointer、char のポインタの参照外しだと書けます。この値の char ポインタを参照外しします。つまり、メモリにアクセスして、その値を取り出します。char ポインタなので、1 バイトを取り出して、2 とビットごとの and を取ります。その and の結果が 0 に等しければジャンプが実行され、そうでなければ別のところに行きます。ジャンプが実行されない場合は、固定のジャンプがあるのが分かります。つまり if と else です。そして、メモリを見たので、"
 },
 {
 "i": 26,
 "start": "00:20:34,880",
 "end": "00:21:39,840",
 "en": "it the value there is 2 so the result is not going to be 0 the result of this operation is not going to be 0 so it's not going to take that it's going to take this my wife doesn't like it when i don't put spaces after my comments all right skipped over the jump equal take the jump and where do we land rep movs here it is folks this is what we've been searching for so I'm gonna go ahead and copy that out and we will take a look at what's up with that after we learn more about this",
-"ja": ""
+"ja": "そこの値が 2 だと分かっています。ですから、結果は 0 にならず、この操作の結果は 0 にならないので、そちらには行かず、こちらに行きます。コメントのあとにスペースを入れないと、妻に怒られます。さて、jump equal を飛ばして、ジャンプが実行されました。どこに着いたでしょうか。rep movs です。みなさん、これです。探していたものはこれです。これをコピーしておいて、この"
 },
 {
 "i": 27,
 "start": "00:21:36,840",
 "end": "00:21:39,840",
 "en": "instruction",
-"ja": ""
+"ja": "命令についてもっと学んだあとで、これが何なのかを見てみましょう。"
 }
 ]
 }

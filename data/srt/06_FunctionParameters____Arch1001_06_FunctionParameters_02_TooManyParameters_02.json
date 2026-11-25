@@ -6,42 +6,42 @@
 "start": "00:00:00,240",
 "end": "00:00:38,960",
 "en": "so what did you see in your stack by the time that all of that addition gets assigned to \"i\" what you should have seen is something like this a return address as usual for whoever called main some stack padding some undefined space and then five four three two one these are our function parameters that main is passing to func another return address and then some padding and some padding and the result of that math so here we have that 0x20 chunk of memory that we always see getting allocated right before the",
-"ja": ""
+"ja": "では、その足し算の結果が \"i\" に代入される時点で、スタックはどうなっていたでしょうか。こんなふうになっていたはずです。まず、いつものように、main を呼んだ側への戻りアドレスがあります。次にスタックのパディング、未定義の領域があって、そのあとに 5、4、3、2、1 が並びます。これらは、main が func に渡している関数の引数です。そのあとにまた戻りアドレスがあり、パディングがあって、さらにパディングがあって、計算の結果が入ります。ここに、いつも確保されているのが見える 0x20 のメモリの塊があります。それは、"
 },
 {
 "i": 1,
 "start": "00:00:37,600",
 "end": "00:01:13,760",
 "en": "return address showing up and holding the first four parameters that were passed into the function and why is it too many parameters because if you have more than four parameters you're ultimately going to see a fifth a sixth the seventh value pushed onto the stack as opposed to passed in a register and fed back into memory so this is what we call the microsoft shadow store why do we call it that because from the microsoft documentation the x64 abi uses a four register fast call calling convention by",
-"ja": ""
+"ja": "戻りアドレスのすぐ前にあって、関数に渡された最初の 4 つの引数を保持しています。なぜ引数が多すぎるのかというと、引数が 4 つより多いと、5 番目、6 番目、7 番目の値は、レジスタで渡されるのではなく、スタックに push されるからです。レジスタに入れてからメモリに戻すのではありません。これを Microsoft のシャドウストアと呼びます。なぜそう呼ぶのかというと、Microsoft のドキュメントに、x64 ABI は 4 レジスタの fast call の呼び出し規約を使う、とあるからです。"
 },
 {
 "i": 2,
 "start": "00:01:11,360",
 "end": "00:01:44,159",
 "en": "default space is allocated on the call stack as a shadow store for callees to save those registers so it's passing four parameters in four registers but it's all also allocating space for the callee to save those registers back to the shadow store if it wants the caller must always allocate sufficient space to store these four register parameters even if the callee doesn't take that many parameters so that explains why before when we saw the simplest function with zero parameters calling",
-"ja": ""
+"ja": "デフォルトでは、呼び出し先がそれらのレジスタを保存するためのシャドウストアとして、コールスタックに領域が確保されます。つまり、4 つの引数を 4 つのレジスタで渡しながら、呼び出し先が望めばそれらのレジスタをシャドウストアに保存できるように、領域も確保するのです。呼び出し元は、呼び出し先がそれほど多くの引数を取らない場合でも、この 4 つのレジスタ引数を保存するのに十分な領域を、必ず確保しなければなりません。これで、前に引数が 0 個の最も単純な関数が、"
 },
 {
 "i": 3,
 "start": "00:01:42,880",
 "end": "00:02:22,400",
 "en": "another function that we actually saw this hex 28 worth of allocation eight for padding and space for four eight byte registers and any parameter beyond the first form must be stored on the stack after the shadow store before the call so that is why we see 0x55 being pushed onto the stack before in such a way that it ultimately shows up here above the shadow store so who knows what evil lies in the stacks of compilers the shadow knows so the takeaway from too many parameters is that microsoft has a something it",
-"ja": ""
+"ja": "別の関数を呼んでいたとき、16 進数の 28 バイト分の領域が確保されていた理由が分かります。パディング用の 8 と、8 バイトのレジスタ 4 つ分の領域です。そして、最初の 4 つを超える引数は、呼び出しの前に、シャドウストアの後ろのスタックに格納しなければなりません。だから、0x55 が前に push されていて、結果としてシャドウストアの上に来る、というわけです。スタックの中にどんな悪が潜んでいるのかは、コンパイラの影、つまりシャドウだけが知っています。さて、too many parameters から学んでほしいのは、Microsoft が、"
 },
 {
 "i": 4,
 "start": "00:02:20,480",
 "end": "00:02:50,480",
 "en": "calls a calling convention where it passes the first four arguments to a function through registers but also reserves space on this shadow store on the stack this is also sometimes called the shadow space because there's a quote in there that says the callee has the responsibility of dumping the register parameters into their shadow space if needed so it's ultimately up to the callee as we can see it's func reaching back up and placing the values into the shadow store if necessary",
-"ja": ""
+"ja": "呼び出し規約と呼んでいるものがあって、関数の最初の 4 つの引数をレジスタで渡しながら、スタックのこのシャドウストアにも領域を確保する、ということです。これはシャドウスペースと呼ばれることもあります。というのも、ドキュメントに、必要ならレジスタ引数をシャドウスペースに書き出す責任は呼び出し先にある、という一文があるからです。つまり、最終的には呼び出し先しだいです。見てのとおり、func が上のほうに手を伸ばして、必要ならその値をシャドウストアに置くのです。"
 },
 {
 "i": 5,
 "start": "00:02:49,280",
 "end": "00:03:01,760",
 "en": "and as stated before in the documentation the compiler reserves this space even if no function parameters are passed to another function and even if the callee isn't going to do anything with that space",
-"ja": ""
+"ja": "そして、ドキュメントにあるとおり、コンパイラは、ほかの関数に引数が 1 つも渡されない場合でも、そして呼び出し先がその領域を何にも使わない場合でも、この領域を確保します。"
 }
 ]
 }

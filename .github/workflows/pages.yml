@@ -1,0 +1,68 @@
+name: 日本語版を公開する(GitHub Pages)
+
+# 訳した文章(data/)を、公式の資料(GitLab、決まったコミット)に書き戻して、
+# 日本語の字幕(.srt)とスライド(PDF)を作り、ダウンロード一覧のページと一緒に公開する。
+on:
+  push:
+    branches: [main]
+    paths: ["data/**", "tools/**", "UPSTREAM_SHA", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 道具を入れる(python-pptx、LibreOffice、日本語フォント)
+        run: |
+          pip install python-pptx
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends libreoffice-impress fonts-noto-cjk
+      - name: 原文の資料を、決まったコミットで取得する
+        run: |
+          git init -q upstream && cd upstream
+          git remote add origin https://gitlab.com/opensecuritytraining/arch1001_x86-64_asm_slides_and_subtitles.git
+          git fetch -q --depth 1 origin "$(cat ../UPSTREAM_SHA)"
+          git checkout -q FETCH_HEAD
+          git log -1 --format='原文: %h %cs'
+      - name: 日本語の字幕を作る
+        run: python tools/ost2.py build-srt _site/subtitles
+      - name: 日本語のスライドを作る(pptx)
+        run: python tools/ost2.py build-pptx upstream /tmp/pptx
+      - name: スライドを PDF にする
+        run: |
+          mkdir -p _site/slides
+          for d in /tmp/pptx/*/; do
+            n=$(basename "$d"); mkdir -p "_site/slides/$n"
+            timeout 900 soffice --headless --convert-to pdf --outdir "_site/slides/$n" "$d"*.ja.pptx || echo "変換に失敗: $n"
+          done
+          echo "PDF: $(find _site/slides -name '*.pdf' | wc -l) 本"
+      - name: ダウンロード一覧のページを作る
+        run: |
+          python tools/make_index.py _site
+          cp LICENSE _site/LICENSE.txt
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

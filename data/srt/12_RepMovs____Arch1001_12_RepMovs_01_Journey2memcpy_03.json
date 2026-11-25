@@ -6,105 +6,105 @@
 "start": "00:00:00,080",
 "end": "00:00:37,920",
 "en": "so what is rep movs that we sought this treasure so zealously well rep movs is basically a mem copy unto itself it's an instruction which repeatedly copies from a source to a destination is the repeat move string to string now like rep stos movs is actually its own assembly instruction that does a move of data from one memory location to the next but it is one of the special instructions that can have the rep instruction prefix added to it so that it will do things over and over",
-"ja": ""
+"ja": "では、これほど熱心に探してきた宝、rep movs とは何でしょうか。rep movs は、基本的にそれ自体が memcpy です。コピー元からコピー先へ、繰り返しコピーする命令で、repeat move string to string の意味です。rep stos と同じで、movs は、あるメモリの場所から次の場所へデータを移す、独立したアセンブリ命令です。ただし、rep 命令プレフィックスを付けられる特別な命令の 1 つで、付けると、同じ処理を何度も"
 },
 {
 "i": 1,
 "start": "00:00:35,120",
 "end": "00:01:13,360",
 "en": "again so all of these instructions that have a rep prefix form we'll use the cx register meaning either the cx in 16-bit mode ecx in 32-bit mode or rd rcx in 64-bit mode as a counter for how many times it should loop through the operation copying memory to memory each time it does that operation it's going to decrement cx by one and when it finally hits zero it's going to be done and it'll fall through to the next instruction so rep movs stores 1, 2, 4, or 8 bytes at a time and it's going to either have it's going",
-"ja": ""
+"ja": "繰り返します。rep プレフィックスの形を持つこれらの命令は、すべて cx レジスタを使います。16 ビットモードなら cx、32 ビットモードなら ecx、64 ビットモードなら rcx です。これを、メモリからメモリへのコピーを何回ループするかのカウンタにします。その処理を行うたびに、cx を 1 ずつ減らし、最終的に 0 になると終わって、次の命令に進みます。rep movs は、1、2、4、8 バイトずつ書き込みます。主な形は"
 },
 {
 "i": 2,
 "start": "00:01:11,840",
 "end": "00:01:46,640",
 "en": "to have two main forms either one byte form where it's going to move from memory pointed to by si to di but we don't care so much that's the sort of 16-bit form we're going to care about the one two four or eight byte form that's going to fill from rsi to rdi and each time it does this operation it is then going to increment the rdi or rsi register by however many bytes it's copying so if it's copying one byte at a time it's going to do a plus 1 to the rdi and rsi this basically makes it so that it'll",
-"ja": ""
+"ja": "2 つあります。1 つは 1 バイトの形で、si が指すメモリから di へ移します。ただ、それは 16 ビットの形なので、あまり気にしません。気にするのは、1、2、4、8 バイトの形のほうで、rsi から rdi へ書き込みます。この処理を行うたびに、コピーしたバイト数だけ rdi と rsi を増やします。1 バイトずつコピーするなら、rdi と rsi に 1 を足します。これによって、"
 },
 {
 "i": 3,
 "start": "00:01:45,200",
 "end": "00:02:16,640",
 "en": "just copy everything sequentially so rep movs is basically a memcpy in a box except the fact that there's setup that has to occur so the three pieces of setup is that there's going to need to be an assembly instruction to move and fill in si esi or rsi with the starting source memory location di with the starting destination memory location and cx rcx in our case with the number of times that it should store so i've said throughout the class that you know we don't have memory to memory",
-"ja": ""
+"ja": "すべてが順番にコピーされます。つまり、rep movs は、基本的に箱に入った memcpy ですが、準備が必要です。準備は 3 つあります。まず、アセンブリ命令で、si、esi、または rsi にコピー元のメモリの開始位置を、di にコピー先の開始位置を、cx、ここでは rcx に書き込む回数を、設定する必要があります。この講座の中で、メモリからメモリへの"
 },
 {
 "i": 4,
 "start": "00:02:16,080",
 "end": "00:02:48,959",
 "en": "moves mov cannot have an r/mX and source and an r/mX destination and that's why i'm pointing out that this is not actually the mov instruction this is movs and frequently you'll hear it referred to as oh it's a rep move it's a rep move well it's a rep movs and that's why it is allowed to do memory to memory quick interesting point is the fact that it has hard-coded into this assembly instruction that it must use only rdi and rsi it has no other choices for other registers to copy memory to memory",
-"ja": ""
+"ja": "mov はないと、ずっと言ってきました。mov は、コピー元とコピー先の両方に r/mX を持てません。だから、これは mov 命令ではなく、movs だと指摘しています。よく「rep move だ」と呼ばれますが、正しくは rep movs で、だからメモリからメモリへの移動が許されています。ちょっとおもしろい点は、このアセンブリ命令には、rdi と rsi しか使えないことが固定されていて、メモリからメモリへコピーするほかのレジスタの選択肢がないことです。"
 },
 {
 "i": 5,
 "start": "00:02:46,720",
 "end": "00:03:24,000",
 "en": "and that has implications then for callee-save and caller-save registers so because visual studio treats this as a callee save register it's going to need to save and restore this and we can actually see that over in our assembly so here when we finally made our way to rep movs we can see that the first thing it does is push rdi push rsi and the last thing it does before it returns is it's going to pop rsi and pop rdi so now that we know what rep movs is doing basically we see okay push the",
-"ja": ""
+"ja": "これは、呼び出し先が保存するレジスタと、呼び出し元が保存するレジスタに影響します。Visual Studio はこれを、呼び出し先が保存するレジスタとして扱うので、保存と復元が必要です。アセンブリで実際に確かめられます。ここで、最終的に rep movs にたどり着いたとき、最初に push rdi と push rsi をして、戻る直前の最後に pop rsi と pop rdi をしています。これで rep movs が何をしているか分かったので、順に見ていきましょう。まず、"
 },
 {
 "i": 6,
 "start": "00:03:22,400",
 "end": "00:03:59,680",
 "en": "callee-save registers take r11 and put it into rax well we didn't say rep movs has anything to do with rax so what's up with that if we go back and we search through our pseudocode we see that r11 holds rcx holds the destination and so it's actually the case that memcpy if you go look at the manual it is supposed to return the original destination address so it's moving the dest into rax because that's going to be the return value then we see rcx moved into di so rcx destination let's check it out rcx",
-"ja": ""
+"ja": "呼び出し先が保存するレジスタを push します。次に、r11 を rax に入れます。rep movs は rax とは関係がないと言いましたが、これは何でしょうか。擬似コードに戻って探すと、r11 には rcx が、つまりコピー先が入っています。マニュアルを見ると、memcpy は元のコピー先のアドレスを返すことになっています。そのため、コピー先を rax に移しています。これが戻り値になるからです。次に、rcx が di に移されています。rcx がコピー先なので、確かめましょう。rcx が"
 },
 {
 "i": 7,
 "start": "00:03:57,439",
 "end": "00:04:35,520",
 "en": "destination it checks out r8 into rcx well that's the rcx is the counter it's the number of times it's going to do a memory to memory copy so that makes sense because that's our size which is now 0x84 in the final version of this and r10 into rsi r10 is the source so source destination count and then boom rep movs how big is it doing this one is doing 1 byte at a time because it's doing a byte pointer now they could do larger chunks at a time they could do 8 bytes at a time but if we sort of examine this pseudo",
-"ja": ""
+"ja": "コピー先で、合っています。r8 が rcx に入ります。rcx はカウンタ、つまりメモリからメモリへのコピーを行う回数です。これは大きさなので、この最終版では 0x84 になっていて、納得できます。r10 が rsi に入ります。r10 がコピー元です。つまり、コピー元、コピー先、回数がそろい、あとは rep movs です。どのくらいの大きさでしょうか。これは、バイトポインタなので、1 バイトずつです。もっと大きな塊で、たとえば 8 バイトずつにもできますが、この擬似"
 },
 {
 "i": 8,
 "start": "00:04:34,639",
 "end": "00:05:03,360",
 "en": "code and we get a sense of well if it's you know greater than 0x10 and it's greater than 0x20 that's greater than 0x80. the thing is in order to be generic it could be 0x81 it could be 0x82 it could be 0x83 so you're not going to want to be copying 8 bytes at a time for that so to make it generic they basically just treat it as 1 byte at a time so that it can handle any size that's greater than 0x80. and then that's pretty much it it's going to do the copy of whatever to whatever and then it's",
-"ja": ""
+"ja": "コードを見て、0x10 より大きく、0x20 より大きく、0x80 より大きい場合、と考えてみましょう。汎用にするには、0x81 でも 0x82 でも 0x83 でもありえます。そのため、8 バイトずつコピーしたくはありません。汎用にするために、基本的に 1 バイトずつとして扱います。そうすれば、0x80 より大きいどんなサイズでも処理できます。あとは、それだけです。何かから何かへコピーして、それから"
 },
 {
 "i": 9,
 "start": "00:05:01,520",
 "end": "00:05:34,960",
 "en": "going to restore the registers and return back out so here's a slightly cleaned up version of the pseudocode that i was writing out on the fly you can see if length is less than 0x10 go to here and it's going to do some mov instructions if length is greater than 0x10 but less than 0x20 then it goes here and uses these movups instructions that we don't know what they are else if the source is greater than dest go to here but this address happens to be the address of this length less than 0x80. and",
-"ja": ""
+"ja": "レジスタを復元して、戻ります。こちらは、その場で書いていた擬似コードを、少し整理したものです。長さが 0x10 未満なら、ここに行って、いくつかの mov 命令を行います。長さが 0x10 より大きく 0x20 未満なら、ここに行って、これらの movups 命令を使います。これが何かは分かりません。そうでなくて、コピー元がコピー先より大きければ、ここに行きますが、このアドレスは、長さが 0x80 未満の場合のアドレスです。そして、"
 },
 {
 "i": 10,
 "start": "00:05:33,360",
 "end": "00:06:06,240",
 "en": "if it goes in here then you've got a situation of if source is less than dest is less than source plus len which means dest is in the middle of this source buffer that's going to be copied go here and deal with it but thankfully for us it didn't go there now we can actually sort of you know simplify this a little bit because we know that this source greater than dest it goes to here instead of thinking of this as a goto we could sort of get rid of it and treat it like it's an else so if we flip",
-"ja": ""
+"ja": "ここに入ると、コピー元がコピー先より小さく、コピー先がコピー元プラス長さより小さい、つまり、コピー先が、コピーされるコピー元のバッファの途中にある場合になります。その場合はここに行って処理しますが、ありがたいことに、今回はそこへは行きませんでした。少し単純にできます。コピー元がコピー先より大きいので、ここに行きます。これを goto と考える代わりに、なくしてしまって、else として扱えます。そこで、"
 },
 {
 "i": 11,
 "start": "00:06:03,280",
 "end": "00:06:37,039",
 "en": "the condition and we say if source is less than length goto here else goto there and that would be sort of the simplified version if source is less than dest and dest is less than source plus length do this else then it's going to fall through and go to here and so this is the case where if length is less than 0x80 but greater than 0x20 then it goes and does some more movups stuff that we don't know and don't care because we're hunting for rep movs so we set it greater than 80 and it goes",
-"ja": ""
+"ja": "条件を反転して、コピー元が長さより小さければここへ goto、そうでなければあちらへ、とします。それが単純にした版です。コピー元がコピー先より小さく、コピー先がコピー元プラス長さより小さければ、これを行い、そうでなければ、そのまま進んで、ここに来ます。これは、長さが 0x80 未満で 0x20 より大きい場合で、また movups の処理をします。何かは分かりませんし、気にしません。rep movs を探しているからです。そこで、80 より大きいとすると、"
 },
 {
 "i": 12,
 "start": "00:06:35,759",
 "end": "00:07:08,160",
 "en": "down to this case got some memory check against you know this bit here we don't know what's up with that but thankfully that bit is not set so sorry thankfully that bit is set and therefore it doesn't take this case and instead goes here where we ultimately find the rep movs so basically no matter what if it's greater than 0x80 and this bit is set then it's guaranteed to always do a rep movs 1 byte at a time so an interesting little bit of trivia for you there is actually this thing",
-"ja": ""
+"ja": "このケースに下りてきます。メモリの検査があって、このビットを調べます。それが何かは分かりませんが、ありがたいことに、そのビットは設定されていません。失礼、ありがたいことに、そのビットは設定されているので、このケースには入らず、ここに来て、最終的に rep movs が見つかります。つまり、0x80 より大きく、このビットが設定されていれば、必ず 1 バイトずつの rep movs になります。ここで、ちょっとした豆知識があります。実は、"
 },
 {
 "i": 13,
 "start": "00:07:05,759",
 "end": "00:07:39,840",
 "en": "called the direction flag and the direction flag actually controls the direction of copies that occur with a rep movs so this is a C control flag and it turns out that based on the direction flag it could either be incrementing rdi and rsi or it could actually be decrementing so it could kind of be copying backwards down towards lower addresses if you want so sort of interesting to think about what if the attacker somehow could control DF and cause the thing to start copying backwards when the programmers",
-"ja": ""
+"ja": "ディレクション・フラグというものがあり、rep movs によるコピーの方向を制御します。これは C の制御フラグで、ディレクション・フラグによって、rdi と rsi を増やすことも、減らすこともできます。つまり、お望みなら、低いアドレスのほうへ、後ろ向きにコピーすることもできます。もし攻撃者が DF を何らかの方法で操作して、プログラマが"
 },
 {
 "i": 14,
 "start": "00:07:37,759",
 "end": "00:08:03,680",
 "en": "expect it to be copying forwards clearly that's going to lead to some sort of memory corruption okay so we picked up our final instruction instruction 30 rep movs and my friendly friends this is where I tell you that this is the last assembly instruction which I am specifically going to try to teach you everything after this is going to be an RTFM situation",
-"ja": ""
+"ja": "前向きにコピーすると思っているところで、後ろ向きにコピーさせたらどうなるか、と考えるのはおもしろいです。明らかに、何らかのメモリ破壊につながります。さて、最後の命令、30 個目の rep movs を覚えました。そして、友人の皆さん、これが、私が特に教えようとする最後のアセンブリ命令です。これ以降は、すべて RTFM、つまりマニュアルを読む状況になります。"
 }
 ]
 }

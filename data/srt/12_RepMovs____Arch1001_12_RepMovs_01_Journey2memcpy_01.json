@@ -6,28 +6,28 @@
 "start": "00:00:00,240",
 "end": "00:00:45,200",
 "en": "OST presents Brendan Fraser in journey to the center of the memcpy so JourneyToTheCenterOfMemcpy.c we are going to dig down in memcpy looking for the elusive rep movs instruction so we have a structure here that we've pragma pack 1 to squish it all together, we have 2 instances of the structure we set a single variable to 0xff and then memcpy from a to b so that we can confirm when it's actually copied of course we return 0xAce0fBa5e so here's the assembly and I want you to step into the unknown. memcpy is a",
-"ja": ""
+"ja": "OST がお送りする、ブレンダン・フレイザー主演の「memcpy の中心への旅」です。JourneyToTheCenterOfMemcpy.c では、memcpy の中に潜って、なかなか見つからない rep movs 命令を探します。ここに構造体があり、全部を詰め込むために pragma pack 1 を指定してあります。構造体のインスタンスは 2 つあり、1 つの変数を 0xff に設定して、a から b へ memcpy します。実際にコピーされたかを確かめるためです。そして、もちろん 0xAce0fBa5e を返します。これがアセンブリです。未知の世界に踏み込んでください。memcpy は"
 },
 {
 "i": 1,
 "start": "00:00:43,360",
 "end": "00:01:14,479",
 "en": "library function this is not our source code but I want you to step in in the assembly view and dig down in it until you find rep movs so rep movs is the assembly instruction we're searching for here we just learned about rep stos and so this is going to be somehow related to that now traditionally in the in person class I had just you know taken people through the source code and explained it in slides this is necessary because typically this example comes towards the end of the",
-"ja": ""
+"ja": "ライブラリ関数で、私たちのソースコードではありません。でも、アセンブリ表示で中に踏み込んで、rep movs が見つかるまで掘り下げてください。rep movs が、ここで探しているアセンブリ命令です。さっき rep stos を学びましたが、これはそれに何らかの関連があります。従来の対面のクラスでは、私がソースコードを順に説明して、スライドで解説していました。この例は、たいていクラスの終わりごろに出てくるので、そうする必要がありました。"
 },
 {
 "i": 2,
 "start": "00:01:12,960",
 "end": "00:01:48,399",
 "en": "class and I need to make sure we get the entire class done but it is much better for your learning experience if those of you who are bold will now choose to go do this exercise by yourself before I show you the solution so what I need you to do is stop step through the memcpy assembly and find the rep movs now in particular you're probably going to need well I shouldn't say probably you're definitely going to need to modify the struct in order to force the memcpy assembly down the right path that ultimately",
-"ja": ""
+"ja": "クラス全体を終わらせる必要があったからです。でも、勇気のある人は、解答を見せる前に、この演習を自分でやってみるほうが、学習の経験としてずっとよいです。やってほしいのは、ここで止めて、memcpy のアセンブリをステップ実行して、rep movs を見つけることです。特に、おそらく必要になる、いえ、おそらくではなく、確実に必要になるのは、memcpy のアセンブリを正しい道へ進ませるために、構造体を変更することです。その道は、最終的に"
 },
 {
 "i": 3,
 "start": "00:01:46,159",
 "end": "00:02:12,239",
 "en": "leads you to rep movs and to make it even more challenging when you finally find the rep movs I want you to write down pseudocode for the path that leads to it alright so now bold adventurers once more into the abyss you",
-"ja": ""
+"ja": "rep movs につながります。さらに難しくするために、rep movs を最終的に見つけたら、そこにたどり着く道筋の疑似コードを書き出してください。では、勇敢な冒険者のみなさん、もう一度、深淵へ。"
 }
 ]
 }

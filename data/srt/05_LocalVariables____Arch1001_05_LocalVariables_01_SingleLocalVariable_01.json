@@ -6,21 +6,21 @@
 "start": "00:00:00,000",
 "end": "00:00:34,320",
 "en": "so now we're going to expand on our example from before with having a function called another function and then let's add a single local variable to that other function so we're going to assign hex scalable to an integer i here's going to be the assembly for that but now in the class i'm going to start having you go through this assembly and see what's actually changing on the stack so that you can understand now for instance how variables are stored on the stack to do this you should go into your",
-"ja": ""
+"ja": "では、前の例を広げましょう。ある関数が別の関数を呼び出しています。その別の関数に、ローカル変数を 1 つ足します。整数 i に 0x5ca1ab1e を代入します。そのアセンブリがこちらです。でもこのクラスからは、このアセンブリを順に追って、スタックで実際に何が変わっているかを見てもらいます。たとえば、変数がスタックにどう保存されるかを理解するためです。そのためには、"
 },
 {
 "i": 1,
 "start": "00:00:32,640",
 "end": "00:01:05,360",
 "en": "visual studio solution right click on single local variable and select set as startup project then when you go ahead and just start the debugger it will start that project so what i want you to do for this example this exercise is i want you to step through this line right here which is where scalable gets assigned to i and i want you to draw a stack diagram for what all changes throughout the program execution from the very beginning until you step through this particular line so create a stack diagram like this",
-"ja": ""
+"ja": "Visual Studio のソリューションで、single local variable を右クリックして、スタートアッププロジェクトに設定を選びます。そのあと、デバッガを開始すると、そのプロジェクトが始まります。この演習でやってほしいのは、ここの行、つまり 0x5ca1ab1e が i に代入される行をステップ実行することです。そして、プログラムの実行の最初から、この行をステップ実行するまでに、何がどう変わるかを、スタック図に描いてください。このようなスタック図を作ります。"
 },
 {
 "i": 2,
 "start": "00:01:04,559",
 "end": "00:01:23,280",
 "en": "fill it in figure out what is there where i is that kind of thing so go ahead and stop and step through the assembly and draw a stack diagram we're going to be doing this a lot for all of the upcoming examples",
-"ja": ""
+"ja": "それを埋めて、そこに何があるか、i がどこにあるか、といったことを調べます。では、いったん止めて、アセンブリをステップ実行して、スタック図を描いてください。これからの例では、これを何度もやります。"
 }
 ]
 }

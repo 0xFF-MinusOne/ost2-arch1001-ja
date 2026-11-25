@@ -6,105 +6,105 @@
 "start": "00:00:00,160",
 "end": "00:00:31,840",
 "en": "we're now going to get into the heart of the class which is looking at very simple c code and seeing the assembly instructions that it generates so here we have something that's utterly trivial just main calls a function function just returns a hard-coded constant and then we don't actually even do anything with that return address and main returns some other hard-coded constant so what gets generated for this here's the assembly and it looks like we have five completely new assembly instructions",
-"ja": ""
+"ja": "ここから、この講義の中心に入ります。とても単純な C のコードを見て、それが生成するアセンブリ命令を見ていきます。ここにあるのは、まったく些細なコードで、main が関数を呼び出し、その関数は決まった定数を返すだけです。そして、その戻り値は実は何にも使わず、main は別の決まった定数を返します。これで何が生成されるかというと、このアセンブリです。まったく新しいアセンブリ命令が 5 つあるようです。"
 },
 {
 "i": 1,
 "start": "00:00:29,279",
 "end": "00:01:03,199",
 "en": "that we need to learn about the first one call call's job is to transfer control to a different function in a way that the control can later be resumed where it left off so basically it's going to push the address of the next instruction onto the stack so implicitly that push is going to move rsp down by eight and so that's going to serve as what we call the return address which will be used by the return instruction in order to get back to the calling function so i mentioned that in the stack section",
-"ja": ""
+"ja": "これから学ぶ必要があります。最初は call です。call の仕事は、あとで元の続きから再開できる形で、制御を別の関数に移すことです。基本的には、次の命令のアドレスをスタックに push します。この push は暗黙のうちに、RSP を 8 だけ下げます。それが、いわゆる戻りアドレスになり、ret 命令が呼び出し元の関数に戻るために使います。スタックのところで話しましたが、"
 },
 {
 "i": 2,
 "start": "00:01:01,600",
 "end": "00:01:33,040",
 "en": "return addresses are one of the things that end up on the stack after the return address is pushed into the stack by the call assembly instruction it changes rip the really long instruction pointer to the address that's given in the instructions so that's going to be the address of the target function that you want to call now the destination address can actually be specified in multiple ways it could be an absolute address or it could be a relative address which could either be relative to the",
-"ja": ""
+"ja": "戻りアドレスは、スタックに置かれるものの一つです。call 命令が戻りアドレスをスタックに push したあと、長い名前の命令ポインタ RIP を、命令で指定されたアドレスに変更します。それが、呼び出したい関数のアドレスになります。さて、この移動先のアドレスは、いくつかの方法で指定できます。絶対アドレスでも、相対アドレスでもかまいません。相対アドレスの場合は、"
 },
 {
 "i": 3,
 "start": "00:01:31,280",
 "end": "00:02:03,759",
 "en": "end of the call instruction or it could be relative to some completely different register so we're not exactly going to care about these you're not going to really see the differences between the encoding for the most part but later on when we talk about assembly instruction encoding or if and if you happen to be you know hard coding some assembly yourself then you'll certainly care about how exactly targets of call assembly instructions are encoded so perfectly balanced the call has its",
-"ja": ""
+"ja": "call 命令の終わりからの相対か、まったく別のレジスタからの相対になります。今は、これらを細かく気にする必要はありません。ほとんどの場合、エンコーディングの違いが見えることもありません。でも、あとでアセンブリ命令のエンコーディングを扱うときや、自分でアセンブリを直接書くときには、call 命令の移動先がどうエンコードされるかが、確実に大事になります。さて、バランスよく、call には"
 },
 {
 "i": 4,
 "start": "00:02:03,360",
 "end": "00:02:36,400",
 "en": "own return there are two forms of return the first one just basically pops the top of the stack whatever is on top of the stack at the time that the ret instruction is called that's going to go back into rip and of course because it's popping implicitly pop is going to increment the stack pointer rsp by 8. so basically whatever's on the stack stick it in rip and rsp plus 8. there's also another form of pop that you will see less frequently where it can essentially do the same thing as that but then you",
-"ja": ""
+"ja": "対になる return があります。return には 2 つの形があります。1 つめは、基本的にスタックの一番上を pop するだけです。ret 命令が呼ばれた時点でスタックの一番上にあったものが、そのまま RIP に入ります。もちろん、暗黙の pop なので、スタックポインタ RSP は 8 だけ増えます。つまり、スタックにあるものを RIP に入れて、RSP に 8 を足すわけです。もう 1 つ、あまり見かけない形の ret があります。基本的には同じことをしますが、さらに"
 },
 {
 "i": 5,
 "start": "00:02:34,720",
 "end": "00:03:05,040",
 "en": "can actually also specify some number of bytes that you want also added to rsp so instead of just popping one thing off the top of the stack it's like pop it off the top of the stack put it in rip and then go ahead and add an extra 8 bytes to rrsp add an extra 20 bytes like i said you won't see this as much but there is a particular way of calling functions that's used by windows apis and so if you ever start disassembling windows apis you will potentially see this type of assembly",
-"ja": ""
+"ja": "バイト数を指定して、それも RSP に足すことができます。スタックの一番上から 1 つだけ pop するのではなく、スタックの一番上から pop して RIP に入れ、そのうえで、さらに 8 バイトを RSP に足したり、20 バイトを足したりします。言ったとおり、あまり見かけませんが、Windows の API が使う特別な呼び出し方があるので、Windows の API を逆アセンブルし始めたら、この種のアセンブリ"
 },
 {
 "i": 6,
 "start": "00:03:02,840",
 "end": "00:03:41,280",
 "en": "instruction now before we get to the next instruction we have to talk about how intel versus at t syntax deal with two operand instructions so in Intel syntax two operand instructions have the sources on the right and the destinations on the left so windows uses this form typically windows tends to use intel assembly and things like unix's tend to use AT&T assembly syntax so sources on the right destinations on the left you can think of this kind of like c programming or algebra where you have",
-"ja": ""
+"ja": "命令を見かけるかもしれません。さて、次の命令に進む前に、Intel 構文と AT&T 構文で、2 つのオペランドを取る命令がどう違うかを話します。Intel 構文では、2 つのオペランドを取る命令は、ソースが右、デスティネーションが左です。Windows は通常この形で、Windows は Intel のアセンブリを使う傾向があり、UNIX 系は AT&T のアセンブリ構文を使う傾向があります。ソースが右、デスティネーションが左です。C 言語のプログラミングや代数のようなものだと考えてください。"
 },
 {
 "i": 7,
 "start": "00:03:39,519",
 "end": "00:04:13,200",
 "en": "stuff over here and it goes into the thing on the left so if i show you a move rsp to rbp if i show you an instruction move and two operands you don't necessarily know which way it's going except that i'm telling you if you're in Intel syntax it's going from the right to the left so this would take the register rsp and put the value into rbp add you know we haven't covered these assembly instructions yet but you know just add is going to take rsp plus 14 and then it's going to put it back into",
-"ja": ""
+"ja": "右にあるものが、左にあるものに入ります。たとえば、mov rbp, rsp のような命令、つまり mov と 2 つのオペランドを見せられても、どちら向きなのかは分かりません。ただ、Intel 構文なら右から左へ、ということは私が言っています。この命令は、レジスタ rsp の値を rbp に入れます。add のような、まだ扱っていないアセンブリ命令もありますが、add は rsp に 14 を足して、それをまた"
 },
 {
 "i": 8,
 "start": "00:04:11,200",
 "end": "00:04:46,639",
 "en": "rsp so even though there's kind of two assembly instructions this is both a source and a destination right AT&T syntax it's the opposite direction so elementary school one plus two equals three so again move rsp rbp you have no way to implicitly know what the direction is of here other than that i'm telling you if it's at t syntax it's moving from the left to the right move rsp to rbp also you'll see that registers get a percent sign prefix in front of them so you know like okay that's register",
-"ja": ""
+"ja": "rsp に戻します。つまり、アセンブリ命令は 1 つでも、この rsp はソースでもありデスティネーションでもあるわけです。AT&T 構文は、逆向きです。小学校の算数のように、1 たす 2 は 3、という書き方です。繰り返しますが、mov rsp rbp だけでは、向きが暗黙に分かる方法はありません。ただ、AT&T 構文なら左から右へ動く、ということは私が言っています。rsp を rbp に mov します。また、レジスタには、前にパーセント記号が付きます。ですから、これはレジスタ、"
 },
 {
 "i": 9,
 "start": "00:04:45,680",
 "end": "00:05:15,919",
 "en": "that's register and immediates those constant values get a dollar sign prefix in front of them so in this class i'm going to prefer Intel syntax even though i originally learned AT&T syntax but it's important for you to know both and you know we'll cover AT&T and Intel syntax more later on but you need to know both because essentially you know per one of the reasons why should you learn assembly because people giving talks might be showing you some assembly to try to make a point",
-"ja": ""
+"ja": "こちらもレジスタ、とわかります。そして、即値、つまり定数には、前にドル記号が付きます。このクラスでは、私はもともと AT&T 構文で学びましたが、Intel 構文のほうを使います。ただ、両方知っておくことが大事です。AT&T 構文と Intel 構文は、あとでもう少し詳しく扱います。両方知っておく必要があるのは、アセンブリを学ぶ理由の一つとして、講演をする人が、主張のためにアセンブリを見せることがあるからです。"
 },
 {
 "i": 10,
 "start": "00:05:14,240",
 "end": "00:05:42,400",
 "en": "you don't get to choose how the particular person giving the talk is going to put it in intel or AT&T syntax so you're going to be able to read both to understand what they're saying so the move instruction has many different forms it can move from one register to the next register it can take memory and put it into a register it can take register and put it into memory and it can take an immediate value and put it into a register or immediate value into memory but the form you don't see here",
-"ja": ""
+"ja": "講演者が Intel 構文と AT&T 構文のどちらで書くかは、こちらでは選べません。ですから、どちらも読めて、その人の言っていることが分かるようにしておきます。さて、mov 命令にはいろいろな形があります。レジスタから別のレジスタへ移せますし、メモリを取ってレジスタに入れることも、レジスタを取ってメモリに入れることもできます。即値をレジスタに入れることも、即値をメモリに入れることもできます。でも、ここに見えない形が、"
 },
 {
 "i": 11,
 "start": "00:05:40,160",
 "end": "00:06:15,520",
 "en": "is memory to memory so move does not support memory to memory transfers and whenever i talk about memory up here in the possible forms memory addresses are always given in rmx forms so for instance i said it can put an immediate into memory so that would be like an immediate value and stick it into a memory address intel can't actually support 64-bit immediate values when moving into memory but it can support 64-bit immediate values when moving into a register so here we have you know the various",
-"ja": ""
+"ja": "メモリからメモリへです。mov は、メモリからメモリへの転送には対応していません。そして、ここで可能な形としてメモリと言っているときの、メモリアドレスは、いつも rmx の形で与えられます。たとえば、即値をメモリに入れられると言いましたが、それは、即値を取って、メモリアドレスに入れる、ということです。Intel は、メモリへ mov するときには 64 ビットの即値に対応できませんが、レジスタへ mov するときには、64 ビットの即値に対応できます。ここには、前に見たいろいろな"
 },
 {
 "i": 12,
 "start": "00:06:13,600",
 "end": "00:06:47,360",
 "en": "forms of rmx that we saw before we said it does register to memory or memory to register so Intel syntax register the source operand goes on the right side the destination operand on the left side so register to memory or memory as specified in rmx form on the right side to register the destination and register to register then we have the add and subtract assembly instructions which of course add and subtract exactly like you would expect now the destination operand can be an",
-"ja": ""
+"ja": "rmx の形があります。レジスタからメモリ、メモリからレジスタができると言いました。Intel 構文では、ソースオペランドが右側、デスティネーションオペランドが左側です。ですから、レジスタからメモリ、あるいは、右側に rmx の形で指定されたメモリから、デスティネーションのレジスタへ、そしてレジスタからレジスタ、となります。次は、add と sub のアセンブリ命令です。もちろん、見たとおり、足し算と引き算をします。デスティネーションオペランドは、"
 },
 {
 "i": 13,
 "start": "00:06:45,680",
 "end": "00:07:23,919",
 "en": "rmx or a register the source operand can be an rmx or a register or an immediate but you can't have source and destination rmx's because that would allow for memory to memory which again we don't have memory to memory transfers moves ads subtracts never memory to memory only these other combination forms so Intel syntax style add rsp plus eight takes rsp plus eight and moves it back into rsp so again in two operand form this actually has source and destination but the destination",
-"ja": ""
+"ja": "rmx かレジスタで、ソースオペランドは、rmx、レジスタ、即値のどれかです。ただし、ソースもデスティネーションも rmx にはできません。それだとメモリからメモリになってしまい、繰り返しますが、メモリからメモリへの転送はありません。mov も add も sub も、メモリからメモリには決してならず、ほかの組み合わせの形だけです。Intel 構文での add rsp, 8 は、rsp に 8 を足して、それを rsp に戻します。2 つのオペランドの形なので、ソースとデスティネーションがありますが、デスティネーションは"
 },
 {
 "i": 14,
 "start": "00:07:21,680",
 "end": "00:07:45,280",
 "en": "is always going to be on the left likewise subtract rax rbx times two it's an rmx form which is going to take rbx to multiply it by 2 treat it as a memory address grab a value from that memory address add it to rax and then put it back into sorry subtract it from rax and then put the value back into rax",
-"ja": ""
+"ja": "いつも左側になります。同じように、sub rax, [rbx*2] は rmx の形で、rbx を 2 倍して、それをメモリアドレスとして扱い、そのメモリアドレスから値を取り出し、それを rax に足して、いえ、rax から引いて、その値を rax に戻します。"
 }
 ]
 }

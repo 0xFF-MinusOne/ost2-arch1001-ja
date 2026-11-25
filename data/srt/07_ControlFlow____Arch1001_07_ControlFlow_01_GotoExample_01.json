@@ -6,84 +6,84 @@
 "start": "00:00:00,004",
 "end": "00:00:22,006",
 "en": "Now it's time to talk about control flow, of which there are two forms Conditional control flow where you go somewhere if the condition is met Which is, for instance, if statements or if else's also switches and loops where it decides whether it's going to continue in the loop or exit the loop based on some condition There's also unconditional control flow where it always goes somewhere no matter what This is,",
-"ja": ""
+"ja": "ここからは、制御フローの話です。制御フローには 2 種類あります。1 つは条件つき制御フローで、条件が満たされたときに、どこかへ移動します。たとえば if 文や if else、それに switch や、ある条件でループを続けるか抜けるかを決めるループです。もう 1 つは無条件の制御フローで、何があっても必ずどこかへ移動します。これは、"
 },
 {
 "i": 1,
 "start": "00:00:22,006",
 "end": "00:00:48,057",
 "en": "for instance, function calls like we saw before and the goto statement in C or exceptions and interrupts, which are not going to be things that we're going to cover in this class But we will cover in a future class So we've already seen that function Calls for unconditional control flow turn into call/ret instructions So let's go ahead and see how goto manifests Here's our goto example You can see it's very simple Basically,",
-"ja": ""
+"ja": "たとえば、前に見た関数呼び出しや、C の goto 文、それに例外や割り込みです。例外と割り込みは、この講座では扱わず、今後の講座で扱います。関数呼び出しという無条件の制御フローが、call と ret の命令になることは、すでに見ました。では、goto がどうなるかを見てみましょう。これが goto の例です。とても簡単です。基本的には、"
 },
 {
 "i": 2,
 "start": "00:00:48,057",
 "end": "00:01:01,001",
 "en": "you get into main() and it immediately goes to mylabel and it prints out, goto for the win So clearly the skipped portion is never, ever going to be executed And what does that look like in the assembly?",
-"ja": ""
+"ja": "main() に入るとすぐ mylabel に移動して、goto for the win と出力します。つまり、飛ばされた部分は、絶対に実行されません。これがアセンブリではどうなるでしょうか。"
 },
 {
 "i": 3,
 "start": "00:01:01,016",
 "end": "00:01:15,038",
 "en": "Well, that introduces a new assembly instruction jump, which will learn about next jump, will unconditionally change the rip The instruction pointer to a given address And how do you specify the given address?",
-"ja": ""
+"ja": "ここで新しいアセンブリ命令の jmp が出てきます。次にこれを学びます。jmp は、rip、つまり命令ポインタを、指定したアドレスに、無条件で変更します。では、そのアドレスをどう指定するのでしょうか。"
 },
 {
 "i": 4,
 "start": "00:01:15,038",
 "end": "00:01:40,029",
 "en": "Well, there's multiple ways There is a short relative addressing form where rip is going to be rip of the next instruction So it's not math based on the current instruction are happy, but instead the next instruction or the location After this instruction, rip equals the next instruction, plus one bite sign extended 64 bit displacement So this basically just means one bite,",
-"ja": ""
+"ja": "方法はいくつかあります。まず、短い相対アドレッシングの形があります。この場合、rip は次の命令の rip になります。現在の命令ではなく、次の命令、つまりこの命令の直後の位置を基準に計算します。rip は、次の命令に、符号拡張された 1 バイトの 64 ビットの変位を足したものになります。これは基本的に、1 バイトという意味で、"
 },
 {
 "i": 5,
 "start": "00:01:40,003",
 "end": "00:01:58,024",
 "en": "which can be positive or negative, and it's going to be signed extended When you're doing the actual math on the 64 bit register The most common place where you'll see a short relative jump would be, for instance, small loops where it's just going to be jumping a small amount of assembly instructions backwards We're not going to see it in visual studio,",
-"ja": ""
+"ja": "正の値も負の値もとれて、64 ビットレジスタで実際に計算するときに符号拡張されます。短い相対ジャンプを最もよく見かけるのは、たとえば小さなループです。少ない数のアセンブリ命令だけ、後ろへ戻るジャンプをします。Visual Studio では見かけませんが、"
 },
 {
 "i": 6,
 "start": "00:01:58,024",
 "end": "00:02:28,045",
 "en": "but some disassemblers will indicate in the mnemonic Instead of just saying jump, they'll say, jump short, jump far, jump near Whatever the different form of it is also FYI since this jump short can be generated with a very small number of bytes If you actually say jump negative, 2, because the jump negative two instruction is two bytes long because the displacement is relative to the next instruction jump Negative two will just infinite loop continuously jumping back to itself",
-"ja": ""
+"ja": "逆アセンブラによっては、ニーモニックに、ただの jump ではなく、jump short、jump far、jump near のように、形の違いを表示します。ちなみに、この jump short は、ごく少ないバイト数で作れます。実際に jump negative 2 とすると、その命令は 2 バイトの長さで、変位は次の命令からの相対なので、自分自身に戻り続ける無限ループになります。"
 },
 {
 "i": 7,
 "start": "00:02:29,004",
 "end": "00:02:48,044",
 "en": "We'll talk about this more later when we actually show the bytes that encode assembly instructions But even though you'll see in Visual Studio Jump and then some really long 64 bit address, the reality is this Assembly instruction is not encoded with that 64 bit address baked into it Instead, it's actually saying two bytes,",
-"ja": ""
+"ja": "これについては、あとでアセンブリ命令をエンコードしたバイトを実際に見せるときに、もっと説明します。Visual Studio では jmp のあとに、とても長い 64 ビットのアドレスが見えますが、実際には、このアセンブリ命令の中に 64 ビットのアドレスが埋め込まれているわけではありません。実際には、2 バイトで、"
 },
 {
 "i": 8,
 "start": "00:02:48,045",
 "end": "00:03:07,095",
 "en": "one byte to say I'm a jump and one byte to say and I want to jump 0xC bytes forward from the next instruction address Another way That given address for a jump can be specified is the far absolute indirect form But we're going to completely skip this That's much better covered in a future class because it depends on things like segment registers,",
-"ja": ""
+"ja": "1 バイトで jmp であることを示し、もう 1 バイトで、次の命令のアドレスから 0xC バイト先に飛びたい、と示しています。jmp で、指定したアドレスを表す別の方法に、far absolute indirect の形があります。ただ、これは完全に飛ばします。セグメントレジスタのようなものに依存するので、今後の講座で扱うほうがずっとよいからです。"
 },
 {
 "i": 9,
 "start": "00:03:07,095",
 "end": "00:03:25,067",
 "en": "which we don't know about instead behind the scenes, these are going to be the common forms that are used for jump: jump near relative So instead of short relative, it's near relative, and the difference is It's a four byte displacement instead of one byte, so you can obviously jump much further It's again a signed a displacement,",
-"ja": ""
+"ja": "セグメントレジスタは、まだ知りません。それよりも、裏側でよく使われる jmp の形は、次のものです。jump near relative です。short relative の代わりに near relative で、違いは、変位が 1 バイトではなく 4 バイトだということです。そのため、当然ずっと遠くまで飛べます。これも符号つきの変位で、"
 },
 {
 "i": 10,
 "start": "00:03:25,068",
 "end": "00:03:47,044",
 "en": "and it's signed extended because you're doing math on a 64 bit register So basically you can jump two billion bytes forward two billion bytes backwards And then there's the near absolute indirect form In this case, it will have a r/m64 64 r/mX form, which is going to basically say it could jump to a specific address in register It could go pluck,",
-"ja": ""
+"ja": "64 ビットレジスタで計算するので、符号拡張されます。つまり、約 20 億バイト先にも、約 20 億バイト前にも飛べます。それから、near absolute indirect の形があります。この場合は r/m64、つまり r/mX の形で、基本的には、レジスタにある特定のアドレスに飛ぶことも、メモリからアドレスを取り出すこともできます。"
 },
 {
 "i": 11,
 "start": "00:03:47,045",
 "end": "00:04:03,016",
 "en": "address out of memory based on an r/mX form And either way, that's how you're going to get the address of where it should be jumping to next So now you can go ahead and stop and walk through the assembly and make sure that you get that the jump is just jumping to where it's told to jump",
-"ja": ""
+"ja": "どちらの場合でも、次に飛ぶ先のアドレスは、r/mX の形にもとづいて得られます。では、ここで一度止めて、アセンブリを 1 命令ずつ実行しながら、jmp が指定された場所に飛んでいるだけだということを、確かめてください。"
 }
 ]
 }

@@ -5,349 +5,349 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Intel Registers",
-"ja": ""
+"ja": "Intel のレジスタ"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Architecture - Registers",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Registers are small memory storage areas built into the processor (still volatile memory)",
-"ja": ""
+"ja": "レジスタは、プロセッサに内蔵された小さな記憶領域(揮発性メモリ)です"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Intel has 16 “general purpose” registers + the instruction pointer which points at the next instruction to execute",
-"ja": ""
+"ja": "Intel には 16 個の「汎用」レジスタと、次に実行する命令を指す命令ポインタがあります"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "But 2 of the 16 are not that general",
-"ja": ""
+"ja": "ただし、16 個のうち 2 個はあまり汎用ではありません"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "On x86-32, registers are 32 bits wide",
-"ja": ""
+"ja": "x86-32 では、レジスタは 32 ビット幅"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "On x86-64, registers are 64 bits wide",
-"ja": ""
+"ja": "x86-64 では、レジスタは 64 ビット幅"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "Book Chapter 5",
-"ja": ""
+"ja": "書籍 第 5 章"
 },
 {
 "i": 18,
 "where": "スライド4",
 "en": "Intel Register Evolution",
-"ja": ""
+"ja": "Intel レジスタの進化"
 },
 {
 "i": 22,
 "where": "スライド5",
 "en": "Intel Register Evolution",
-"ja": ""
+"ja": "Intel レジスタの進化"
 },
 {
 "i": 26,
 "where": "スライド5",
 "en": "A eXtended",
-"ja": ""
+"ja": "A eXtended(拡張 A)"
 },
 {
 "i": 27,
 "where": "スライド5",
 "en": "A High",
-"ja": ""
+"ja": "A High(上位)"
 },
 {
 "i": 28,
 "where": "スライド5",
 "en": "A Low",
-"ja": ""
+"ja": "A Low(下位)"
 },
 {
 "i": 29,
 "where": "スライド6",
 "en": "Intel Register Evolution",
-"ja": ""
+"ja": "Intel レジスタの進化"
 },
 {
 "i": 33,
 "where": "スライド6",
 "en": "Extended AX",
-"ja": ""
+"ja": "拡張 AX"
 },
 {
 "i": 34,
 "where": "スライド7",
 "en": "Intel Register Evolution",
-"ja": ""
+"ja": "Intel レジスタの進化"
 },
 {
 "i": 35,
 "where": "スライド7",
 "en": "64-bit AMD Opteron / Intel Pentium 4",
-"ja": ""
+"ja": "64 ビット AMD Opteron / Intel Pentium 4"
 },
 {
 "i": 36,
 "where": "スライド8",
 "en": "Intel Register Evolution",
-"ja": ""
+"ja": "Intel レジスタの進化"
 },
 {
 "i": 37,
 "where": "スライド8",
 "en": "Really-wide AX",
-"ja": ""
+"ja": "さらに幅広い AX"
 },
 {
 "i": 38,
 "where": "スライド8",
 "en": "Or just",
-"ja": ""
+"ja": "または単に"
 },
 {
 "i": 39,
 "where": "スライド8",
 "en": "Register 0",
-"ja": ""
+"ja": "レジスタ 0"
 },
 {
 "i": 40,
 "where": "スライド8",
 "en": "64-bit AMD Opteron / Intel Pentium 4",
-"ja": ""
+"ja": "64 ビット AMD Opteron / Intel Pentium 4"
 },
 {
 "i": 41,
 "where": "スライド8",
 "en": "R0-D(ouble)Word",
-"ja": ""
+"ja": "R0-ダブルワード"
 },
 {
 "i": 42,
 "where": "スライド8",
 "en": "R0-Word",
-"ja": ""
+"ja": "R0-ワード"
 },
 {
 "i": 43,
 "where": "スライド8",
 "en": "R0-Byte",
-"ja": ""
+"ja": "R0-バイト"
 },
 {
 "i": 44,
 "where": "スライド10",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアクセス 1"
 },
 {
 "i": 45,
 "where": "スライド10",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 46,
 "where": "スライド11",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアクセス 2"
 },
 {
 "i": 47,
 "where": "スライド11",
 "en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
-"ja": ""
+"ja": "(注: 以前は *SP、*BP、*SI、*DI の下位バイトにはアクセスできませんでした!)"
 },
 {
 "i": 48,
 "where": "スライド11",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 49,
 "where": "スライド12",
 "en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
-"ja": ""
+"ja": "アーキテクチャ - レジスタ - 8/16/32/64 ビットのアクセス 3"
 },
 {
 "i": 50,
 "where": "スライド12",
 "en": "http://www.sandpile.org/x86/gpr.htm",
-"ja": ""
+"ja": "http://www.sandpile.org/x86/gpr.htm"
 },
 {
 "i": 51,
 "where": "ノート12",
 "en": "note to scornwell: maybe a simple game here like:",
-"ja": ""
+"ja": "scornwell さんへのメモ: ここで次のような簡単なゲームをするとよいかも"
 },
 {
 "i": 52,
 "where": "ノート12",
 "en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
-"ja": ""
+"ja": "「DIL は、どの 64 ビットレジスタの下位 8 ビットへのアクセスか?」(RDI)"
 },
 {
 "i": 53,
 "where": "ノート12",
 "en": "“What is the word-sized access register for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 のワードサイズのアクセス用レジスタの名前は?」(R14W)"
 },
 {
 "i": 54,
 "where": "ノート12",
 "en": "“What is the 16 bit access for R14 called?” (R14W)",
-"ja": ""
+"ja": "「R14 の 16 ビットのアクセスの名前は?」(R14W)"
 },
 {
 "i": 55,
 "where": "スライド13",
 "en": "Intel Register Conventions 1",
-"ja": ""
+"ja": "Intel のレジスタの慣例 1"
 },
 {
 "i": 56,
 "where": "スライド13",
 "en": "These are Intel’s suggestions to compiler developers (and assembly handcoders). Registers don’t have to be used these ways, but if you see them being used like this, you’ll know why. But I simplified some descriptions. I also color coded as GREEN for the ones which we will actually see in this class (as opposed to future ones), and RED for not.",
-"ja": ""
+"ja": "これらは、Intel がコンパイラ開発者(とアセンブリの手書きをする人)に示す推奨です。レジスタをこのとおりに使う必要はありませんが、このように使われていれば理由が分かります。説明は一部簡略化しています。また、このクラスで実際に見るものは緑、これからのクラスで見るものは赤で色分けしました。"
 },
 {
 "i": 57,
 "where": "スライド13",
 "en": "RAX - Stores function return values",
-"ja": ""
+"ja": "RAX - 関数の戻り値を格納"
 },
 {
 "i": 58,
 "where": "スライド13",
 "en": "RBX - Base pointer to the data section",
-"ja": ""
+"ja": "RBX - データセクションのベースポインタ"
 },
 {
 "i": 59,
 "where": "スライド13",
 "en": "RCX - Counter for string and loop operations",
-"ja": ""
+"ja": "RCX - 文字列操作とループのカウンタ"
 },
 {
 "i": 60,
 "where": "スライド13",
 "en": "RDX - I/O pointer",
-"ja": ""
+"ja": "RDX - I/O ポインタ"
 },
 {
 "i": 61,
 "where": "スライド13",
 "en": "Intel Arch v1 Section 3.4.1 - General-Purpose Registers, page 3-11",
-"ja": ""
+"ja": "Intel Arch v1 3.4.1 節 - 汎用レジスタ、3-11 ページ"
 },
 {
 "i": 63,
 "where": "スライド14",
 "en": "Intel Register Conventions 2",
-"ja": ""
+"ja": "Intel のレジスタの慣例 2"
 },
 {
 "i": 64,
 "where": "スライド14",
 "en": "RSI - Source index pointer for string operations",
-"ja": ""
+"ja": "RSI - 文字列操作のソースインデックスポインタ"
 },
 {
 "i": 65,
 "where": "スライド14",
 "en": "RDI - Destination index pointer for string operations",
-"ja": ""
+"ja": "RDI - 文字列操作のデスティネーションインデックスポインタ"
 },
 {
 "i": 66,
 "where": "スライド14",
 "en": "RSP - Stack (top) pointer",
-"ja": ""
+"ja": "RSP - スタック(最上位)ポインタ"
 },
 {
 "i": 67,
 "where": "スライド14",
 "en": "RBP - Stack frame base pointer",
-"ja": ""
+"ja": "RBP - スタックフレームのベースポインタ"
 },
 {
 "i": 68,
 "where": "スライド14",
 "en": "RIP - Pointer to next instruction to execute (“instruction pointer”)",
-"ja": ""
+"ja": "RIP - 次に実行する命令へのポインタ(「命令ポインタ」)"
 }
 ]
 }

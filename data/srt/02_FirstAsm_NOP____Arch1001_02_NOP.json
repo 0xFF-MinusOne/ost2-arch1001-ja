@@ -6,42 +6,42 @@
 "start": "00:00:00,080",
 "end": "00:00:31,679",
 "en": "all right well i want to get you to your first assembly instruction asap and so here we go first assembly instruction is NOP or a no-op no operation doesn't take any registers doesn't take any values it doesn't do anything it's just no operation so frequently you will see the NOP assembly instruction added to for instance pad or align bytes so you might see it between functions inside of some compiled assembly specifically because intel has optimization guidance that has to do",
-"ja": ""
+"ja": "それでは、できるだけ早く最初のアセンブリ命令をお見せしたいと思います。最初のアセンブリ命令は NOP、つまりノーオペレーションです。レジスタも値も取りませんし、何もしません。ただの「無操作」です。NOP 命令は、たとえばバイトのパディングやアラインメントのために入っていることがよくあります。コンパイルされたアセンブリの中で、関数と関数の間に見かけることがあります。これは Intel の最適化ガイダンスに、"
 },
 {
 "i": 1,
 "start": "00:00:30,000",
 "end": "00:01:00,079",
 "en": "with like oh the functions should start on you know a 16 byte aligned address or whatever 8 byte aligned address and so the compiler will stick in some no op instructions in the middle they're not actually going to be executed they're just there to pattern align things in some other architectures sometimes this might be used to just delay time so it just takes up some cycle time and does nothing also it's worth knowing that no op actually has some value to attackers when they try to make their",
-"ja": ""
+"ja": "関数は 16 バイト境界や 8 バイト境界のアドレスから始めるべき、といった内容があるからです。そのためコンパイラは間に NOP 命令を入れます。実際に実行されるわけではなく、位置をそろえるためだけに置かれています。ほかのアーキテクチャでは、サイクル時間を消費して何もしないことで、時間を遅らせるために使われることもあります。また、NOP はエクスプロイトを安定させたい攻撃者にとっても価値があります。"
 },
 {
 "i": 2,
 "start": "00:00:58,399",
 "end": "00:01:31,200",
 "en": "exploits more reliable but that's going to be covered in a different class all right so some late breaking news and late breaking to me anyways i went you know many many years before i knew this fact so i wanted to give it to you early a little bit of interesting trivia that the one byte no op instruction is an alias mnemonic for the exchange eax eax instruction or rax rax now in our 64-bit extended architecture so i never actually looked in the assembly manual for no op because",
-"ja": ""
+"ja": "ただ、それは別のクラスで扱います。さて、ここで新しい情報です。私にとっては新しい、という話ですが、何年も知らなかったので、早めにお伝えしたいと思います。ちょっとした豆知識ですが、1 バイトの NOP 命令は、exchange eax eax 命令の別名ニーモニックです。64 ビットに拡張されたアーキテクチャでは rax rax になります。私は NOP をアセンブリのマニュアルで引いたことがありませんでした。"
 },
 {
 "i": 3,
 "start": "00:01:29,280",
 "end": "00:01:58,320",
 "en": "there's no point right and i just told you what a no-op does once you know that a no-up does nothing you know that it's really just there for padding or time delay there's no real point to look in the assembly manual but i had an attendee of a previous class point this out to me that he had looked in the in assembly manual and that there was this interesting bit of trivia so exchange is not actually part of this class not officially something you're going to learn but it's pretty simple it just exchanges the",
-"ja": ""
+"ja": "調べる意味がないからです。NOP が何をするかはもう話しましたよね。NOP が何もしないと分かれば、パディングや時間の遅延のためにあるだけだと分かるので、マニュアルを見る必要はありません。でも、以前のクラスの受講者が、マニュアルを見たらこんな豆知識があったと教えてくれました。exchange は、このクラスでは正式には扱いませんが、簡単な命令です。"
 },
 {
 "i": 4,
 "start": "00:01:56,240",
 "end": "00:02:28,160",
 "en": "value between two registers so whatever's in the register on this side exchanges with that exchange with that so you know it's pretty easy to understand what exchange does and if you're exchanging eax with eax or rax with rax you exchange your register with itself clearly that does absolutely nothing and just a brief note about the NOP instruction usually when people talk about NOP they're referring to 0x90 the canonical version of NOP is a single byte 0x90.",
-"ja": ""
+"ja": "2 つのレジスタの値を入れ替えるだけです。こちら側のレジスタの中身と、あちら側のレジスタの中身を交換します。exchange が何をするかは分かりやすいと思います。eax と eax、あるいは rax と rax を交換するなら、レジスタを自分自身と交換することになるので、当然まったく何も起きません。NOP 命令について少し補足します。普通、NOP と言えば 0x90 のことです。標準的な NOP は 1 バイトの 0x90 です。"
 },
 {
 "i": 5,
 "start": "00:02:25,520",
 "end": "00:02:56,319",
 "en": "but in reality intel actually specifies that there can be different forms of NOP between one and nine bytes long and a little bit in this class we're actually going to see an example of a multibyte NOP that appears in one of the hello world examples so there you go we're going to have this accumulating count of assembly instructions you know as you go along and then boom you know NOP and ta-dah you now know six percent of all assembly instructions found in a web browser pretty cool",
-"ja": ""
+"ja": "ただ実際には、Intel は 1 バイトから 9 バイトまでのさまざまな形の NOP があると規定しています。このクラスでも、hello world の例のひとつで、複数バイトの NOP が出てきます。ということで、アセンブリ命令の数を少しずつ積み上げていきます。そしてこの NOP で、Web ブラウザの中にあるアセンブリ命令の 6 パーセントを、もう知っていることになります。なかなかすごいですね。"
 }
 ]
 }

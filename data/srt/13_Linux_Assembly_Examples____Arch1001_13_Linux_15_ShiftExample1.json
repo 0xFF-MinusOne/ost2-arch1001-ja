@@ -6,28 +6,28 @@
 "start": "00:00:00,320",
 "end": "00:00:37,840",
 "en": "all right now let's see some examples using shift so ShiftExample1 first so as a reminder this was literally using shift as in the C operator for left shift and right shift so if we take 5 and we left shift it by 4 and right shift it by 3 the net result is that it's left shifted by 1 so we would expect that we would see you know shift left and shift right assembly instructions which we already learned about here so let's compile it and debug it get rid of this little optimization thing i'm",
-"ja": ""
+"ja": "では、シフトを使った例を見ましょう。まず ShiftExample1 です。思い出してほしいのですが、これは文字どおり、C の演算子としての左シフトと右シフトを使うものでした。5 を 4 だけ左シフトして、3 だけ右シフトすると、結果として 1 だけ左シフトしたことになります。ですから、ここで学んだ、左シフトと右シフトのアセンブリ命令が見えると予想できます。では、コンパイルして、デバッグしましょう。次の例で使う、この小さな最適化の設定は外しておきます。"
 },
 {
 "i": 1,
 "start": "00:00:34,239",
 "end": "00:01:14,880",
 "en": "going to use on the next examples all right so what do we see here well we see standard function prolog we see 5 which was a variable moved into rbp minus 4 that's about what we would expect based on the past examples then we see rbp minus 4 into eax shifted left by 4 and shifted right by 3 so this one's pretty stock pretty standard but let's just go ahead and watch the changes in the registers step step step all right 5 into rbp minus 4 it looks like rbp minus 8 is the smallest so i'm",
-"ja": ""
+"ja": "はい、ここには何が見えるでしょうか。標準的な関数プロローグがあります。変数の 5 が rbp マイナス 4 に移されていて、これまでの例から予想したとおりです。次に、rbp マイナス 4 を eax に入れて、4 だけ左シフトし、3 だけ右シフトします。かなり標準的なものですが、レジスタの変化を見ていきましょう。ステップ、ステップ、ステップ。はい、5 が rbp マイナス 4 に入りました。rbp マイナス 8 が一番小さいようなので、"
 },
 {
 "i": 2,
 "start": "00:01:13,600",
 "end": "00:02:05,360",
 "en": "going to go ahead and put a display here of 2 words from rbp minus 8 there goes the 5 and then read it back out put it into eax and it gets left shifted by 4 so now it's 50 and stored back over here and read back in and shifted to the right so now it's 10 so 5 left shifted by 1 would be 10 because times 2 times 2 to the power of 1 and that goes out to oh no rbp minus 0xc which i don't have on my thing and i don't wanna change so step and let's just go ahead and do it x slash word x rbp minus",
-"ja": ""
+"ja": "ここで、rbp マイナス 8 から 2 ワードを display します。5 が入りました。それを読み出して eax に入れ、4 だけ左シフトすると、0x50 になり、ここに書き戻されます。それをまた読み込んで、右にシフトすると、10 になります。5 を 1 だけ左シフトすると 10 で、2 の 1 乗を掛けるからです。それが、あっ、rbp マイナス 0xc に出ます。これは表示していませんし、変えたくないので、ステップして、x で 1 ワード、rbp マイナス"
 },
 {
 "i": 3,
 "start": "00:02:02,320",
 "end": "00:02:11,599",
 "en": "0xc there you go there's your 10. and put that into the return value and exit out pretty simple",
-"ja": ""
+"ja": "0xc を見ましょう。はい、10 があります。それを戻り値に入れて、抜けます。とても簡単です。"
 }
 ]
 }

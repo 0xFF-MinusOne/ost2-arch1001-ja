@@ -5,121 +5,121 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "First Assembly Instruction: NOP",
-"ja": ""
+"ja": "最初のアセンブリ命令: NOP"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Your first x86-64 instruction:NOP",
-"ja": ""
+"ja": "最初の x86-64 命令:NOP"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Just there to pad/align bytes, or to delay time",
-"ja": ""
+"ja": "バイトの穴埋め・位置合わせ、または時間稼ぎのためだけにある"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Attackers use it to make simple exploits more reliable. But that’s another class ;)",
-"ja": ""
+"ja": "攻撃者は、単純なエクスプロイトを安定させるために使う。ただしそれは別の講義の話 ;)"
 },
 {
 "i": 17,
 "where": "スライド4",
 "en": "Extra! Extra!Late-breaking NOP news!",
-"ja": ""
+"ja": "番外編!NOP の最新ニュース!"
 },
 {
 "i": 18,
 "where": "スライド4",
 "en": "Amaze those who know x86 by citing this interesting bit of trivia:",
-"ja": ""
+"ja": "x86 に詳しい人を驚かせるトリビア:"
 },
 {
 "i": 19,
 "where": "スライド4",
 "en": "“The one-byte NOP instruction is an alias mnemonic for the XCHG (E)AX, (E)AX instruction.”",
-"ja": ""
+"ja": "「1 バイトの NOP 命令は、XCHG (E)AX, (E)AX 命令の別名ニーモニックである。」"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "I had never looked in the manual for NOP apparently :)",
-"ja": ""
+"ja": "NOP をマニュアルで調べたことがなかった ;)"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "XCHG instruction is not officially in this class. But if I hadn’t just told you what it does, I bet you would have guessed right anyway",
-"ja": ""
+"ja": "XCHG 命令は、この講義の正式な範囲外。ただ、動作を今説明しなくても、きっと当てられたはず"
 },
 {
 "i": 22,
 "where": "ノート4",
 "en": "Thanks to Jon Erickson for cluing me in to this.",
-"ja": ""
+"ja": "教えてくれた Jon Erickson に感謝。"
 },
 {
 "i": 24,
 "where": "スライド6",
 "en": "Instructions we now know (1)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (1)"
 }
 ]
 }

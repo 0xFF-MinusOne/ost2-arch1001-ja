@@ -6,287 +6,287 @@
 "start": "00:00:00,34",
 "end": "00:00:04,75",
 "en": "So let's take a journey to the center of memcpy on Linux, shall we?",
-"ja": ""
+"ja": "では、Linux で memcpy の中心への旅に出ましょう。"
 },
 {
 "i": 1,
 "start": "00:00:05,74",
 "end": "00:00:37,04",
 "en": "So we saw before that this function is basically going to do a memcpy of some struct's 'a' to 'b' where the structs are mystruct_t, which is defined as a single int with a 4 byte character array. In visual studio We saw that we had to bump up the size of this thing in order to ultimately lead to a rep movs and we'll see whether or not that's true here as well You can imagine that on some operating systems that just always unconditionally goes to a memcpy function call and others",
-"ja": ""
+"ja": "前に見たように、この関数は、基本的に、ある構造体の a から b への memcpy をします。この構造体は mystruct_t で、1 つの int と、4 バイトの文字配列として定義されています。Visual Studio では、最終的に rep movs にたどり着くために、そのサイズを大きくする必要がありました。ここでもそうなのか見ていきましょう。オペレーティングシステムによっては、常に無条件に memcpy 関数の呼び出しになり、ほかのものでは"
 },
 {
 "i": 2,
 "start": "00:00:37,04",
 "end": "00:00:46,66",
 "en": "It's going to, even with optimizations off, try to just inline something Well, that was a little bit of a hint So what's going to happen here?",
-"ja": ""
+"ja": "最適化をオフにしていても、何かをインライン化しようとします。これは、ちょっとしたヒントでした。では、ここでは何が起きるでしょうか。"
 },
 {
 "i": 3,
 "start": "00:00:47,34",
 "end": "00:00:53,96",
 "en": "Let's compile it and debug it to find out, Oh no, it looks like this has been inlined Right?",
-"ja": ""
+"ja": "コンパイルしてデバッグして調べましょう。あ、これはインライン化されているようです。"
 },
 {
 "i": 4,
 "start": "00:00:53,96",
 "end": "00:01:11,63",
 "en": "So there is no call to memcpy whatsoever There's just a couple of mov instructions This is slightly different from what we saw in visual studio there It did always go to a memcpy function and then if the value was a small size, it would just translate it into a couple of mov instructions And so here,",
-"ja": ""
+"ja": "memcpy の呼び出しは、まったくありません。mov 命令が数個あるだけです。これは Visual Studio で見たものとは少し違います。あちらは常に memcpy 関数に行って、値のサイズが小さければ、数個の mov 命令に変換していました。ここでは、"
 },
 {
 "i": 5,
 "start": "00:01:11,64",
 "end": "00:01:41,66",
 "en": "it didn't even bother to jump off to some other function It just went ahead and inlined to that and then returned 0xace0fba5e So we're going to need to bump up this size if we want to get something that is going to go to the memcpy function So let's go ahead and try 0x20 was the size That was one of the conditional checks if I recall correctly in visual studio So let's go ahead and try that and see what happens Well,",
-"ja": ""
+"ja": "ほかの関数にジャンプすることすらせず、そのままインライン化して、0xace0fba5e を返しました。ですから、memcpy 関数に行くようにしたいなら、このサイズを大きくする必要があります。では、0x20 を試しましょう。Visual Studio では、これが条件チェックの 1 つだったと記憶しています。試して、どうなるか見ましょう。すると、"
 },
 {
 "i": 6,
 "start": "00:01:41,66",
 "end": "00:02:27,49",
 "en": "it looks like it's just 0x20 worth of mov instructions So let's go ahead and go nuts on that And make it much bigger like 0x200 All right Step the step we step in Oh, and there we go We have a rep movs Well, that was easy I could have swore it was harder to find before but I was probably using some other optimization options by accident So let's go ahead and restarted and see what's going on here Okay We got a typical function prologue We've got a subtract of a giant chunk of stack",
-"ja": ""
+"ja": "0x20 ぶんの mov 命令になっているようです。では、思い切って、もっと大きくして、0x200 のようにしましょう。ステップ、ステップインすると、ここです。rep movs があります。簡単でした。以前はもっと見つけにくかったと思うのですが、おそらく偶然、別の最適化オプションを使っていたのでしょう。では、再起動して、何が起きているか見ましょう。典型的な関数プロローグがあります。スタックの巨大な塊を引き算していて、"
 },
 {
 "i": 7,
 "start": "00:02:27,49",
 "end": "00:03:01,75",
 "en": "space That's because our 'a' and our 'b' that are each 0x200 big are on the stack We've got a move of 0xff into our rbp minus 0x210 Well, that is probably the a setting 'a' in a.var1 equal to 0xff got an lea of negative 420 which is probably pointing at the 'b' lea of negative 210 Well, actually, I don't know really which one could be the 'a' Which one could be the 'b' they could be either side Except for the fact that I guess I already know this is 'a' because this is the one that has",
-"ja": ""
+"ja": "それは、それぞれ 0x200 の大きさの a と b がスタックにあるからです。0xff を rbp minus 0x210 に mov しています。これはおそらく、a.var1 に 0xff を設定している a でしょう。-420 の lea があり、おそらくこれは b を指しています。-210 の lea もあります。実は、どちらが a で、どちらが b かは、はっきりとはわかりません。どちらの側でもありえます。ただし、これが a だとはもうわかっています。これが"
 },
 {
 "i": 8,
 "start": "00:03:01,75",
 "end": "00:03:24,29",
 "en": "the 0xff in it so yep That's the 'b' That's the 'a' And it's calculating the address So stepping a little bit Let's see some concrete values subtract from the stack Now we're away down here Notice though that that stack subtraction was only 0x3a8 but we know we're accessing at 420 So that means that again,",
-"ja": ""
+"ja": "0xff を持っているものだからです。そう、これが b で、これが a です。そして、アドレスを計算しています。では、少しステップ実行して、具体的な値を見ましょう。スタックから引き算します。かなり下に来ました。ただし、そのスタックの引き算は 0x3a8 だけで、でも 420 でアクセスしているとわかります。つまり、また"
 },
 {
 "i": 9,
 "start": "00:03:24,29",
 "end": "00:03:43,75",
 "en": "the stack pointer kind of like we saw in the previous example, the stack pointer is actually going to be pointing partially into the variables and partially some of the space down at this lowest address is going to be in the red zone Let's go ahead and put that var1 equal to 0xff and then calculate this address into rdx,",
-"ja": ""
+"ja": "スタックポインタは、前の例で見たように、一部は変数の中を指していて、この最も低いアドレスのあたりの領域の一部は、レッドゾーンの中になります。では、var1 に 0xff を入れて、このアドレスを rdx に計算し、"
 },
 {
 "i": 10,
 "start": "00:03:43,76",
 "end": "00:04:07,6",
 "en": "calculate this address into rax Then it's going to mov 0x40 into ecx X So this is starting to look now like it's going to be the setup of the rep movs right, so ecx is the number of times something should occur rdi is the destination index, rsi is the source index So source is 'a' destination is 'b' the local variable 'b',",
-"ja": ""
+"ja": "このアドレスを rax に計算します。そして、0x40 を ecx に mov します。これは、rep movs の準備に見えてきました。ecx は、何かを繰り返す回数で、rdi はデスティネーションインデックス、rsi はソースインデックスです。ソースは a で、デスティネーションは b、つまりローカル変数 b で、"
 },
 {
 "i": 11,
 "start": "00:04:07,6",
 "end": "00:04:37,76",
 "en": "which we just calculate them And so pretty much that's just going to go ahead and do the memcpy It's going to copy all of this stuff from source to destination I don't want to step through a 0x40 times so I'm going to go ahead and use until right here and just go past this Here we go, All sorts of copying going on But of course the majority of those structures were uninitialized Consequently,",
-"ja": ""
+"ja": "それらを計算したところです。そして、基本的に、これで memcpy を実行します。ソースからデスティネーションへ、これらをすべてコピーします。0x40 回もステップ実行したくないので、until を使って、ここを通り過ぎましょう。いろいろなコピーが行われました。でももちろん、その構造体の大部分は初期化されていませんでした。ですから、"
 },
 {
 "i": 12,
 "start": "00:04:37,76",
 "end": "00:04:45,01",
 "en": "it's just whatever garbage happens to be their copied garbage in, garbage out garbage from one to the other So what's happening now?",
-"ja": ""
+"ja": "たまたまそこにあったゴミがコピーされるだけです。ゴミを入れればゴミが出る、ゴミがある場所から別の場所に移るだけです。では、今は何が起きているのでしょうか。"
 },
 {
 "i": 13,
 "start": "00:04:45,02",
 "end": "00:05:15,84",
 "en": "Well, we've got rsi into rax, rdi into rdx and rax, which we said was rsi From right here And keep in mind that because the mov the rep movs increments, rsi and rdi You expect that at the end of the repetition, they're basically going to be pointing just past the end of each of their respective elements Now it's dereferencing that and putting it into rcx sorry,",
-"ja": ""
+"ja": "rsi を rax に、rdi を rdx に、そして rax、これは rsi だと言いましたが、ここから入れています。rep movs は rsi と rdi を増やすので、繰り返しの終わりには、それぞれの要素の終わりのすぐ先を指していると考えてよいです。そして今、それを参照外しして rcx に入れています。失礼、"
 },
 {
 "i": 14,
 "start": "00:05:16,12",
 "end": "00:05:19,16",
 "en": "ecx step So what's going in there?",
-"ja": ""
+"ja": "ecx です。ステップ。そこには何が入っているのでしょうか。"
 },
 {
 "i": 15,
 "start": "00:05:19,64",
 "end": "00:05:34,96",
 "en": "All right e020 So ultimately because this code is just going to be returning 0xace0fba5e and because we are past the point of the memcpy, it's not clear what these assembly instructions are actually doing like what are they going to actually achieve?",
-"ja": ""
+"ja": "e020 です。結局、このコードは 0xace0fba5e を返すだけで、memcpy を過ぎているので、これらのアセンブリ命令が実際に何をしているのか、何を達成するのかは、はっきりしません。"
 },
 {
 "i": 16,
 "start": "00:05:35,44",
 "end": "00:06:05,95",
 "en": "Step step step, they're calculating something but for no apparent reason because 0xace0fba5e into rax and then it returns out So that's probably one of those examples of the compiler Just going based on a template when it's doing unoptimized assembly and getting some vestigial instructions in that don't actually have any point So let me fiddle around a little bit here to find the assembly that I was originally anticipating and then we'll come back and look at that Okay,",
-"ja": ""
+"ja": "ステップ、ステップ、ステップ。何かを計算していますが、明らかな理由はありません。0xace0fba5e を rax に入れて、return するからです。ですから、これはおそらく、コンパイラが、最適化なしのアセンブリを作るときに、テンプレートに従って、実際には意味のない名残の命令を入れてしまった例の 1 つでしょう。では、最初に予想していたアセンブリを見つけるために、少し試してみて、そのあとで戻ってきて見ましょう。では、"
 },
 {
 "i": 17,
 "start": "00:06:05,95",
 "end": "00:06:28,36",
 "en": "so I remembered how exactly I got it, force it to go into memcpy and the answer was basically by blinding the compiler to the size of the memcpy that was going to occur when it was doing size of mystruct then any sort of variants of the struct size The compilers would still always know exactly how much is being copied And so it could just simplify it down into a rep movs by blinding this,",
-"ja": ""
+"ja": "どうやったのかを思い出しました。memcpy に行かせるには、memcpy で起きるコピーのサイズが、コンパイラに見えないようにすればよいのです。sizeof mystruct を使うと、構造体のサイズの変形があっても、コンパイラは常に、コピーされる量を正確に知っています。ですから、それを rep movs に単純化できてしまうのです。これが見えないようにすることで、"
 },
 {
 "i": 18,
 "start": "00:06:28,36",
 "end": "00:07:05,24",
 "en": "it basically forces the compiler to go into memcpy and let the memcpy heuristics about size, takeover and decide how much to copy So I've just changed this, struct size up to 0x20 because we know before that we had to bump up the size and stuff and we now blinded the compiler to the size of copy So let's go ahead and compile this And I've got the optimizations on because I don't want to see the long form of the argv of 0 argv of 1 access And then we would need to take and modify the",
-"ja": ""
+"ja": "コンパイラは基本的に、memcpy に行かざるをえなくなり、サイズに関する memcpy のヒューリスティックが引き継いで、どれだけコピーするかを決めます。そこで、構造体のサイズを 0x20 に変えました。前に、サイズを大きくする必要があるとわかっていたからです。そして、コピーのサイズがコンパイラに見えないようにしました。では、これをコンパイルしましょう。最適化はオンにしています。argv の 0、argv の 1 へのアクセスの長い形を見たくないからです。そして、コピーしたい量として渡す"
 },
 {
 "i": 19,
 "start": "00:07:05,25",
 "end": "00:07:16,86",
 "en": "argv of 1 that we're passing in for the amount that we want to copy Of course, you know, passing in a attacker controlled amount to copy into a memcpy is super bad idea, but we're just using this to learn right?",
-"ja": ""
+"ja": "argv の 1 を、取って変更する必要があります。もちろん、攻撃者が制御できる量を memcpy に渡してコピーさせるのは、とても悪いやり方です。でも、ここでは学ぶためだけに使っています。"
 },
 {
 "i": 20,
 "start": "00:07:16,87",
 "end": "00:07:42,37",
 "en": "So do as I say, not as I do and don't do that So let's go ahead and gdb this If we look at the overall function we see once again the optimization has turned it into a strtol instead of atoi and then before the memcpy and this is actually a memcpy check So this is the fortified version which has some sanity checks to look for buffer overflows,",
-"ja": ""
+"ja": "ですから、私のやることではなく、私の言うことに従って、こんなことはしないでください。では、gdb を使いましょう。関数全体を見ると、最適化によって、atoi ではなく strtol になっています。そして memcpy の前に、これは実際には memcpy check です。これは、バッファオーバーフローを探すための、健全性チェックのある、強化版です。"
 },
 {
 "i": 21,
 "start": "00:07:42,38",
 "end": "00:08:02,38",
 "en": "basically it's going to, you know, passing the memcpy the location of the destination for the copy, the source for the copy Sorry I was thinking rep movs the rdi is not the destination, but it's the first argument which in this case happens to be the destination Anyway, so this is going to be the address of 'b' where it's being copy,",
-"ja": ""
+"ja": "基本的に、memcpy に、コピーのデスティネーションの場所と、コピーのソースを渡します。失礼、rep movs を考えていました。rdi はデスティネーションではなく、最初の引数で、この場合たまたまデスティネーションになっています。ともかく、これは、コピー先の b のアドレスで、"
 },
 {
 "i": 22,
 "start": "00:08:02,38",
 "end": "00:08:31,96",
 "en": "this is the address of 'a' where it's copying from and the size is going to go into ecx X So let's go ahead and sorry the size actually came from strtol and so it's going into rdx and this is actually here because this memcpy check knows what the sizes of these buffers and throwing that in as a sanity check So let's go ahead and step over until we get to the memcpy Now let's step into the memcpy So nop,",
-"ja": ""
+"ja": "これは、コピー元の a のアドレスで、サイズは ecx に入ります。失礼、サイズは実際には strtol から来たものなので、rdx に入ります。そして、この memcpy check は、これらのバッファのサイズを知っているので、それを健全性チェックとして入れているので、ここにあります。では、memcpy に着くまでステップオーバーしましょう。そして、memcpy にステップインします。nop、"
 },
 {
 "i": 23,
 "start": "00:08:31,97",
 "end": "00:08:51,37",
 "en": "a jump then now inside of here we have a compare of the rcx and rdx And this is basically again because we're in the the check version and if rcx is below rdx then it's going to fail So what do we have?",
-"ja": ""
+"ja": "ジャンプがあり、この中で、rcx と rdx の比較があります。これも、check 版の中にいるからで、rcx が rdx より below なら、失敗になります。では、どうなっているでしょうか。"
 },
 {
 "i": 24,
 "start": "00:08:51,37",
 "end": "00:09:20,1",
 "en": "We have rcx 24 and rdx is 20 And so it's not going to go to the fail So that's essentially saying the 24 was hard coded in that's the size of the actual structure right now And it's basically saying if the amount that you're trying to copy is greater than or equal to this value sorry, greater than greater than or equal to So if this value 0x24 is above or equal to 20,",
-"ja": ""
+"ja": "rcx は 24 で、rdx は 20 です。ですから、失敗には行きません。これは基本的に、24 がハードコードされていて、それが今の実際の構造体のサイズだ、ということです。そして、コピーしようとしている量が、この値以上だと、失礼、より大きい、または以上だと、という意味です。この値 0x24 が 20 以上なら、"
 },
 {
 "i": 25,
 "start": "00:09:20,1",
 "end": "00:09:37,49",
 "en": "then basically that rcx, which was the hard coded size, if that hard coded size is below the amount that you want to copy, then that's an error condition because you're over copying, you're going to smash the stack So that should not be true here So we will not take the jump below, We will fall through And what are we going to see?",
-"ja": ""
+"ja": "つまり、そのハードコードされたサイズの rcx が、コピーしたい量より below なら、それはエラー条件です。コピーしすぎで、スタックを壊すことになるからです。ここではそれは成り立たないはずです。ですから、below のジャンプは取らず、そのまま次に進みます。では、何が見えるでしょうか。"
 },
 {
 "i": 26,
 "start": "00:09:37,49",
 "end": "00:10:14,56",
 "en": "We're going to see a mov of rax rdi to rax And then a compare against 0x20 Alright, so compare against 0x20 and then jump below Well rdx is exactly 0x20 So it's not going to take the jump below because it's actually equal Can also see a 0x40 So that might give us a hint for the next possible size we might use So it's not taking that and it's falling through to the 0x40 The next thing it's going to do is jump above So if rdx is above 40 and it'll jump to this location,",
-"ja": ""
+"ja": "rdi から rax への mov が見えます。そして、0x20 との比較です。0x20 との比較のあと、jump below です。rdx はちょうど 0x20 です。実際には等しいので、jump below は取られません。0x40 も見えます。これが、次に使えそうなサイズのヒントになるかもしれません。ですから、それは取られず、0x40 のほうに進みます。次にやるのは jump above です。rdx が 40 より above なら、この場所にジャンプします。"
 },
 {
 "i": 27,
 "start": "00:10:14,94",
 "end": "00:10:51,95",
 "en": "But rdx is not above 40 So it's going to instead fall through and there we have our even scarier form of these whatever assembly instructions that we don't know anything about which you're using, registers, we don't know anything about So we don't like that Let's get out of here and let's crank the size above That 0x40 before that we saw just a second ago So up to 40 total size is going to be 44 And let's go ahead and instead of editing our gdb thing let's just go ahead and use start within gdb",
-"ja": ""
+"ja": "でも、rdx は 40 より above ではありません。ですから、代わりにそのまま進み、ここに、使っているレジスタも何もわからない、これらのアセンブリ命令の、さらに怖い形があります。これは好きではありません。ここから出て、サイズを、さっき見た 0x40 より大きくしましょう。上限は 40 で、合計のサイズは 44 になります。gdb の設定を編集する代わりに、gdb の中で start を使いましょう。"
 },
 {
 "i": 28,
 "start": "00:10:52,84",
 "end": "00:11:36,53",
 "en": "so compile it gdb it it's too annoying to change that every time and let's just do start and 0x40 would be 64 All right so continue through here until we get to the memcpy step into it Going to have the sanity check which we should bypass because we're not trying to copy too much We're copying 40 when the total size is 44 We're going to bypass the 0x20 check we already saw before because we're not below 0x20 We're going to bypass the 0x40 check not bypass for exactly we're going to Actually be",
-"ja": ""
+"ja": "コンパイルして gdb に入れます。毎回変えるのは面倒なので、start を使いましょう。0x40 は 64 です。では、memcpy に着くまでここを進め、ステップインします。健全性チェックがありますが、コピーしすぎてはいないので、通過するはずです。合計サイズが 44 のところで、40 をコピーしています。さきほど見た 0x20 のチェックは、0x20 より below ではないので、通過します。0x40 のチェックは、通過ではなく、ちょうど、実際には"
 },
 {
 "i": 29,
 "start": "00:11:36,53",
 "end": "00:12:23,56",
 "en": "above 0x40 so we're going to take that jump instead of falling through to these instructions we don't know anything about So if we step we expect we're going to that was a above check not a above or equal So 0x40 doesn't do it, we got to be above 0x40 so started again and instead of 64 let's go to 68 step into memcpy Step into the 40 check and we are now above 40 because we're 44 step and take the jump Now we see some comparisons against 0x1000 0x100 and 0x80 So my general sense is that in general a rep",
-"ja": ""
+"ja": "0x40 より above になるので、わからないこれらの命令に進まず、そのジャンプを取ります。ステップすると、それは above のチェックで、above or equal ではないので、0x40 ではだめで、0x40 より above でなければなりません。ですから、もう一度始めて、64 の代わりに 68 にします。memcpy にステップインして、40 のチェックにステップインすると、44 なので、40 より above になりました。ステップして、ジャンプを取ります。すると、0x1000、0x100、0x80 との比較が見えます。私の大まかな感覚では、一般に rep"
 },
 {
 "i": 30,
 "start": "00:12:23,56",
 "end": "00:12:58,16",
 "en": "movs is going to be something that they might do when you get to really large sizes If you have smaller sizes, it might be more efficient to use whatever these vectorized move instructions are And so let's just try to crank up the size to actually be well we want above 0x1000 So let's go ahead and quit out and change out our size So let's make it 0x1000 here And that means the total size will be 1000 Poor,",
-"ja": ""
+"ja": "movs は、本当に大きなサイズになったときに使うものかもしれません。サイズが小さければ、これらのベクトル化された mov 命令を使うほうが、効率がよいかもしれません。では、サイズを大きくして、0x1000 を超えるようにしましょう。いったん終了して、サイズを変えます。ここを 0x1000 にしましょう。すると、合計サイズは 1000 になります。"
 },
 {
 "i": 31,
 "start": "00:13:00,44",
 "end": "00:13:35,32",
 "en": "compile it again, gdb it and start In decimal 0x1000 is 4096, so plus 4 is 4100 And let's go ahead and step until we make our way to the memcpy and I went too far So try it again The reason I'm not just using until or setting a breakpoint is because actually as we're changing the sizes, the assembly is going to be changing subtly So I can't use the exact same addresses each time All right now,",
-"ja": ""
+"ja": "もう一度コンパイルして、gdb に入れて start します。10 進数では 0x1000 は 4096 なので、4 を足して 4100 です。では、memcpy に着くまでステップ実行しましょう。行き過ぎました。もう一度やります。until やブレークポイントをそのまま使わないのは、サイズを変えると、アセンブリが微妙に変わるので、毎回まったく同じアドレスは使えないからです。では、"
 },
 {
 "i": 32,
 "start": "00:13:35,32",
 "end": "00:14:02,35",
 "en": "let's step into this We are Requesting a copy of 1004 in the maximum size is 1004 and force we bypassed sanity check and we go past the 20 go past the 40 Get to the 0x1000 So rdx is 1004 above 1000 The answer is yes So we step and we're going to take the jump above All right What do we see now?",
-"ja": ""
+"ja": "ステップインしましょう。1004 のコピーを要求していて、最大サイズも 1004 なので、健全性チェックは通過します。そして 20 を過ぎ、40 を過ぎて、0x1000 に着きます。rdx は 1004 で、1000 より above です。答えは、はい、です。ステップすると、jump above を取ります。さて、今は何が見えるでしょうか。"
 },
 {
 "i": 33,
 "start": "00:14:02,74",
 "end": "00:14:38,75",
 "en": "We see a compare of some location relative to rip and against rdx rdx is our 0x1004 And so compare And then a jump above Well, let's see what value is here Giant hex That location All right It's zero So is our 0x1004 going to be above zero Yes, it is And so, this jump will always be taken at this point I started getting confused because I don't know why I don't know if something's different here Maybe the first time I actually look through this code I just literally looked at the code and I stopped",
-"ja": ""
+"ja": "rip からの相対のある場所と rdx の比較が見えます。rdx は 0x1004 です。比較して、jump above があります。では、ここにどんな値があるか見てみましょう。巨大な 16 進数です。その場所です。ゼロです。ですから、0x1004 はゼロより above でしょうか。はい、そうです。つまり、この時点では、このジャンプは常に取られます。ここで混乱し始めました。何かが違っているのか、わからなかったからです。最初にこのコードを見たときは、文字どおりコードを見ただけで、"
 },
 {
 "i": 34,
 "start": "00:14:38,75",
 "end": "00:15:07,85",
 "en": "when I saw, oh hey, we made our way to the center of memcpy We found the rep movs But this fact that this is zero here means that it's not actually reachable So we want to essentially fall through here and instead we're always going to be taking this jump above because everything's above or equal to zero So what we really want here is we want to somehow fall through to the rep movs and that's not really possible unless we alter this memory So let's go ahead and alter that memory",
-"ja": ""
+"ja": "「お、memcpy の中心にたどり着いたぞ、rep movs を見つけた」と思って、そこで止めたのだと思います。でも、ここがゼロだということは、そこに実際には到達できないということです。つまり、ここは本来そのまま進んでほしいのに、すべてがゼロ以上なので、この jump above が常に取られることになります。ですから、ここで本当にやりたいのは、何とかして rep movs まで進むことですが、このメモリを書き換えない限り、それは実際には無理です。では、そのメモリを書き換えましょう。"
 },
 {
 "i": 35,
 "start": "00:15:09,04",
 "end": "00:15:56,55",
 "en": "So set this long long at this particular address to some value so that 1004 is not above or equal So I don't know, 0x8000 And if we read it again, we can see that it got set to 0x8000 And so now this compare will not lead to an above or equal So if we step over that and we step, we now expect that this thing will not jump And now we have this compare of rdi to rsi And we want to see if rdi is below take the jump again We want to just be kind of falling through here And so we want to jump not to be taken",
-"ja": ""
+"ja": "この特定のアドレスの long long を、1004 が above or equal にならないような値に設定します。たとえば 0x8000 にします。もう一度読むと、0x8000 に設定されたことがわかります。これで、この比較は above or equal にならないはずです。それをステップオーバーして、ステップすると、今度はジャンプしないはずです。そして、rdi と rsi の比較があります。rdi が below なら、また別のジャンプを取ります。ここもそのまま進んでほしいので、ジャンプが取られないようにしたいのです。"
 },
 {
 "i": 36,
 "start": "00:15:56,55",
 "end": "00:16:10,92",
 "en": "We want this jump equal not to be taken We want this jump below not to be taken And we want to kind of fall through to the rep movs So rdi, rsi Well, rdi and rsi are locations for 'a' and 'b' rdi Is that below rsi?",
-"ja": ""
+"ja": "この jump equal は取られないようにしたいですし、この jump below も取られないようにしたいです。そして、そのまま rep movs まで進みたいのです。rdi と rsi は、a と b の場所です。rdi は、rsi より below でしょうか。"
 },
 {
 "i": 37,
 "start": "00:16:10,93",
 "end": "00:16:40,1",
 "en": "So it's bf10 vs cf20 so that looks below to me, so that's going to be taken step step and because I wasn't paying attention to where it actually jumped, we successfully jumped to a rep movs actually when I was screwing around with this, I was playing with orders, I changed the order of copying 'b' to 'a' instead of 'a' to 'b' And then it would fall through But this turns out to be a much simpler version of that So,",
-"ja": ""
+"ja": "bf10 と cf20 なので、below に見えます。ですから、それは取られます。ステップ、ステップ。実際にどこにジャンプしたのかを見ていなかったのですが、rep movs へのジャンプに成功しました。実は、これをいじっていたときに、順序を試していて、a から b ではなく b から a へのコピーの順序に変えると、そのまま進みました。でも、これは、それよりもずっと単純なバージョンだとわかりました。では、"
 },
 {
 "i": 38,
 "start": "00:16:40,11",
 "end": "00:16:40,66",
 "en": "great!",
-"ja": ""
+"ja": "いいですね。"
 },
 {
 "i": 39,
 "start": "00:16:40,71",
 "end": "00:17:21,08",
 "en": "Now we are going to proceed into the rep movs of course, because I don't want to go through that bazillion times I'm just going to go over it So until there and we successfully got past it And now we are back inside of main having successfully done the memcpy, that was the journey to the center of memcpy in Linux And basically you can see how similar to the standard C library on Windows and Visual Studio There's a variety of heuristics that the compiler uses in order to decide what the fastest possible way to do",
-"ja": ""
+"ja": "では、rep movs に進みます。もちろん、それを何億回もたどりたくないので、そのまま飛ばします。ここまで until を使って、無事に通過しました。そして、memcpy を無事に終えて、main の中に戻りました。これが、Linux での memcpy の中心への旅です。基本的に、Windows と Visual Studio の標準 C ライブラリと、とてもよく似ていることがわかります。コンパイラは、最速の方法を決めるために、さまざまなヒューリスティックを使っていて、"
 },
 {
 "i": 40,
 "start": "00:17:21,08",
 "end": "00:17:34,27",
 "en": "mem copies And they just make those optimizations into library so that only when the compiler knows exactly how much size it's copying, does it just inlined at the rest of the time, you just jump out to the library and the library deals for with it for you",
-"ja": ""
+"ja": "メモリのコピーをします。そして、それらの最適化をライブラリに入れているので、コンパイラがコピーのサイズを正確に知っているときだけ、インライン化し、それ以外のときは、ライブラリにジャンプして、ライブラリが代わりに処理してくれます。"
 }
 ]
 }

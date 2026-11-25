@@ -5,625 +5,625 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Mystery Lystery 1 Solved!",
-"ja": ""
+"ja": "謎リスト 1 解決!"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "謎リスト"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio ではなぜ対にならないのか?"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何なのか?"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS はなぜ、ローカル変数 1 つのために領域を余分に確保するのか?"
 },
 {
 "i": 19,
 "where": "スライド4",
 "en": "As seen in Hello.c! (on macOS)",
-"ja": ""
+"ja": "Hello.c で見たとおり!(macOS)"
 },
 {
 "i": 33,
 "where": "スライド4",
 "en": "0000000100003f7c\tretq",
-"ja": ""
+"ja": "0000000100003f7c\tretq"
 },
 {
 "i": 35,
 "where": "スライド4",
 "en": "Disassembled from command line with “otool -tV”",
-"ja": ""
+"ja": "コマンドラインから「otool -tV」で逆アセンブル"
 },
 {
 "i": 36,
 "where": "ノート4",
 "en": "Or when compiled by Clang on macOS 11.",
-"ja": ""
+"ja": "macOS 11 の Clang でコンパイルした場合です。"
 },
 {
 "i": 42,
 "where": "スライド5",
 "en": "1158:\tcallq  1050 <puts@plt>",
-"ja": ""
+"ja": "1158:\tcallq  1050 <puts@plt>"
 },
 {
 "i": 47,
 "where": "スライド5",
 "en": "116e:\txchg   %ax,%ax",
-"ja": ""
+"ja": "116e:\txchg   %ax,%ax"
 },
 {
 "i": 48,
 "where": "スライド5",
 "en": "As seen in Hello.c! (on Linux)",
-"ja": ""
+"ja": "Hello.c で見たとおり!(Linux)"
 },
 {
 "i": 49,
 "where": "スライド5",
 "en": "Ubuntu 20.04, GCC 9.3.0",
-"ja": ""
+"ja": "Ubuntu 20.04、GCC 9.3.0"
 },
 {
 "i": 50,
 "where": "スライド5",
 "en": "Disassembled with “objdump -d”",
-"ja": ""
+"ja": "「objdump -d」で逆アセンブル"
 },
 {
 "i": 51,
 "where": "ノート5",
 "en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
-"ja": ""
+"ja": "同じ Hello World でも、Ubuntu Linux の GCC など別のコンパイラでコンパイルすると見た目が変わることも学びます。"
 },
 {
 "i": 54,
 "where": "スライド6",
 "en": "Generally doesn't use of frame pointers for most code",
-"ja": ""
+"ja": "ほとんどのコードで、通常はフレームポインタを使わない"
 },
 {
 "i": 55,
 "where": "スライド6",
 "en": "Parameter Conventions:Microsoft “x64” ABI",
-"ja": ""
+"ja": "引数の規約: Microsoft「x64」ABI"
 },
 {
 "i": 56,
 "where": "スライド6",
 "en": "First 4 parameters (from left to right) are put into RCX, RDX, R8, R9 respectively",
-"ja": ""
+"ja": "最初の 4 個の引数は、左から順に RCX、RDX、R8、R9 に入れる"
 },
 {
 "i": 57,
 "where": "スライド6",
 "en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
-"ja": ""
+"ja": "残りの引数は、最も左の引数が最も低いアドレスになるようにスタックへ「push」する"
 },
 {
 "i": 58,
 "where": "ノート6",
 "en": "Colon notation means the full value is represented by the concatenation of the two values.",
-"ja": ""
+"ja": "コロン表記は、完全な値が 2 つの値を連結したものであることを表します。"
 },
 {
 "i": 59,
 "where": "ノート6",
 "en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
-"ja": ""
+"ja": "rdx = 0x11112222、eax = 0x33334444 なら、rdx:eax はクワッドワード 0x1111222233334444 です"
 },
 {
 "i": 60,
 "where": "ノート6",
 "en": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg",
-"ja": ""
+"ja": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg"
 },
 {
 "i": 64,
 "where": "スライド7",
 "en": "64-bit Maximum Stack Diagram - VS",
-"ja": ""
+"ja": "64 ビットの最大スタック図 - VS"
 },
 {
 "i": 72,
 "where": "スライド7",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 73,
 "where": "スライド7",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 74,
 "where": "スライド7",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 75,
 "where": "スライド7",
 "en": "“return address” bar() to foo()",
-"ja": ""
+"ja": "bar() から foo() への「戻りアドレス」"
 },
 {
 "i": 76,
 "where": "スライド7",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 80,
 "where": "スライド7",
 "en": "“return address” from main() to whoever called main()",
-"ja": ""
+"ja": "main() から、main() を呼んだ側への「戻りアドレス」"
 },
 {
 "i": 81,
 "where": "スライド7",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 82,
 "where": "スライド7",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 83,
 "where": "スライド7",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 84,
 "where": "スライド7",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 85,
 "where": "スライド7",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 86,
 "where": "スライド7",
 "en": "Shadow space + extra function arguments (if any)",
-"ja": ""
+"ja": "シャドウスペース + 追加の関数引数(あれば)"
 },
 {
 "i": 87,
 "where": "スライド7",
 "en": "Shadow space + extra function arguments (if any)",
-"ja": ""
+"ja": "シャドウスペース + 追加の関数引数(あれば)"
 },
 {
 "i": 93,
 "where": "スライド9",
 "en": "64-bit Maximum Stack Diagram - VS++",
-"ja": ""
+"ja": "64 ビットの最大スタック図 - VS++"
 },
 {
 "i": 101,
 "where": "スライド9",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 102,
 "where": "スライド9",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 104,
 "where": "スライド9",
 "en": "“return address” from main() to whoever called main()",
-"ja": ""
+"ja": "main() から、main() を呼んだ側への「戻りアドレス」"
 },
 {
 "i": 105,
 "where": "スライド9",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 106,
 "where": "スライド9",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 107,
 "where": "スライド9",
 "en": "Shadow space + extra function arguments (if any)",
-"ja": ""
+"ja": "シャドウスペース + 追加の関数引数(あれば)"
 },
 {
 "i": 108,
 "where": "スライド9",
 "en": "“Saved rbp” (if any)",
-"ja": ""
+"ja": "「保存された rbp」(あれば)"
 },
 {
 "i": 109,
 "where": "スライド9",
 "en": "_alloca() space (if any)",
-"ja": ""
+"ja": "_alloca() の領域(あれば)"
 },
 {
 "i": 110,
 "where": "スライド9",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 111,
 "where": "スライド9",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 112,
 "where": "スライド9",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 113,
 "where": "スライド9",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 114,
 "where": "スライド9",
 "en": "“Saved rbp” (if any)",
-"ja": ""
+"ja": "「保存された rbp」(あれば)"
 },
 {
 "i": 115,
 "where": "スライド9",
 "en": "_alloca() space (if any)",
-"ja": ""
+"ja": "_alloca() の領域(あれば)"
 },
 {
 "i": 116,
 "where": "スライド9",
 "en": "Shadow space + extra function arguments (if any)",
-"ja": ""
+"ja": "シャドウスペース + 追加の関数引数(あれば)"
 },
 {
 "i": 117,
 "where": "スライド9",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 118,
 "where": "スライド9",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 119,
 "where": "スライド9",
 "en": "“Saved rbp” (if any)",
-"ja": ""
+"ja": "「保存された rbp」(あれば)"
 },
 {
 "i": 120,
 "where": "スライド9",
 "en": "_alloca() space (if any)",
-"ja": ""
+"ja": "_alloca() の領域(あれば)"
 },
 {
 "i": 127,
 "where": "スライド10",
 "en": "When Does VS Use a Frame Pointer?",
-"ja": ""
+"ja": "VS はいつフレームポインタを使うか?"
 },
 {
 "i": 128,
 "where": "スライド10",
 "en": "[2] https://docs.microsoft.com/en-us/cpp/build/prolog-and-epilog?view=msvc-160",
-"ja": ""
+"ja": "[2] https://docs.microsoft.com/en-us/cpp/build/prolog-and-epilog?view=msvc-160"
 },
 {
 "i": 129,
 "where": "スライド10",
 "en": "From [1] it definitely does if _alloca() is used",
-"ja": ""
+"ja": "[1] によれば、_alloca() を使うときは確実に使う"
 },
 {
 "i": 130,
 "where": "スライド10",
 "en": "\"_alloca is required to be 16-byte aligned and additionally required to use a frame pointer.\"",
-"ja": ""
+"ja": "「_alloca は 16 バイトにアラインされる必要があり、さらにフレームポインタの使用が必須である。」"
 },
 {
 "i": 131,
 "where": "スライド10",
 "en": "\"If space is dynamically allocated (alloca) in a function, then a nonvolatile register must be used as a frame pointer to mark the base of the fixed part of the stack and that register must be saved and initialized in the prolog.\"",
-"ja": ""
+"ja": "「関数内で領域を動的に確保(alloca)する場合、スタックの固定部分の基点を示すフレームポインタとして不揮発性レジスタを使う必要があり、そのレジスタはプロローグで保存・初期化しなければならない。」"
 },
 {
 "i": 132,
 "where": "スライド10",
 "en": "Note it said \"a nonvolatile register\", it didn't say it had to be rbp. Elsewhere [2] they have an example using r13 instead of rbp",
-"ja": ""
+"ja": "「不揮発性レジスタ」とあるだけで、rbp でなければならないとは書かれていません。別の箇所 [2] には、rbp の代わりに r13 を使う例があります"
 },
 {
 "i": 133,
 "where": "スライド10",
 "en": "Not clear if there are any other situations",
-"ja": ""
+"ja": "ほかに使う場面があるかは不明"
 },
 {
 "i": 135,
 "where": "ノート10",
 "en": "Colon notation means the full value is represented by the concatenation of the two values.",
-"ja": ""
+"ja": "コロン表記は、完全な値が 2 つの値を連結したものであることを表します。"
 },
 {
 "i": 136,
 "where": "ノート10",
 "en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
-"ja": ""
+"ja": "rdx = 0x11112222、eax = 0x33334444 なら、rdx:eax はクワッドワード 0x1111222233334444 です"
 },
 {
 "i": 137,
 "where": "ノート10",
 "en": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg",
-"ja": ""
+"ja": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg"
 },
 {
 "i": 140,
 "where": "スライド11",
 "en": "Still use frame pointers in the 32-bit style, unless directed not to by compile options",
-"ja": ""
+"ja": "コンパイルオプションで止めない限り、32 ビットと同じ方式でフレームポインタを使う"
 },
 {
 "i": 142,
 "where": "スライド11",
 "en": "First 6 parameters (from left to right) are put into RDI, RSI, RDX, RCX, R8, R9 respectively",
-"ja": ""
+"ja": "最初の 6 個の引数は、左から順に RDI、RSI、RDX、RCX、R8、R9 に入れる"
 },
 {
 "i": 143,
 "where": "スライド11",
 "en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
-"ja": ""
+"ja": "残りの引数は、最も左の引数が最も低いアドレスになるようにスタックへ「push」する"
 },
 {
 "i": 144,
 "where": "スライド11",
 "en": "Book page 111",
-"ja": ""
+"ja": "書籍 111 ページ"
 },
 {
 "i": 145,
 "where": "ノート11",
 "en": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif",
-"ja": ""
+"ja": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif"
 },
 {
 "i": 147,
 "where": "ノート11",
 "en": "TODO: calling convention identification reinforcement goes here, or at end of deck, or after we’ve seen some asm?",
-"ja": ""
+"ja": "TODO: 呼び出し規約を見分ける練習は、ここか、スライドの最後か、アセンブリを見たあとに置く?"
 },
 {
 "i": 148,
 "where": "ノート11",
 "en": "Give students an example randomized C call, and the equivalent templated, randomized, x86 code and ask them to pick which calling convention it uses",
-"ja": ""
+"ja": "受講者に、ランダムな C の呼び出しの例と、それに対応する、ランダムなテンプレート化した x86 コードを見せて、どの呼び出し規約を使っているか選ばせる"
 },
 {
 "i": 152,
 "where": "スライド12",
 "en": "64-bit Maximum Stack Diagram - SysV",
-"ja": ""
+"ja": "64 ビットの最大スタック図 - SysV"
 },
 {
 "i": 160,
 "where": "スライド12",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 161,
 "where": "スライド12",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 162,
 "where": "スライド12",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 163,
 "where": "スライド12",
 "en": "“return address” bar() to foo()",
-"ja": ""
+"ja": "bar() から foo() への「戻りアドレス」"
 },
 {
 "i": 164,
 "where": "スライド12",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 174,
 "where": "スライド12",
 "en": "“return address” from main() to whoever called main()",
-"ja": ""
+"ja": "main() から、main() を呼んだ側への「戻りアドレス」"
 },
 {
 "i": 178,
 "where": "スライド12",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 179,
 "where": "スライド12",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 180,
 "where": "スライド12",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 181,
 "where": "スライド12",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 182,
 "where": "スライド12",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 183,
 "where": "スライド12",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 187,
 "where": "スライド12",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 190,
 "where": "スライド13",
 "en": "PRESENCE OF PUSH/POP",
-"ja": ""
+"ja": "push/pop があるのは"
 },
 {
 "i": 191,
 "where": "スライド13",
 "en": "IN SYSTEM V CODE",
-"ja": ""
+"ja": "System V のコード"
 },
 {
 "i": 192,
 "where": "スライド13",
 "en": "ABSENSE IN MS CODE",
-"ja": ""
+"ja": "MS のコードにはない"
 },
 {
 "i": 194,
 "where": "スライド14",
 "en": "MS & SYSTEM V ABIs",
-"ja": ""
+"ja": "MS と System V の ABI"
 },
 {
 "i": 195,
 "where": "スライド15",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "謎リスト"
 },
 {
 "i": 196,
 "where": "スライド15",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio ではなぜ対にならないのか?"
 },
 {
 "i": 197,
 "where": "スライド15",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何なのか?"
 },
 {
 "i": 198,
 "where": "スライド15",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS はなぜ、ローカル変数 1 つのために領域を余分に確保するのか?"
 }
 ]
 }

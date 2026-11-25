@@ -6,21 +6,21 @@
 "start": "00:00:00,080",
 "end": "00:00:33,600",
 "en": "so by the point that you get to assigning \"a\" to \"i\" you should see a stack diagram that looks like this and you've got your typical return addresses your padding the gray stuff that we don't really understand why it's there except that in this particular case now where we have a function argument we see that func actually reaches up outside of its own frame which seems a little weird and it sticks that function argument into this memory space it already has the function argument it was passed",
-"ja": ""
+"ja": "「a」を「i」に代入するところまで来ると、スタック図はこのようになるはずです。いつもの戻りアドレスと、パディングがあります。灰色の部分は、なぜあるのかよく分かっていません。ただ、今回のように関数の引数がある場合、func が自分のフレームの外に手を伸ばしていて、少し変です。その関数の引数を、このメモリ領域に入れています。引数は、main から func へ"
 },
 {
 "i": 1,
 "start": "00:00:32,239",
 "end": "00:01:02,480",
 "en": "within a register from main to func but then func goes and sticks it in memory that seems kind of weird so that is pretty much our takeaway from this single parameter passing thing something weird is going on in the stack and we're going to investigate that in the next set of videos the key thing is that it seems very superfluous because main had already successfully gotten a parameter passed into func via a register and that's nice and fast you don't have to touch memory remember with our memory",
-"ja": ""
+"ja": "レジスタ経由で、すでに渡されています。それなのに、func がそれをメモリに入れるのは、ちょっと変です。この 1 つの引数の受け渡しから得られる教訓は、スタックで何か変なことが起きている、ということで、これは次の動画で調べます。重要なのは、とても余計なことに見える点です。main はすでに、レジスタ経由で引数を func に渡せていて、それは速くて便利です。メモリに触る必要がありません。メモリ階層を思い出してください。"
 },
 {
 "i": 2,
 "start": "00:01:01,520",
 "end": "00:01:22,960",
 "en": "hierarchy reading and writing registers is much faster than reading or writing ram or cache and the fact that it's sticking it back into the stack means that it's writing to cache and or writing to ram so that seems very suboptimal so why is it doing it well let's move on and let's do some more experimentation with more parameters in order to find out",
-"ja": ""
+"ja": "レジスタの読み書きは、RAM やキャッシュの読み書きよりずっと速いです。それをスタックに戻して入れるということは、キャッシュか RAM に書いているということで、あまり最適ではなさそうです。では、なぜそうするのでしょうか。それを調べるために、先に進んで、引数をもっと増やして実験してみましょう。"
 }
 ]
 }

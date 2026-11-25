@@ -6,77 +6,77 @@
 "start": "00:00:00,080",
 "end": "00:00:30,960",
 "en": "understanding how the stack works is extremely essential to understanding how the code is working so conceptually the stack is a last in first out data structure where data is pushed on the top of the stack and then popped off so frequently people talk about it as if it were a stack of plates where you push something on the top you push something on the top but you can't take data out of the middle of the stack you can only pop something off pop something off so in general the stack is a conceptual",
-"ja": ""
+"ja": "スタックがどう動くかを理解することは、コードがどう動いているかを理解するうえで、とても重要です。概念的には、スタックは後入れ先出しのデータ構造で、データはスタックの一番上に push され、そこから pop されます。よく、お皿の山にたとえられます。お皿を一番上に重ねていくように push して、真ん中からは取り出せず、上から pop することしかできません。一般的には、スタックは概念的な"
 },
 {
 "i": 1,
 "start": "00:00:28,960",
 "end": "00:00:59,760",
 "en": "area of memory where the operating system says okay i'm going to assign this area to be the stack when the program starts running and different operating systems use different addresses to be the stack and if they're using address space layout randomization it could actually change between different invocations of the program so again as i said in the endianness section i draw low addresses low high address is high so if this is generically some process memory the operating system decides where it wants",
-"ja": ""
+"ja": "メモリ領域で、プログラムが動き始めるときに、オペレーティングシステムが「この領域をスタックにします」と割り当てます。オペレーティングシステムごとに、スタックに使うアドレスは違いますし、アドレス空間配置のランダム化を使っていると、プログラムを起動するたびに変わることもあります。エンディアンのところで言ったように、ここでは低いアドレスを下、高いアドレスを上に描きます。これが一般的なプロセスのメモリだとすると、オペレーティングシステムが"
 },
 {
 "i": 2,
 "start": "00:00:58,000",
 "end": "00:01:28,880",
 "en": "to place the stack and where it places the heap which is where memory is allocated for things like malloc and where it puts the code and global data and other elements so by convention most operating systems have the stack grow towards low addresses and conversely the heap will grow towards high addresses so as you use more heap space and use more stack space these will grow towards each other and eventually if you use too much stack and too much heap they will collide and the program will",
-"ja": ""
+"ja": "スタックを置く場所、malloc のようなもので確保されるメモリであるヒープを置く場所、そしてコードやグローバルデータなどを置く場所を決めます。慣例として、ほとんどのオペレーティングシステムでは、スタックは低いアドレスのほうへ伸び、逆にヒープは高いアドレスのほうへ伸びます。ヒープやスタックを使うほど、お互いのほうへ伸びていき、スタックとヒープを使いすぎると、ぶつかってしまい、プログラムは"
 },
 {
 "i": 3,
 "start": "00:01:26,960",
 "end": "00:01:58,240",
 "en": "take some sort of error and have to be terminated so a very important message brought to you by the m308 gunner from metalstorm so metalstorm is a video game on the nintendo entertainment system where you could flip the gravity go up go down at a moment's notice and so this stack grows towards low addresses in our representation and you the student need to be mentally flexible to be able to handle it if the stack is growing down towards lower addresses or if you go off and see someone else",
-"ja": ""
+"ja": "何らかのエラーを起こして、終了させられることになります。ここで、メタルストームの M308 ガンナーから、とても大事なメッセージです。メタルストームは、ニンテンドーエンターテインメントシステムのゲームで、重力を急に反転させて、上に行ったり下に行ったりできます。この講義の表現では、スタックは低いアドレスのほうへ伸びます。受講生のみなさんは、頭を柔軟にして、スタックが低いアドレスのほうへ伸びていても、あるいは、ほかの人が"
 },
 {
 "i": 4,
 "start": "00:01:56,880",
 "end": "00:02:29,360",
 "en": "who draws the stack growing towards high addresses you could also see the stack growing left to right or right to left the famous hacking paper smashing the stack for fun and profit draws the stack horizontally so i've also asked ender wiggin here in order to remind you that the enemy's plate is down and if you don't believe him here's another luminary weird al yankovic to let you know that everything you know is wrong black is white up is down and short is long now specifically in the context",
-"ja": ""
+"ja": "スタックを高いアドレスのほうへ伸ばして描いていても、対応できるようにしてください。スタックが左から右、あるいは右から左に伸びる図もあります。有名なハッキングの論文「Smashing the Stack for Fun and Profit」は、スタックを横向きに描いています。そこで、エンダー・ウィギンにも来てもらいました。敵の門は下だ、ということを思い出させるためです。信じられないなら、もう一人の有名人、ウィアード・アル・ヤンコビックの言葉もあります。知っていることはすべて間違いで、黒は白、上は下、短いは長い、というわけです。さて、特に"
 },
 {
 "i": 5,
 "start": "00:02:26,000",
 "end": "00:02:56,480",
 "en": "of the stack on intel systems is the rsp register the really long stack pointer which points to the top of the stack and again that's the lowest address which is being used to store data and while data will exist that address is beyond the top of the stack it should be considered undefined and it should not be dependent upon for program execution behavior so what kind of information might you find on the stack first there's return addresses which is when a function calls another",
-"ja": ""
+"ja": "Intel のシステムでのスタックについてですが、RSP レジスタ、つまり長い名前のスタックポインタが、スタックの一番上を指します。これもまた、データを格納するために使われている一番低いアドレスのことです。そのアドレスより先にデータが存在していても、それはスタックの一番上の外側なので、未定義として扱うべきで、プログラムの動作がそれに依存してはいけません。では、スタックにはどんな情報があるでしょうか。まず、戻りアドレスです。ある関数が別の"
 },
 {
 "i": 6,
 "start": "00:02:53,680",
 "end": "00:03:25,280",
 "en": "function it has to push a return address onto the stack so that the called function knows how to get back to the calling function so you know when you're learning C programming you know that you can call from one function to the next but you don't necessarily ever think about how you get back to the calling function and here when we look at the assembly we'll understand exactly how that works also local variables are stored on the stack sometimes we're going to see parameters passed between two different",
-"ja": ""
+"ja": "関数を呼び出すとき、戻りアドレスをスタックに push する必要があります。そうすることで、呼び出された関数は、呼び出し元の関数への戻り方が分かります。C 言語のプログラミングを学ぶときには、ある関数から次の関数を呼び出せることは知っていても、呼び出し元にどうやって戻るのかは、あまり考えませんよね。アセンブリを見ると、それがどう動くのか、はっきり分かります。また、ローカル変数もスタックに格納されます。2 つの異なる"
 },
 {
 "i": 7,
 "start": "00:03:23,120",
 "end": "00:03:56,799",
 "en": "functions on the stack but it's going to depend on things we'll learn about later also the stack is a place where the compiler may choose to save registers because at the end of the day if there's only 16 general purpose registers then they need to be shared between different functions without them you know function one overwriting the values from function two also if a function gets extremely complicated and 16 registers are not enough to juggle all the possible values then the compiler may need to save them",
-"ja": ""
+"ja": "関数の間で、引数がスタックを通して渡されることもありますが、それは、あとで学ぶことによって変わります。また、スタックは、コンパイラがレジスタを保存する場所にもなります。汎用レジスタは 16 個しかないので、関数どうしで共有する必要があり、関数 1 が関数 2 の値を上書きしてしまわないようにするためです。それから、関数がとても複雑になって、16 個のレジスタでは、すべての値をやりくりしきれない場合、コンパイラは、それらの値を"
 },
 {
 "i": 8,
 "start": "00:03:53,360",
 "end": "00:04:27,680",
 "en": "temporarily off to the stack as well finally there are some macros like alloca() which will just explicitly allocate space on the stack instead of the heap so in past classes i sort of tried to draw the diagram that got into all of those different things right here up front but for this class i've decided to try to take it you know much slower and cover the stack each of those pieces of the stack as we get into them in future classes so so this is going to be a reoccurring diagram which i'm going to draw and",
-"ja": ""
+"ja": "一時的にスタックに退避させることもあります。最後に、alloca() のようなマクロがあり、ヒープではなくスタックに、明示的に領域を確保します。以前のクラスでは、これらすべてを最初の段階で一つの図にしようとしていました。でも、このクラスでは、もっとゆっくり進めて、スタックの各要素を、その話題に入ったときに、順番に取り上げることにしました。ですから、これから何度も出てくる図を描いていきます。そして、"
 },
 {
 "i": 9,
 "start": "00:04:25,840",
 "end": "00:05:00,080",
 "en": "it'll get more complicated over time but for now i just want to keep it simple so if you have a code like this then when main executes main will conceptually have an area of space on the stack for itself which is called its frame so mains frame is a area on the stack and it may have stuff in it and it may not it's going to all depend on things we're going to learn about later but when main calls to some other function like foo then foo will have a conceptual area on the stack for",
-"ja": ""
+"ja": "だんだん複雑になっていきますが、今はシンプルにしておきます。このようなコードがあって、main が実行されると、main は概念的に、スタック上に自分用の領域を持ちます。これを、フレームと呼びます。main のフレームはスタック上の領域で、中に何かが入っていることも、入っていないこともあります。それは、あとで学ぶことによって変わります。そして、main が foo のような別の関数を呼び出すと、foo も、スタック上に、自分の情報のための概念的な領域を持ちます。"
 },
 {
 "i": 10,
 "start": "00:04:56,880",
 "end": "00:05:20,560",
 "en": "its information foo's frame and then when foo calls to bar, bar will have a frame as well and so as functions call to other functions the stack moves towards lower addresses and new frames get created and as functions return from other functions the stack has data coming back off of it and those frames disappear",
-"ja": ""
+"ja": "それが foo のフレームです。さらに、foo が bar を呼び出すと、bar にもフレームができます。このように、関数が別の関数を呼び出すにつれて、スタックは低いアドレスのほうへ進み、新しいフレームが作られます。そして、関数が戻ると、スタックからデータが取り除かれ、それらのフレームは消えていきます。"
 }
 ]
 }

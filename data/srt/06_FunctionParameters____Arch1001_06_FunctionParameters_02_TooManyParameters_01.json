@@ -6,7 +6,7 @@
 "start": "00:00:00,080",
 "end": "00:00:17,920",
 "en": "so now we're going to look at the so-called too manyparameters.c too many parameters for who and for what i don't know you tell me go ahead and step through the assembly and draw a stack diagram and we will see a very interesting pattern emerge",
-"ja": ""
+"ja": "では、いわゆる too manyparameters.c を見ていきます。引数が多すぎるといっても、誰にとって、何に対してなのかは分かりません。皆さんで考えてみてください。アセンブリを 1 命令ずつ実行しながら、スタック図を描いてください。とても興味深いパターンが見えてきます。"
 }
 ]
 }

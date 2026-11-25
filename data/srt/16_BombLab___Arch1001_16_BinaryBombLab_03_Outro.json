@@ -6,49 +6,49 @@
 "start": "00:00:00,880",
 "end": "00:00:34,480",
 "en": "okay so before you go on with the binary bomb if you think of yourself as an expert or if you maybe took this course a long time ago in open security training 1 and you happen already know stuff about x86 you have the opportunity to do the bomb lab in expert mode in expert mode you remove the helpful symbols the debugging information which you would not actually have if you were targeting some particular piece of real software or some particular piece of real malware they're typically unless they really",
-"ja": ""
+"ja": "では、バイナリボムに進む前に、自分は上級者だと思う人や、このクラスをかなり前に Open Security Training 1 で受けて、すでに x86 について知っている人には、ボムラボをエキスパートモードで行う機会があります。エキスパートモードでは、役に立つシンボルやデバッグ情報を取り除きます。実際に特定の本物のソフトウェアや本物のマルウェアを対象にするなら、そうした情報は手に入らないからです。たいていは、よほど"
 },
 {
 "i": 1,
 "start": "00:00:33,440",
 "end": "00:01:02,000",
 "en": "really screw up they're not going to generally provide that information now for things like Windows operating system microsoft does provide some of the simple information but that's neither here nor there so if you want to run this as an expert then go ahead and strip these symbols from the bomb running the strip command on Linux and Unix type systems or just straight up delete the .pdb file the portable debug file off of Windows and try it without the debugging information I think you'll",
-"ja": ""
+"ja": "ひどい失敗をしないかぎり、そうした情報は提供されません。Windows オペレーティングシステムのようなものなら、Microsoft が単純な情報の一部を提供していますが、それはここでは関係ありません。エキスパートとして行いたいなら、Linux や UNIX 系のシステムでは strip コマンドを実行して、ボムからシンボルを取り除き、Windows なら .pdb ファイル、つまりポータブルデバッグファイルをそのまま削除して、デバッグ情報なしで試してください。"
 },
 {
 "i": 2,
 "start": "00:01:01,120",
 "end": "00:01:33,920",
 "en": "find that it's exceedingly much more difficult alright now just a couple words of hints before you continue on of course documentation is your friend so if you forgot or just never knew some of the standard C library things you encounter like sscanf then you should of course you know google it read the man page read the microsoft documentation whatever but you should you should look up for opportunities to grab public and available information wherever possible and also this is a very big one",
-"ja": ""
+"ja": "ずっと難しくなることが分かると思います。では、続ける前に、ヒントを少しだけ言います。もちろん、ドキュメントは味方です。ですから、sscanf のような標準 C ライブラリのものを忘れていたり、そもそも知らなかったりしたら、もちろん検索して、man ページや Microsoft のドキュメントなどを読んでください。公開されていて手に入る情報は、できるかぎり活用する機会を探してください。そして、これはとても大事なことですが、"
 },
 {
 "i": 3,
 "start": "00:01:32,479",
 "end": "00:02:01,840",
 "en": "especially for those of you who are taking this to eventually go towards the reverse engineering type learning tracks it's important to always you know keep in mind what exactly is your goal here it's extremely easy to get lost in the weeds when you're looking at assembly language and especially as someone who might be new to assembly language you're going to be like wanting to look at what's this instruction do what's that instruction do what's that as instruction do and that's exactly how you get stuck",
-"ja": ""
+"ja": "特に、最終的にリバースエンジニアリングの学習の道に進むためにこれを受けている人は、ここでの目標が何なのかを、いつも頭に置いておくことが大切です。アセンブリ言語を見ていると、細部に迷い込むのがとても簡単です。特に、アセンブリ言語に慣れていない人は、この命令は何をするのか、あの命令は何をするのか、その命令は何をするのか、と見たくなります。そうやって、まさに"
 },
 {
 "i": 4,
 "start": "00:01:59,520",
 "end": "00:02:24,080",
 "en": "lost in the weeds and you lose sight of the goal frequently is the case when you're reverse engineering you want to do like a very broad like scan of everything to just see like just generally what's there and then narrowly focus on something but then you get too deep into it and so you got to come back up and you've got to look at the big picture and then you go down deep and you come back up so that's a common thing and the hint here is you know focus on what your goal is for",
-"ja": ""
+"ja": "細部に迷い込み、目標を見失います。リバースエンジニアリングでは、よくあることです。まずは、全体をとても広く見渡して、そこに一般的に何があるかをつかみ、それから、狭い一点に集中します。でも、深く入り込みすぎてしまうので、いったん戻って、全体像を見て、また深く入って、また戻ります。これはよくあることで、ここでのヒントは、目標に集中することです。"
 },
 {
 "i": 5,
 "start": "00:02:22,480",
 "end": "00:02:54,319",
 "en": "this particular exercise the goal is not read every single assembly line and understand every single assembly instruction the goal is get the program to run without exploding so you need to focus on what are the exit conditions what are the ways that you avoid those calls to explode bomb and then work backwards from that that's why it's reverse engineering so walk backwards from the exit conditions and figure out how do you avoid those paths how do you provide inputs that force the control flow down the",
-"ja": ""
+"ja": "この演習の目標は、アセンブリのすべての行を読んで、すべてのアセンブリ命令を理解することではありません。目標は、プログラムが爆発せずに動くようにすることです。ですから、終了の条件は何か、explode bomb の呼び出しを避ける方法は何か、に集中して、そこから逆向きに考えてください。だからリバースエンジニアリングなのです。終了の条件から逆にたどって、そうした道をどう避けるか、制御フローを、あなたの望む"
 },
 {
 "i": 6,
 "start": "00:02:51,920",
 "end": "00:03:02,560",
 "en": "particular path that you want all right and with that said I wish you good luck on your adventures into the heart of the binary bomb",
-"ja": ""
+"ja": "特定の道に進ませる入力をどう与えるか、を考えてください。それでは、バイナリボムの中心への冒険に、幸運を祈ります。"
 }
 ]
 }

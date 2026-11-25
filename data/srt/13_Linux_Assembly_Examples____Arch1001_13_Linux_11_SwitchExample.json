@@ -6,49 +6,49 @@
 "start": "00:00:00,160",
 "end": "00:00:30,080",
 "en": "and our final control flow example is the SwitchExample so let's go see what that was all right we take a argument we put it into a and then we switch on a if the argument is 0 we return 1 if it's 1 we return 2 and anything else we return 3 otherwise return 0xfee1fed but we should never be able to do that because this default case should catch everything else for all other cases so let's go ahead and compile that and see what it looks like in the disassembler now what i would tell you",
-"ja": ""
+"ja": "制御フローの最後の例は SwitchExample です。見てみましょう。引数を受け取って、a に入れて、a で switch します。引数が 0 なら 1 を返し、1 なら 2 を返し、それ以外なら 3 を返します。そうでなければ 0xfee1fed を返しますが、default のケースがそれ以外のすべてを受けるので、ここには決して来ないはずです。では、コンパイルして、逆アセンブラでどう見えるか確かめましょう。ここで言っておきたいのは、"
 },
 {
 "i": 1,
 "start": "00:00:29,679",
 "end": "00:01:02,960",
 "en": "here is that everything up to the atoi and essentially after it all of this is stuff we've seen before in previous examples so standard function prolog subtract 20 from rsp these are the save of the argc and argv this is the grabbing back the argv and putting into rax adding 8 so that we're now pointing at argv of 1 we have the address of argv of 1 and then dereferencing argv of 1 so that we have the value in it which is essentially the pointer to the argument that we passed as our first",
-"ja": ""
+"ja": "atoi までと、そのあとのほとんどは、これまでの例ですでに見たものだということです。標準的な関数のプロローグで、rsp から 20 を引き、argc と argv を保存します。これは argv を取り出して rax に入れ、8 を足して、argv の 1 を指すようにするところです。argv[1] のアドレスを持っていて、それを間接参照すると、最初の引数として渡した引数へのポインタが"
 },
 {
 "i": 2,
 "start": "00:01:02,239",
 "end": "00:01:38,640",
 "en": "argument i am still using the same gdb configuration file that has 31337 as the first parameter after the start so that's what i would expect here and then atoi is just going to convert 31337 to an actual integer value and because that a the output of atoi went into the local variable a that's going to be the store for a now what you see immediately after that is a compare 0 against a and if it's equal then jump to this address 180. so that's right here and so it returns 1 and then jumps to the end of the",
-"ja": ""
+"ja": "手に入ります。ここでは、同じ gdb の設定ファイルを使っています。start のあとの最初の引数が 31337 になるもので、ここでもそれを期待します。そして atoi は、31337 を実際の整数値に変換します。atoi の出力はローカル変数 a に入るので、それが a への格納になります。そのすぐあとに見えるのは、0 と a の比較で、等しければアドレス 180 にジャンプします。それがこのあたりで、1 を返して、関数の最後に"
 },
 {
 "i": 3,
 "start": "00:01:37,520",
 "end": "00:02:09,039",
 "en": "function so you can see that this looks slightly different than we had for the if examples instead we have compare against 0 and if that works jump down to a return 1 instead of like falling through to return to set 1 for the return value and then jumping to the end so then similarly there's a compare against 1 and if that is equal then it jumps down to the returning of 2 followed by an immediate jump to the end so slightly different structure in some sense it looks a little more",
-"ja": ""
+"ja": "ジャンプします。ですから、if の例とは、少し違って見えます。if の例のように、1 を返す処理に落ちていって、戻り値に 1 を設定して、最後にジャンプするのではなく、0 と比較して、等しければ 1 を返す処理に下へジャンプします。同じように、1 との比較があり、等しければ、2 を返す処理に下へジャンプして、そのあとすぐ最後にジャンプします。ですから、構造が少し違っていて、ある意味では、もう少し"
 },
 {
 "i": 4,
 "start": "00:02:06,799",
 "end": "00:02:38,160",
 "en": "formulaic in that you might imagine if you changed the switch and you added more cases you get you know case 0 case 1 case 2 case 3 you can go ahead and do that on your own time just fiddle around with the switch and see how the unoptimized compiler will generate assembly and see whether it looks exactly like you would expect based on this sort of templated form but for now let's just go ahead and you know step on through and see what we see returned so i'm going to use next instruction because i want to just",
-"ja": ""
+"ja": "型にはまっています。switch を変えて、case を足していくと、case 0、case 1、case 2、case 3 となるのが想像できるでしょう。あとで自分で試してみてください。switch をいじって、最適化なしのコンパイラがどんなアセンブリを生成するか、このテンプレートのような形から予想したとおりになるかを見てください。でも今は、ステップ実行して、何が返されるか見ましょう。next instruction を使います。この call の"
 },
 {
 "i": 5,
 "start": "00:02:35,920",
 "end": "00:03:16,000",
 "en": "go all the way past the end of call to that so do and now 31337 decimal 7869 hexadecimal that's going to be stored into a and then comparing 0 to that value stored in a is it equal no it is not so that's not going to be taken compare it against 1 is it equal no it's not so that's not going to be taken so finally it hits this default case which is for everything else that we didn't have a specific case for then we default down to returning 3 and leaving the function and returning so",
-"ja": ""
+"ja": "最後を過ぎるところまで進みたいからです。では、10 進数の 31337、16 進数の 7869 が a に格納されます。そして、0 と a に格納された値を比較します。等しいか。いいえ、等しくありません。ですからジャンプしません。1 と比較します。等しいか。いいえ、ジャンプしません。そして、最後に default のケースにたどり着きます。これは、特定のケースがなかったそれ以外すべてのためのものです。ですから、default で 3 を返して、関数を抜けて、戻ります。"
 },
 {
 "i": 6,
 "start": "00:03:13,599",
 "end": "00:03:28,640",
 "en": "the only real takeaway here is that gcc is generating things a little bit differently from visual studio in terms of switch statements and you can go play around with the switch statement to see slight variations on how it generates it",
-"ja": ""
+"ja": "ここでの本当のまとめは、switch 文に関して、gcc は Visual Studio と少し違うものを生成する、ということだけです。switch 文をいじって、生成のされ方の細かい違いを見てみてください。"
 }
 ]
 }

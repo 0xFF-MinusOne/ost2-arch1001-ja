@@ -5,517 +5,517 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Calling Conventions",
-"ja": ""
+"ja": "呼び出し規約"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Calling Conventions",
-"ja": ""
+"ja": "呼び出し規約"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "2 elements of importance:",
-"ja": ""
+"ja": "重要な要素は 2 つ:"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Register conventions for which registers \"belong\" to the caller vs. callee",
-"ja": ""
+"ja": "レジスタの規約: どのレジスタが呼び出し元と呼び出し先のどちらに「属する」か"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Parameter-passing conventions",
-"ja": ""
+"ja": "引数の渡し方の規約"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "Both are compiler-dependent",
-"ja": ""
+"ja": "どちらもコンパイラによって異なります"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "Yello?",
-"ja": ""
+"ja": "Yello?"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "Ahoy-hoy!",
-"ja": ""
+"ja": "Ahoy-hoy!"
 },
 {
 "i": 18,
 "where": "スライド3",
 "en": "Einstein!",
-"ja": ""
+"ja": "Einstein!"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "Yeobeoseyo!",
-"ja": ""
+"ja": "Yeobeoseyo!"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "Calling Conventions 2",
-"ja": ""
+"ja": "呼び出し規約 2"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "We're just talking about the MS \"x64\" ABI and System V \"x86-64\" ABI in the this section",
-"ja": ""
+"ja": "この節で扱うのは、MS の「x64」ABI と System V の「x86-64」ABI だけです"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "More examples at",
-"ja": ""
+"ja": "ほかの例:"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "http://en.wikipedia.org/wiki/X86_calling_conventions",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_calling_conventions"
 },
 {
 "i": 25,
 "where": "スライド4",
 "en": "https://raw.githubusercontent.com/wiki/hjl-tools/x86-psABI/x86-64-psABI-1.0.pdf",
-"ja": ""
+"ja": "https://raw.githubusercontent.com/wiki/hjl-tools/x86-psABI/x86-64-psABI-1.0.pdf"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "\"ABI\" = Application Binary Interface. Standard of how executables are supposed to work on an architecture",
-"ja": ""
+"ja": "「ABI」= アプリケーションバイナリインターフェース。アーキテクチャ上で実行ファイルがどう動くべきかの標準"
 },
 {
 "i": 27,
 "where": "スライド5",
 "en": "Register Conventions:",
-"ja": ""
+"ja": "レジスタの規約:"
 },
 {
 "i": 28,
 "where": "スライド5",
 "en": "Caller-save registers",
-"ja": ""
+"ja": "呼び出し元保存レジスタ"
 },
 {
 "i": 29,
 "where": "スライド5",
 "en": "Also called “volatile” registers by MS",
-"ja": ""
+"ja": "MS では「揮発性」レジスタとも呼ぶ"
 },
 {
 "i": 30,
 "where": "スライド5",
 "en": "I.e. the caller should assume they will be changed by the callee",
-"ja": ""
+"ja": "つまり、呼び出し元は、呼び出し先が値を変えると想定すべき"
 },
 {
 "i": 31,
 "where": "スライド5",
 "en": "Registers \"belong\" to the callee.",
-"ja": ""
+"ja": "レジスタは呼び出し先に「属する」。"
 },
 {
 "i": 32,
 "where": "スライド5",
 "en": "So the caller is in charge of saving the value before a call to a subroutine, and restoring the value after the call returns",
-"ja": ""
+"ja": "そのため、呼び出し元が、サブルーチンの呼び出し前に値を保存し、呼び出しから戻ったあとに復元する"
 },
 {
 "i": 33,
 "where": "スライド5",
 "en": "VisualStudio: RAX, RCX, RDX, R8, R9, R10, R11",
-"ja": ""
+"ja": "VisualStudio: RAX, RCX, RDX, R8, R9, R10, R11"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "GCC: RAX, RDI, RSI, RDX, RCX, R8, R9, R10, R11",
-"ja": ""
+"ja": "GCC: RAX, RDI, RSI, RDX, RCX, R8, R9, R10, R11"
 },
 {
 "i": 35,
 "where": "スライド6",
 "en": "Register Conventions:",
-"ja": ""
+"ja": "レジスタの規約:"
 },
 {
 "i": 36,
 "where": "スライド6",
 "en": "Callee-save registers",
-"ja": ""
+"ja": "呼び出し先保存レジスタ"
 },
 {
 "i": 37,
 "where": "スライド6",
 "en": "Also called “non-volatile” registers by MS",
-"ja": ""
+"ja": "MS では「不揮発性」レジスタとも呼ぶ"
 },
 {
 "i": 38,
 "where": "スライド6",
 "en": "I.e. the caller should assume they will not be changed by the callee",
-"ja": ""
+"ja": "つまり、呼び出し元は、呼び出し先が値を変えないと想定してよい"
 },
 {
 "i": 39,
 "where": "スライド6",
 "en": "Registers \"belong\" to the caller",
-"ja": ""
+"ja": "レジスタは呼び出し元に「属する」"
 },
 {
 "i": 40,
 "where": "スライド6",
 "en": "If the callee needs to use more registers than are saved by the caller, the callee is responsible for making sure the values are stored/restored, so it doesn't break things for the caller",
-"ja": ""
+"ja": "呼び出し先が、呼び出し元の保存分より多くのレジスタを使う場合は、呼び出し元に影響しないよう、呼び出し先が値の保存と復元をする責任を負う"
 },
 {
 "i": 41,
 "where": "スライド6",
 "en": "VisualStudio: RBX, RBP, RDI, RSI, R12-R15",
-"ja": ""
+"ja": "VisualStudio: RBX, RBP, RDI, RSI, R12-R15"
 },
 {
 "i": 42,
 "where": "スライド6",
 "en": "GCC: RBX, RBP, R12-R15",
-"ja": ""
+"ja": "GCC: RBX, RBP, R12-R15"
 },
 {
 "i": 43,
 "where": "スライド7",
 "en": "Register Conventions:",
-"ja": ""
+"ja": "レジスタの規約:"
 },
 {
 "i": 44,
 "where": "スライド7",
 "en": "Balance",
-"ja": ""
+"ja": "対応"
 },
 {
 "i": 45,
 "where": "スライド7",
 "en": "Both caller and callee are responsible for balancing any register saves they perform (add to the stack), with restores (removal from the stack)",
-"ja": ""
+"ja": "呼び出し元も呼び出し先も、自分が行うレジスタの保存(スタックへの追加)と、復元(スタックからの除去)を、対にする責任を負う"
 },
 {
 "i": 46,
 "where": "スライド7",
 "en": "Caller will typically save registers right before the call and restore right after the call",
-"ja": ""
+"ja": "呼び出し元は、通常、呼び出しの直前にレジスタを保存し、直後に復元する"
 },
 {
 "i": 47,
 "where": "スライド7",
 "en": "Callee will typically save registers at the beginning of the function and restore at the end of the function",
-"ja": ""
+"ja": "呼び出し先は、通常、関数の冒頭でレジスタを保存し、末尾で復元する"
 },
 {
 "i": 48,
 "where": "スライド8",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元保存"
 },
 {
 "i": 58,
 "where": "スライド8",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先保存"
 },
 {
 "i": 68,
 "where": "スライド8",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 70,
 "where": "スライド8",
 "en": "Caller-saved",
-"ja": ""
+"ja": "呼び出し元保存"
 },
 {
 "i": 80,
 "where": "スライド8",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 82,
 "where": "スライド8",
 "en": "Callee-saved",
-"ja": ""
+"ja": "呼び出し先保存"
 },
 {
 "i": 93,
 "where": "スライド8",
 "en": "Caller vs. Callee-save Regs",
-"ja": ""
+"ja": "呼び出し元保存と呼び出し先保存のレジスタ"
 },
 {
 "i": 111,
 "where": "スライド9",
 "en": "VS Caller-save",
-"ja": ""
+"ja": "VS 呼び出し元保存"
 },
 {
 "i": 112,
 "where": "スライド9",
 "en": "VS Callee-save",
-"ja": ""
+"ja": "VS 呼び出し先保存"
 },
 {
 "i": 115,
 "where": "スライド9",
 "en": "GCC/Clang",
-"ja": ""
+"ja": "GCC/Clang"
 },
 {
 "i": 116,
 "where": "スライド9",
 "en": "Caller-save",
-"ja": ""
+"ja": "呼び出し元保存"
 },
 {
 "i": 117,
 "where": "スライド9",
 "en": "GCC/Clang",
-"ja": ""
+"ja": "GCC/Clang"
 },
 {
 "i": 118,
 "where": "スライド9",
 "en": "Callee-save",
-"ja": ""
+"ja": "呼び出し先保存"
 },
 {
 "i": 136,
 "where": "スライド11",
 "en": "x86-64 compilers use a subset of the caller-save registers to pass parameters into and out of functions",
-"ja": ""
+"ja": "x86-64 のコンパイラは、呼び出し元保存レジスタの一部を使って、関数へ引数を渡し、関数から値を返します"
 },
 {
 "i": 137,
 "where": "スライド11",
 "en": "RAX or RDX:RAX passes out the return value",
-"ja": ""
+"ja": "RAX または RDX:RAX で戻り値を返す"
 },
 {
 "i": 138,
 "where": "スライド11",
 "en": "RAX holds anything 64 bits or smaller",
-"ja": ""
+"ja": "RAX は 64 ビット以下のものを保持"
 },
 {
 "i": 139,
 "where": "スライド11",
 "en": "RDX:RAX can be used to return 128 bit values",
-"ja": ""
+"ja": "RDX:RAX で 128 ビットの値を返せる"
 },
 {
 "i": 140,
 "where": "スライド11",
 "en": "Parameter-passing Conventions: Common",
-"ja": ""
+"ja": "引数渡しの規約: 共通"
 },
 {
 "i": 141,
 "where": "スライド12",
 "en": "Parameter Conventions:Microsoft “x64” ABI",
-"ja": ""
+"ja": "引数の規約: Microsoft「x64」ABI"
 },
 {
 "i": 142,
 "where": "スライド12",
 "en": "First 4 parameters (from left to right) are put into RCX, RDX, R8, R9 respectively",
-"ja": ""
+"ja": "最初の 4 個の引数は、左から順に RCX、RDX、R8、R9 に入れる"
 },
 {
 "i": 143,
 "where": "スライド12",
 "en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
-"ja": ""
+"ja": "残りの引数は、最も左の引数が最も低いアドレスになるようにスタックへ「push」する"
 },
 {
 "i": 144,
 "where": "スライド12",
 "en": "Typically \"mov\" is used instead of \"push\" though",
-"ja": ""
+"ja": "ただし、通常は push ではなく「mov」を使う"
 },
 {
 "i": 145,
 "where": "スライド12",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 146,
 "where": "スライド12",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 157,
 "where": "ノート12",
 "en": "Colon notation means the full value is represented by the concatenation of the two values.",
-"ja": ""
+"ja": "コロン表記は、完全な値が 2 つの値を連結したものであることを表します。"
 },
 {
 "i": 158,
 "where": "ノート12",
 "en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
-"ja": ""
+"ja": "rdx = 0x11112222、eax = 0x33334444 なら、rdx:eax はクワッドワード 0x1111222233334444 です"
 },
 {
 "i": 160,
 "where": "スライド13",
 "en": "First 6 parameters (from left to right) are put into RDI, RSI, RDX, RCX, R8, R9 respectively",
-"ja": ""
+"ja": "最初の 6 個の引数は、左から順に RDI、RSI、RDX、RCX、R8、R9 に入れる"
 },
 {
 "i": 161,
 "where": "スライド13",
 "en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
-"ja": ""
+"ja": "残りの引数は、最も左の引数が最も低いアドレスになるようにスタックへ「push」する"
 },
 {
 "i": 162,
 "where": "スライド13",
 "en": "Typically \"mov\" is used instead of \"push\" though",
-"ja": ""
+"ja": "ただし、通常は push ではなく「mov」を使う"
 },
 {
 "i": 163,
 "where": "スライド13",
 "en": "Book page 111",
-"ja": ""
+"ja": "書籍 111 ページ"
 },
 {
 "i": 164,
 "where": "スライド13",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 165,
 "where": "スライド13",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 176,
 "where": "ノート13",
 "en": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif",
-"ja": ""
+"ja": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif"
 },
 {
 "i": 178,
 "where": "ノート13",
 "en": "TODO: calling convention identification reinforcement goes here, or at end of deck, or after we’ve seen some asm?",
-"ja": ""
+"ja": "TODO: 呼び出し規約を見分ける練習は、ここか、スライドの最後か、アセンブリを見たあとに置く?"
 },
 {
 "i": 179,
 "where": "ノート13",
 "en": "Give students an example randomized C call, and the equivalent templated, randomized, x86 code and ask them to pick which calling convention it uses",
-"ja": ""
+"ja": "受講者に、ランダムな C の呼び出しの例と、それに対応する、ランダムなテンプレート化した x86 コードを見せて、どの呼び出し規約を使っているか選ばせる"
 },
 {
 "i": 180,
 "where": "スライド14",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元保存"
 },
 {
 "i": 196,
 "where": "スライド14",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先保存"
 },
 {
 "i": 239,
 "where": "スライド14",
 "en": "Function Parameter Order",
-"ja": ""
+"ja": "関数の引数の順序"
 },
 {
 "i": 241,
 "where": "スライド15",
 "en": "VS arguments",
-"ja": ""
+"ja": "VS の引数"
 },
 {
 "i": 242,
 "where": "スライド15",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 }
 ]
 }

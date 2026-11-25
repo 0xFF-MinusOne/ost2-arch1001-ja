@@ -5,493 +5,493 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Intel vs. AT&T Syntax",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Intel vs. AT&T Syntax",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "My classes prefer Intel syntax",
-"ja": ""
+"ja": "この講義では Intel 構文を使う"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "But I learned AT&T syntax first",
-"ja": ""
+"ja": "ただし、私が最初に覚えたのは AT&T 構文"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "I believe it’s important to know both, so you can read documents in either format",
-"ja": ""
+"ja": "どちらの形式の資料も読めるよう、両方を知っておくことが大切"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "Origin story: Bell Labs -> Multics on mainframes -> UNIX on PDP-11 asm -> UNIX on PDP-11 C -> UNIX on 8086 C (with assembly syntax adapted from PDP-11) -> GNU's Not Unix (╯°□°）╯︵ ┻━┻",
-"ja": ""
+"ja": "成り立ち: Bell Labs -> メインフレームの Multics -> PDP-11 アセンブリの UNIX -> PDP-11 C の UNIX -> 8086 C の UNIX(アセンブリ構文は PDP-11 から流用)-> GNU's Not Unix (╯°□°）╯︵ ┻━┻"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "https://www.bell-labs.com/usr/dmr/www/otherports/newp.pdf",
-"ja": ""
+"ja": "https://www.bell-labs.com/usr/dmr/www/otherports/newp.pdf"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "https://en.wikipedia.org/wiki/History_of_Unix",
-"ja": ""
+"ja": "https://en.wikipedia.org/wiki/History_of_Unix"
 },
 {
 "i": 18,
 "where": "スライド3",
 "en": "http://www.columbia.edu/~hauben/book-pdf/CHAPTER%209.pdf",
-"ja": ""
+"ja": "http://www.columbia.edu/~hauben/book-pdf/CHAPTER%209.pdf"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "https://stackoverflow.com/questions/42244028/what-was-the-original-reason-for-the-design-of-att-assembly-syntax",
-"ja": ""
+"ja": "https://stackoverflow.com/questions/42244028/what-was-the-original-reason-for-the-design-of-att-assembly-syntax"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "Intel Syntax:",
-"ja": ""
+"ja": "Intel 構文:"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "Preferred on Windows. Think algebra or C: y = 2x + 1;",
-"ja": ""
+"ja": "Windows で主流。代数や C のように考える: y = 2x + 1;"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "Destination <- Source(s) (right to left)",
-"ja": ""
+"ja": "転送先 <- 転送元(右から左)"
 },
 {
 "i": 25,
 "where": "スライド4",
 "en": "AT&T Syntax:",
-"ja": ""
+"ja": "AT&T 構文:"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "Preferred on *nix/GNU. Think elementary school: 1 + 2 = 3",
-"ja": ""
+"ja": "*nix/GNU で主流。小学校の算数のように考える: 1 + 2 = 3"
 },
 {
 "i": 27,
 "where": "スライド4",
 "en": "Source(s) -> Destination (left to right)",
-"ja": ""
+"ja": "転送元 -> 転送先(左から右)"
 },
 {
 "i": 30,
 "where": "スライド4",
 "en": "Registers get a % prefix and immediates get a $",
-"ja": ""
+"ja": "レジスタには % を、即値には $ を付ける"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "https://sourceware.org/binutils/docs/as/i386_002dVariations.html#i386_002dVariations",
-"ja": ""
+"ja": "https://sourceware.org/binutils/docs/as/i386_002dVariations.html#i386_002dVariations"
 },
 {
 "i": 32,
 "where": "スライド4",
 "en": "Intel vs. AT&T Syntax 2",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 2"
 },
 {
 "i": 33,
 "where": "スライド5",
 "en": "Intel vs. AT&T Syntax 3",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 3"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "Intel indicates size with things like “mov qword ptr [rax], rbx\", but it’s not in the actual mnemonic of the instruction",
-"ja": ""
+"ja": "Intel は「mov qword ptr [rax], rbx」のようにサイズを示すが、命令のニーモニック自体には含まれない"
 },
 {
 "i": 35,
 "where": "スライド5",
 "en": "\"In AT&T syntax the size of memory operands is determined from the last character of the instruction mnemonic. ...only when there’s no other way to disambiguate an instruction\"",
-"ja": ""
+"ja": "「AT&T 構文では、メモリオペランドのサイズは命令ニーモニックの最後の文字で決まる。…ほかに命令を区別する方法がない場合にかぎる」"
 },
 {
 "i": 36,
 "where": "スライド5",
 "en": "movb - operates on bytes",
-"ja": ""
+"ja": "movb - バイト単位で操作"
 },
 {
 "i": 37,
 "where": "スライド5",
 "en": "movw - operates on word (2 bytes)",
-"ja": ""
+"ja": "movw - ワード(2 バイト)単位で操作"
 },
 {
 "i": 38,
 "where": "スライド5",
 "en": "movl - operates on “long” (dword) (4 bytes)",
-"ja": ""
+"ja": "movl - 「long」(ダブルワード)(4 バイト)単位で操作"
 },
 {
 "i": 39,
 "where": "スライド5",
 "en": "movq - operates on “quad word” (qword) (8 bytes)",
-"ja": ""
+"ja": "movq - 「クワッドワード」(8 バイト)単位で操作"
 },
 {
 "i": 40,
 "where": "スライド5",
 "en": "https://sourceware.org/binutils/docs/as/i386_002dVariations.html#i386_002dVariations",
-"ja": ""
+"ja": "https://sourceware.org/binutils/docs/as/i386_002dVariations.html#i386_002dVariations"
 },
 {
 "i": 41,
 "where": "スライド6",
 "en": "Some mnemonics have been more or less renamed, to better conform to the b/w/l/q mnemonic naming conventions for lengths",
-"ja": ""
+"ja": "長さを表す b/w/l/q のニーモニック命名規則に合わせて、名前がほぼ変わったニーモニックもある"
 },
 {
 "i": 42,
 "where": "スライド6",
 "en": "\"cwde\" -> \"cwtl\" (\"convert (sign extend) word to long\")",
-"ja": ""
+"ja": "「cwde」->「cwtl」(「convert (sign extend) word to long」、ワードを long へ符号拡張)"
 },
 {
 "i": 44,
 "where": "スライド6",
 "en": "I'm not a big fan of this! It makes it way harder to look up instructions in the Intel manual when you're first learning assembly! (Basically you're forced to google for your solutions)",
-"ja": ""
+"ja": "これは好きではない! アセンブリを学び始めたとき、Intel のマニュアルで命令を調べにくくなる!(結局、検索に頼ることになる)"
 },
 {
 "i": 45,
 "where": "スライド6",
 "en": "https://sourceware.org/binutils/docs/as/i386_002dMnemonics.html#Instruction-Naming",
-"ja": ""
+"ja": "https://sourceware.org/binutils/docs/as/i386_002dMnemonics.html#Instruction-Naming"
 },
 {
 "i": 46,
 "where": "スライド6",
 "en": "Intel vs. AT&T Syntax 4",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 4"
 },
 {
 "i": 47,
 "where": "ノート6",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 49,
 "where": "ノート6",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 51,
 "where": "ノート6",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 52,
 "where": "ノート6",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 },
 {
 "i": 53,
 "where": "スライド7",
 "en": "Intel vs. AT&T Syntax 5",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 5"
 },
 {
 "i": 56,
 "where": "ノート7",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 58,
 "where": "ノート7",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 60,
 "where": "ノート7",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 61,
 "where": "ノート7",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 },
 {
 "i": 62,
 "where": "スライド8",
 "en": "In my opinion the hardest-to-read difference is for r/mX values",
-"ja": ""
+"ja": "私の考えでは、いちばん読みにくい違いは r/mX の値"
 },
 {
 "i": 63,
 "where": "スライド8",
 "en": "For intel it’s expressed as",
-"ja": ""
+"ja": "Intel では次のように表す"
 },
 {
 "i": 65,
 "where": "スライド8",
 "en": "For AT&T it’s expressed as",
-"ja": ""
+"ja": "AT&T では次のように表す"
 },
 {
 "i": 67,
 "where": "スライド8",
 "en": "So basically it makes it much less clear what the operations are between those parameters",
-"ja": ""
+"ja": "つまり、引数どうしの演算が、はるかに分かりにくくなる"
 },
 {
 "i": 68,
 "where": "スライド8",
 "en": "https://sourceware.org/binutils/docs/as/i386_002dMemory.html#i386_002dMemory",
-"ja": ""
+"ja": "https://sourceware.org/binutils/docs/as/i386_002dMemory.html#i386_002dMemory"
 },
 {
 "i": 69,
 "where": "スライド8",
 "en": "Intel vs. AT&T Syntax 6",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 6"
 },
 {
 "i": 70,
 "where": "ノート8",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 72,
 "where": "ノート8",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 74,
 "where": "ノート8",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 75,
 "where": "ノート8",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 },
 {
 "i": 76,
 "where": "スライド9",
 "en": "Examples:",
-"ja": ""
+"ja": "例:"
 },
 {
 "i": 85,
 "where": "スライド9",
 "en": "Intel vs. AT&T Syntax 7",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 7"
 },
 {
 "i": 86,
 "where": "ノート9",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 88,
 "where": "ノート9",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 90,
 "where": "ノート9",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 91,
 "where": "ノート9",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 },
 {
 "i": 92,
 "where": "スライド10",
 "en": "Intel vs. AT&T Syntax 8",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 8"
 },
 {
 "i": 93,
 "where": "ノート10",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 95,
 "where": "ノート10",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 97,
 "where": "ノート10",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 98,
 "where": "ノート10",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 },
 {
 "i": 99,
 "where": "スライド11",
 "en": "Intel vs. AT&T Syntax 9",
-"ja": ""
+"ja": "Intel 構文と AT&T 構文 9"
 },
 {
 "i": 103,
 "where": "スライド11",
 "en": "Shouldn't this be movq?",
-"ja": ""
+"ja": "movq ではないの?"
 },
 {
 "i": 105,
 "where": "スライド11",
 "en": "How do I know it's moving a qword and not a byte?",
-"ja": ""
+"ja": "バイトではなくクワッドワードの移動だと、どうして分かる?"
 },
 {
 "i": 107,
 "where": "スライド11",
 "en": "Short answer is that you don't yet. ¯\\_(ツ)_/¯ (Another reason I prefer Intel over AT&T syntax)",
-"ja": ""
+"ja": "結論: まだ分からない。¯\\_(ツ)_/¯(私が AT&T より Intel を好む理由の 1 つ)"
 },
 {
 "i": 109,
 "where": "スライド11",
 "en": "But once you learn to RTFM later, you'll at least be able to figure it out",
-"ja": ""
+"ja": "ただし、あとで RTFM を覚えれば、少なくとも自分で調べられる"
 },
 {
 "i": 110,
 "where": "スライド11",
 "en": "Intel",
-"ja": ""
+"ja": "Intel"
 },
 {
 "i": 111,
 "where": "スライド11",
 "en": "AT&T",
-"ja": ""
+"ja": "AT&T"
 },
 {
 "i": 112,
 "where": "ノート11",
 "en": "And some versions of the gnu tools, instead of using like “mov -0x4(%rbp)” will show it as “mov 0xFFFFFFFC(%rbp)”",
-"ja": ""
+"ja": "GNU ツールの版によっては、「mov -0x4(%rbp)」ではなく「mov 0xFFFFFFFC(%rbp)」と表示される"
 },
 {
 "i": 114,
 "where": "ノート11",
 "en": "Some more links talking about the differences",
-"ja": ""
+"ja": "違いを扱った関連リンク"
 },
 {
 "i": 116,
 "where": "ノート11",
 "en": "http://en.wikipedia.org/wiki/X86_assembly_language",
-"ja": ""
+"ja": "http://en.wikipedia.org/wiki/X86_assembly_language"
 },
 {
 "i": 117,
 "where": "ノート11",
 "en": "http://sig9.com/articles/att-syntax",
-"ja": ""
+"ja": "http://sig9.com/articles/att-syntax"
 }
 ]
 }

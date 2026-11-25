@@ -5,259 +5,259 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Writing Assembly: GCC",
-"ja": ""
+"ja": "アセンブリを書く: GCC"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "A subset of assembly instructions can be inserted into C code by using VS compiler intrinsics",
-"ja": ""
+"ja": "VS のコンパイラ組み込み関数(intrinsics)を使うと、一部のアセンブリ命令を C コードに挿入できる"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "These look like C functions calls, but the compiler substitutes them with literal assembly instructions",
-"ja": ""
+"ja": "C の関数呼び出しのように見えるが、コンパイラが実際のアセンブリ命令に置き換える"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Examples:",
-"ja": ""
+"ja": "例:"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "Many more (mostly relevant to Arch2001):",
-"ja": ""
+"ja": "ほかにも多数ある(主に Arch2001 に関係):"
 },
 {
 "i": 18,
 "where": "スライド3",
 "en": "http://msdn.microsoft.com/en-us/library/hh977022.aspx",
-"ja": ""
+"ja": "http://msdn.microsoft.com/en-us/library/hh977022.aspx"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "VisualStudio Intrinsics",
-"ja": ""
+"ja": "VisualStudio の intrinsics"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "VisualStudio Assembly",
-"ja": ""
+"ja": "VisualStudio のアセンブリ"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "Visual Studio supports inline assembler for 32-bit code, but not x86-64",
-"ja": ""
+"ja": "Visual Studio は、32 ビットコードではインラインアセンブラに対応するが、x86-64 では対応しない"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "Hand-written assembly must be written in MASM (Microsoft Assembler syntax) in a separate .asm file, with exported function names, and then called from your C code and linked to by the linker",
-"ja": ""
+"ja": "手書きのアセンブリは、別の .asm ファイルに MASM(Microsoft Assembler 構文)で書き、関数名をエクスポートして、C コードから呼び出し、リンカでリンクする"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "How to create a basic project is shown on the site, but one has been provided already in the \"scratchpad_asm\" project",
-"ja": ""
+"ja": "基本的なプロジェクトの作り方はサイトに載っているが、「scratchpad_asm」プロジェクトに用意済み"
 },
 {
 "i": 24,
 "where": "スライド5",
 "en": "Writing Bytes to Get Asm",
-"ja": ""
+"ja": "バイトを書いてアセンブリを得る"
 },
 {
 "i": 25,
 "where": "スライド5",
 "en": "You can emit bytes directly in the instruction stream in MASM by just writing \"db XXh\" and then the byte you want to emit. E.g.",
-"ja": ""
+"ja": "MASM では、「db XXh」とバイトを書くだけで、命令ストリームにバイトを直接出力できる。例:"
 },
 {
 "i": 28,
 "where": "スライド5",
 "en": "Or",
-"ja": ""
+"ja": "または"
 },
 {
 "i": 29,
 "where": "スライド5",
 "en": "db 04h, 01h",
-"ja": ""
+"ja": "db 04h, 01h"
 },
 {
 "i": 30,
 "where": "スライド5",
 "en": "Would create the instruction \"add al, 1\"",
-"ja": ""
+"ja": "命令「add al, 1」になる"
 },
 {
 "i": 33,
 "where": "スライド6",
 "en": "Writing Bytes to Get Asm 2",
-"ja": ""
+"ja": "バイトを書いてアセンブリを得る 2"
 },
 {
 "i": 34,
 "where": "スライド6",
 "en": "Writing instructions via raw bytes can be used to test your understanding of instruction encoding as specified in the manual",
-"ja": ""
+"ja": "生のバイトで命令を書くと、マニュアルに定められた命令の符号化への理解を試せる"
 },
 {
 "i": 35,
 "where": "スライド6",
 "en": "Also sometimes useful if you can't find the correct syntax for the specific assembler you're using, but you know exactly what instruction you want",
-"ja": ""
+"ja": "使っているアセンブラでの正しい構文が分からなくても、欲しい命令が正確に分かっているときに役立つこともある"
 },
 {
 "i": 36,
 "where": "スライド6",
 "en": "Just put it into scratchpad_asm, run it in the debugger, and then confirm what you expect happens after you step past the instruction",
-"ja": ""
+"ja": "scratchpad_asm に入れてデバッガで実行し、その命令をステップで越えた後、期待どおりになるか確かめる"
 },
 {
 "i": 37,
 "where": "スライド7",
 "en": "Misc MASM Syntax Issue",
-"ja": ""
+"ja": "MASM 構文の細かい問題"
 },
 {
 "i": 38,
 "where": "スライド7",
 "en": "MASM doesn't like immediates that start with an alphabet character. They must be preceded by a zero",
-"ja": ""
+"ja": "MASM は、英字で始まる即値を受け付けない。先頭にゼロが必要"
 },
 {
 "i": 39,
 "where": "スライド7",
 "en": "\"mov rax, E09966C1A977E177h\" yields a compile error",
-"ja": ""
+"ja": "「mov rax, E09966C1A977E177h」はコンパイルエラーになる"
 },
 {
 "i": 40,
 "where": "スライド7",
 "en": "\"mov rax, 0E09966C1A977E177h\" is OK",
-"ja": ""
+"ja": "「mov rax, 0E09966C1A977E177h」なら OK"
 },
 {
 "i": 41,
 "where": "スライド7",
 "en": "This also applies to raw bytes",
-"ja": ""
+"ja": "これは生のバイトにも当てはまる"
 },
 {
 "i": 42,
 "where": "スライド7",
 "en": "\"DB C3h\" errors out",
-"ja": ""
+"ja": "「DB C3h」はエラーになる"
 },
 {
 "i": 43,
 "where": "スライド7",
 "en": "\"DB 0C3h\" is OK",
-"ja": ""
+"ja": "「DB 0C3h」なら OK"
 },
 {
 "i": 44,
 "where": "スライド9",
 "en": "Lab: Create a Project With MASM",
-"ja": ""
+"ja": "ラボ: MASM でプロジェクトを作る"
 },
 {
 "i": 45,
 "where": "スライド9",
 "en": "This will show how to get Visual Studio to play nice with MASM files",
-"ja": ""
+"ja": "Visual Studio に MASM ファイルをうまく扱わせる方法を示す"
 },
 {
 "i": 46,
 "where": "スライド10",
 "en": "Lab: RTFM && WTFI!",
-"ja": ""
+"ja": "ラボ: RTFM && WTFI!"
 },
 {
 "i": 47,
 "where": "スライド10",
 "en": "Read The Fun Manual and Write The Fun Instructions!",
-"ja": ""
+"ja": "楽しいマニュアルを読み、楽しい命令を書こう!(Read The Fun Manual and Write The Fun Instructions!)"
 },
 {
 "i": 48,
 "where": "スライド10",
 "en": "Write raw bytes to create the following assembly sequence:",
-"ja": ""
+"ja": "生のバイトを書いて、次のアセンブリ列を作る:"
 },
 {
 "i": 50,
 "where": "スライド10",
 "en": "sahf ; What's that? IDK, RTFM!",
-"ja": ""
+"ja": "sahf ; これは何? 分からない、RTFM!"
 },
 {
 "i": 52,
 "where": "スライド10",
 "en": "and eax, 0x31337",
-"ja": ""
+"ja": "and eax, 0x31337"
 }
 ]
 }

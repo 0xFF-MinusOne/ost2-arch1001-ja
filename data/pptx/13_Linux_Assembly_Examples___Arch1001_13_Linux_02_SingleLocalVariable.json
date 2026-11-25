@@ -5,139 +5,139 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "SingleLocalVariable.c",
-"ja": ""
+"ja": "SingleLocalVariable.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "with GCC",
-"ja": ""
+"ja": "GCC 版"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 5,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 9,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 11,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "SingleLocalVariable.c",
-"ja": ""
+"ja": "SingleLocalVariable.c"
 },
 {
 "i": 20,
 "where": "スライド3",
 "en": "Adding a single local variable",
-"ja": ""
+"ja": "ローカル変数を 1 つ追加"
 },
 {
 "i": 34,
 "where": "スライド3",
 "en": "0x000055555555514a <+13>:\tcallq  0x555555555129 <func>",
-"ja": ""
+"ja": "0x000055555555514a <+13>:\tcallq  0x555555555129 <func>"
 },
 {
 "i": 37,
 "where": "スライド4",
 "en": "SingleLocalVariable.c Stack",
-"ja": ""
+"ja": "SingleLocalVariable.c のスタック"
 },
 {
 "i": 38,
 "where": "スライド4",
 "en": "If we step through line 0x5555`55555131 in func(), the stack looks like this:",
-"ja": ""
+"ja": "func() の 0x5555`55555131 行をステップ実行したとき、スタックは次のとおり:"
 },
 {
 "i": 65,
 "where": "スライド5",
 "en": "\"The 128-byte area beyond the location pointed to by %rsp is considered to",
-"ja": ""
+"ja": "「%rsp が指す位置より先の 128 バイトの領域は、"
 },
 {
 "i": 66,
 "where": "スライド5",
 "en": "be reserved and shall not be modified by signal or interrupt handlers. Therefore,",
-"ja": ""
+"ja": "予約済みとみなされ、シグナルハンドラや割り込みハンドラは変更してはならない。したがって、"
 },
 {
 "i": 67,
 "where": "スライド5",
 "en": "functions may use this area for temporary data that is not needed across function",
-"ja": ""
+"ja": "関数は、関数呼び出しをまたいで必要としない一時データに、この領域を使ってよい。特に、"
 },
 {
 "i": 68,
 "where": "スライド5",
 "en": "calls. In particular, leaf functions may use this area for their entire stack frame,",
-"ja": ""
+"ja": "リーフ関数は、プロローグとエピローグでスタックポインタを調整せずに、スタックフレーム全体にこの領域を使える。"
 },
 {
 "i": 69,
 "where": "スライド5",
 "en": "rather than adjusting the stack pointer in the prologue and epilogue. This area is",
-"ja": ""
+"ja": "この領域は"
 },
 {
 "i": 70,
 "where": "スライド5",
 "en": "known as the red zone.\"",
-"ja": ""
+"ja": "レッドゾーンと呼ばれる。」"
 },
 {
 "i": 71,
 "where": "スライド5",
 "en": "From System V ABI: https://raw.githubusercontent.com/wiki/hjl-tools/x86-psABI/x86-64-psABI-1.0.pdf",
-"ja": ""
+"ja": "System V ABI より: https://raw.githubusercontent.com/wiki/hjl-tools/x86-psABI/x86-64-psABI-1.0.pdf"
 }
 ]
 }

@@ -5,241 +5,241 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "StructLocalVariable.c",
-"ja": ""
+"ja": "StructLocalVariable.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "StructLocalVariable.c",
-"ja": ""
+"ja": "StructLocalVariable.c"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Accessing a struct local variable",
-"ja": ""
+"ja": "構造体のローカル変数へのアクセス"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "short a;",
-"ja": ""
+"ja": "short a;"
 },
 {
 "i": 21,
 "where": "スライド3",
 "en": "foo.a = 0xbabe;",
-"ja": ""
+"ja": "foo.a = 0xbabe;"
 },
 {
 "i": 23,
 "where": "スライド3",
 "en": "foo.b[1] = foo.a;",
-"ja": ""
+"ja": "foo.b[1] = foo.a;"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 55,
 "where": "スライド4",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 57,
 "where": "スライド5",
 "en": "Based on the asm, we can infer the stack looks like this:",
-"ja": ""
+"ja": "アセンブリから、スタックは次のようになっていると推測できます:"
 },
 {
 "i": 70,
 "where": "スライド5",
 "en": "00000000`0012FE9A",
-"ja": ""
+"ja": "00000000`0012FE9A"
 },
 {
 "i": 79,
 "where": "スライド5",
 "en": "foo.a = 0xbabe",
-"ja": ""
+"ja": "foo.a = 0xbabe"
 },
 {
 "i": 80,
 "where": "スライド5",
 "en": "Note how there’s no wasted space this time since the “int a” 4 byte value is next to the 6 short 2 byte values, which all added up just happen to be 4 shy of 16 bytes total. Hence why c is accessed with “[rsp+10h]”",
-"ja": ""
+"ja": "今回は無駄な領域がないことに注目してください。4 バイトの「int a」が 2 バイトの short 6 個の隣にあり、合計すると 16 バイトにちょうど 4 バイト足りないからです。だから c には「[rsp+10h]」でアクセスします"
 },
 {
 "i": 81,
 "where": "スライド5",
 "en": "I’m cheating here and not using only 0x8-sized entries, for clarity",
-"ja": ""
+"ja": "分かりやすさのため、ここでは 0x8 単位の項目だけには、していません"
 },
 {
 "i": 82,
 "where": "スライド5",
 "en": "I’m cheating here and not using only 0x8-sized entries, for clarity",
-"ja": ""
+"ja": "分かりやすさのため、ここでは 0x8 単位の項目だけには、していません"
 },
 {
 "i": 83,
 "where": "スライド5",
 "en": "I’m cheating here and not using only 0x8-sized entries, for clarity of array indices’ address",
-"ja": ""
+"ja": "配列の添字ごとのアドレスを分かりやすくするため、ここでは 0x8 単位の項目だけには、していません"
 },
 {
 "i": 90,
 "where": "スライド6",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタックアライメント用パディング"
 },
 {
 "i": 114,
 "where": "スライド6",
 "en": "padding, a = babe (2 bytes)",
-"ja": ""
+"ja": "パディング、a = babe (2 バイト)"
 },
 {
 "i": 118,
 "where": "スライド6",
 "en": "4-byte-granularity addresses",
-"ja": ""
+"ja": "4 バイト単位のアドレス"
 },
 {
 "i": 119,
 "where": "スライド6",
 "en": "MS' struct alignment & padding rules here:",
-"ja": ""
+"ja": "MS の構造体のアライメントとパディングの規則:"
 },
 {
 "i": 125,
 "where": "スライド7",
 "en": "THE PRAGMAS",
-"ja": ""
+"ja": "プラグマ"
 },
 {
 "i": 127,
 "where": "スライド7",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 132,
 "where": "スライド8",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタックアライメント用パディング"
 },
 {
 "i": 156,
 "where": "スライド8",
 "en": "b[0] 2 LSBs = undef, a = babe (2 bytes)",
-"ja": ""
+"ja": "b[0] の下位 2 バイト = 未定義、a = babe (2 バイト)"
 },
 {
 "i": 164,
 "where": "スライド8",
 "en": "4-byte-granularity addresses",
-"ja": ""
+"ja": "4 バイト単位のアドレス"
 },
 {
 "i": 165,
 "where": "スライド9",
 "en": "StructLocalVariable.c Takeaways",
-"ja": ""
+"ja": "StructLocalVariable.c のまとめ"
 },
 {
 "i": 166,
 "where": "スライド9",
 "en": "Fields in a struct must be stored in the same order they are defined in the high level language. And they will appear with the uppermost field at the lowest address, and all subsequent fields higher.",
-"ja": ""
+"ja": "構造体のフィールドは、高水準言語で定義した順に格納されます。最上位のフィールドが最も低いアドレスに置かれ、以降のフィールドは、より高いアドレスに続きます。"
 },
 {
 "i": 168,
 "where": "スライド9",
 "en": "short a;",
-"ja": ""
+"ja": "short a;"
 },
 {
 "i": 175,
 "where": "スライド9",
 "en": "foo.a = 0xbabe;",
-"ja": ""
+"ja": "foo.a = 0xbabe;"
 },
 {
 "i": 177,
 "where": "スライド9",
 "en": "foo.b[1] = foo.a;",
-"ja": ""
+"ja": "foo.b[1] = foo.a;"
 },
 {
 "i": 203,
 "where": "スライド10",
 "en": "StructLocalVariable.c Takeaways",
-"ja": ""
+"ja": "StructLocalVariable.c のまとめ"
 },
 {
 "i": 205,
 "where": "スライド10",
 "en": "short a;",
-"ja": ""
+"ja": "short a;"
 }
 ]
 }

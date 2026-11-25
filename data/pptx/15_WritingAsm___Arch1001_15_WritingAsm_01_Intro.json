@@ -5,199 +5,199 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Writing Assembly",
-"ja": ""
+"ja": "アセンブリを書く"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Writing Assembly 1",
-"ja": ""
+"ja": "アセンブリを書く 1"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "There are times when you actually have to code asm in order to do something from a C/C++ file",
-"ja": ""
+"ja": "C/C++ のファイルで何かをするために、実際にアセンブリを書く必要がある場面があります"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Fairly common in firmware, OS, or driver programming. Because there are many aspects of hardware which can only be accessed with special instructions",
-"ja": ""
+"ja": "ファームウェア、OS、ドライバのプログラミングでは、かなり一般的です。ハードウェアには、特別な命令でしかアクセスできない部分が多いからです"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "If you were making a crypto library, you would want access to hardware cryptographic acceleration instructions",
-"ja": ""
+"ja": "暗号ライブラリを作るなら、ハードウェアの暗号アクセラレーション命令を使いたいでしょう"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "Or maybe you just want full control over the code being generated for optimization purposes",
-"ja": ""
+"ja": "あるいは、最適化のために、生成されるコードを完全に制御したいだけかもしれません"
 },
 {
 "i": 16,
 "where": "スライド4",
 "en": "Writing Assembly 2",
-"ja": ""
+"ja": "アセンブリを書く 2"
 },
 {
 "i": 17,
 "where": "スライド4",
 "en": "Being able to write assembly is a great way to simply experiment with instructions we have, and haven't covered in this class",
-"ja": ""
+"ja": "アセンブリを書けると、このクラスで扱った命令も扱っていない命令も、手軽に試せます"
 },
 {
 "i": 18,
 "where": "スライド4",
 "en": "Though getting the syntax right for the desired instructions/assemblers is often annoying",
-"ja": ""
+"ja": "ただし、目的の命令やアセンブラに合った構文にするのは、たいてい面倒です"
 },
 {
 "i": 19,
 "where": "スライド5",
 "en": "Inline Assembly",
-"ja": ""
+"ja": "インラインアセンブリ"
 },
 {
 "i": 20,
 "where": "スライド5",
 "en": "Inline assembly is a way to include assembly directly in-place in a C/C++ file",
-"ja": ""
+"ja": "インラインアセンブリは、C/C++ のファイルの中に、アセンブリを直接その場で書き込む方法です"
 },
 {
 "i": 21,
 "where": "スライド5",
 "en": "GCC supports inline assembly in GNU Assembler (gas) syntax",
-"ja": ""
+"ja": "GCC は、GNU Assembler(gas)構文のインラインアセンブリに対応"
 },
 {
 "i": 22,
 "where": "スライド5",
 "en": "VisualStudio supports inline assembly for 32-bit binaries, but discontinued support for 64-bit",
-"ja": ""
+"ja": "VisualStudio は、32 ビットのバイナリではインラインアセンブリに対応していますが、64 ビットでは対応を終了"
 },
 {
 "i": 23,
 "where": "スライド6",
 "en": "Standalone Assembly 1",
-"ja": ""
+"ja": "独立したアセンブリ 1"
 },
 {
 "i": 24,
 "where": "スライド6",
 "en": "Pure assembly can be written in a standalone file, assembled by an assembler into an object file, and then linked into the final binary with other compiled objects",
-"ja": ""
+"ja": "純粋なアセンブリは、独立したファイルに書き、アセンブラでオブジェクトファイルにし、ほかのコンパイル済みオブジェクトと結合して最終的なバイナリにできます"
 },
 {
 "i": 25,
 "where": "スライド6",
 "en": "This is the required path for raw x86-64 assembly in Visual Studio",
-"ja": ""
+"ja": "Visual Studio で生の x86-64 アセンブリを使うには、この方法が必須です"
 },
 {
 "i": 26,
 "where": "スライド7",
 "en": "Standalone Assembly 2",
-"ja": ""
+"ja": "独立したアセンブリ 2"
 },
 {
 "i": 27,
 "where": "スライド7",
 "en": "Different assemblers have their own syntax variants and helper mechanisms to make programming in assembly less painful for those who must",
-"ja": ""
+"ja": "アセンブラごとに、独自の構文の違いや補助の仕組みがあり、アセンブリを書かざるを得ない人の負担を減らしています"
 },
 {
 "i": 28,
 "where": "スライド7",
 "en": "MASM (Microsoft Assembler) is what's used with Visual Studio",
-"ja": ""
+"ja": "MASM(Microsoft Assembler)は Visual Studio で使われる"
 },
 {
 "i": 29,
 "where": "スライド7",
 "en": "NASM (Netwide Assembler) is cross-platform",
-"ja": ""
+"ja": "NASM(Netwide Assembler)はクロスプラットフォーム"
 },
 {
 "i": 30,
 "where": "スライド8",
 "en": "Raw Bytes",
-"ja": ""
+"ja": "生のバイト列"
 },
 {
 "i": 31,
 "where": "スライド8",
 "en": "Most inline/standalone assembly-writing solutions also have support for emitting raw bytes, which the processor will interpret as instructions",
-"ja": ""
+"ja": "インライン/独立のアセンブリ書き込み手段の多くは、生のバイト列の出力にも対応しています。プロセッサはそれを命令として解釈します"
 },
 {
 "i": 32,
 "where": "スライド8",
 "en": "This can be a good way to check your understanding of how you think the manual is specifying a particular assembly instruction is encoded, vs. what a disassembler ultimately says you encoded",
-"ja": ""
+"ja": "マニュアルが特定のアセンブリ命令のエンコードをどう定めていると考えるかと、逆アセンブラが最終的にあなたの書いたものをどう言うかを比べて、理解を確かめるのに適した方法です"
 },
 {
 "i": 33,
 "where": "スライド8",
 "en": "This can also be used to work around not knowing the correct syntax for some instruction in some assembler",
-"ja": ""
+"ja": "アセンブラによっては、ある命令の正しい構文が分からないときの回避策としても使えます"
 }
 ]
 }

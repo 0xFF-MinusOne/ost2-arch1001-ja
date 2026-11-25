@@ -5,199 +5,199 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ThereWillBe0xb100d.c",
-"ja": ""
+"ja": "ThereWillBe0xb100d.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 35,
 "where": "スライド4",
 "en": "ThereWillBe0xb100d.c",
-"ja": ""
+"ja": "ThereWillBe0xb100d.c"
 },
 {
 "i": 49,
 "where": "スライド5",
 "en": "000000014000102A  imul        rax,rax,27h",
-"ja": ""
+"ja": "000000014000102A  imul        rax,rax,27h"
 },
 {
 "i": 53,
 "where": "スライド5",
 "en": "000000014000103A  mov         rcx,rsp",
-"ja": ""
+"ja": "000000014000103A  mov         rcx,rsp"
 },
 {
 "i": 54,
 "where": "スライド5",
 "en": "000000014000103D  lea         rdx,[__xi_z+1A0h (0140006910h)]",
-"ja": ""
+"ja": "000000014000103D  lea         rdx,[__xi_z+1A0h (0140006910h)]"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "ThereWillBe0xb100d.c",
-"ja": ""
+"ja": "ThereWillBe0xb100d.c"
 },
 {
 "i": 63,
 "where": "スライド6",
 "en": "Set rdi - the destination",
-"ja": ""
+"ja": "rdi を設定 - 転送先"
 },
 {
 "i": 66,
 "where": "スライド6",
 "en": "Set ecx - the count",
-"ja": ""
+"ja": "ecx を設定 - 回数"
 },
 {
 "i": 69,
 "where": "スライド6",
 "en": "Set eax - the value",
-"ja": ""
+"ja": "eax を設定 - 値"
 },
 {
 "i": 72,
 "where": "スライド6",
 "en": "Start the repeated store",
-"ja": ""
+"ja": "繰り返しストアを開始"
 },
 {
 "i": 74,
 "where": "スライド6",
 "en": "So what’s this going to do? Store 0x18 copies of the dword 0xCCCCCCCC starting at rsp",
-"ja": ""
+"ja": "何が起きる? rsp から始めて、ダブルワード 0xCCCCCCCC を 0x18 個ストアする"
 },
 {
 "i": 75,
 "where": "スライド6",
 "en": "And that just happens to be 0x60 bytes of 0xCC, the entire \"sub rsp, 0x60\"-reserved stack space!",
-"ja": ""
+"ja": "これはちょうど 0xCC が 0x60 バイト。「sub rsp, 0x60」で確保したスタック領域の全体!"
 },
 {
 "i": 80,
 "where": "スライド7",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 82,
 "where": "スライド7",
 "en": "DRAW A STACK DIAGRAM",
-"ja": ""
+"ja": "スタック図を描こう"
 },
 {
 "i": 84,
 "where": "スライド8",
 "en": "ThereWillBe0xb100d.c",
-"ja": ""
+"ja": "ThereWillBe0xb100d.c"
 },
 {
 "i": 91,
 "where": "スライド8",
 "en": "Try writing outside the",
-"ja": ""
+"ja": "バッファの範囲の外へ"
 },
 {
 "i": 92,
 "where": "スライド8",
 "en": "bounds of the buffer",
-"ja": ""
+"ja": "書き込んでみよう"
 },
 {
 "i": 96,
 "where": "スライド9",
 "en": "RUN THE CODE",
-"ja": ""
+"ja": "コードを実行しよう"
 },
 {
 "i": 98,
 "where": "スライド9",
 "en": "SEE WHAT HAPPENS",
-"ja": ""
+"ja": "何が起きるか見よう"
 },
 {
 "i": 100,
 "where": "スライド10",
 "en": "Q: Where does the rep stos come from in this example?",
-"ja": ""
+"ja": "Q: この例の rep stos はどこから来た?"
 },
 {
 "i": 101,
 "where": "スライド10",
 "en": "A: Compiler-auto-generated code. From the stack frames runtime check option. This is enabled by default in the debug build. Disabling this option removes the compiler-generated code.",
-"ja": ""
+"ja": "A: コンパイラが自動生成したコード。スタックフレームのランタイムチェックオプションによる。デバッグビルドでは既定で有効。このオプションを無効にすると、生成されなくなる。"
 },
 {
 "i": 102,
 "where": "スライド11",
 "en": "More straightforward without the runtime check",
-"ja": ""
+"ja": "ランタイムチェックなしのほうが分かりやすい"
 },
 {
 "i": 110,
 "where": "スライド11",
 "en": "000000014000102A  ret",
-"ja": ""
+"ja": "000000014000102A  ret"
 },
 {
 "i": 111,
 "where": "ノート11",
 "en": "But still not entirely clear :)",
-"ja": ""
+"ja": "それでも完全に明快とはいえない ;)"
 }
 ]
 }

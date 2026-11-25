@@ -6,147 +6,147 @@
 "start": "00:00:00,080",
 "end": "00:00:32,480",
 "en": "so let's learn some simple assembly instructions which operate on the stack and so if we go back and look at our hello world example when compiled and disassembled on mac os we start with the very first assembly instruction push and later on we see a pop instruction so i said that data gets pushed and popped onto and off of the stack and so those sound like they probably have to do with that also seeing the same assembly on a linux compiled and disassembled thing we also see push and pop and so while we may not yet",
-"ja": ""
+"ja": "では、スタックを操作する簡単なアセンブリ命令をいくつか学びましょう。hello world の例に戻って、macOS でコンパイルして逆アセンブルしたものを見ると、最初のアセンブリ命令が push で、あとのほうに pop 命令があります。先ほど、データがスタックに push され、スタックから pop されると言いました。ですから、これらはおそらくそれに関係しています。Linux でコンパイルして逆アセンブルしたものでも、同じように push と pop があります。まだ"
 },
 {
 "i": 1,
 "start": "00:00:30,800",
 "end": "00:01:03,120",
 "en": "know exactly what they do we know that they're perfectly balanced as all things should be but we did not actually see push and pop in the visual studio generated assembly so what's up with that well i'm going to start a mystery list of different things that we're going to have to come back to later so for now we're going to say you know we don't know exactly why gcc or clangs hello worlds have push and pop instructions but visual studio doesn't but by putting this on the list i promise",
-"ja": ""
+"ja": "正確に何をするのかはわかりませんが、すべてのものがそうあるべきように、完全につり合っていることはわかります。ところが、Visual Studio が生成したアセンブリには、push と pop が出てきませんでした。これはどういうことでしょうか。ここで、あとで戻ってこなければならないいろいろな謎を、「謎リスト」として始めます。今のところ、gcc や clang の hello world には push と pop の命令があるのに、Visual Studio にはない理由は、正確にはわかりません。でも、これをリストに載せておくので、約束します。"
 },
 {
 "i": 2,
 "start": "00:01:01,359",
 "end": "00:01:35,840",
 "en": "we'll get back to it later and explain it but for now let's just understand how the assembly instructions work so the first one push pushes a quad word or eight bytes onto the stack so when a push occurs it automatically decrements the stack pointer rsp by eight because you've just pushed eight bytes of data onto the stack and so the stack goes towards low addresses the enemy's plate is down and so rsp needs to go down by eight now in 64-bit execution mode there are a couple different versions of push",
-"ja": ""
+"ja": "あとで戻ってきて説明します。でも今は、アセンブリ命令がどう動くのかを理解しましょう。まず push は、クワッドワード、つまり 8 バイトをスタックに push します。push が起きると、スタックに 8 バイトのデータを push したことになるので、スタックポインタの rsp が自動的に 8 だけ減ります。スタックは低いアドレスのほうへ伸びます。敵のゲートは下です。ですから rsp は 8 だけ下がる必要があります。さて、64 ビット実行モードには、push のバージョンがいくつかあります。"
 },
 {
 "i": 3,
 "start": "00:01:35,040",
 "end": "00:02:07,920",
 "en": "the first one is that you can just push the value from a 64-bit register and the second one is you can push a 64-bit value from memory where the memory is given in a special form called rmx that i'll talk about next there's also actually a version which can push a 32-bit immediate or just constant value onto the stack but that gets into complicated exceptions so i'm intentionally simplifying and we're going to just pretty much ignore that version of push and pretend these are the only two versions",
-"ja": ""
+"ja": "1 つ目は、64 ビットレジスタの値をそのまま push する形です。2 つ目は、メモリにある 64 ビットの値を push する形で、そのメモリは、次にお話しする、rmx という特別な形で指定します。実は、32 ビットの即値、つまり定数をスタックに push するバージョンもあります。でも、それは複雑な例外が絡んでくるので、意図的に単純化して、その push のバージョンはほぼ無視し、この 2 つだけだと考えることにします。"
 },
 {
 "i": 4,
 "start": "00:02:06,479",
 "end": "00:02:42,319",
 "en": "but later on when you learn to read the manual you can go back and see all the you know caveats that have to go along with that which is why i skipped it so the rmx form of addressing so i completely made up this term rmx to refer to places in the intel manual where you see it saying rm8 rm16 rm32 or rm64 so for instance in the push the manual is ultimately the the true source of like you know what is possible and what is not you know here's those instructions that push immediate constants that i said",
-"ja": ""
+"ja": "ただ、あとでマニュアルの読み方を学ぶときに、それに伴うさまざまな注意点を確かめられます。だから私は省きました。では、rmx 形式のアドレス指定です。この rmx という言葉は、私がまったく勝手に作ったもので、Intel のマニュアルで rm8、rm16、rm32、rm64 と書かれているところを指します。たとえば push では、何ができて何ができないかについて、最終的に正しい情報源は、マニュアルです。これが、即値の定数を push する命令で、先ほど"
 },
 {
 "i": 5,
 "start": "00:02:41,040",
 "end": "00:03:17,280",
 "en": "i want to ignore because they have to deal with a bunch of caveats but the thing i want to focus on is rmx form so push has an rm16 an rm32 and an rm64 and certain versions of it like that 32 are not actually valid in 64-bit mode but you're going to learn to read this read the manual later on in this class so for now we just say when i talk about the assembly instructions i'll just say you know it takes an rmx form so what is an rmx form well it is a way to specify either a register or a memory",
-"ja": ""
+"ja": "無視したいと言ったものです。いろいろな注意点があるからです。ここで注目したいのは、rmx 形式です。push には rm16、rm32、rm64 があります。そのうち 32 のような一部のバージョンは、64 ビットモードでは実際には有効ではありません。でも、このマニュアルの読み方は、このクラスのあとのほうで学びます。ですから今は、アセンブリ命令の話をするときに、「rmx 形式を取る」と言うことにします。では、rmx 形式とは何でしょうか。それは、レジスタまたはメモリの"
 },
 {
 "i": 6,
 "start": "00:03:14,480",
 "end": "00:03:49,840",
 "en": "value and again either you know 8 16 32 or 64 bits long so syntactically i have to tell you that in intel syntax square brackets means to treat the value within as a memory address and fetch the value from that address and pull it out so it's like dereferencing a pointer so later on here i'll show you some square bracket forms so rmx could just turn into a plane register like rbx it could be a square bracket form where it says take the value in rbx treat it as a memory address",
-"ja": ""
+"ja": "値を指定する方法で、長さは、やはり 8、16、32、64 ビットのどれかです。構文について先に言っておくと、Intel 構文では、角かっこは、中にある値をメモリアドレスとして扱い、そのアドレスから値を取り出す、という意味です。ポインタを参照外しするようなものです。あとで、角かっこの形をお見せします。rmx は、rbx のような単なるレジスタになることもあります。角かっこの形で、rbx の値を取り、それをメモリアドレスとして扱う、というものもあります。"
 },
 {
 "i": 7,
 "start": "00:03:47,519",
 "end": "00:04:18,239",
 "en": "dereference it the square brackets are dereference it and pull the value out of that and that's the value which is going to be used instead so we won't use the value of rbx we'll use the value pointed to by rbx so that's those are the two simple forms just you know use the literal value in a register or use the value if you take that register treat it as address and grab from that address but rmx is complicated and it has more complicated forms such as register take the register and then add",
-"ja": ""
+"ja": "それを参照外しします。角かっこが参照外しで、そこから値を取り出し、その値が代わりに使われます。つまり、rbx の値は使わず、rbx が指している先の値を使います。これが 2 つの単純な形です。1 つは、レジスタの値をそのまま使う形。もう 1 つは、そのレジスタをアドレスとして扱い、そのアドレスから値を取ってくる形です。でも rmx は複雑で、もっと複雑な形もあります。たとえば、レジスタを取って、それに足す、"
 },
 {
 "i": 8,
 "start": "00:04:17,199",
 "end": "00:04:52,960",
 "en": "some other register multiplied by some x the x can be literally the number one two four eight it can't have any other values and in this form you can essentially think of it like the first value is a base the second value is an index and the x is a scale where you're essentially scaling by one two four eight and then the most complicated form is this base plus index time scale plus displacement so some base added to some value times one two four eight and then plus a displacement",
-"ja": ""
+"ja": "別のレジスタに x をかけたものです。x には、文字どおり 1、2、4、8 の数が入ります。それ以外の値にはできません。この形では、1 つ目の値がベース、2 つ目の値がインデックス、x がスケールだと考えられます。つまり、1、2、4、8 でスケーリングしているわけです。そして、いちばん複雑な形が、ベース足すインデックス掛けるスケール足すディスプレースメントです。つまり、あるベースに、ある値の 1、2、4、8 倍を足して、さらにディスプレースメントを足します。"
 },
 {
 "i": 9,
 "start": "00:04:51,120",
 "end": "00:05:29,120",
 "en": "now there's then further two different forms of this where the y could be encoded in the assembly instruction as a single byte value so you've got you know 0 to 255 or it could be encoded in a 4 byte value so 0 to 4 billion so rmx is pretty complicated way of addressing memory locations but you can see how they can kind of reach into and pluck from memory kind of anywhere within a large four gigabyte space at a time so also you can imagine that this base plus index time scale plus displacement has natural",
-"ja": ""
+"ja": "さらに、この形には 2 つの種類があります。y は、アセンブリ命令の中で 1 バイトの値として符号化されることがあり、その場合は 0 から 255 です。または 4 バイトの値として符号化されることもあり、その場合は 0 から 40 億です。ですから rmx は、メモリの場所を指定するかなり複雑な方法です。でも、4 ギガバイトの広い空間のどこにでも、手を伸ばして値を取り出せることがわかると思います。また、このベース足すインデックス掛けるスケール足すディスプレースメントは、自然に"
 },
 {
 "i": 10,
 "start": "00:05:27,440",
 "end": "00:06:01,840",
 "en": "applicability to things like multi-dimensional arrays uh arrays of structs and so forth right so if you had you know a simple 4x4 array you can imagine that the base would start at the base the zero zeroth entry in the thing and if you are trying to get to you know square brackets one square brackets zero that square brackets one implies that you know you've gone a full four values into the thing and now you're at the fifth value and so the displacement might be four times you know whatever",
-"ja": ""
+"ja": "多次元配列や構造体の配列などに使えると想像できます。たとえば、単純な 4x4 の配列があったとします。ベースは、その配列の 0 番目の要素から始まると考えられます。そして [1][0] に行きたいとします。この [1] は、4 個ぶんの値を進んで、5 番目の値に来ていることを意味します。ですからディスプレースメントは、4 掛ける、要素の"
 },
 {
 "i": 11,
 "start": "00:05:59,680",
 "end": "00:06:30,479",
 "en": "the size of your elements is and so you've essentially skipped four times that forward and then the index would be zero and the scale would be again you know whatever the size is of the elements of the array so this this can be useful for that and that's why intel made this more complicated version of addressing so this is rmx is going to be a recurring thing throughout the class and in the future when i'm giving you your very simplified view of how assembly instructions work if i say that it supports access to",
-"ja": ""
+"ja": "サイズになるかもしれません。つまり、その 4 倍のぶんを前に飛ばしたことになります。そしてインデックスは 0、スケールは、やはり配列の要素のサイズになります。このように、これが役に立つので、Intel はこの、より複雑なアドレス指定を作りました。rmx は、このクラスを通して何度も出てきます。今後、アセンブリ命令がどう動くかを、ごく単純化してお見せするときに、アクセスに対応していると言ったら、"
 },
 {
 "i": 12,
 "start": "00:06:28,240",
 "end": "00:06:58,400",
 "en": "memory i basically mean that memory is going to be encoded as an rmx form when i say rmx i mean something that could be as simple as that simple r of a register or could be as complicated as this base plus index time scale plus displacement so here's a couple quick examples of that you could have push straight up just normal register and push take that register grab to memory grab some value out of memory and then push it onto the stack and the same thing for different versions of the same thing",
-"ja": ""
+"ja": "それは基本的に、メモリが rmx 形式で符号化される、という意味です。rmx と言うときは、レジスタの単純な r のように単純なものから、このベース足すインデックス掛けるスケール足すディスプレースメントのように複雑なものまで、あらゆるものを指します。では、簡単な例をいくつか見ましょう。普通のレジスタをそのまま push できます。また、メモリから値を取り出して、それをスタックに push することもできます。同じものの別のバージョンも同じです。"
 },
 {
 "i": 13,
 "start": "00:06:57,120",
 "end": "00:07:26,479",
 "en": "and you could fill in any sort of different general purpose register for these encoding values all right one other thing that is specific to my version of the class i use this back tick symbol when i'm writing 64-bit numbers in the class this is a thing that is only used on windebug which is not a debugger that we're actually going to be using in this class but i find it super useful because when you start writing 64-bit numbers you can lose track of whether you have the right",
-"ja": ""
+"ja": "そして、これらの符号化の値には、どんな汎用レジスタでも入れられます。さて、もう 1 つ、このクラスの私のバージョンに固有のことがあります。このクラスでは、64 ビットの数を書くときに、バッククォートの記号を使います。これは WinDbg だけで使うもので、このクラスで実際に使うデバッガではありません。でも、とても便利だと思っています。64 ビットの数を書き始めると、桁数が合っているかどうかを"
 },
 {
 "i": 14,
 "start": "00:07:24,800",
 "end": "00:07:57,599",
 "en": "number of digits or not so if i write something like hex one two three four five six seven eight one two three four five six seven eight with the back tick in the middle that's just to indicate it's a 64 bit value and that helps me keep track of that i'm writing the right number of digits so what would the push instruction actually do when it's executed so let's imagine that we have something like push rax let's say the register rax was holding the value 3 and rsp pointing at the top of the stack let's say it was",
-"ja": ""
+"ja": "見失うことがあるからです。たとえば、16 進数で 12345678 のあとに、バッククォートを真ん中に入れて 12345678 と書けば、それは 64 ビットの値だという印になります。そうすると、正しい桁数で書いているかを確認しやすくなります。では、push 命令は、実行されると実際に何をするのでしょうか。たとえば push rax があるとしましょう。レジスタ rax が値 3 を持っていて、rsp がスタックの先頭を指しているとします。それが"
 },
 {
 "i": 15,
 "start": "00:07:55,280",
 "end": "00:08:32,959",
 "en": "pointing at 14fe08 so here's the location in memory here's the current value at the top of the stack and the stack grows towards low addresses so if this is what the stack looked like before then after the execution of the push rax assembly instruction we will see that first of all the rsp value changed so it went from 14 fe 0 8 to 14 fe 0 0 because the stack pointer is automatically decremented by eight it's gone from here down to here and furthermore it is now still pointing",
-"ja": ""
+"ja": "14fe08 を指しているとしましょう。これがメモリ上の場所で、これがスタックの先頭にある現在の値です。そしてスタックは低いアドレスのほうへ伸びます。push 前のスタックがこうだったとすると、push rax というアセンブリ命令を実行したあとは、まず rsp の値が変わっています。14fe08 から 14fe00 になりました。スタックポインタが自動的に 8 だけ減ったからです。ここからここまで下がりました。さらに、rsp は今も"
 },
 {
 "i": 16,
 "start": "00:08:31,039",
 "end": "00:09:04,080",
 "en": "at the top of the stack the last bit of data that is actually used on the stack which is the three that was pushed as part of the push rax all right so how do we balance out that push well we have the pop assembly instruction so it pops a value from the stack and so in 64-bit mode it can either pop into a 64-bit register or it can pop into a memory address as given in rmx form so what would it look like if we executed an assembly instructions such as pop rax well rax might have some value before",
-"ja": ""
+"ja": "スタックの先頭、つまりスタックで実際に使われている最後のデータを指しています。それは、push rax で push された 3 です。では、この push をどうやって打ち消すのでしょうか。pop というアセンブリ命令があります。これはスタックから値を pop します。64 ビットモードでは、64 ビットレジスタに pop することも、rmx 形式で指定されたメモリアドレスに pop することもできます。では、pop rax のようなアセンブリ命令を実行すると、どうなるでしょうか。rax には、前に何か値が入っているかもしれません。"
 },
 {
 "i": 17,
 "start": "00:09:02,000",
 "end": "00:09:38,000",
 "en": "the pop and rsp would have some value before the pop but after the assembly instruction is actually executed then the three from the stack is going to be popped off into the rax register overriding what was already there and automatically as a side effect of the pop assembly instruction rsp will be incremented by eight and so this went from 14 f e 0 0 to 14 fe 0 8. furthermore this location for our purposes is now considered undefined i said before in reality data does exist past the end of the stack and",
-"ja": ""
+"ja": "pop の前の rsp にも、何か値が入っています。でも、アセンブリ命令が実際に実行されると、スタックにあった 3 が rax レジスタに pop されて、もとの値を上書きします。そして、pop 命令の副作用として、rsp が自動的に 8 だけ増えます。ですから、14fe00 から 14fe08 になりました。さらに、この場所は、ここでは未定義と見なされます。前にも言ったように、実際には、スタックの終わりの先にもデータは存在します。"
 },
 {
 "i": 18,
 "start": "00:09:36,320",
 "end": "00:10:05,120",
 "en": "so this three value will literally be here still it's not like the you know compil it's not like the compiler generates assembly instructions in order to like zero this value it's not like the hardware automatically zeros the value the memory is still there it's just that properly executing compilers should never access memory beyond the top of the stack so quick throwback to the 32-bit world because even though this class is about 64-bit assembly i do want you to still get a sense of how",
-"ja": ""
+"ja": "ですから、この 3 という値は、文字どおりまだここにあります。コンパイラが、この値をゼロにするアセンブリ命令を生成するわけではありません。ハードウェアが自動的にゼロにするわけでもありません。メモリはまだあるのです。ただ、正しく実行されるコンパイラのコードは、スタックの先頭より先のメモリにアクセスしてはいけない、というだけです。では、ちょっと 32 ビットの世界を振り返りましょう。このクラスは 64 ビットアセンブリが中心ですが、それでも"
 },
 {
 "i": 19,
 "start": "00:10:02,880",
 "end": "00:10:36,880",
 "en": "32-bit assembly works if you are executing in 32-bit mode push and pop will add and remove 32-bit values at a time rather than 64-bits and thus they increment or decrement rsp by 4 rather than eight similarly if you happen to be executing in 16-bit mode because i said that intel still supports backwards compatibility and actually still starts up in 16-bit mode it's gonna be the same thing two bytes at a time instead of four bytes at a time so great we now know two more assembly instructions",
-"ja": ""
+"ja": "32 ビットアセンブリがどう動くかも、感じ取ってほしいからです。32 ビットモードで実行している場合、push と pop は、64 ビットではなく 32 ビットの値を 1 回ごとに追加したり取り除いたりします。ですから、rsp は 8 ではなく 4 だけ増減します。同じように、16 ビットモードで実行している場合も、同じです。先ほど、Intel は後方互換性を今も保っていて、実際に今も 16 ビットモードで起動すると言いました。その場合は、4 バイトずつではなく 2 バイトずつです。さて、これでアセンブリ命令を、さらに 2 つ知りました。"
 },
 {
 "i": 20,
 "start": "00:10:34,240",
 "end": "00:10:46,240",
 "en": "so we knew no op and we now know push and we now know pop and just like that three assembly instructions were already well over twenty percent and we're well on our way to mastery of assembly",
-"ja": ""
+"ja": "nop は知っていて、今 push と pop も知りました。これで、アセンブリ命令がもう 3 つ、すでに 20 パーセントをはるかに超えています。アセンブリの習得に向けて、順調に進んでいます。"
 }
 ]
 }

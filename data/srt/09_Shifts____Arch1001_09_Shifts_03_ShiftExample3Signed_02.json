@@ -6,21 +6,21 @@
 "start": "00:00:00,160",
 "end": "00:00:32,239",
 "en": "so the takeaways from ShiftExample3Signed.c is that as usual compilers will prefer shifts over multiplies and divides when you're dealing with powers of two if it is a signed variable which is being operated on then the compiler must generate different instructions such as the arithmetic shift right in order to maintain the signedness as it's being shifted to the right and it might have to do some other things like cdq in order to make sure the math all works out but i said for now we don't really care",
-"ja": ""
+"ja": "ShiftExample3Signed.c から得られる教訓は、いつもどおり、2 の累乗を扱うときは、コンパイラが乗算や除算よりもシフトを好むということです。扱う変数が符号つきの場合は、右にシフトしても符号を保つために、コンパイラは別の命令、たとえば算術右シフトを生成しなければなりません。計算がうまく合うように、cdq のような別の命令も必要になるかもしれませんが、今のところは気にしなくてよいと言いました。"
 },
 {
 "i": 1,
 "start": "00:00:30,320",
 "end": "00:01:07,760",
 "en": "about cdq you could have obviously played around with it and you know seen and inferred what exactly is going on but because cdq is not the kind of thing that i ran into a lot or when i did run into it really didn't matter that much i'm leaving this as something to be read in the fun manual later on after you learn how to read the fun manual so two more assembly instructions of course one of them happens to be the same as the other and there we go shift arithmetic left and shift arithmetic right it is no longer",
-"ja": ""
+"ja": "cdq については、実際にいじってみれば、何が起きているかを見て、推測できたでしょう。ただ、cdq は私があまり出会わない種類のもので、出会ったときも、あまり重要ではありませんでした。ですから、これは、あとでマニュアルの読み方を学んでから、マニュアルで読むものとして残しておきます。これでアセンブリ命令がさらに 2 つ増えましたが、もちろん、片方はもう片方と同じようなものです。算術左シフトと算術右シフトです。今日はもう、"
 },
 {
 "i": 2,
 "start": "00:01:03,520",
 "end": "00:01:07,760",
 "en": "shifty time today",
-"ja": ""
+"ja": "シフトの時間は終わりです。"
 }
 ]
 }

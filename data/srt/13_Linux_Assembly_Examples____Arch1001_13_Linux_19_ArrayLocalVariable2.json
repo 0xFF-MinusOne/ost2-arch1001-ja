@@ -6,56 +6,56 @@
 "start": "00:00:00,080",
 "end": "00:00:05,920",
 "en": "our next example is ArrayLocalVariable 2.",
-"ja": ""
+"ja": "次の例は ArrayLocalVariable2 です。"
 },
 {
 "i": 1,
 "start": "00:00:03,679",
 "end": "00:00:40,000",
 "en": "that was originally there to introduce you to rep stos the repeated store to strings so we have a single local variable a which is an int we have an array of shorts which is 64 long 64 is 0x40 times 2 is 0x80 so the total size of this array should be 0x80 and the fact that we're zero initializing it is what's going to lead to the rep stos to zero initialize everything inside of there a gets 0x5eaf00d and a is then truncated down to a short size so just 0xf00d goes into b of 1 before b of 1 is",
-"ja": ""
+"ja": "これはもともと、rep stos、つまり文字列への繰り返し格納を紹介するためのものでした。ローカル変数 a が一つあり、これは int です。そして short の配列があり、長さは 64 です。64 は 0x40 で、2 倍すると 0x80 なので、この配列の合計の大きさは 0x80 のはずです。これをゼロで初期化しているので、その中をすべてゼロ初期化するために rep stos が使われます。a には 0x5eaf00d が入り、a は short の大きさに切り詰められるので、0xf00d だけが b の 1 番目に入ります。そのあと b の 1 番目が"
 },
 {
 "i": 2,
 "start": "00:00:38,879",
 "end": "00:01:19,520",
 "en": "returned so let's compile it and debug it so what do we see here we see typical function prolog allocation of 18 bytes on the stack lea of rbp minus 90. so that gives us a sense of given that the array is 0x80 big 0x90 is probably somewhere down where the array starts out that's being moved into rdx and then we have what looks like initialization of the required parameters for the rep stos eax is the value to write ecx is the number of times to write and rdi is the destination so the fact",
-"ja": ""
+"ja": "返されます。では、コンパイルしてデバッグしましょう。何が見えるでしょうか。ふつうの関数プロローグがあり、スタックに 0x18 バイトを確保しています。そして rbp 引く 0x90 の lea があります。配列が 0x80 の大きさなので、0x90 は、配列が始まるあたりのどこかだろうと見当がつきます。それが rdx に移されています。次に、rep stos に必要なパラメータの初期化と思われるものがあります。eax が書き込む値、ecx が書き込む回数、rdi が書き込み先です。"
 },
 {
 "i": 3,
 "start": "00:01:16,799",
 "end": "00:02:00,159",
 "en": "that we are only writing 10 times tells us that we are probably writing 0x8 bytes at a time 8 times 10 80 into this value and so that's represented in this AT&T syntax here instead of saying a byte pointer instead of saying you know qword pointer it's saying repeat store to string rax that's the 8 byte register to the memory pointed to by rdi let's go ahead and step through this set up the function prolog allocate some space on the stack 0x18 and then set up our get the pointer to the very base of this",
-"ja": ""
+"ja": "書き込む回数が 0x10 回だけなので、おそらく 8 バイトずつ書き込んでいると分かります。8 かける 0x10 で 0x80 が、この値に書き込まれます。この AT&T 構文では、byte ポインタや qword ポインタと書く代わりに、文字列への繰り返し格納で、rax、つまり 8 バイトのレジスタを、rdi が指すメモリに書く、と表されます。では、ステップ実行して、関数プロローグでスタックに 0x18 を確保し、そして、初期化しようとしている"
 },
 {
 "i": 4,
 "start": "00:01:57,520",
 "end": "00:02:33,599",
 "en": "array that we're expecting to initialize and then we continue over this and now we will see rcx which was sex set to 0x10 is going to be decremented each time through the loop and so you notice I use the ni the next instruction it's not going to step over this again that only used for stepping over call instructions so it's going to loop loop loop and it's going to do this 10 times 0x10 times so 16 times so now that the array is initialized 0x5eaf00d goes into rbp minus 4 so that's going to",
-"ja": ""
+"ja": "配列のいちばん先頭へのポインタを取得します。次に、これを進めます。0x10 に設定された rcx は、ループのたびに 1 ずつ減ります。ここでは ni、つまり next instruction を使っています。これは、もう一度ステップオーバーしません。ステップオーバーは call 命令に対してだけ使うからです。ですからループを繰り返して、0x10 回、つまり 16 回行います。これで配列が初期化されました。0x5eaf00d は rbp 引く 4 に入ります。"
 },
 {
 "i": 5,
 "start": "00:02:31,599",
 "end": "00:03:12,319",
 "en": "be the a variable and there we go we see 0x5eaf00d right there and then that's going to be pulled out put into eax and then because it was cast down to a short it's going to use only the ax 16-bit register and put it into rbp minus 0x8e so this suggests that minus 0x8e is where b of 1 is and minus 0x90 would be where b of 0 was so step over that and then the last thing it does is because b of one is returned although the return type is set to short in main the return register in order to make sure",
-"ja": ""
+"ja": "これが変数 a です。ほら、ちょうどそこに 0x5eaf00d が見えます。それが取り出されて eax に入ります。そして short にキャストされているので、16 ビットの ax レジスタだけを使って、rbp 引く 0x8e に入れます。つまり、引く 0x8e が b の 1 番目で、引く 0x90 が b の 0 番目だと分かります。これをステップオーバーします。最後にすることは、b の 1 番目を返すことです。main では戻り値の型が short になっていますが、戻り値のレジスタが"
 },
 {
 "i": 6,
 "start": "00:03:10,640",
 "end": "00:03:48,480",
 "en": "that the return register eax doesn't have you know garbage in the upper bits it's going to mov with zero extension from a word which is 16 bits to a long which is 32 bits to make sure that it clears out the upper bits of eax there you go you get 0xf00d in eax rax and then you just leave and exit out of the function so for to look at what that looks like on the stack it looks like this got the return address out of main saved rbp at the beginning and then 0x5eaf00d in a right at rbp minus 4 some padding",
-"ja": ""
+"ja": "eax の上位ビットにゴミを持たないように、16 ビットのワードから 32 ビットの long へ、ゼロ拡張つきの mov を行って、eax の上位ビットをクリアします。これで eax、rax に 0xf00d が入りました。あとは leave して、関数から出ます。では、これがスタックでどうなっているか見ましょう。こうなります。main への戻りアドレスがあり、最初に rbp が保存され、そして rbp 引く 4 のちょうどそこに a の 0x5eaf00d があり、そしてパディングがあります。"
 },
 {
 "i": 7,
 "start": "00:03:45,040",
 "end": "00:04:05,040",
 "en": "and then at rbp minus 0x90 we have b of 0 b of 1 got filled in with 0xf00d and the rest of this is all zero initialized what's interesting here kind of is that that whole allocation of 18 for rsp means that rsp is kind of pointing at the end of this but the majority of it is down in the red zone",
-"ja": ""
+"ja": "そして rbp 引く 0x90 に b の 0 番目があり、b の 1 番目には 0xf00d が入って、残りはすべてゼロで初期化されています。ここで面白いのは、rsp に対して 0x18 を確保したことで、rsp はこの終わりを指しているものの、大部分はレッドゾーンの中にあることです。"
 }
 ]
 }

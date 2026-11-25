@@ -5,217 +5,217 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "GotoExample.c",
-"ja": ""
+"ja": "GotoExample.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Control Flow",
-"ja": ""
+"ja": "制御フロー"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Two forms of control flow",
-"ja": ""
+"ja": "制御フローには 2 種類あります"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Conditional - go somewhere if a condition is met. Think “if”s, switches, loops",
-"ja": ""
+"ja": "条件つき - 条件を満たしたらどこかへ行く。if、switch、ループなど"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Unconditional - always go somewhere. Function calls, goto, exceptions, interrupts",
-"ja": ""
+"ja": "無条件 - 必ずどこかへ行く。関数呼び出し、goto、例外、割り込み"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "We’ve already seen function calls manifest themselves as call/ret, let’s see how goto manifests itself in asm",
-"ja": ""
+"ja": "関数呼び出しが call/ret として現れることはすでに見ました。goto がアセンブリでどう現れるか見てみましょう"
 },
 {
 "i": 16,
 "where": "スライド4",
 "en": "GotoExample.c",
-"ja": ""
+"ja": "GotoExample.c"
 },
 {
 "i": 29,
 "where": "スライド4",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 38,
 "where": "スライド5",
 "en": "Unconditionally change RIP to given address",
-"ja": ""
+"ja": "RIP を、指定したアドレスに無条件で変更する"
 },
 {
 "i": 39,
 "where": "スライド5",
 "en": "Ways to specify the address:",
-"ja": ""
+"ja": "アドレスの指定方法:"
 },
 {
 "i": 40,
 "where": "スライド5",
 "en": "Short, relative (RIP = RIP of next instruction + 1 byte sign-extended-to-64-bits displacement)",
-"ja": ""
+"ja": "ショート、相対(RIP = 次の命令の RIP + 1 バイトの変位を 64 ビットに符号拡張した値)"
 },
 {
 "i": 41,
 "where": "スライド5",
 "en": "Frequently used in small loops",
-"ja": ""
+"ja": "小さなループでよく使われる"
 },
 {
 "i": 42,
 "where": "スライド5",
 "en": "Some disassemblers will indicate this with a mnemonic by writing it as “jmp short”",
-"ja": ""
+"ja": "逆アセンブラによっては、ニーモニックで「jmp short」と書いて、これを示す"
 },
 {
 "i": 43,
 "where": "スライド5",
 "en": "jmp -2 == infinite loop for short relative jmp :)",
-"ja": ""
+"ja": "ショート相対 jmp では、jmp -2 == 無限ループ :)"
 },
 {
 "i": 44,
 "where": "スライド5",
 "en": "“jmp 0000000140001012” doesn’t have the number 0000000140001012 anywhere in it, it’s really “jmp 0x0C bytes forward”",
-"ja": ""
+"ja": "「jmp 0000000140001012」には、数値 0000000140001012 は含まれていません。実際は「jmp 0x0C バイト先」です"
 },
 {
 "i": 45,
 "where": "スライド5",
 "en": "Far, absolute indirect - We'll discuss in future class",
-"ja": ""
+"ja": "ファー、絶対間接 - 今後のクラスで扱います"
 },
 {
 "i": 46,
 "where": "スライド5",
 "en": "Book page 91",
-"ja": ""
+"ja": "書籍 91 ページ"
 },
 {
 "i": 50,
 "where": "スライド6",
 "en": "Ways to specify the address:",
-"ja": ""
+"ja": "アドレスの指定方法:"
 },
 {
 "i": 51,
 "where": "スライド6",
 "en": "Near, relative (RIP = RIP of next instruction + 4 byte sign-extended-to-64-bits displacement)",
-"ja": ""
+"ja": "ニア、相対(RIP = 次の命令の RIP + 4 バイトの変位を 64 ビットに符号拡張した値)"
 },
 {
 "i": 52,
 "where": "スライド6",
 "en": "Near, absolute indirect (address calculated with r/m64)",
-"ja": ""
+"ja": "ニア、絶対間接(アドレスは r/m64 で計算)"
 },
 {
 "i": 53,
 "where": "スライド6",
 "en": "Book page 91",
-"ja": ""
+"ja": "書籍 91 ページ"
 },
 {
 "i": 60,
 "where": "スライド7",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 62,
 "where": "スライド7",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解の確認"
 },
 {
 "i": 64,
 "where": "スライド8",
 "en": "GotoExample.c takeaways",
-"ja": ""
+"ja": "GotoExample.c のまとめ"
 },
 {
 "i": 65,
 "where": "スライド8",
 "en": "goto == jmp in asm :)",
-"ja": ""
+"ja": "goto == アセンブリの jmp :)"
 },
 {
 "i": 77,
 "where": "スライド8",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 85,
 "where": "スライド9",
 "en": "Instructions we now know (13)",
-"ja": ""
+"ja": "ここまでに分かった命令 (13)"
 }
 ]
 }

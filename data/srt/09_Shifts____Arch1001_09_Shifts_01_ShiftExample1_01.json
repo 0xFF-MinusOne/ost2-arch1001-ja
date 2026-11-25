@@ -6,77 +6,77 @@
 "start": "00:00:00,160",
 "end": "00:00:33,680",
 "en": "oh get shifty it's shifty time today! bit shift that is here are our bit shift operations in C left shifting, right shifting and these turn into new assembly instructions shl and shr. So shift logical left we'll see a different form shift arithmetic left later on can be used with the C \"<<\" sign operator. Shift left takes two operands:",
-"ja": ""
+"ja": "さあ、シフトの時間です。今日はビットシフトです。C のビットシフト演算には、左シフトと右シフトがあり、これらが新しいアセンブリ命令の shl と shr になります。shl は論理左シフトです。算術左シフトという別の形もあとで出てきますが、C の「<<」演算子と一緒に使えます。左シフトにはオペランドが 2 つあります。"
 },
 {
 "i": 1,
 "start": "00:00:32,079",
 "end": "00:00:46,239",
 "en": "the first can be the source and destination which is specified in an r/mX and the second can either be cl, the least significant byte of rcx, or a single byte immediate.",
-"ja": ""
+"ja": "1 つ目はソース兼デスティネーションで、r/mX で指定できます。2 つ目は cl、つまり rcx の最下位バイトか、1 バイトの即値のどちらかです。"
 },
 {
 "i": 2,
 "start": "00:00:44,160",
 "end": "00:00:54,719",
 "en": "Because the registers are only 64 bits long, it doesn't make sense to shift more than 64, so you can only have one byte not four bytes for instance.",
-"ja": ""
+"ja": "レジスタは 64 ビットしかないので、64 を超えてシフトしても意味がありません。たとえば、4 バイトではなく 1 バイトだけで足りるのです。"
 },
 {
 "i": 3,
 "start": "00:00:52,879",
 "end": "00:01:09,760",
 "en": "Now if you even know about this C operator, you may know that it multiplies a value by 2 for each place that it's shifted to the left. So if you think about literally the number 1 and if you shift it 1 bit over then you're going to get the number 2.",
-"ja": ""
+"ja": "この C の演算子をご存じなら、左へ 1 つシフトするごとに、値が 2 倍になることも知っているかもしれません。文字どおり数の 1 を考えて、1 ビット左にシフトすると、数の 2 になります。"
 },
 {
 "i": 4,
 "start": "00:01:08,080",
 "end": "00:01:14,320",
 "en": "If you shifted another 1 bit you're going to get the number 4.",
-"ja": ""
+"ja": "さらに 1 ビットシフトすると、数の 4 になります。"
 },
 {
 "i": 5,
 "start": "00:01:11,360",
 "end": "00:01:20,159",
 "en": "Compilers will frequently use shifts instead of multiplies if you're multiplying by a power of 2.",
-"ja": ""
+"ja": "2 のべき乗を掛けるときには、コンパイラは掛け算の代わりに、シフトをよく使います。"
 },
 {
 "i": 6,
 "start": "00:01:18,479",
 "end": "00:01:56,560",
 "en": "Now bringing back up one of those bits I said we mostly don't care about, if you shift stuff off the left hand side of the register the sort of last bit that you shift will go into the carry flag in our rflags status register. So let's look at this example right here if we have a value 0 0 1 1 0 0 1 one and we shift it 2 bits to the left we end up with 1 1 0 0 1 1 0 0 but this bit, this last bit that was shifted off this was the first bit this was the second bit this 0 goes into the carry flag.",
-"ja": ""
+"ja": "さて、ほとんど気にしないと言ったビットの 1 つを、また持ち出します。レジスタの左側からはみ出すようにシフトすると、最後にシフトされたビットが、rflags ステータスレジスタのキャリーフラグに入ります。では、この例を見ましょう。値が 0 0 1 1 0 0 1 1 で、これを 2 ビット左にシフトすると、1 1 0 0 1 1 0 0 になります。そして、このビット、つまり最後にシフトで押し出されたビットは、これが 1 つ目、これが 2 つ目のビットで、この 0 がキャリーフラグに入ります。"
 },
 {
 "i": 7,
 "start": "00:01:53,840",
 "end": "00:02:10,479",
 "en": "If we instead shift 3 bits then we get 1 0 0 1 1 0 0 0 and this was the third bit, so it's like shift 1, shift 2, shift 3 and that third bit the one that goes into the carry flag.",
-"ja": ""
+"ja": "代わりに 3 ビットシフトすると、1 0 0 1 1 0 0 0 になります。これが 3 つ目のビットです。1 つ目、2 つ目、3 つ目とシフトして、その 3 つ目のビットが、キャリーフラグに入るものです。"
 },
 {
 "i": 8,
 "start": "00:02:08,399",
 "end": "00:02:33,280",
 "en": "Then there's shr which is the \">>\" operator it has the same general form as the shift left, it has two operands the first can be is the source and destination and it can be specified in an r/mX form, the second is cl the least significant byte of rcx or a 1 byte immediate. And if shifting to the left multiplies by 2,",
-"ja": ""
+"ja": "次に shr です。これは「>>」演算子で、左シフトと同じ一般的な形をしています。オペランドが 2 つあり、1 つ目がソース兼デスティネーションで、r/mX の形で指定できます。2 つ目は cl、つまり rcx の最下位バイトか、1 バイトの即値です。そして、左へシフトすると 2 倍になるなら、"
 },
 {
 "i": 9,
 "start": "00:02:31,280",
 "end": "00:02:55,200",
 "en": "then shifting to the right divides by 2 and the same sort of rule occurs here where whatever the last bit was that was shifted to the right it's going to go into the carry flag so here 0 0 1 1 0 0 1 1 if we shift 2 bits shift 1, shift 2, then this one right here goes into the carry flag and the rest of them are shifted down.",
-"ja": ""
+"ja": "右へシフトすると 2 で割ることになります。同じ規則がここにも当てはまり、右にシフトされた最後のビットが、キャリーフラグに入ります。ここでは 0 0 1 1 0 0 1 1 を 2 ビットシフトします。1 つ目、2 つ目とシフトして、ここにあるこのビットがキャリーフラグに入り、残りは下へシフトされます。"
 },
 {
 "i": 10,
 "start": "00:02:53,680",
 "end": "00:03:17,040",
 "en": "I should have mentioned back here on the shift logical left when you're going to the left the least significant bits are filled in with zeros and on the shift logical right when you're shifting to the right the most significant bits are filled with zeros so go ahead and take your time and wander on through this assembly to check your understanding",
-"ja": ""
+"ja": "ここで、論理左シフトのところで、言っておくべきでした。左へ行くときは、最下位のビットがゼロで埋められます。そして論理右シフトで右へシフトするときは、最上位のビットがゼロで埋められます。では、時間をかけて、このアセンブリをたどって、理解を確かめてください。"
 }
 ]
 }

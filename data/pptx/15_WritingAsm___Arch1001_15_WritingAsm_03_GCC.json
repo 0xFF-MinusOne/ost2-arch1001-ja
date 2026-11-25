@@ -5,217 +5,217 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Writing Assembly: GCC",
-"ja": ""
+"ja": "アセンブリを書く: GCC"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons \"Share Alike\" license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "GCC Inline Assembly 1",
-"ja": ""
+"ja": "GCC のインラインアセンブリ 1"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "GCC uses GNU Assembler (gas) syntax == AT&T syntax",
-"ja": ""
+"ja": "GCC は GNU Assembler(gas)構文 == AT&T 構文を使う"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "asm(\"instructions separated by \\n\");",
-"ja": ""
+"ja": "asm(\"\\n で区切った命令\");"
 },
 {
 "i": 20,
 "where": "スライド3",
 "en": "\"je myLabel\\n\"",
-"ja": ""
+"ja": "\"je myLabel\\n\""
 },
 {
 "i": 23,
 "where": "スライド3",
 "en": "\"and %ecx, %eax\");",
-"ja": ""
+"ja": "\"and %ecx, %eax\");"
 },
 {
 "i": 24,
 "where": "スライド3",
 "en": "Further reading on gas syntax http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html",
-"ja": ""
+"ja": "gas 構文の参考資料: http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html"
 },
 {
 "i": 25,
 "where": "ノート3",
 "en": "http://www.cs.virginia.edu/~clc5q/gcc-inline-asm.pdf",
-"ja": ""
+"ja": "http://www.cs.virginia.edu/~clc5q/gcc-inline-asm.pdf"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "GCC Inline Assembly 2",
-"ja": ""
+"ja": "GCC のインラインアセンブリ 2"
 },
 {
 "i": 27,
 "where": "スライド4",
 "en": "How to use C variables (aka \"extended asm\"):",
-"ja": ""
+"ja": "C の変数の使い方(「拡張 asm」):"
 },
 {
 "i": 29,
 "where": "スライド4",
 "en": "output operands   :              /* optional */",
-"ja": ""
+"ja": "出力オペランド   :              /* 省略可 */"
 },
 {
 "i": 30,
 "where": "スライド4",
 "en": "input operands    :              /* optional */",
-"ja": ""
+"ja": "入力オペランド   :              /* 省略可 */"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "list of clobbered registers      /* optional */",
-"ja": ""
+"ja": "破壊されるレジスタの一覧      /* 省略可 */"
 },
 {
 "i": 35,
 "where": "スライド4",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 38,
 "where": "スライド4",
 "en": "//value into register from C variable",
-"ja": ""
+"ja": "//C の変数からレジスタへ値を入れる"
 },
 {
 "i": 41,
 "where": "スライド4",
 "en": "//value into C variable from register",
-"ja": ""
+"ja": "//レジスタから C の変数へ値を入れる"
 },
 {
 "i": 45,
 "where": "スライド5",
 "en": "Writing Bytes to Get Asm",
-"ja": ""
+"ja": "バイト列を書いてアセンブリにする"
 },
 {
 "i": 46,
 "where": "スライド5",
 "en": "You can specify exactly the bytes you want to use by using the \".byte\" keyword, to place bytes to be interpreted as code or data",
-"ja": ""
+"ja": "「.byte」キーワードで使いたいバイトを正確に指定して、コードまたはデータとして解釈されるバイトを置けます"
 },
 {
 "i": 47,
 "where": "スライド5",
 "en": "Examples:",
-"ja": ""
+"ja": "例:"
 },
 {
 "i": 48,
 "where": "スライド5",
 "en": "asm(\".byte 0x90\"); is \"nop\"",
-"ja": ""
+"ja": "asm(\".byte 0x90\"); は「nop」"
 },
 {
 "i": 49,
 "where": "スライド5",
 "en": "asm(\".byte 0x55\"); is \"push %rbp\"",
-"ja": ""
+"ja": "asm(\".byte 0x55\"); は「push %rbp」"
 },
 {
 "i": 50,
 "where": "スライド5",
 "en": "asm(\".byte 0x48 ; .byte 0x89 ; .byte 0xE5\"); is \"mov %rsp, %rbp\"",
-"ja": ""
+"ja": "asm(\".byte 0x48 ; .byte 0x89 ; .byte 0xE5\"); は「mov %rsp, %rbp」"
 },
 {
 "i": 52,
 "where": "スライド6",
 "en": "Lab: RTFM && WTFI",
-"ja": ""
+"ja": "ラボ: RTFM && WTFI"
 },
 {
 "i": 53,
 "where": "スライド6",
 "en": "Read The Fun Manual and Write The Fun Instructions!",
-"ja": ""
+"ja": "楽しいマニュアルを読んで、楽しい命令を書こう!"
 },
 {
 "i": 54,
 "where": "スライド6",
 "en": "Write raw bytes to create the following assembly sequence:",
-"ja": ""
+"ja": "生のバイト列を書いて、次のアセンブリの並びを作る:"
 },
 {
 "i": 57,
 "where": "スライド6",
 "en": "sahf ; What's that? IDK, RTFM!",
-"ja": ""
+"ja": "sahf ; これは何? 分からない、RTFM!"
 },
 {
 "i": 59,
 "where": "スライド6",
 "en": "and $0x31337, %eax",
-"ja": ""
+"ja": "and $0x31337, %eax"
 }
 ]
 }

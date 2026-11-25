@@ -6,35 +6,35 @@
 "start": "00:00:00,080",
 "end": "00:00:32,239",
 "en": "and our last example that exemplified some boolean operations was the BitmaskExample so let's take a look at that that was the one where we had some hex value and some other hex value and we were explicitly anding them together and so there's going to be an explicit and in here but then there's also an implicit and in that there's going to be a test assembly instruction and tests act like and instructions just throw the result away set the flags so if the a and b yield some non-zero results so anything",
-"ja": ""
+"ja": "ブール演算の例として、最後に取り上げたのは BitmaskExample です。見てみましょう。16 進数の値がふたつあって、それを明示的に and していた例です。ここには明示的な and がありますが、暗黙の and もあります。test というアセンブリ命令があるからです。test は and 命令のように動いて、結果を捨てて、フラグだけを設定します。a と b の and が 0 でない結果になれば、0 でないものは"
 },
 {
 "i": 1,
 "start": "00:00:31,279",
 "end": "00:01:15,680",
 "en": "that's non-zero is a logical true if it's non-zero which we know it's definitely going to be non-zero because that one and the one and the three are going to yield a final result of 0x100 here so if that 0x100 is not equal to 0 which is true then it's going to return 0x70dd1e else return 0x707 so this will always return 0x70dd1e so let's compile it and disassemble it so step step step now we have 301 into rbp minus 4 100 into rbp minus 8 so that's a and b respectively so go ahead and",
-"ja": ""
+"ja": "論理的に真です。ここでは、確実に 0 でないと分かっています。1 と 1 と 3 が並んでいて、最終的な結果は 0x100 になるからです。その 0x100 が 0 に等しくなければ、これは真なので、0x70dd1e を返します。そうでなければ 0x707 を返します。ですから、これは常に 0x70dd1e を返します。ではコンパイルして、逆アセンブルしましょう。ステップ、ステップ、ステップ。これで、301 が rbp minus 4 に、100 が rbp minus 8 に入りました。それぞれ a と b です。では、"
 },
 {
 "i": 2,
 "start": "00:01:13,680",
 "end": "00:01:50,640",
 "en": "set those into memory and then plug them back out put them into the register so a into eax and now it's going to do a and b a and b stored back into the register eax and we know the result of that is always going to be 0x100 and now there is a test assembly instruction and we said test the same way that compare acts like a subtraction that throws away the results test acts like an and and throws the results away so testing this value with itself right so it's going to be 0x100 and",
-"ja": ""
+"ja": "それらをメモリに入れて、またレジスタに取り出します。a を eax に入れて、a と b の and を取ります。a と b の and がレジスタ eax に戻されて、その結果は常に 0x100 になると分かっています。そして、test というアセンブリ命令が来ます。compare が、結果を捨てる引き算のように動くのと同じように、test は、結果を捨てる and のように動くと言いました。この値を自分自身と test します。つまり 0x100 と"
 },
 {
 "i": 3,
 "start": "00:01:49,200",
 "end": "00:02:26,319",
 "en": "0x100 and then a jump if equal now jump if equal is another mnemonic for jump if zero and so jump zero means the zero flag was set and so the question is when would this instruction set the zero flag and the answer is it would set the zero flag when an and would set the zero flag when would it and set the zero flag when the net result is 0 is this anded with itself 0 it is not because the 1 and the 1 again line up and you get a net result of 0x100 so 0 is not true so this jump of 0 is not",
-"ja": ""
+"ja": "0x100 です。そして、jump if equal があります。jump if equal は jump if zero の別のニーモニックです。jump zero は、ゼロフラグが設定されたことを意味します。では、この命令がゼロフラグを設定するのはいつでしょうか。答えは、and がゼロフラグを設定するときです。and がゼロフラグを設定するのは、最終的な結果が 0 のときです。この値を自分自身と and すると 0 でしょうか。いいえ。1 と 1 がここでも並んで、最終的な結果は 0x100 になります。ですから 0 ではありません。この jump zero は"
 },
 {
 "i": 4,
 "start": "00:02:25,040",
 "end": "00:02:46,800",
 "en": "going to be taken and it's going to fall through and return 0x70dd1e so step step and there we go it was not taken and it fell through it's going to return 0x70dd1e putting it into eax right before an unconditional jump past the 0x707 and now we're to the function epilogue and it's just going to exit out with 0x70dd1e in the return value",
-"ja": ""
+"ja": "取られずに、そのまま進んで 0x70dd1e を返します。ステップ、ステップ。ほら、ジャンプは取られずに、そのまま進みました。0x70dd1e が返されます。0x707 を飛び越える無条件ジャンプの直前に、それを eax に入れます。そして関数のエピローグに来て、0x70dd1e を戻り値にして抜けます。"
 }
 ]
 }

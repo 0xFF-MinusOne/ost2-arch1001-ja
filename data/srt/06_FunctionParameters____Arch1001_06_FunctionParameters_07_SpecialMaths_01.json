@@ -6,63 +6,63 @@
 "start": "00:00:00,080",
 "end": "00:00:33,600",
 "en": "so let's take a look at SpecialMath.c it takes command line arguments so it's now starting to use the argument vector and it's using argv with atoi which expects in an integer as a string and converts it to an integer as an integer and in this particular case i've chosen some special math that I know will cause visual studio to generate the assembly instruction that i'm looking for which is lea now this is called special maths because I originally thought I was being funny because there was a",
-"ja": ""
+"ja": "では、SpecialMath.c を見ましょう。これはコマンドライン引数を取るので、ここから引数ベクタを使い始めます。argv を atoi と一緒に使っています。atoi は、文字列の整数を受け取って、整数に変換するものです。この例では、Visual Studio が、私の探している lea というアセンブリ命令を生成するとわかっている、特別な計算を選びました。これは「special maths」と呼んでいますが、というのも、最初は面白いと思ったからです。名前は伏せますが、"
 },
 {
 "i": 1,
 "start": "00:00:30,560",
 "end": "00:01:04,720",
 "en": "politician who shall remain nameless who said maths instead of math which is funny to us americans because we say math we don't say maths now you can imagine my chagrin when I learned that the British and other folks who swear fealty to a queen happen to say maths unironically and so all of the irony is lost here but for the american audience special maths ha ha but enough about maths let's talk about lea so you can see here that it's using an rmx form but back on the rmx addressing slide i",
-"ja": ""
+"ja": "ある政治家が、math ではなく maths と言ったことがあり、math と言って maths と言わない私たちアメリカ人には、それが面白かったのです。でも、イギリス人など、女王に忠誠を誓う人たちが、皮肉なしに maths と言うと知って、私は残念に思いました。ですから、ここでは皮肉がすべて消えてしまっています。でも、アメリカの聴衆には、special maths、ははは、です。さて、maths の話はこのくらいにして、lea の話をしましょう。ここで rmx 形式が使われているのがわかります。でも、rmx アドレス指定のスライドで、"
 },
 {
 "i": 2,
 "start": "00:01:03,920",
 "end": "00:01:38,079",
 "en": "said Intel syntax most of the time square brackets means to treat the value within as a memory address and lea is the exception that proves the rule and so specifically with lea load effective address you'll see something that looks like the rmx form but in the manual it's actually just called m and it's the exception to the rule that square brackets means to dereference memory basically when you're using an lea although you'll see this form it's going to add that up it's going to calculate some value and",
-"ja": ""
+"ja": "Intel 構文では、たいてい角かっこは、中の値をメモリアドレスとして扱うという意味だと言いました。lea は、その規則の例外です。lea、つまり load effective address では、rmx 形式のように見えるものが出てきますが、マニュアルでは、単に m と呼ばれていて、角かっこはメモリを参照外しするという規則の、例外です。基本的に、lea を使うときは、この形が見えても、それを足し合わせて、ある値を計算して、"
 },
 {
 "i": 3,
 "start": "00:01:36,799",
 "end": "00:02:07,119",
 "en": "then rather than dereferencing it and going to memory it's just going to take the value and load that effective address into the register that's specified in the assembly instruction so you'll frequently see lea used in pointer arithmetic and that can be of the form for instance if you just have a pointer and you do plus plus then you know that the increase in the address is the increase of the size of the l of pointers on that particular architecture so if it's you know a pointer on a",
-"ja": ""
+"ja": "それを参照外ししてメモリに行くのではなく、その値をそのまま、アセンブリ命令で指定されたレジスタに、有効アドレスとしてロードします。ですから、lea は、ポインタの演算でよく使われます。たとえば、ポインタがあって、plus plus すると、アドレスの増え方は、そのアーキテクチャでのポインタのサイズぶんになります。つまり、"
 },
 {
 "i": 4,
 "start": "00:02:05,040",
 "end": "00:02:42,480",
 "en": "64-bit system it's going to be plus plus adds 8 to the value and so lea could be used for that it can also be used for things like calculating the address of an element of an array because again you can have some base of an array an index of the array it's going to have the size of the array and it'll use that to calculate the address if you know the C code was looking for an address so just as an example if you imagine that you had rbx having two rdx having hex 1000 then this calculation this lea would say 1000",
-"ja": ""
+"ja": "64 ビットのシステムのポインタなら、plus plus で値に 8 が足されます。lea は、そのために使えます。また、配列の要素のアドレスを計算するのにも使えます。配列にはベースがあり、インデックスがあり、要素のサイズがあるので、それを使ってアドレスを計算できるからです。C のコードがアドレスを求めている場合です。たとえば、rbx が 2、rdx が 0x1000 だとして、この lea の計算は、1000"
 },
 {
 "i": 5,
 "start": "00:02:39,280",
 "end": "00:03:16,959",
 "en": "plus 2 times 8 which is 0x10 plus 5 and so it would calculate up 0x1015 and put that into the rax register it wouldn't dereference memory it wouldn't treat that as an address it would just treat it as a value that's going to be loaded into the register specified so specifically with lea load effective address you will see the square brackets form and you will see rmx form but it is not actually going to memory at that address it is just calculating some value and treating it as if oh i was just supposed",
-"ja": ""
+"ja": "足す 2 掛ける 8 で、これが 0x10、足す 5 となり、0x1015 を計算して、rax レジスタに入れます。メモリを参照外しすることはありませんし、それをアドレスとして扱うこともありません。指定されたレジスタにロードされる値として扱うだけです。ですから、lea、つまり load effective address では、角かっこの形も rmx 形式も出てきますが、実際にそのアドレスのメモリには行きません。ある値を計算して、ポインタの値を計算するだけでよかったのだ、と見なすだけです。"
 },
 {
 "i": 6,
 "start": "00:03:14,640",
 "end": "00:03:45,200",
 "en": "to calculate a pointer value and then it just loads that value into rax it doesn't dereference the memory it just treats it like it's a pointer address and loads the address loads the effective address as it were into a register for instance so frequently you will see this used with things like pointer arithmetic so if the C code is doing some point arithmetic that may turn into an lea because it can take you know some base register for a pointer plus whatever the point arithmetic was",
-"ja": ""
+"ja": "そしてその値を rax にロードします。メモリを参照外しせず、ポインタのアドレスとして扱って、そのアドレス、いわば有効アドレスを、たとえばレジスタにロードします。ですから、これはポインタ演算のようなものとよく一緒に使われます。C のコードでポインタ演算をしていると、それが lea になることがあります。ポインタのベースレジスタに、ポインタ演算で足す分を加えられるからです。"
 },
 {
 "i": 7,
 "start": "00:03:43,280",
 "end": "00:04:14,720",
 "en": "if you were trying to get the address of some element of an array well then it might generate an lea assembly instruction so i'm going to want you to go through this code but you can't go through this code unless you pass a command line parameter so in order to do that you right click on the project go to its properties make sure you're in the debug active 64. under the debugging entry you have command line command arguments and just put in something there like 16 for instance all right so once again",
-"ja": ""
+"ja": "配列のある要素のアドレスを取ろうとしているなら、lea というアセンブリ命令が生成されるかもしれません。このコードを実行してほしいのですが、コマンドラインパラメータを渡さないと実行できません。そのために、プロジェクトを右クリックしてプロパティに行き、Debug の Active 64 になっているか確認してください。デバッグの項目に、コマンドライン引数があるので、そこに、たとえば 16 のような値を入れてください。では、もう一度、"
 },
 {
 "i": 8,
 "start": "00:04:12,799",
 "end": "00:04:39,360",
 "en": "i must ask you for your support and helping me help you by having you go through the assembly now at this point making a stack diagram is not as important we've covered most of the stuff we're going to cover with respect to the stack and stack diagrams so i want to make sure that you understand the assembly understand how lea is being used so just step through the assembly and make sure you understand why all of those instructions are there",
-"ja": ""
+"ja": "アセンブリを一通りたどることで、私があなたを助けるのを、手伝ってほしいのです。この段階では、スタック図を作ることは、それほど重要ではありません。スタックとスタック図については、扱うことの大半をもう扱ったからです。ですから、アセンブリを理解して、lea がどう使われているかを理解してほしいのです。アセンブリをステップ実行して、それぞれの命令がなぜそこにあるのかを理解してください。"
 }
 ]
 }

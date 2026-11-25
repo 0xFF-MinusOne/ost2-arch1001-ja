@@ -6,70 +6,70 @@
 "start": "00:00:00,320",
 "end": "00:00:34,480",
 "en": "all right next we're going to look at SingleLocalVariable which again for historical reasons is in the wrong folder name so go to ExampleSubroutine2 and let's go ahead and cap that out so we can remember what that was okay we had a single function we're calling a function and it has a single variable 0x5ca1ab1e which goes into i which gets returned so let's go ahead and compile it so gcc again no stack protector SingleLocalVariable.c and let's do gdb again as well so at the beginning again",
-"ja": ""
+"ja": "では次に、SingleLocalVariable を見ましょう。これもまた歴史的な事情で、フォルダ名が違っています。ExampleSubroutine2 に移動して、中身を表示して、何だったか思い出しましょう。関数が 1 つあって、それを呼んでいて、変数は 1 つ、0x5ca1ab1e で、それを i に入れて、返しています。では、コンパイルしましょう。また gcc で、スタック保護なしで、SingleLocalVariable.c を、そしてまた gdb を使います。まず、最初は、"
 },
 {
 "i": 1,
 "start": "00:00:30,640",
 "end": "00:01:08,159",
 "en": "this nop and a typical function prolog here we've got the 0 which I didn't comment on before 0 into eax basically this function doesn't take any arguments so this to me seems like the compiler is choosing to zero initialize eax just in case the function doesn't return anything so let's go ahead and step step step now we've got zero which was rbp was pushed onto the stack the return address is there rsp was moved into rbp so now they point at the same location this 0x7ffdf60 right 0",
-"ja": ""
+"ja": "この nop と、ふつうの関数のプロローグがあります。以前は触れませんでしたが、0 を eax に入れる命令があります。この関数は引数を取らないので、関数が何も返さない場合に備えて、コンパイラが eax をゼロで初期化しているのだと思います。では、ステップ、ステップ、ステップと進めます。rbp がスタックに push され、戻りアドレスがここにあって、rsp が rbp に移されたので、2 つは同じ場所を指しています。この 0x7ffdf60 の 0 を"
 },
 {
 "i": 2,
 "start": "00:01:04,640",
 "end": "00:01:45,439",
 "en": "into eax so you can see 0 there and now we're going to step into this function which didn't actually take any arguments okay the typical nop at the beginning function prolog setup step step and so now the stack frame has the saved rbp the saved return address the old rbp which was 0 and the other return address to get back out of main now it's going to push it's going to sorry mov 0x5ca1ab1e into rbp minus 4 and that's kind of weird because we can see that you know our stack has rbp pointing at df50 but it's",
-"ja": ""
+"ja": "eax に入れたので、そこに 0 が見えます。そして、この関数にステップインします。引数は実際には取りません。最初にふつうの nop があって、関数のプロローグの準備をします。ステップ、ステップ。これで、スタックフレームには、保存された rbp、保存された戻りアドレス、0 だった古い rbp、そして main から戻るための別の戻りアドレスがあります。次に、push して、いえ、0x5ca1ab1e を rbp - 4 に mov します。これは少し変です。スタックを見ると、rbp は df50 を指しているのに、"
 },
 {
 "i": 3,
 "start": "00:01:43,439",
 "end": "00:02:16,640",
 "en": "actually going to be accessing below the end of the stack and we had said previously that in general that's supposed to be treated as undefined that should never be touched so why exactly is it doing this this is what our stack looks like at this point we have the saved rip the saved rbp saved rip saved rbp and then 0x5ca1ab1e going into rbp minus 4 so 8 byte granularity here and then moving to four byte granularity there so how come I can get away with this well if we consult",
-"ja": ""
+"ja": "実際にはスタックの終わりより下にアクセスするからです。前に、一般にそこは未定義として扱うもので、触ってはいけない、と言いました。では、なぜこんなことをしているのでしょうか。この時点のスタックはこうなっています。保存された rip、保存された rbp、保存された rip、保存された rbp、そして 0x5ca1ab1e が rbp - 4 に入ります。ここは 8 バイト単位で、そこからは 4 バイト単位に変わります。では、なぜこれが許されるのでしょうか。"
 },
 {
 "i": 4,
 "start": "00:02:13,599",
 "end": "00:02:43,120",
 "en": "the System V ABI it turns out that there's this discussion of how the stack should look like when you're using a base pointer and so we have the things you might ex expect about arguments potentially up here above the return address uh sort of looking like the shadow stack so they're not necessarily going to be used that way we'll see more about that when we look at multiple function parameters later on return address and then rbp and so rbp minus something is typically going to be your local",
-"ja": ""
+"ja": "System V ABI を調べると、ベースポインタを使うときにスタックがどう見えるべきかの説明があります。そこには、予想できるものがあります。引数は、戻りアドレスの上にあるかもしれません。シャドウスタックのように見えますが、必ずしもそう使われるわけではありません。これについては、あとで複数の関数の引数を見るときに、もっと詳しく見ます。戻りアドレス、そして rbp があり、rbp - 何かの位置が、たいていローカル"
 },
 {
 "i": 5,
 "start": "00:02:42,239",
 "end": "00:03:12,720",
 "en": "variables and then there's this discussion of an area called the red zone so specifically it says the 128-byte area beyond the location pointed to by rsp is considered to be reserved and shall not be modified by signal or interrupt handlers therefore functions may use this area as temporary data that is not needed across function calls in particular leaf functions may use this area for their entire stack frame rather than adjusting the stack pointer in the prologue and epilogue this area",
-"ja": ""
+"ja": "変数になります。そして、レッドゾーンと呼ばれる領域についての説明があります。具体的には、rsp が指す場所の先にある 128 バイトの領域は予約されていて、シグナルハンドラや割り込みハンドラによって変更されてはならない、とあります。したがって、関数は、この領域を、関数呼び出しをまたいで必要としない一時的なデータに使ってかまいません。特に、リーフ関数は、プロローグとエピローグでスタックポインタを調整する代わりに、この領域を、スタックフレーム全体に使うことができます。この領域は、"
 },
 {
 "i": 6,
 "start": "00:03:11,280",
 "end": "00:03:41,360",
 "en": "is known as the red zone so essentially what it's saying is normally you might see a function prolog subtract rsp down to here to allocate space for the local variables and then add rsp back up when you're leaving the function but it's saying if you're in a leaf function you can go ahead and just not bother with the subtract and the add go ahead and just use this area below where rbp and rsp would be both pointing right here go ahead and just use it because we know that your function is a leaf function",
-"ja": ""
+"ja": "レッドゾーンと呼ばれます。つまり、ふつうは、関数のプロローグで rsp を引いてここまで下げて、ローカル変数の領域を確保し、関数を抜けるときに rsp を足して戻します。でも、リーフ関数なら、その引き算と足し算をわざわざしなくていい、と言っているのです。rbp と rsp が両方ともここを指しているので、その下のこの領域をそのまま使えばいい、ということです。この関数がリーフ関数だと分かっているからです。"
 },
 {
 "i": 7,
 "start": "00:03:39,680",
 "end": "00:04:06,879",
 "en": "it's not going to call anything else and so it should just be you know used and then destroyed immediately when it goes out of scope so basically that's why it's allowed to get away with accessing below the bottom of the stack like this it'll be safe because they define in the ABI that you know exception handlers if some sort of interrupt occurs it shall not you know clobber over these things so you can resume from the interrupt without destroying your stack data which would you know ruin the program execution so",
-"ja": ""
+"ja": "ほかの関数を呼ばないので、その領域を使って、スコープを抜けたらすぐに破棄されるだけで済みます。基本的に、これが、このようにスタックの底より下にアクセスしても許される理由です。ABI で、例外ハンドラや、何かの割り込みが起きたときも、これらを上書きしてはならない、と定められているので安全です。そのため、割り込みから戻っても、スタックのデータが壊れず、プログラムの実行がだいなしにならないのです。では、"
 },
 {
 "i": 8,
 "start": "00:04:05,840",
 "end": "00:04:39,440",
 "en": "let's go ahead and step over this and then it's going to just immediately plug that value back out that was the i local variable so it was moving the 0x5ca1ab1e into i and then it was returning i so it's plucking the value back out and putting it into the return value eax step now we're going to pop rbp so we're going to take this saved rbp pop it into there there we go that now is df60 instead of df50 and then return is going to pop the value off the top of the stack and put it into rip",
-"ja": ""
+"ja": "これをステップオーバーしましょう。そのあと、すぐにその値を取り出します。これが、ローカル変数 i でした。0x5ca1ab1e を i に移して、i を返すので、その値を取り出して、戻り値の eax に入れます。ステップ。次に rbp を pop します。保存された rbp を、ここに pop します。これで、df50 ではなく df60 になりました。そして、return がスタックの先頭から値を pop して、rip に入れます。"
 },
 {
 "i": 9,
 "start": "00:04:36,160",
 "end": "00:04:52,720",
 "en": "so we should go to 14f for rip there we go 14f for rip and then we just exit out of the function because we're done tearing down mains frame step and we're now back in the function that called main that's it for that example",
-"ja": ""
+"ja": "ですから、rip は 14f になるはずです。はい、rip は 14f になりました。そして、main のフレームの後始末が終わったので、関数を抜けます。ステップ。これで、main を呼んだ関数に戻りました。この例は以上です。"
 }
 ]
 }

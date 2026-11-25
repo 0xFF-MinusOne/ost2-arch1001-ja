@@ -6,210 +6,210 @@
 "start": "00:00:00,000",
 "end": "00:00:41,360",
 "en": "all right this is the guide to the first phase of the bomb lab using gdb as your primary debugger so to get the bomb lab inside of your architecture 1001 code for the class it will be in a folder called binary_bomb_lab so go ahead and copy that to your home directory then let's just go ahead and run the bomb and see what happens okay welcome to my fiendish little bomb you have 6 phases with which to blow yourself up have a nice day all right it seems to be expecting some sort of input",
-"ja": ""
+"ja": "では、gdb を主なデバッガにして、ボムラボの最初のフェーズを解くためのガイドです。ボムラボは、この講義の architecture 1001 のコードの中の、binary_bomb_lab というフォルダにあります。それをホームディレクトリにコピーしてください。では、ボムを実行して、何が起きるか見てみましょう。「私のいじわるな小さなボムへようこそ。自爆するためのフェーズが 6 つあります。良い一日を」と出ます。何か入力を期待しているようです。"
 },
 {
 "i": 1,
 "start": "00:00:38,800",
 "end": "00:01:19,360",
 "en": "and I enter input and boom the bomb has blown up I said the goal of this lab is to avoid the bomb blowing up so of course we could brute force it and put in every string in the world but that's not a good approach to this when faced with this sort of thing what does one do well one looks at the assembly okay well that's easy right let's just go ahead and you know objdump it and you know disassemble it bomb lab great let's just you know go and read all the assembly right it's so easy well pure static analysis",
-"ja": ""
+"ja": "入力してみると、ドカン、ボムが爆発しました。このラボの目標は、ボムを爆発させないことだと言いました。もちろん、総当たりで、世の中のすべての文字列を入れることもできますが、それは良い方法ではありません。こういうものに直面したら、どうするでしょうか。アセンブリを見ます。簡単ですね。objdump して、bomb lab を逆アセンブルして、アセンブリを全部読めばいいわけです。とても簡単です。ただ、純粋な静的解析が、"
 },
 {
 "i": 2,
 "start": "00:01:17,040",
 "end": "00:01:48,159",
 "en": "is not necessarily always the best approach to things certainly because most programs are wildly more complicated than this bomb lab and you can see that even the bomb lab in and of itself has a ton of assembly to read so that's why when possible you should do dynamic analysis now when you're dealing with malware you might not want to do dynamic analysis because you might inadvertently affect infect yourself but for anything that's not known to be malware it like if you're reverse",
-"ja": ""
+"ja": "いつも最良の方法とは限りません。ほとんどのプログラムは、このボムラボよりずっと複雑です。このボムラボだけでも、読むべきアセンブリがとてもたくさんあるのが分かります。ですから、可能なら動的解析をするべきです。マルウェアを扱うときは、うっかり自分が感染するかもしれないので、動的解析をしたくないこともあります。しかし、マルウェアと分かっていないものなら、たとえば、脆弱性を見つけるため、あるいは動き方を理解するために、正当なソフトウェアを"
 },
 {
 "i": 3,
 "start": "00:01:46,240",
 "end": "00:02:18,160",
 "en": "engineering some legitimate software to find vulnerabilities or just understand how it works it's always best to use dynamic analysis whenever humanly possible and ultimately it'll be you know a combination of dynamic and static analysis so we're going to use gdb on this bomb I guess I should say you know one of the other things that very frequently you should do is simply running strings and I may not actually have strings installed right now let's check okay good I do strings is kind of your first order go",
-"ja": ""
+"ja": "リバースエンジニアリングするときは、可能な限り、いつでも動的解析をするのが最善です。最終的には、動的解析と静的解析の組み合わせになります。このボムには gdb を使います。もう一つ、とてもよくやるべきことは、単純に strings を実行することです。今 strings が入っているか分かりません。確認しましょう。よし、入っています。strings は、プログラムが何をするかを調べる、最初の頼みの綱のようなものです。"
 },
 {
 "i": 4,
 "start": "00:02:17,760",
 "end": "00:02:49,200",
 "en": "to in terms of figuring out what a program does you can see the kind of stuff that's inside of it based on you know what it prints out so we saw before that it prints out welcome to my fiendish little bomb you have 6 phases with which to blow yourself up have a nice day but you know maybe there's other clues in here you know that's number 2 keep going halfway there good work on to the next so there seems to be some sorts of you know interesting strings telling you something about how the thing works",
-"ja": ""
+"ja": "プログラムが出力するものから、中にどんなものがあるか分かります。先ほど、「私のいじわるな小さなボムへようこそ。自爆するためのフェーズが 6 つあります。良い一日を」と出力されるのを見ました。ほかにも手がかりがあるかもしれません。「それは 2 番です」、「その調子」、「半分まで来ました」、「よくできました」、「次へ」とあります。物事がどう動くかを教えてくれる、興味深い文字列がありそうです。"
 },
 {
 "i": 5,
 "start": "00:02:46,480",
 "end": "00:03:20,720",
 "en": "you can see that it originally came from cmu and so forth so probably you want to go take a look at the strings to figure out if there's any clues about how this particular program executes but let's go ahead and start it up in gdb so I'm going to cat my personal gdb command file or config file for what I have right now so this is just pretty much the default at this point we've got the printing out 10 assembly instructions we've got a variety of registers got the stack display and then a start",
-"ja": ""
+"ja": "もともと CMU から来たものだと分かるなど、いろいろ見えます。ですから、このプログラムがどう実行されるかの手がかりがないか、strings を見てみるとよいでしょう。では、gdb で起動しましょう。今使っている、私の個人用の gdb コマンドファイル、つまり設定ファイルを cat します。ほぼ、今はデフォルトのままです。10 個のアセンブリ命令を表示し、いくつかのレジスタを表示し、スタックを表示して、そして"
 },
 {
 "i": 6,
 "start": "00:03:19,519",
 "end": "00:04:03,840",
 "en": "to break at the main entry point okay so let's go ahead and run it gdb bomb quiet and -x and our commands file if we do that then we see it starts up and it prints out the first 10 assembly instructions add main some registers and the stack so here we are we have a very narrow window of view into what's going on so we probably want to widen that window a little bit could do that with disassemble all right so now we would just kind of skim through what's going on well we can see some setup a compare against",
-"ja": ""
+"ja": "main のエントリポイントで止める設定があります。では、実行しましょう。gdb bomb、quiet、-x、そしてコマンドファイルです。そうすると、起動して、main の最初の 10 個のアセンブリ命令と、いくつかのレジスタとスタックが表示されます。ここでは、何が起きているかを見る窓がとても狭いので、その窓を少し広げたくなります。disassemble でできます。では、何が起きているか、ざっと見ていきましょう。セットアップがあって、2 との比較があり、"
 },
 {
 "i": 7,
 "start": "00:04:03,120",
 "end": "00:04:45,840",
 "en": "two don't know what that is fopen well fopen has to do with file openings so there's probably some sort of file access in here a mention of initialize bomb a puts which we saw before is kind of like a printf that puts, puts read line phase 1 phase defused puts read line phase 2 phase defused so they said that there's you know 6 phases to this so that gives us a sense of what's going on here we've got this sequence of a phase being called and then a phase defused after it all right so we could then",
-"ja": ""
+"ja": "それが何かは分かりません。fopen があります。fopen はファイルを開くことに関係しているので、ここにはファイルへのアクセスがありそうです。initialize bomb への言及があり、puts があります。puts は、先ほど見たように、printf のようなもので、puts、puts、read line、phase 1、phase defused、puts、read line、phase 2、phase defused とあります。フェーズが 6 つあると言っていたので、何が起きているかの見当がつきます。フェーズが呼ばれ、そのあとに phase defused が呼ばれる、という並びです。では、"
 },
 {
 "i": 8,
 "start": "00:04:43,520",
 "end": "00:05:22,840",
 "en": "for instance look at the disassembly for the first phase in order to see what's going on in there and we see a call to strings not equal and then we see a call to explode bomb so we might reasonably infer that there's some sort of string check and then a call to explode bomb if you give it the wrong string so let's go ahead and you know just start stepping through this and examining registers memory whatever looks interesting so in gdb how do we step well we can step assembly instruction at a time",
-"ja": ""
+"ja": "たとえば、最初のフェーズの逆アセンブルを見て、何が起きているか調べましょう。strings not equal の呼び出しがあり、そのあと explode bomb の呼び出しがあります。ですから、何らかの文字列のチェックがあり、間違った文字列を渡すと explode bomb を呼ぶのだろう、と推測できます。では、ステップ実行して、レジスタやメモリなど、面白そうなものを調べていきましょう。gdb ではどうステップ実行するでしょうか。アセンブリ命令を一つずつ"
 },
 {
 "i": 9,
 "start": "00:05:19,199",
 "end": "00:06:01,680",
 "en": "si or we can do step overs with ni so let's go ahead and you know step step step just keep on going okay initialize bomb all right stepped over that... do dodoo... okay puts that puts just executed and here is the output from it that's the first chunk of that string and so continuing on next instruction next okay there's that other puts the rest of the string now we're about to call a read line so let's go ahead and step over that and then now we see that the debugger does not break again it does not just",
-"ja": ""
+"ja": "si で進められますし、ni でステップオーバーもできます。では、ステップ、ステップ、ステップと、どんどん進めましょう。initialize bomb です。それをステップオーバーしました。ドゥドゥドゥ。puts が実行されたところで、その出力がここにあります。文字列の最初のかたまりです。続けて、次の命令、次へ。ほら、もう一つの puts があって、文字列の残りです。これから read line を呼ぶので、これをステップオーバーします。すると、デバッガがもう一度止まらず、"
 },
 {
 "i": 10,
 "start": "00:05:57,680",
 "end": "00:06:32,400",
 "en": "immediately go back to the debugger so it seems like this is the point at which it's going to be wanting us to put in some sort of input so I'm going to put in some sort of input and then I hit enter and now okay it went to the next assembly instruction afterwards so I've now given a string into this program and it should be sitting in here somewhere you know I could go analyze what that you know read line does in order to understand exactly where it puts it but let's just keep chugging for now",
-"ja": ""
+"ja": "すぐにはデバッガに戻りません。ここが、何か入力を求められるところのようです。何か入力して、Enter キーを押します。すると、そのあとの次のアセンブリ命令に進みました。これで、このプログラムに文字列を渡しました。それは、このどこかにあるはずです。read line が何をしているか分析すれば、それがどこに置かれるか正確に分かりますが、今はとにかく進みましょう。"
 },
 {
 "i": 11,
 "start": "00:06:30,080",
 "end": "00:07:06,400",
 "en": "let's just you know walk up to the next phase 1 and then when we're about to call this we could examine you know the different registers per the calling convention which we know are going to be argument 0 argument 1 argument 2 ex so forth so the calling convention for system V says that the first argument to a function is in rdi now this phase one could take 0 arguments so this rdi could be a complete red herring it could have nothing interesting nothing of value but you know just on a speculation",
-"ja": ""
+"ja": "次の phase 1 まで進みましょう。これを呼ぶ直前で、呼び出し規約に従って、いろいろなレジスタを調べられます。引数 0、引数 1、引数 2、などです。System V の呼び出し規約では、関数の最初の引数は rdi にあります。この phase 1 は、引数を取らないかもしれません。ですから、この rdi はまったくの見当違いで、面白いものも価値のあるものも入っていないかもしれません。でも、推測で、"
 },
 {
 "i": 12,
 "start": "00:07:04,400",
 "end": "00:07:58,080",
 "en": "let's you know see what what memory looks like at this location so I could examine memory with the x command and then I might say I want 10 bytes in hexadecimal format and then give the address there oops no star there and so it says okay well whatever this thing is it seems to correspond to a symbol named input strings and we got 69 6e 70 75 74 00 00 all right well I don't know what that is yet so let's just keep going so let's step into this particular phase 1 and then let's just keep stepping let's",
-"ja": ""
+"ja": "このアドレスにメモリが何を持っているか見てみましょう。x コマンドでメモリを調べられます。16 進数の形式で 10 バイトを見たいと言って、そこにアドレスを与えます。おっと、星は要りません。すると、これが何であれ、input strings という名前のシンボルに対応しているようです。69 6e 70 75 74 00 00 です。これが何かはまだ分かりません。とにかく進みましょう。この phase 1 にステップインして、ステップ実行を続けます。"
 },
 {
 "i": 13,
 "start": "00:07:57,280",
 "end": "00:08:35,839",
 "en": "step step step and now we have a call to strings not equal well you might reasonably expect that a function called strings not equal is going to take 2 pointers to strings and it probably is going to check whether those strings are equal by comparing each byte within them so if that's my inference that I think strings not equal is going to take 2 pointers to 2 strings then I would expect that the rdi and rsi should be pointers to strings so testing that hypothesis I can examine",
-"ja": ""
+"ja": "ステップ、ステップ、ステップ、そして strings not equal の呼び出しがあります。strings not equal という関数は、2 つの文字列へのポインタを取って、それらの中のバイトを一つずつ比較して、文字列が等しいかどうかを調べるのだろう、と考えるのが自然です。もし strings not equal が 2 つの文字列への 2 つのポインタを取るという推測が正しければ、rdi と rsi は文字列へのポインタのはずです。この仮説を確かめるために、"
 },
 {
 "i": 14,
 "start": "00:08:32,240",
 "end": "00:09:10,399",
 "en": "those as strings x/s and then that particular address if I do that I can see that actually the input is the input that I typed in when I was prompted for input in the debugger okay so basically now I know you know that thing that I was just looking at in bytes it would have been much better to look at it also in for instance characters at which point I would have seen oh these look like ASCII characters and I could also look at it in strings and then boom I get a nice human readable string",
-"ja": ""
+"ja": "それらを文字列として調べられます。x/s で、そのアドレスを指定します。そうすると、実は入力が、デバッガで入力を求められたときに私が打ち込んだ入力だと分かります。では、さっきバイト単位で見ていたものは、たとえば文字として見たほうがずっと良かったことになります。そうすれば、これは ASCII 文字のようだと分かったでしょう。さらに、文字列として見れば、ほら、人が読める文字列が見えます。"
 },
 {
 "i": 15,
 "start": "00:09:07,360",
 "end": "00:09:29,760",
 "en": "okay well the thing is called strings not equal so consequently I might expect that the other argument rsi is also going to be a string so let's go ahead and check what is at that string examine as string and the string I get there is I am just a renegade hockey mom.",
-"ja": ""
+"ja": "さて、それは strings not equal という名前なので、もう一方の引数の rsi も文字列だろうと予想できます。その文字列に何があるか確かめましょう。文字列として調べると、そこに出てくる文字列は、I am just a renegade hockey mom. です。"
 },
 {
 "i": 16,
 "start": "00:09:29,360",
 "end": "00:09:42,640",
 "en": "all right that's interesting so we've got a thing called strings not equal that is taking my input and it's taking some other string I am just a renegade hockey mom.",
-"ja": ""
+"ja": "面白いですね。strings not equal というものが、私の入力と、もう一つの文字列 I am just a renegade hockey mom. を取って、"
 },
 {
 "i": 17,
 "start": "00:09:40,720",
 "end": "00:10:14,240",
 "en": "and it's doing something with them who knows what it's doing with them it could be xoring them together it could be subtracting the sum of both of them from each other we could go and read the entire assembly for strings not equal or we can just step over it and see what happens next because if we look at the rest of phase 1 it's not too long right we've got phase one having a test of the output the you know return value of strings not equal and it's saying test eax eax so that's the return value and then",
-"ja": ""
+"ja": "それらに何かをしています。何をしているかは分かりません。排他的論理和をとっているかもしれませんし、両方の合計を引き算しているかもしれません。strings not equal のアセンブリ全体を読むこともできますが、ステップオーバーして、次に何が起きるか見るだけでも構いません。phase 1 の残りを見ると、それほど長くないからです。phase 1 には、strings not equal の出力、つまり戻り値のテストがあって、test eax, eax です。これが戻り値で、そして"
 },
 {
 "i": 18,
 "start": "00:10:11,839",
 "end": "00:10:48,079",
 "en": "jump if not equal so jump if not equal is the same thing as jump if not zero so when would the result of this be not 0 well a test instruction is like an and instruction and so when do you get something that's not 0 with an and instruction if the output is anything that's not 0 if it's 0 and 0 it's going to be 0 and then you would you know not take the jump not equal because it is equal it is 0 but if it's anything other than 0 that comes back out of this function then we're not going to take the jump",
-"ja": ""
+"ja": "jump if not equal です。jump if not equal は jump if not zero と同じです。では、この結果が 0 でなくなるのはいつでしょうか。test 命令は and 命令のようなものです。and 命令で 0 でないものが得られるのは、出力が 0 でない何かのときです。0 と 0 なら 0 になるので、jump not equal は行われません。等しい、つまり 0 だからです。でも、この関数から 0 以外のものが返ってきたら、そのジャンプは行われず、"
 },
 {
 "i": 19,
 "start": "00:10:50,399",
 "end": "00:11:25,200",
 "en": "and we're going to just fall through to this add and then return so that's probably the way we want to go because this jump not equal if we look at the address 55c4 that address is this address right here 55c4 which is a call to explode bomb so that is definitely what we want to avoid we want to find a control flow path here that does not call explode bomb so in order to get past this we need to not take the jump in order to not take the jump we need this to return something that is not",
-"ja": ""
+"ja": "そのまま、この add に落ちて、return します。おそらく、こちらに行きたいのです。この jump not equal の先のアドレスは 55c4 で、そのアドレスはこのアドレス、ちょうどここの 55c4 です。そこは explode bomb の呼び出しです。ですから、これは絶対に避けたいものです。explode bomb を呼ばない制御フローの経路を見つけたいのです。これを通り抜けるには、ジャンプを行わない必要があります。ジャンプを行わないためには、string is not equal から、"
 },
 {
 "i": 20,
 "start": "00:11:26,839",
 "end": "00:12:10,240",
 "en": "0 out of string is not equal and so let's see what it's currently returning let's go ahead and step over strings not equal and let's take a look at the rax register the eax register well that's 1 and so sorry I said it's we needed to jump if it's not equal we the jump is going to jump to the explode so we want to not take the jump so we want it to actually be equal 0 so that it falls through so as we can see then if we just kind of step step boom we go to explode bomb all right well that is definitely not",
-"ja": ""
+"ja": "0 以外が返ってこない必要があります。では、今何を返しているか見てみましょう。strings not equal をステップオーバーして、rax レジスタ、eax レジスタを見ます。1 です。失礼しました。等しくないときにジャンプする、そのジャンプは explode に飛ぶので、ジャンプは行わせたくありません。ですから、実際には等しい、つまり 0 になって、そのまま落ちてほしいのです。ステップ、ステップと進めると、ドカン、explode bomb に行きます。これは絶対に"
 },
 {
 "i": 21,
 "start": "00:12:08,399",
 "end": "00:12:32,320",
 "en": "what we want so we don't exactly know yet what strings not equal does but we might you know reasonably infer that takes those 2 strings and compares if they're equal so over the 2 strings was input which I gave and then I am just a renegade hockey mom. so I'm going to go ahead and try to provide I am just a renegade hockey mom.",
-"ja": ""
+"ja": "望んでいることではありません。strings not equal が正確に何をするかはまだ分かりませんが、その 2 つの文字列を取って、等しいかどうかを比較する、と推測するのは自然です。2 つの文字列は、私が渡した入力と、I am just a renegade hockey mom. でした。そこで、I am just a renegade hockey mom. を"
 },
 {
 "i": 22,
 "start": "00:12:30,000",
 "end": "00:13:07,360",
 "en": "into this program and see what happens what gets returned from strings not equal if I provide that input so I can go ahead and rerun this program actually I should have done start rather than run so now it's just going to blow up I'm going to I want to keep control of it so let's go ahead and do start all right now I'm going to step over that read line call so where is that I could just you know run until after the read line so but I just have it in my copy buffer so I don't want to get rid of my copy",
-"ja": ""
+"ja": "このプログラムに渡して、何が起きるか、その入力を渡したときに strings not equal から何が返るか見ます。プログラムをもう一度実行します。実は run ではなく start にするべきでした。今のままだと爆発するだけです。制御を保ちたいので、start にしましょう。では、その read line の呼び出しをステップオーバーします。read line のあとまで実行することもできますが、コピーバッファに入っているので、そのコピーを捨てたくありません。"
 },
 {
 "i": 23,
 "start": "00:13:05,839",
 "end": "00:13:22,399",
 "en": "buffer so I'm just going to step over it step step step step step step over the read line all right now it's asking for my input there you go I'm going to give I am just a renegade hockey mom.",
-"ja": ""
+"ja": "ですから、ただステップオーバーします。ステップ、ステップ、ステップ、ステップ、ステップ、read line をステップオーバーします。入力を求められました。ここで I am just a renegade hockey mom. を入力します。"
 },
 {
 "i": 24,
 "start": "00:13:19,200",
 "end": "00:13:47,600",
 "en": "hit enter and now we're going to go into phase 1 step into step into all right let's confirm that my input is in one of these input parameters rdi or rsi well last time is our rdi so I'll expect it's rdi this time as well examine as string first argument I am just a renegade hockey mom.",
-"ja": ""
+"ja": "Enter キーを押して、phase 1 に入ります。ステップイン、ステップイン。入力が、これらの入力パラメータの rdi か rsi のどちらかにあることを確認しましょう。前回は rdi だったので、今回も rdi のはずです。文字列として調べると、最初の引数は I am just a renegade hockey mom. です。"
 },
 {
 "i": 25,
 "start": "00:13:44,480",
 "end": "00:14:30,000",
 "en": "great step over the strings not equal call and what is the output rax is equal to 0 so it's going to do test which is and 0 and 0 it's going to jump if not zero but the result is definitely 0 and 0 is 0 so it's not going to take the jump and it's going to fall through and return out of this phase so let's go ahead and step step there we go it did not call to explode bomb and step step and I'm back here phase defused let me go ahead and step over that and just keep going all right some sort of printout",
-"ja": ""
+"ja": "よし。strings not equal の呼び出しをステップオーバーします。出力は何でしょうか。rax が 0 に等しいです。次に test があり、これは 0 と 0 の and で、jump if not zero ですが、結果は間違いなく 0 で、0 と 0 は 0 なので、ジャンプは行われず、そのまま落ちて、このフェーズから return します。ステップ、ステップ、はい、explode bomb は呼ばれませんでした。ステップ、ステップ、ここに戻ってきました。phase defused です。それをステップオーバーして、先に進みます。何か出力されました。"
 },
 {
 "i": 26,
 "start": "00:14:27,920",
 "end": "00:15:01,920",
 "en": "phase 1 defused how about the next one and then another read line next step over the read line and it wants input again so I don't know I'm gonna give input okay and this is where I'm actually going to leave you I'm not going to solve it all for you so at this point you need to figure out what input do you need to give to phase 2 what input do you need to give to phase 3 basically just read the assembly figure out what your exit conditions are avoid those calls to explode bomb and",
-"ja": ""
+"ja": "phase 1 defused です。次はどうでしょうか。また read line があります。それをステップオーバーすると、また入力を求められるので、適当に入力します。ここで、実際にはここまでにします。全部を解いてあげるわけではありません。ここから先は、phase 2 にどんな入力が必要か、phase 3 にどんな入力が必要かを、自分で調べてください。基本的には、アセンブリを読んで、終了条件を見つけて、explode bomb の呼び出しを避けます。そして"
 },
 {
 "i": 27,
 "start": "00:15:00,240",
 "end": "00:15:33,839",
 "en": "ultimately you want to complete to the entire program and successfully exit the bomb without it exploding but there was one extra little bit of information I forgot to tell you and that is that the bomb will actually take solutions in a text file that was the fopen you see at the beginning it's basically opening a file and reading in lines from it so let's go ahead and make a.txt let's put in our solution for the first phase I am just a renegade hockey mom.",
-"ja": ""
+"ja": "最終的には、プログラム全体を完了して、ボムが爆発せずに無事に終了することが目標です。ただ、一つ伝え忘れていた小さな情報があります。ボムは、テキストファイルに書いた解答を受け取れます。最初のほうに見えた fopen がそれで、ファイルを開いて、そこから行を読み込みます。では、a.txt を作って、最初のフェーズの解答 I am just a renegade hockey mom. を入れましょう。"
 },
 {
 "i": 28,
 "start": "00:15:30,720",
 "end": "00:16:14,480",
 "en": "and if we save that off and then we run the bomb and a.txt then you can see that it says phase 1 diffused how about the next one and you provide the input for the next phase so in order to basically run it each time with the a.txt we can edit our gdb config file and change it to instead of start start start a.txt and so this will mean every time you restart it it will have the appropriate solutions fed in also while we're here we probably want to add a break point for the next phase",
-"ja": ""
+"ja": "それを保存して、bomb と a.txt を指定してボムを実行すると、phase 1 defused と出ます。次はどうでしょうか。次のフェーズの入力を渡します。毎回 a.txt を指定して実行するために、gdb の設定ファイルを編集して、start の代わりに start a.txt にできます。そうすれば、再起動するたびに、適切な解答が入力されます。ここで、ついでに、次に分析したいフェーズにも、ブレークポイントを追加したいところです。"
 },
 {
 "i": 29,
 "start": "00:16:12,959",
 "end": "00:16:56,959",
 "en": "that we want to analyze so phase 2 is where we want to stop next time so let's go ahead and see that in gdb run it like so okay well it breaks on main because of the start and we fed in the solutions after the start so we can go ahead and just continue and so it already diffused phase 1 so I can put in my phase 2 input and then now it's going to break on phase 2 because in my gdb config file I had a breakpoint set at phase 2 so there you go continue on from here on your own",
-"ja": ""
+"ja": "phase 2 を、次に止めたい場所にします。では、それを gdb で見てみましょう。このように実行します。start があるので main で止まります。解答は start のあとに入力されます。そのまま続行できます。phase 1 はもう解除されているので、phase 2 の入力を入れられます。すると、gdb の設定ファイルで phase 2 にブレークポイントを置いてあるので、phase 2 で止まります。ほら、ここから先は、自分で続けてください。"
 }
 ]
 }

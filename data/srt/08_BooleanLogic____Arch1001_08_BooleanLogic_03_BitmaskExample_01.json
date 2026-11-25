@@ -6,28 +6,28 @@
 "start": "00:00:00,320",
 "end": "00:00:34,239",
 "en": "and finally in our boolean logic section we have this BitmaskExample.c in the code we have a which is set to some hex value, b which is set to some hex value and then an if statement where it takes and it does a bitwise and on a and b and then based on whether or not that's zero or non-zero it's going to return 0x70dd1e or 0x707 so we can tell just by looking at the values that are operated on that it's definitely going to return non-zero but the interesting thing about this example is",
-"ja": ""
+"ja": "そして、ブール論理のセクションの最後は、この BitmaskExample.c です。コードでは、a にある 16 進数の値が入っていて、b にもある 16 進数の値が入っています。そのあとに if 文があって、a と b のビットごとの and を取り、それが 0 か 0 以外かによって、0x70dd1e か 0x707 を返します。演算される値を見るだけで、0 以外を返すことは間違いないと分かりますが、この例で面白いのは、"
 },
 {
 "i": 1,
 "start": "00:00:31,920",
 "end": "00:01:11,040",
 "en": "even though this is a bitwise and here we don't see a bitwise and in the assembly instead what we see is a test instruction so what is the test instruction so the test instruction according to the manual computes a bit wise and of the first operand and second operand and sets the flags accordingly so test is similar to cmp in that cmp was behind the scenes actually a subtract instruction that throws away the result after setting the flags test is an and instruction that throws away the result",
-"ja": ""
+"ja": "ここがビットごとの and なのに、アセンブリには、ビットごとの and がなく、代わりに test 命令があることです。では、test 命令とは何でしょうか。マニュアルによると、test 命令は、最初のオペランドと 2 番目のオペランドのビットごとの and を計算して、それに応じてフラグをセットします。test は cmp と似ていて、cmp は裏では実際には subtract 命令で、フラグをセットしたあと結果を捨てていました。test は and 命令で、フラグをセットしたあと、結果を捨てます。"
 },
 {
 "i": 2,
 "start": "00:01:08,640",
 "end": "00:01:41,840",
 "en": "after setting the flags. So we can understand why this might be generated here because although the C says to do a bitwise and, it's not actually storing that bitwise and anywhere, so it doesn't need any so it doesn't want to overwrite any particular value with the result of that and so therefore you should now be able to understand why there's a test instruction here and go and step through the assembly in order to confirm that the jump is taken the way you expect and that you understand all of",
-"ja": ""
+"ja": "ここでこの命令が生成される理由も分かります。C ではビットごとの and をするように書いてありますが、その and の結果をどこにも格納していないので、その結果で特定の値を上書きしたくないのです。ですから、ここに test 命令がある理由を、もう理解できるはずです。アセンブリをステップ実行して、ジャンプが期待どおりに実行されることを確かめ、この例のそのほかのアセンブリも、すべて"
 },
 {
 "i": 3,
 "start": "00:01:36,640",
 "end": "00:01:41,840",
 "en": "the other assembly in this example",
-"ja": ""
+"ja": "理解できているか確認してください。"
 }
 ]
 }

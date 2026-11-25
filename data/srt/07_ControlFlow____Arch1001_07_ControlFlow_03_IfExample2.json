@@ -6,63 +6,63 @@
 "start": "00:00:00,320",
 "end": "00:00:30,320",
 "en": "now in IfExample2, the only substantive thing we've actually changed about the code is that instead of a signed integer we are now using an unsigned integer and the net result of that on our assembly is we actually see some new jump conditional codes we see below and we see above instead of greater than and sorry less than and greater than there's still this jne but we've seen that before. So this is what the Bangle taught us about below, above,",
-"ja": ""
+"ja": "さて、IfExample2 で、コードに実質的に加えた変更は、符号つき整数の代わりに符号なし整数を使うようにしたことだけです。その結果、アセンブリには新しい条件ジャンプのコードが出てきます。below と above が見えます。greater than と less than の代わりです。jne もまだありますが、それは前に見ました。これは、Bangle が below、above、"
 },
 {
 "i": 1,
 "start": "00:00:28,880",
 "end": "00:00:32,640",
 "en": "greater than, less than.",
-"ja": ""
+"ja": "greater than、less than について教えてくれたことです。"
 },
 {
 "i": 2,
 "start": "00:00:30,320",
 "end": "00:00:59,280",
 "en": "Below and above are the unsigned notion, so that makes sense, we just declared an unsigned integer instead of a signed integer that we're going to use in our comparisons. So we can start to develop some inference from this tiny change. If there are different conditions for unsigned versus signed, and that leads to different assembly such as jump above versus jump greater than.",
-"ja": ""
+"ja": "below と above は符号なしの考え方です。比較に使う整数を、符号つきではなく符号なしとして宣言したので、納得できます。ですから、この小さな変更から、推論を始められます。符号なしと符号つきで条件が違い、それによって、jump above と jump greater than のように、アセンブリが違ってくるなら、"
 },
 {
 "i": 3,
 "start": "00:00:56,879",
 "end": "00:01:09,439",
 "en": "This implies that the compiler emits different code depending on whether or not the programmer declared the variables as unsigned versus signed.",
-"ja": ""
+"ja": "それは、プログラマが変数を符号なしで宣言したか符号つきで宣言したかによって、コンパイラが違うコードを出力することを意味します。"
 },
 {
 "i": 4,
 "start": "00:01:07,119",
 "end": "00:01:23,200",
 "en": "And ultimately a reverse engineer or a decompiler can use those different assembly instructions to infer whether the variables were likely to be unsigned or signed based in the original high-level language.",
-"ja": ""
+"ja": "そして最終的に、リバースエンジニアや逆コンパイラは、これらの違うアセンブリ命令を使って、元の高水準言語で、その変数が符号なしだったか符号つきだったかを、推測できます。"
 },
 {
 "i": 5,
 "start": "00:01:20,880",
 "end": "00:01:52,159",
 "en": "What's less obvious because I sort of skipped over it when I was talking about things like add and subtract is that it turns out that the instructions which set status flags such as the arithmetic operations like add and subtract the hardware behind the scenes does the operation as if the operands were both unsigned and signed so basically the hardware doesn't care about whether the humans are going to later on choose to interpret the bits as signed or unsigned it just does operations like subtract",
-"ja": ""
+"ja": "あまりはっきりしないのは、add や subtract などを話したときに、私が少し飛ばしたことです。add や subtract のような算術演算など、ステータスフラグを設定する命令では、ハードウェアが裏で、オペランドが符号なしの場合と符号つきの場合の両方として、演算をしているのです。つまり、あとで人間がそのビットを符号つきと符号なしのどちらで解釈するかは、ハードウェアは気にしません。subtract のような演算をして、"
 },
 {
 "i": 6,
 "start": "00:01:51,840",
 "end": "00:02:26,400",
 "en": "and sets status flags all of those status flags not just zero and sign but the overflow flag, the parity flag and so forth it just sets them as if both the operands were signed and they were unsigned and then it ultimately allows the compiler to just go ahead and sort it out oh well I can see that the human at the high level when I'm parsing the tokens of the particular syntax of the particular high level language the compiler just figures out the human means to say this is signed so I should emit the",
-"ja": ""
+"ja": "ステータスフラグをすべて設定します。ゼロフラグとサインフラグだけでなく、オーバーフローフラグやパリティフラグなども、オペランドが符号つきの場合と符号なしの場合の両方であるかのように設定します。そして、あとはコンパイラが整理すればよい、ということになります。コンパイラは、高水準言語の構文のトークンを解析するときに、人間が「これは符号つきだ」と言いたいのだとわかるので、符号つきの命令、"
 },
 {
 "i": 7,
 "start": "00:02:23,440",
 "end": "00:02:37,680",
 "en": "signed instructions, signed comparisons so that's ultimately the only takeaway that I'm going to want you to have from IfExample2 is that the compiler emits different instructions based on whether it's signed or unsigned.",
-"ja": ""
+"ja": "符号つきの比較を出力すればよい、と判断します。ですから、IfExample2 から持ち帰ってほしいのは、符号つきか符号なしかによって、コンパイラが違う命令を出力する、ということだけです。"
 },
 {
 "i": 8,
 "start": "00:02:35,599",
 "end": "00:02:44,319",
 "en": "But now go ahead and still step through the assembly, make sure that you get what's going on there.",
-"ja": ""
+"ja": "では、これもアセンブリをステップ実行して、何が起きているかを確かめてください。"
 }
 ]
 }

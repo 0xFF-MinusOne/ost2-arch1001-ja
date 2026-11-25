@@ -5,169 +5,169 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Pass1Parameter.c",
-"ja": ""
+"ja": "Pass1Parameter.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Pass1Parameter.c",
-"ja": ""
+"ja": "Pass1Parameter.c"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "int func(int a){",
-"ja": ""
+"ja": "int func(int a){"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "int i = a;",
-"ja": ""
+"ja": "int i = a;"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "Adding a single argument",
-"ja": ""
+"ja": "引数を 1 つ追加"
 },
 {
 "i": 38,
 "where": "スライド4",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 42,
 "where": "ノート4",
 "en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
-"ja": ""
+"ja": "0x38 が解放される直前までステップ実行して、スタックがどうなっているか見てください。変数 a、b、c がスタックのどこにあるか、何が未定義かを見分けてみましょう。"
 },
 {
 "i": 43,
 "where": "スライド5",
 "en": "The stack looks like this at line 000000014000100F in func():",
-"ja": ""
+"ja": "func() の 000000014000100F 行でのスタックは次のとおりです:"
 },
 {
 "i": 47,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタックアライメント用パディング"
 },
 {
 "i": 55,
 "where": "スライド5",
 "en": "a = ecx = 0x11",
-"ja": ""
+"ja": "a = ecx = 0x11"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタックアライメント用パディング"
 },
 {
 "i": 61,
 "where": "スライド5",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタックアライメント用パディング"
 },
 {
 "i": 64,
 "where": "スライド5",
 "en": "Hmm... func() wrote the register-passed argument above the return address? Outside of its own frame?!",
-"ja": ""
+"ja": "うーん… func() は、レジスタで渡された引数を、戻りアドレスより上に書き込んだ? 自分のフレームの外に?!"
 },
 {
 "i": 75,
 "where": "スライド6",
 "en": "Pass1Parameter.c takeaways",
-"ja": ""
+"ja": "Pass1Parameter.c のまとめ"
 },
 {
 "i": 76,
 "where": "スライド6",
 "en": "int func(int a){",
-"ja": ""
+"ja": "int func(int a){"
 },
 {
 "i": 77,
 "where": "スライド6",
 "en": "int i = a;",
-"ja": ""
+"ja": "int i = a;"
 },
 {
 "i": 97,
 "where": "スライド6",
 "en": "Something very interesting is going on with the stack!",
-"ja": ""
+"ja": "スタックで、とても面白いことが起きています!"
 },
 {
 "i": 98,
 "where": "スライド6",
 "en": "The value which is passed in a register is then still being stored on the stack…doesn’t that kind of defeat the speed benefit of passing arguments in registers?",
-"ja": ""
+"ja": "レジスタで渡した値が、結局スタックにも保存されています…これでは、引数をレジスタで渡す高速化の利点が、台なしではないでしょうか?"
 }
 ]
 }

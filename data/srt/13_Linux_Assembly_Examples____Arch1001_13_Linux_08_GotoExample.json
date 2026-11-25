@@ -6,28 +6,28 @@
 "start": "00:00:00,240",
 "end": "00:00:34,640",
 "en": "okay now we're into the control flow examples and the first of those was the GoToExample so the original point of this was to see whether or not we could see a jump instruction as the simple unconditional thing because we had this goto mylabel and then it would print goto ftw! so let's see what that looks like when compiled well we can actually see the entire function right here see typical prologue but then we see a nop and endbr64 which is effectively a nop an lea of some sort of address",
-"ja": ""
+"ja": "では、制御フローの例に入ります。最初は GoToExample でした。もともとの目的は、単純な無条件のジャンプ命令が見えるかどうかを確かめることでした。goto mylabel があって、そのあと goto ftw! を表示する、というものです。では、コンパイルするとどう見えるか見てみましょう。ここに関数全体が見えます。典型的なプロローグがあり、そして nop と、実質的に nop である endbr64 があり、何かのアドレスの lea があります。"
 },
 {
 "i": 1,
 "start": "00:00:32,239",
 "end": "00:01:03,280",
 "en": "right before a put us put us being equivalent to printf in this case so that's probably just the printf of goto for the win and then a move of boldfaced bit 0xb01dface before returning so we don't actually see an unconditional jump here but let's go ahead and just step through this and you know confirm for instance that this is the goto ftw! string so step step creating some function stack frame stepping over the nop nothing in here changes stepping over the endbr of course nothing",
-"ja": ""
+"ja": "それが puts の直前にあります。この場合の puts は printf と同等です。ですから、これはおそらく、goto for the win の printf でしょう。そしてそのあと、太字のビット 0xb01dface を mov してから return します。つまり、ここには無条件ジャンプは実際には見えません。でも、ステップ実行して、たとえばこれが goto ftw! の文字列であることを確かめましょう。ステップ、ステップ、関数のスタックフレームを作ります。nop をステップオーバーしても、何も変わりません。endbr をステップオーバーしても、もちろん何も"
 },
 {
 "i": 2,
 "start": "00:01:02,399",
 "end": "00:01:40,159",
 "en": "here changes and then calculating a relative displacement from rip rip plus ea7 goes into rdi so that is actually a new thing for the x86-64 extensions in 32-bit you couldn't calculate a displacement relative to rip is what's known as rip relative addressing and so we'll have an optional section later on where we'll dive into that a little bit more but you're just seeing it implicitly here so or not even implicitly explicitly so let's go ahead and check that rdi and see whether or not that is what we",
-"ja": ""
+"ja": "変わりません。そして、rip からの相対ディスプレースメントを計算します。rip plus ea7 が rdi に入ります。これは、x86-64 拡張で新しくなったことです。32 ビットでは、rip からの相対ディスプレースメントは計算できませんでした。これは、rip 相対アドレス指定として知られているものです。あとで、オプションの節で、もう少し詳しく掘り下げます。でも、ここでは暗黙のうちに、いや、暗黙ではなく明示的に見えています。では、rdi を確認して、それが私たちの"
 },
 {
 "i": 3,
 "start": "00:01:37,280",
 "end": "00:01:55,680",
 "en": "think it is so examine it as a string it is goto ftw! at that address so let's step over the puts and this is the output basically putting it out to the standard out and then not much else going on return 0xb01d face",
-"ja": ""
+"ja": "考えているものかどうか見ましょう。文字列として調べると、そのアドレスに goto ftw! があります。では、puts をステップオーバーします。これが出力で、基本的に標準出力に出しています。そのあとは、ほとんど何もなく、0xb01dface を return します。"
 }
 ]
 }

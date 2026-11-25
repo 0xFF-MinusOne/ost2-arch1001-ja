@@ -6,77 +6,77 @@
 "start": "00:00:00,000",
 "end": "00:00:32,480",
 "en": "all right what you should see when you draw your stack diagram is something like this first there will be a return address on the stack immediately when you get into the first assembly instruction in main this will be your stack address and this will be the return address next main is going to allocate hex 28 that's that mystery hex 28 that we don't really understand yet but we'll figure out later then main is going to call into func and that's going to cause it to push a return address onto the stack",
-"ja": ""
+"ja": "では、スタックの図を描くと、このようになるはずです。まず、main の最初のアセンブリ命令に入った時点で、スタックには戻りアドレスがあります。これがスタックのアドレスで、これが戻りアドレスです。次に main は 0x28 を確保します。この謎の 0x28 はまだ理解できていませんが、あとで分かります。それから main は func を呼び、戻りアドレスをスタックに push します。"
 },
 {
 "i": 1,
 "start": "00:00:30,320",
 "end": "00:00:47,600",
 "en": "furthermore func is going to allocate hex 18 worth of space but then you'll see that i being a integer only has four bytes and so that hex scalable value goes onto the stack at fdc0.",
-"ja": ""
+"ja": "さらに func は 0x18 バイトの領域を確保します。ただ、整数の i は 4 バイトしかないので、その 16 進数の scalable の値が fdc0 のスタックに入ります。"
 },
 {
 "i": 2,
 "start": "00:00:45,760",
 "end": "00:01:16,320",
 "en": "but you might have you know drawn the actual literal value for this and this and this and this but the reality is if you don't see assembly initializing something which we don't for this address space or this address space that means it's actually undefined it's uninitialized space or it's padding space of some sort it's undefined and that's what we should actually draw there so in particular on scalable if you would have looked at the assembly instruction you would have seen that it says it's actually moving",
-"ja": ""
+"ja": "ただ、ここやここ、ここの実際の値を、文字どおり描いた人もいるかもしれません。しかし実際は、このアドレス空間やこのアドレス空間のように、アセンブリで何かを初期化しているところが見えないなら、そこは未定義です。初期化されていない領域か、何らかのパディングの領域で、未定義です。実際に、そこにはそう描くべきです。特に scalable については、アセンブリ命令を見ていれば、実際に移しているのが分かったはずです。"
 },
 {
 "i": 3,
 "start": "00:01:13,280",
 "end": "00:01:48,640",
 "en": "a dword pointer worth 32bit of data into that memory so i need to highlight an element of the rmx form that i skipped before specifically in intel syntax when you're using the rmx form it will actually annotate it with this portion at the beginning saying for instance qword pointer dword pointer word pointer byte pointer etc and so that's essentially telling you in this move instruction that's moving some value to memory so here it's using immediates to memory here it's using a registered memory",
-"ja": ""
+"ja": "そのメモリに、dword pointer、つまり 32 ビット分のデータを移しています。ここで、前に飛ばしていた rmx 形式の要素を一つ説明します。Intel 構文で rmx 形式を使うときは、先頭に、qword pointer、dword pointer、word pointer、byte pointer などの注釈が付きます。つまり、この mov 命令が値をメモリに移すときに、それを示しています。ここは即値からメモリへ、ここはレジスタからメモリへです。"
 },
 {
 "i": 4,
 "start": "00:01:47,040",
 "end": "00:02:21,520",
 "en": "it's telling you what is the size of data which is going to be written to memory and i told you before when we were talking about uh you know values being written to registers i said that you know if you're moving a 32-bit value to a 64-bit register intel you know expands that with zero extension but i said that doesn't apply to memory so here if you write exactly 32 bytes d word pointer worth of content to memory at rsp you're going to get exactly 32 bytes so let me show you a quick example of",
-"ja": ""
+"ja": "メモリに書き込まれるデータの大きさを教えてくれます。前に、レジスタに値を書き込む話をしたとき、32 ビットの値を 64 ビットのレジスタに移すと、Intel はゼロ拡張で広げると言いました。でも、それはメモリには当てはまらないとも言いました。ですから、rsp のメモリに dword pointer 分の内容をちょうど書き込めば、変わるのはちょうど 32 ビット分だけです。では、簡単な例をお見せします。"
 },
 {
 "i": 5,
 "start": "00:02:20,000",
 "end": "00:02:52,000",
 "en": "how you can for instance see the difference between things that are initialized and not initialized easily in visual studio so in single local variable if we go ahead and start the debugger i'm going to go ahead and continue and hit this breakpoint at func i'm going to go to the disassembly we can see this is that hex 18 worth of space being allocated on the stack i've got my memory window down here that is at rsp and it's continuously re-evaluating so that it always stay at rsp",
-"ja": ""
+"ja": "Visual Studio で、初期化されたものと初期化されていないものの違いを簡単に見る方法です。single local variable で、デバッガを開始して、続行し、func のブレークポイントで止めます。逆アセンブリに移ると、スタックに 0x18 バイトの領域が確保されているのが分かります。下にメモリウィンドウがあり、rsp を表示しています。常に再評価されるので、いつも rsp を指しています。"
 },
 {
 "i": 6,
 "start": "00:02:49,120",
 "end": "00:03:25,760",
 "en": "if i now step over this instruction it will have done the sub 18 rsp i can actually click into the memory view here and i can just start typing ones and so i can go ahead and initialize this hex 18 myself to all ones and now when i step through the assembly i will see when stuff changes so this next instruction is going to be moved scalable to rsp dword pointer size so it should be four bytes if i step over this instruction i will see scalable is there but this is all still ones meaning that you know it",
-"ja": ""
+"ja": "この命令をステップオーバーすると、sub rsp, 0x18 が実行されます。メモリビューをクリックして、1 を入力していくことができます。この 0x18 バイトを、自分ですべて 1 で初期化できます。そのうえでアセンブリをステップ実行すれば、何かが変わったときに分かります。次の命令は、scalable を rsp に、dword pointer の大きさで移すものなので、4 バイトのはずです。この命令をステップオーバーすると、scalable がそこにありますが、ほかはまだ全部 1 のままです。つまり、"
 },
 {
 "i": 7,
 "start": "00:03:23,680",
 "end": "00:03:56,720",
 "en": "wasn't actually touched but i can further you know change this to a four byte view instead of an eight byte view and then it'll make it more clear that these ones were not touched whatsoever and these four bytes right here just had scalable move there so that's a little trick that'll possibly be helpful for you in determining uh what is you know initialized what is uninitialized but really the authoritative source is you know what are the sizes that are being specified uh in move instructions when things are",
-"ja": ""
+"ja": "そこは実際には触られていません。さらに、表示を 8 バイト単位から 4 バイト単位に変えると、これらの 1 がまったく触られていなくて、ここの 4 バイトだけに scalable が移されたことが、もっとはっきり分かります。これは、何が初期化されていて何が初期化されていないかを調べるのに役立つかもしれない、ちょっとしたコツです。ただ、本当に確かな根拠になるのは、rmx 形式を対象にした mov 命令で、指定されている大きさがいくつか、ということです。"
 },
 {
 "i": 8,
 "start": "00:03:53,760",
 "end": "00:04:27,759",
 "en": "being you know targeting an rmx form all right so what's our take away from single local variable well we can see that local variables are allocated on the stack so this assembly taking this value for what is clearly the local variable i putting it on to the stack at rsp means that you know local variables must exist on the stack but another big takeaway is that visual studio is clearly over allocating space on the stack for four bytes of data it's allocating hex 18 and we don't know why that is",
-"ja": ""
+"ja": "では、single local variable から何が分かるでしょうか。ローカル変数がスタックに確保されることが分かります。このアセンブリは、明らかにローカル変数である i の値を、rsp のスタックに置いています。ですから、ローカル変数はスタックに存在するはずです。もう一つ大きな点は、Visual Studio が、4 バイトのデータのために、スタックに領域を余分に確保していることです。0x18 を確保していますが、その理由は分かりません。"
 },
 {
 "i": 9,
 "start": "00:04:25,919",
 "end": "00:04:56,800",
 "en": "so let's go ahead and add another thing to our mystery list why is visual studio over allocating space for a single local variable and one final thing we can say about local variables is now that we know that they're stored on the stack if we go back to this example foo car main calls foo calls bar where they've got each other single local variable with the stack growing downwards we have you know the return address to get from main back to the function that invoked main then main has",
-"ja": ""
+"ja": "では、これも謎のリストに加えましょう。なぜ Visual Studio は、ローカル変数が一つだけなのに、領域を余分に確保するのでしょうか。そして最後に、ローカル変数について言えることが一つあります。ローカル変数がスタックに保存されると分かったので、foo、bar の例に戻ります。main が foo を呼び、foo が bar を呼び、それぞれに一つずつローカル変数があります。スタックは下向きに伸びるので、main から、main を呼び出した関数に戻るための戻りアドレスがあり、次に main が"
 },
 {
 "i": 10,
 "start": "00:04:53,840",
 "end": "00:05:22,240",
 "en": "its frame and that c that local variable is going to go somewhere on the stack for main's frame and when main calls to foo there's going to be a return address to get back to main and we have foo's frame, foo has a local variable b when foo calls bar it's going to have a return address on the stack and a bar has a single local variable that it uses on the stack but it doesn't call anything so it's not going to have any return address",
-"ja": ""
+"ja": "自分のフレームを持ちます。その c というローカル変数は、main のフレームの中の、スタックのどこかに置かれます。main が foo を呼ぶと、main に戻るための戻りアドレスがあり、foo のフレームがあって、foo にはローカル変数 b があります。foo が bar を呼ぶと、戻りアドレスがスタックに載ります。bar はスタックに一つだけローカル変数を持ちますが、何も呼ばないので、戻りアドレスはありません。"
 }
 ]
 }

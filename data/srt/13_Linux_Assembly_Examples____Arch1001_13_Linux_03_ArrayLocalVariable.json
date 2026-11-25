@@ -6,91 +6,91 @@
 "start": "00:00:00,160",
 "end": "00:00:40,000",
 "en": "all right the next example is ArrayLocalVariable so let's go into there let's cat it out remember what it was all right so this was the one with a as a short 6 ints in b and c is a long long 0xbabe goes into a 0xba1b0ab1edb100d goes into c and then a into b of 1 b of one plus c into b of 4 return b of 4 all right so let's go ahead and compile that and run gdb so taking a look at this we have our typical CET instruction at the beginning we can ignore we've got a typical function",
-"ja": ""
+"ja": "では次の例は ArrayLocalVariable です。そこに移動して、cat で中身を表示して、何だったか思い出しましょう。これは、a が short で、b に int が 6 つあって、c が long long のものでした。0xbabe を a に入れ、0xba1b0ab1edb100d を c に入れて、そのあと a を b of 1 に入れ、b of 1 に c を足して b of 4 に入れ、b of 4 を返します。では、コンパイルして、gdb で実行しましょう。見てみると、最初にふつうの CET 命令があって、これは無視できます。そして、ふつうの関数の"
 },
 {
 "i": 1,
 "start": "00:00:38,480",
 "end": "00:01:18,240",
 "en": "prologue setting up the stack frame we've got 0xbabe into rbp minus 2 and because we're going to have these accesses at rbp minus something and we don't actually see any subtraction from the stack pointer here so this is a another leaf function that's using the red zone as its stack area i want to get a sense of you know how much below rbp I should be looking at to see all these local variables so to do that I can do disassemble main and then just kind of eyeball through so minus 0x2 minus 0x10 0x2",
-"ja": ""
+"ja": "プロローグで、スタックフレームを準備しています。0xbabe を rbp - 2 に入れています。このように rbp - 何かでアクセスしていて、しかもスタックポインタからの引き算が見当たらないので、これも、レッドゾーンをスタック領域として使うリーフ関数です。これらのローカル変数をすべて見るには、rbp より下をどれくらい見ればいいのか、感覚をつかみたいので、disassemble main をして、ざっと目で見てみます。マイナス 0x2、マイナス 0x10、0x2、"
 },
 {
 "i": 2,
 "start": "00:01:14,960",
 "end": "00:01:20,400",
 "en": "0x2c 0x10 and 0x20.",
-"ja": ""
+"ja": "0x2c、0x10、そして 0x20 があります。"
 },
 {
 "i": 3,
 "start": "00:01:18,240",
 "end": "00:02:00,000",
 "en": "so minus 0x2c is going to be the lowest access that we're going to see in this function so I'm going to add a new display and I need to set a format specifier so that I can display I'm going to say I want to display uh ints at a time because b is an array of 6 ints and we're writing stuff into b of 1 and to b of 4 so how many ints do I need to cover 0x2c well 0x2 would be 8 because it's 4 ints per 0x10 so ints are 4 bytes 0x10 is 16 bytes so 4 per 10 times 2 is 8 and then c that is 12",
-"ja": ""
+"ja": "ですから、マイナス 0x2c が、この関数で見える、いちばん低いアクセスになります。そこで、新しい display を追加します。表示の形式を指定する必要があります。int 単位で表示したいと思います。b は int が 6 つの配列で、b of 1 と b of 4 に書き込んでいるからです。0x2c をカバーするのに、int がいくつ必要でしょうか。0x20 は 8 です。0x10 ごとに int が 4 つあるからです。int は 4 バイトで、0x10 は 16 バイトなので、10 ごとに 4 で、それが 2 つ分で 8 です。そして c の分で 12 に"
 },
 {
 "i": 4,
 "start": "00:01:56,960",
 "end": "00:02:47,200",
 "en": "so plus 3 8 plus 3 is 11. so I'm going to need 11 words because gdb ints are called words even though in Intel assembly words are two bytes gdb words are four bytes so eleven words in hex format at rbp minus 0x2c and what did I do there wrong ah because i haven't actually stepped into the function yet so rbp hasn't changed to anything valid so let's go ahead and step into it up through the function prologue and there we go now i've got an extra one so let's un-display it undisplay 14.",
-"ja": ""
+"ja": "なります。いえ、3 を足して、8 に 3 を足して 11 です。11 ワード必要です。gdb では int をワードと呼びますが、Intel のアセンブリでは、ワードは 2 バイトです。gdb のワードは 4 バイトです。ですから、rbp - 0x2c から、16 進数形式で 11 ワードを表示します。あれ、何か間違えました。ああ、まだ関数の中にステップインしていないので、rbp が有効な値に変わっていないのです。では、関数のプロローグまでステップインしましょう。はい。余分なものが 1 つ増えたので、undisplay 14 で表示を消しましょう。"
 },
 {
 "i": 5,
 "start": "00:02:43,760",
 "end": "00:03:05,840",
 "en": "all right 0xhex babe into rbp minus 0x2 and so moving a word which Intel words 16 bits so rbp minus 2 step and there we go 0xbabe rbp minus 2.",
-"ja": ""
+"ja": "さて、0x の babe を rbp - 0x2 に入れます。Intel ではワードは 16 ビットなので、ワードを移動しています。rbp - 2 です。ステップします。はい、0xbabe が rbp - 2 に入りました。"
 },
 {
 "i": 6,
 "start": "00:03:10,319",
 "end": "00:03:55,680",
 "en": "to confirm that we could for instance do x slash one half word in hex at rbp minus 0x2 and you'll see it's just 0xbabe there we've got the next instruction is movabs and you might be thinking that's you know move absolute value or something like that but this is just the moving of the constant 0xba1b0ab1edb100d into the rax register so what is a movabs instruction well the answer is there's no such thing it turns out that movabs so basically this is documentation for as which is the GNU assembler",
-"ja": ""
+"ja": "確認するために、たとえば rbp - 0x2 で、x/1 の half word を 16 進数で表示すると、ただの 0xbabe になっています。次の命令は movabs です。絶対値の move か何かのように思うかもしれませんが、これは、定数 0xba1b0ab1edb100d を rax レジスタに移しているだけです。では、movabs 命令とは何でしょうか。答えは、そんな命令は存在しない、です。実は movabs は、GNU アセンブラである as のドキュメントにあるものです。"
 },
 {
 "i": 7,
 "start": "00:03:54,000",
 "end": "00:04:32,320",
 "en": "and it's basically explaining that in 64-bit code movabs can be used to include the encode the mov instruction with a 64-bit displacement or immediate operand it's obviously using a 64-bit immediate operand here so they've chosen to use movabs instead so all this is going to do is just move 0xba1b0ab1ed b100d into rax so step over that and then rax goes right into rbp minus 0x10 well we know 0xba1b0ab1edb100d goes into c so that must be our c local variable step over that and now we have",
-"ja": ""
+"ja": "そこに、64 ビットのコードでは、movabs を使って、mov 命令を 64 ビットのディスプレースメントまたは即値オペランドでエンコードできる、と説明されています。ここでは、明らかに 64 ビットの即値オペランドを使っているので、代わりに movabs が選ばれています。この命令は、0xba1b0ab1edb100d を rax に移すだけです。これをステップオーバーします。そして rax が、そのまま rbp - 0x10 に入ります。0xba1b0ab1edb100d は c に入ることが分かっているので、これが c のローカル変数のはずです。これをステップオーバーすると、次は"
 },
 {
 "i": 8,
 "start": "00:04:29,440",
 "end": "00:05:04,000",
 "en": "move with sign extension so this is the movs move with sign extension but then because they're you know they don't have the x they're you know trying to show the sizes of the operands that are being dealt with here so it's moving with sign extension from a word so that's the 16-bit value to a long that's the 32-bit value so it's grabbing from rbp minus 2 well we know that's 0xbabe and that's just the 16-bit value so moving with sign extension 0xbabe into eax this was the thing we saw before in the",
-"ja": ""
+"ja": "符号拡張つきの move があります。これは movs で、符号拡張つきの move です。x がついていないのは、扱っているオペランドのサイズを示そうとしているからです。ワード、つまり 16 ビットの値から、long、つまり 32 ビットの値へ、符号拡張つきで移します。rbp - 2 から取り出すので、それが 0xbabe の 16 ビットの値だと分かっています。この 0xbabe を、符号拡張つきで eax に移します。これは前に Visual Studio でも見たものです。"
 },
 {
 "i": 9,
 "start": "00:05:02,479",
 "end": "00:05:39,120",
 "en": "visual studio that because the compiler sees that we're operating on signed values and because we're going to be putting that a into b of one which is a signed int it's doing a sign extension before the math with adding it to c so we've got the sign extended value and then it's going to move that into rbp minus 0x2c and it's going to pluck that right back out so that was the moving a into b of 1 so we can infer that rbp minus 0x2c is the b of 1 so we step and there we go goes into two",
-"ja": ""
+"ja": "コンパイラは、符号つきの値を扱っていると分かっていて、その a を、符号つきの int である b of 1 に入れるので、c と足し算をする前に、符号拡張をします。そこで、符号拡張された値ができて、それを rbp - 0x2c に移し、すぐにそのまま取り出します。これが、a を b of 1 に移す処理でした。ですから、rbp - 0x2c が b of 1 だと推測できます。ステップすると、ほら、2 つ目に入りました。"
 },
 {
 "i": 10,
 "start": "00:05:36,320",
 "end": "00:06:17,199",
 "en": "0xffffbabe goes into that and then pulls it right back out because it's going to do some math on it unoptimized code of course and then it takes and it moves eax to edx because it wants to accumulate in the a register so it's got that in rdx over here it's going to take rbp minus x10 into rax that is 0xba1b0ab1edb100d and then add edx to eax step and that's going to give us our math result there this is the value that's going to be put into b of 4 and then it's going to be used as",
-"ja": ""
+"ja": "0xffffbabe がそこに入って、そのあとすぐに取り出されます。これからその値で計算するからです。もちろん最適化されていないコードです。次に、eax を edx に移します。a レジスタに値を蓄積したいからです。それで、ここの rdx にその値が入ります。次に、rbp - 0x10 から rax に取り出します。それは 0xba1b0ab1edb100d で、そこに edx を eax に足します。ステップすると、計算結果が出ます。これが b of 4 に入れられる値で、そのあと、"
 },
 {
 "i": 11,
 "start": "00:06:16,240",
 "end": "00:06:52,720",
 "en": "a return address so first it's going to move it into memory that's the moving it into b of 4 there we go right there so b of 1 b of 2 b of 3 b of 4 and then it just plucks it right back out and puts it into eax the return register of course it's gonna do a sign extension of that but it's zero in the most significant bit so you just get that value and now tear down function epilogue tear down the stack frame and we're done boom boom back in the function that called main so that's it for this example nothing",
-"ja": ""
+"ja": "戻り値として使われます。まず、それをメモリに移します。それが b of 4 に移す処理で、ほら、ここです。b of 1、b of 2、b of 3、b of 4 です。そのあと、それをそのまま取り出して、戻り値のレジスタである eax に入れます。もちろん符号拡張をしますが、最上位ビットは 0 なので、その値のままです。そして、関数のエピローグで、スタックフレームを後始末して、終わりです。ドン、ドン。main を呼んだ関数に戻りました。この例は以上です。特に"
 },
 {
 "i": 12,
 "start": "00:06:51,520",
 "end": "00:07:13,360",
 "en": "especially new really or interesting going on here just a introduction to the fact that sometimes you're going to get assembly instructions and if you happen to go look for them in the manual you might not actually be able to find them and therefore you need to you know search around for whether a GNU assembler is doing something weird for instance",
-"ja": ""
+"ja": "新しいことや面白いことは起きていません。ただ、アセンブリ命令が出てきても、マニュアルで探してみると、実際には見つからないことがある、ということを知ってもらうための紹介でした。そういうときは、たとえば GNU アセンブラが何か変わったことをしていないか、調べてみる必要があります。"
 }
 ]
 }

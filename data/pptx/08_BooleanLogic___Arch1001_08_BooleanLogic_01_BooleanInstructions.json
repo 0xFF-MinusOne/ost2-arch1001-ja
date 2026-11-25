@@ -5,427 +5,427 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Boolean instructions",
-"ja": ""
+"ja": "ブール命令"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "0000000140001013  mov  rax,7EE707A11EDh",
-"ja": ""
+"ja": "0000000140001013  mov  rax,7EE707A11EDh"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "0000000140001029  and  ecx,eax",
-"ja": ""
+"ja": "0000000140001029  and  ecx,eax"
 },
 {
 "i": 21,
 "where": "スライド3",
 "en": "000000014000102D  not  eax",
-"ja": ""
+"ja": "000000014000102D  not  eax"
 },
 {
 "i": 22,
 "where": "スライド3",
 "en": "000000014000102F  or   eax,7AB00h",
-"ja": ""
+"ja": "000000014000102F  or   eax,7AB00h"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 32,
 "where": "スライド3",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 37,
 "where": "スライド3",
 "en": "uint64 k = 0x7ee707a11ed;",
-"ja": ""
+"ja": "uint64 k = 0x7ee707a11ed;"
 },
 {
 "i": 41,
 "where": "スライド3",
 "en": "BooleanBecause.c",
-"ja": ""
+"ja": "BooleanBecause.c"
 },
 {
 "i": 49,
 "where": "スライド4",
 "en": "This Class",
-"ja": ""
+"ja": "この講義"
 },
 {
 "i": 60,
 "where": "スライド4",
 "en": "Boolean operations modify most of the yellow status flags",
-"ja": ""
+"ja": "ブール演算は、黄色で示したステータスフラグの多くを変更する"
 },
 {
 "i": 63,
 "where": "スライド5",
 "en": "AND - Bitwise AND",
-"ja": ""
+"ja": "AND - ビットごとの AND"
 },
 {
 "i": 64,
 "where": "スライド5",
 "en": "C binary operator \"&\" (not &&, that's logical AND)",
-"ja": ""
+"ja": "C の二項演算子 \"&\"(&& ではない。それは論理 AND)"
 },
 {
 "i": 65,
 "where": "スライド5",
 "en": "Destination operand can be r/mX or register",
-"ja": ""
+"ja": "転送先オペランドは r/mX またはレジスタ"
 },
 {
 "i": 66,
 "where": "スライド5",
 "en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
-"ja": ""
+"ja": "転送元オペランドは r/mX、レジスタ、または即値(転送元と転送先の両方を r/mX にはできない)"
 },
 {
 "i": 69,
 "where": "スライド5",
 "en": "AND",
-"ja": ""
+"ja": "AND"
 },
 {
 "i": 73,
 "where": "スライド5",
 "en": "and al, bl",
-"ja": ""
+"ja": "and al, bl"
 },
 {
 "i": 76,
 "where": "スライド5",
 "en": "AND",
-"ja": ""
+"ja": "AND"
 },
 {
 "i": 80,
 "where": "スライド5",
 "en": "and al, 0x42",
-"ja": ""
+"ja": "and al, 0x42"
 },
 {
 "i": 83,
 "where": "スライド5",
 "en": "Book page 75",
-"ja": ""
+"ja": "書籍 75 ページ"
 },
 {
 "i": 84,
 "where": "スライド6",
 "en": "OR - Bitwise OR",
-"ja": ""
+"ja": "OR - ビットごとの OR"
 },
 {
 "i": 85,
 "where": "スライド6",
 "en": "C binary operator \"|\" (not ||, that's logical OR)",
-"ja": ""
+"ja": "C の二項演算子 \"|\"(|| ではない。それは論理 OR)"
 },
 {
 "i": 86,
 "where": "スライド6",
 "en": "Destination operand can be r/mX or register",
-"ja": ""
+"ja": "転送先オペランドは r/mX またはレジスタ"
 },
 {
 "i": 87,
 "where": "スライド6",
 "en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
-"ja": ""
+"ja": "転送元オペランドは r/mX、レジスタ、または即値(転送元と転送先の両方を r/mX にはできない)"
 },
 {
 "i": 90,
 "where": "スライド6",
 "en": "OR",
-"ja": ""
+"ja": "OR"
 },
 {
 "i": 94,
 "where": "スライド6",
 "en": "or al, bl",
-"ja": ""
+"ja": "or al, bl"
 },
 {
 "i": 97,
 "where": "スライド6",
 "en": "OR",
-"ja": ""
+"ja": "OR"
 },
 {
 "i": 101,
 "where": "スライド6",
 "en": "or al, 0x42",
-"ja": ""
+"ja": "or al, 0x42"
 },
 {
 "i": 104,
 "where": "スライド6",
 "en": "Book page 76",
-"ja": ""
+"ja": "書籍 76 ページ"
 },
 {
 "i": 105,
 "where": "スライド7",
 "en": "XOR - Bitwise Exclusive OR",
-"ja": ""
+"ja": "XOR - ビットごとの排他的論理和"
 },
 {
 "i": 106,
 "where": "スライド7",
 "en": "C binary operator \"^\"",
-"ja": ""
+"ja": "C の二項演算子 \"^\""
 },
 {
 "i": 107,
 "where": "スライド7",
 "en": "Destination operand can be r/mX or register",
-"ja": ""
+"ja": "転送先オペランドは r/mX またはレジスタ"
 },
 {
 "i": 108,
 "where": "スライド7",
 "en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
-"ja": ""
+"ja": "転送元オペランドは r/mX、レジスタ、または即値(転送元と転送先の両方を r/mX にはできない)"
 },
 {
 "i": 109,
 "where": "スライド7",
 "en": "FYI XOR is commonly used to zero a register, by XORing it with itself, because it’s faster than a MOV",
-"ja": ""
+"ja": "参考: レジスタ自身との XOR は、MOV より速いため、レジスタをゼロにするのによく使われる"
 },
 {
 "i": 119,
 "where": "スライド7",
 "en": "OR",
-"ja": ""
+"ja": "OR"
 },
 {
 "i": 126,
 "where": "スライド7",
 "en": "Book page 77",
-"ja": ""
+"ja": "書籍 77 ページ"
 },
 {
 "i": 127,
 "where": "スライド8",
 "en": "NOT - One's Complement Negation",
-"ja": ""
+"ja": "NOT - 1 の補数(ビット反転)"
 },
 {
 "i": 128,
 "where": "スライド8",
 "en": "C binary operator \"~\" (not !, that's logical NOT)",
-"ja": ""
+"ja": "C の単項演算子 \"~\"(! ではない。それは論理 NOT)"
 },
 {
 "i": 129,
 "where": "スライド8",
 "en": "Single source/destination operand can be r/mX",
-"ja": ""
+"ja": "転送元兼転送先のオペランドは 1 つで、r/mX"
 },
 {
 "i": 134,
 "where": "スライド8",
 "en": "(RAX = 0x7E55E11A7ED70AD5!)",
-"ja": ""
+"ja": "(RAX = 0x7E55E11A7ED70AD5!)"
 },
 {
 "i": 135,
 "where": "スライド8",
 "en": "not rax",
-"ja": ""
+"ja": "not rax"
 },
 {
 "i": 138,
 "where": "スライド8",
 "en": "Book page 74",
-"ja": ""
+"ja": "書籍 74 ページ"
 },
 {
 "i": 139,
 "where": "スライド9",
 "en": "NOT - One's Complement Negation",
-"ja": ""
+"ja": "NOT - 1 の補数(ビット反転)"
 },
 {
 "i": 140,
 "where": "スライド9",
 "en": "C binary operator \"~\" (not !, that's logical NOT)",
-"ja": ""
+"ja": "C の単項演算子 \"~\"(! ではない。それは論理 NOT)"
 },
 {
 "i": 141,
 "where": "スライド9",
 "en": "Single source/destination operand can be r/mX",
-"ja": ""
+"ja": "転送元兼転送先のオペランドは 1 つで、r/mX"
 },
 {
 "i": 146,
 "where": "スライド9",
 "en": "(RAX = 0x7E55E11A7ED70AD!)",
-"ja": ""
+"ja": "(RAX = 0x7E55E11A7ED70AD!)"
 },
 {
 "i": 147,
 "where": "スライド9",
 "en": "not rax",
-"ja": ""
+"ja": "not rax"
 },
 {
 "i": 150,
 "where": "スライド9",
 "en": "Book page 74",
-"ja": ""
+"ja": "書籍 74 ページ"
 },
 {
 "i": 155,
 "where": "スライド10",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 157,
 "where": "スライド10",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 },
 {
 "i": 163,
 "where": "スライド11",
 "en": "0000000140001013  mov  rax,7EE707A11EDh",
-"ja": ""
+"ja": "0000000140001013  mov  rax,7EE707A11EDh"
 },
 {
 "i": 167,
 "where": "スライド11",
 "en": "0000000140001029  and  ecx,eax",
-"ja": ""
+"ja": "0000000140001029  and  ecx,eax"
 },
 {
 "i": 169,
 "where": "スライド11",
 "en": "000000014000102D  not  eax",
-"ja": ""
+"ja": "000000014000102D  not  eax"
 },
 {
 "i": 170,
 "where": "スライド11",
 "en": "000000014000102F  or   eax,7AB00h",
-"ja": ""
+"ja": "000000014000102F  or   eax,7AB00h"
 },
 {
 "i": 179,
 "where": "スライド11",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 180,
 "where": "スライド11",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 185,
 "where": "スライド11",
 "en": "uint64 k = 0x7ee707a11ed;",
-"ja": ""
+"ja": "uint64 k = 0x7ee707a11ed;"
 },
 {
 "i": 189,
 "where": "スライド11",
 "en": "BooleanBecause.c Takeaways",
-"ja": ""
+"ja": "BooleanBecause.c のまとめ"
 },
 {
 "i": 190,
 "where": "スライド11",
 "en": "C binary operators correspond 1:1 to assembly instructions",
-"ja": ""
+"ja": "C の二項演算子は、アセンブリ命令と 1 対 1 に対応する"
 },
 {
 "i": 191,
 "where": "スライド12",
 "en": "Instructions we now know (19)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (19)"
 },
 {
 "i": 202,
 "where": "スライド12",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 239,
 "where": "スライド13",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

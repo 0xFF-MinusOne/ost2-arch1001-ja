@@ -5,343 +5,343 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "The Stack",
-"ja": ""
+"ja": "スタック"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "The Stack",
-"ja": ""
+"ja": "スタック"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "A stack is a Last-In-First-Out (LIFO) data structure where data is \"pushed\" on to the top of the stack and \"popped\" off the top",
-"ja": ""
+"ja": "スタックは後入れ先出し(LIFO)のデータ構造。データはスタックの先頭に「push」され、先頭から「pop」される"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "The stack is a conceptual area of main memory (RAM) which is designated by the OS when a program is started",
-"ja": ""
+"ja": "スタックは、プログラム開始時に OS が割り当てる、メインメモリ(RAM)上の概念的な領域"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "Different OSes start it at different addresses by their own convention, or if they’re using address space layout randomization (ASLR)",
-"ja": ""
+"ja": "開始アドレスは OS ごとの慣習で異なる。アドレス空間配置のランダム化(ASLR)を使う場合も異なる"
 },
 {
 "i": 18,
 "where": "スライド3",
 "en": "Book page 107",
-"ja": ""
+"ja": "書籍 107 ページ"
 },
 {
 "i": 19,
 "where": "スライド4",
 "en": "Process Memory",
-"ja": ""
+"ja": "プロセスのメモリ"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "The Stack 2",
-"ja": ""
+"ja": "スタック 2"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "By convention the stack grows toward lower memory addresses. Adding something to the stack means the top of the stack is now at a lower memory address",
-"ja": ""
+"ja": "慣習として、スタックは低いメモリアドレスの方向へ伸びる。スタックに追加すると、スタックの先頭はより低いアドレスになる"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "Book page 107",
-"ja": ""
+"ja": "書籍 107 ページ"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "Stack",
-"ja": ""
+"ja": "スタック"
 },
 {
 "i": 24,
 "where": "スライド4",
 "en": "Heap",
-"ja": ""
+"ja": "ヒープ"
 },
 {
 "i": 25,
 "where": "スライド4",
 "en": "Code",
-"ja": ""
+"ja": "コード"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "Global Data",
-"ja": ""
+"ja": "グローバルデータ"
 },
 {
 "i": 27,
 "where": "スライド4",
 "en": "High Addresses",
-"ja": ""
+"ja": "高アドレス"
 },
 {
 "i": 28,
 "where": "スライド4",
 "en": "Low Addresses",
-"ja": ""
+"ja": "低アドレス"
 },
 {
 "i": 30,
 "where": "スライド4",
 "en": "Grows Down",
-"ja": ""
+"ja": "下へ伸びる"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "Grows Up",
-"ja": ""
+"ja": "上へ伸びる"
 },
 {
 "i": 33,
 "where": "スライド5",
 "en": "The stack grows down towards low addresses!",
-"ja": ""
+"ja": "スタックは低いアドレスへ向かって下へ伸びる!"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "This message brought to you by M-308 Gunner from MetalStorm!",
-"ja": ""
+"ja": "MetalStorm の M-308 Gunner からのお知らせでした!"
 },
 {
 "i": 37,
 "where": "ノート5",
 "en": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png",
-"ja": ""
+"ja": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png"
 },
 {
 "i": 38,
 "where": "ノート5",
 "en": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG",
-"ja": ""
+"ja": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG"
 },
 {
 "i": 40,
 "where": "スライド6",
 "en": "The enemy’s plate is down!",
-"ja": ""
+"ja": "敵の皿は下にある!"
 },
 {
 "i": 41,
 "where": "ノート6",
 "en": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png",
-"ja": ""
+"ja": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png"
 },
 {
 "i": 42,
 "where": "ノート6",
 "en": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG",
-"ja": ""
+"ja": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG"
 },
 {
 "i": 44,
 "where": "スライド7",
 "en": "Everything you know is wrong!",
-"ja": ""
+"ja": "常識はすべて逆!"
 },
 {
 "i": 45,
 "where": "スライド7",
 "en": "Black is white, up is down, and short is long!",
-"ja": ""
+"ja": "黒は白、上は下、短いは長い!"
 },
 {
 "i": 46,
 "where": "ノート7",
 "en": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png",
-"ja": ""
+"ja": "http://satoshimatrix.files.wordpress.com/2011/08/metal-storm-u-0009.png"
 },
 {
 "i": 47,
 "where": "ノート7",
 "en": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG",
-"ja": ""
+"ja": "http://2.bp.blogspot.com/_OcRaBrP1awY/SAelZhj61tI/AAAAAAAAATw/NudzjUumtRk/s400/luncheon_plates_stacks_DSCN4744.JPG"
 },
 {
 "i": 48,
 "where": "スライド8",
 "en": "The Stack 3",
-"ja": ""
+"ja": "スタック 3"
 },
 {
 "i": 49,
 "where": "スライド8",
 "en": "RSP points to the top of the stack - the lowest address which is being used",
-"ja": ""
+"ja": "RSP はスタックの先頭、つまり使用中の最も低いアドレスを指す"
 },
 {
 "i": 50,
 "where": "スライド8",
 "en": "While data will exist at addresses beyond the top of the stack, it is considered undefined",
-"ja": ""
+"ja": "先頭より先のアドレスにデータが残っていても、未定義として扱う"
 },
 {
 "i": 51,
 "where": "スライド8",
 "en": "Book page 107",
-"ja": ""
+"ja": "書籍 107 ページ"
 },
 {
 "i": 52,
 "where": "スライド9",
 "en": "The Stack 4",
-"ja": ""
+"ja": "スタック 4"
 },
 {
 "i": 53,
 "where": "スライド9",
 "en": "What can you find on the stack?",
-"ja": ""
+"ja": "スタックには何がある?"
 },
 {
 "i": 54,
 "where": "スライド9",
 "en": "\"Return addresses\" so a called function can return back to the function that called it",
-"ja": ""
+"ja": "「戻りアドレス」。呼び出された関数が、呼び出し元の関数へ戻るために使う"
 },
 {
 "i": 55,
 "where": "スライド9",
 "en": "Local variables",
-"ja": ""
+"ja": "ローカル変数"
 },
 {
 "i": 56,
 "where": "スライド9",
 "en": "Sometimes used to pass arguments between functions",
-"ja": ""
+"ja": "関数間で引数を渡すために使われることもある"
 },
 {
 "i": 57,
 "where": "スライド9",
 "en": "Save space for registers so functions can share registers without smashing the value for each other",
-"ja": ""
+"ja": "レジスタの退避場所。関数どうしがレジスタを共有しても、互いの値を壊さずにすむ"
 },
 {
 "i": 58,
 "where": "スライド9",
 "en": "Save space for registers when the compiler has to juggle too many in a function",
-"ja": ""
+"ja": "関数内でレジスタが足りないとき、コンパイラがレジスタの退避場所にする"
 },
 {
 "i": 59,
 "where": "スライド9",
 "en": "Dynamically allocated memory via alloca()",
-"ja": ""
+"ja": "alloca() による動的割り当てメモリ"
 },
 {
 "i": 60,
 "where": "スライド9",
 "en": "Book page 107",
-"ja": ""
+"ja": "書籍 107 ページ"
 },
 {
 "i": 64,
 "where": "スライド10",
 "en": "Simple Stack Diagram",
-"ja": ""
+"ja": "スタックの簡単な図"
 },
 {
 "i": 65,
 "where": "スライド10",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 68,
 "where": "スライド10",
 "en": "int a = 3*y;",
-"ja": ""
+"ja": "int a = 3*y;"
 },
 {
 "i": 69,
 "where": "スライド10",
 "en": "printf(\"bar returned %d\", a);",
-"ja": ""
+"ja": "printf(\"bar returned %d\", a);"
 },
 {
 "i": 70,
 "where": "スライド10",
 "en": "return a;",
-"ja": ""
+"ja": "return a;"
 },
 {
 "i": 91,
 "where": "スライド10",
 "en": "Book page 113",
-"ja": ""
+"ja": "書籍 113 ページ"
 }
 ]
 }

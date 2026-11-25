@@ -5,163 +5,163 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "The Binary Bomb Lab!",
-"ja": ""
+"ja": "バイナリ爆弾ラボ!"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Binary Bomb Lab",
-"ja": ""
+"ja": "バイナリ爆弾ラボ"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "From CMU architecture class:",
-"ja": ""
+"ja": "CMU のアーキテクチャのクラスより:"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "http://csapp.cs.cmu.edu/",
-"ja": ""
+"ja": "http://csapp.cs.cmu.edu/"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Though I originally had it in the easier University of Minnesota variant",
-"ja": ""
+"ja": "私が最初に使ったのは、もっとやさしいミネソタ大学版です"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "Thanks to Randal E. Bryant & David R. O’Hallaron for providing the source code so it could be ported between various architectures",
-"ja": ""
+"ja": "さまざまなアーキテクチャへ移植できるよう、ソースコードを提供してくださった Randal E. Bryant 氏と David R. O’Hallaron 氏に感謝します"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "The textbook for the class which the bomb lab is a part of is “Computer Systems: A Programmer's Perspective, 3rd Edition, Prentice Hall, 2016; Bryant and O'Hallaron”",
-"ja": ""
+"ja": "爆弾ラボが含まれるクラスの教科書は『Computer Systems: A Programmer's Perspective, 3rd Edition』(Prentice Hall、2016、Bryant と O'Hallaron 著)です"
 },
 {
 "i": 17,
 "where": "スライド4",
 "en": "Binary Bomb Lab 2",
-"ja": ""
+"ja": "バイナリ爆弾ラボ 2"
 },
 {
 "i": 18,
 "where": "スライド4",
 "en": "Goal is to to determine the program’s desired input, to stop it from exploding",
-"ja": ""
+"ja": "目標は、プログラムが求める入力を突き止めて、爆発を止めること"
 },
 {
 "i": 19,
 "where": "スライド5",
 "en": "Phase 1 Walkthrough",
-"ja": ""
+"ja": "フェーズ 1 の解説"
 },
 {
 "i": 21,
 "where": "スライド6",
 "en": "If you already know a thing or two about asm (and were just here for the 64 bit update), let’s see how far you can get how fast if you play it on expert mode, without symbol information. Execute the following command in the directory where the bomb resides:",
-"ja": ""
+"ja": "すでにアセンブリを少し知っていて(64 ビット版の更新のためだけに来たなら)、シンボル情報なしの上級者モードで、どこまで速く進めるか試してみましょう。爆弾があるディレクトリで、次のコマンドを実行します:"
 },
 {
 "i": 22,
 "where": "スライド6",
 "en": "Ubuntu: strip ./bomb",
-"ja": ""
+"ja": "Ubuntu: strip ./bomb"
 },
 {
 "i": 23,
 "where": "スライド6",
 "en": "Windows: del ./bomb.pdb",
-"ja": ""
+"ja": "Windows: del ./bomb.pdb"
 },
 {
 "i": 24,
 "where": "スライド6",
 "en": "This is more like what you will actually see with malware. You’re not going to get symbols in that case.",
-"ja": ""
+"ja": "こちらのほうが、マルウェアで実際に見る状況に近いです。その場合、シンボルは手に入りません。"
 },
 {
 "i": 25,
 "where": "スライド6",
 "en": "Now go ahead and see how fast you can go through the rounds ;)",
-"ja": ""
+"ja": "さあ、どこまで速くラウンドを進められるか試してみましょう ;)"
 },
 {
 "i": 26,
 "where": "スライド7",
 "en": "Hints:",
-"ja": ""
+"ja": "ヒント:"
 },
 {
 "i": 27,
 "where": "スライド7",
 "en": "Standard C library documentation is your friend!",
-"ja": ""
+"ja": "C 標準ライブラリのドキュメントが頼りになります!"
 },
 {
 "i": 28,
 "where": "スライド7",
 "en": "Remember to stay focused on your goal! Do you need to understand every piece of the code? Or do you just need to know the exit condition for the level, and walk backwards from that?",
-"ja": ""
+"ja": "目標に集中することを忘れずに! コードのすべての部分を理解する必要があるでしょうか? それとも、そのレベルの終了条件だけを把握して、そこから逆にたどれば足りるでしょうか?"
 }
 ]
 }

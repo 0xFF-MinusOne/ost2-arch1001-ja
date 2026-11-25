@@ -6,98 +6,98 @@
 "start": "00:00:01,034",
 "end": "00:00:30,014",
 "en": "So the takeaway from SpecialMaths.c is that when the compiler happens to see some special math that it knows can be computed in that form that is like the base plus index time scale plus displacement that we learned about in the RMX form Then it can actually do that math using an lea Instead of doing the individual adds and multiplies Also a couple little miscellaneous things in case you missed it So there is a push our rbx at the beginning of the function,",
-"ja": ""
+"ja": "SpecialMaths.c から学べるのは、コンパイラが、rmx 形式で学んだ、ベース足すインデックス掛けるスケール足すディスプレースメントの形で計算できる、特別な計算を見つけたときには、1 つ 1 つの足し算や掛け算をするのではなく、lea を使ってその計算ができる、ということです。ほかに、見逃したかもしれない小さなことが、いくつかあります。関数の最初に push rbx があって、"
 },
 {
 "i": 1,
 "start": "00:00:30,014",
 "end": "00:00:37,059",
 "en": "and there is a pop rbx at the end of the function So what kind of saving of registers do we think that is?",
-"ja": ""
+"ja": "関数の最後に pop rbx があります。これは、どういう種類のレジスタの保存だと思いますか。"
 },
 {
 "i": 2,
 "start": "00:00:37,006",
 "end": "00:01:04,037",
 "en": "Well, I'll ask you in a quiz question in the second Also, you might notice that there is only a sub 0x20 instead of 0x28 That probably has to do with the fact that there's this push our rbx, which means that in total, the call the return address that's pushed onto the stack ends up getting balanced by this push our rbx so that the compiler sees it as 16 byte aligned So that's just another little interesting bit there All right,",
-"ja": ""
+"ja": "それは、あとで 1 つ、クイズでお聞きします。また、sub 0x28 ではなく sub 0x20 だけになっていることに気づくかもしれません。これはおそらく、この push rbx があるせいです。つまり、スタックに push された戻りアドレスが、この push rbx とつり合うので、コンパイラは 16 バイトにアラインされていると見なすのです。これも、ちょっと面白い点です。では、"
 },
 {
 "i": 3,
 "start": "00:01:04,037",
 "end": "00:01:21,095",
 "en": "So we've picked up yet another assembly instruction, lea, and this one happens to be one of the larger 5% slices of this pie And at this point, we can go back to the Hello World, and we should actually be able to fully read this assembly at this point So what's going on in hello world?",
-"ja": ""
+"ja": "またアセンブリ命令を 1 つ覚えました。lea です。これは、この円グラフの大きな 5 パーセントの切れ端の 1 つです。ここまで来たら、Hello World に戻ってみましょう。この時点で、このアセンブリを、完全に読めるはずです。では、hello world では何が起きているのでしょうか。"
 },
 {
 "i": 4,
 "start": "00:01:22,034",
 "end": "00:01:37,019",
 "en": "Well, there's the sub rsp 0x28 which we know is the combination of both stack alignment padding after the return address and the 0x20 for the shadow store area Then there is an lea taking something and putting it into rcx Well, what is this?",
-"ja": ""
+"ja": "まず sub rsp 0x28 があります。これは、戻りアドレスのあとのスタックアラインメント用のパディングと、シャドウストア領域の 0x20 の、両方を合わせたものだと、もうわかっています。次に、lea で何かを取って rcx に入れています。これは何でしょうか。"
 },
 {
 "i": 5,
 "start": "00:01:37,019",
 "end": "00:01:57,038",
 "en": "Something likely to be in the context of a print if it's probably the string But let's go ahead and confirm that now, using our disassembly and bugger So go ahead and set hello world as your startup project start your debugger, Go to the disassembly and let's go ahead and take a look at that memory location So I've turned off symbols here,",
-"ja": ""
+"ja": "printf のコンテキストにあるなら、おそらく文字列でしょう。でも、逆アセンブルとデバッガで、確かめてみましょう。hello world をスタートアッププロジェクトに設定して、デバッガを開始し、逆アセンブルを開いて、そのメモリの場所を見てみましょう。ここではシンボルをオフにしてあります。"
 },
 {
 "i": 6,
 "start": "00:01:57,038",
 "end": "00:02:27,065",
 "en": "so you don't see this listed as printf You don't see this listed with all that other weird stuff If you have the symbol names you'd see what we see before, but let's turn it off for a second so we can just see what the actual assembly instruction is So sub rsp 0x28 Let's go ahead and put our stack on eight byte size rsp automatically following along Then let's step into that instruction and rsp got moved by 0x28 Then this next instruction What's going to happen with lea Well,",
-"ja": ""
+"ja": "ですから、printf と表示されていませんし、ほかの変なものも表示されていません。シンボル名があれば、前に見たものが表示されますが、実際のアセンブリ命令を見るために、ちょっとオフにしましょう。sub rsp 0x28 です。メモリを 8 バイト単位の表示にしましょう。rsp が自動的に追従します。では、その命令にステップインすると、rsp が 0x28 だけ動きました。次の命令です。lea では何が起きるでしょうか。"
 },
 {
 "i": 7,
 "start": "00:02:27,065",
 "end": "00:02:50,032",
 "en": "it's not going to use the square brackets to go to memory It's just going to literally take this value and move it into rcx But we came over here to the debugger to see what is that value So let's go ahead and step over this so that we can confirm that Yes, it does Put that exact value into rcx Then let's put rcx into our memory window And what is that?",
-"ja": ""
+"ja": "角かっこがあっても、メモリには行きません。この値を、文字どおりそのまま rcx に mov するだけです。でも、その値が何なのかを見るために、デバッガに来ました。では、これをステップオーバーして、確かめましょう。確かに、その値がそのまま rcx に入りました。では、rcx をメモリウィンドウに入れましょう。それは何でしょうか。"
 },
 {
 "i": 8,
 "start": "00:02:50,032",
 "end": "00:02:51,002",
 "en": "That memory address?",
-"ja": ""
+"ja": "そのメモリアドレスは何でしょうか。"
 },
 {
 "i": 9,
 "start": "00:02:51,002",
 "end": "00:02:56,099",
 "en": "Well, it looks like it's actually the ASCII String Hello world and why is it going into rcx?",
-"ja": ""
+"ja": "ASCII 文字列の Hello world のようです。では、なぜそれが rcx に入っているのでしょうか。"
 },
 {
 "i": 10,
 "start": "00:02:57,000",
 "end": "00:03:35,009",
 "en": "Well, we learn from our calling conventions That visual studio puts the first argument to a function into rcx, so rcx now holds a pointer to a string Hello World, which will be passed into the call to printf so, let's go ahead and step over that call to printf and we would see over here in our executable it prints out Hello world as expected and then moving 0x1234 to eax Why eax? Because by convention eax or rax is the place where you return the return value from a C function So step over that",
-"ja": ""
+"ja": "それは、呼び出し規約で学びました。Visual Studio は、関数の最初の引数を rcx に入れます。ですから rcx は今、文字列 Hello World へのポインタを持っていて、それが printf の呼び出しに渡されます。では、その printf の call をステップオーバーしましょう。すると、こちらの実行ファイルに、期待どおり Hello world と表示されます。次に、0x1234 を eax に mov します。なぜ eax でしょうか。慣習として、eax つまり rax が、C の関数から戻り値を返す場所だからです。それをステップオーバーしましょう。"
 },
 {
 "i": 11,
 "start": "00:03:35,001",
 "end": "00:03:59,086",
 "en": "And there we go 0x1234 in rax and finally balancing out the subtraction of 0x28 from the stack We have to add back in 0x28 to the stack So do that And let's look at the stack And what we expect to see in a return instruction is the address of some code that we're going to return to This specifically is the code that called main So there we go Hello world,",
-"ja": ""
+"ja": "これで、rax に 0x1234 が入りました。最後に、スタックからの 0x28 の引き算を打ち消すために、スタックに 0x28 を足し戻す必要があります。それを実行しましょう。そしてスタックを見ましょう。return 命令で期待されるのは、戻り先のコードのアドレスです。これは具体的には、main を呼び出したコードです。さて、これで Hello world です。"
 },
 {
 "i": 12,
 "start": "00:03:59,087",
 "end": "00:04:19,013",
 "en": "Just a few instructions But it takes us quite a while to understand exactly what all is going on here in terms of calling convention stack padding, Microsoft Shadow store, different argument, different registers that are used to pass back return values versus parameters and all of that good stuff So congratulations,",
-"ja": ""
+"ja": "数個の命令だけです。でも、呼び出し規約、スタックのパディング、Microsoft のシャドウストア、引数と戻り値で使うレジスタの違いなど、ここで何が起きているかを正確に理解するには、かなり時間がかかります。おめでとうございます。"
 },
 {
 "i": 13,
 "start": "00:04:19,014",
 "end": "00:04:21,056",
 "en": "You now understand Hello World",
-"ja": ""
+"ja": "これで、Hello World を理解しました。"
 }
 ]
 }

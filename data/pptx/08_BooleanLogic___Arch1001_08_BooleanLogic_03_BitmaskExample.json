@@ -5,223 +5,223 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "BitmaskExample.c",
-"ja": ""
+"ja": "BitmaskExample.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "BitmaskExample.c",
-"ja": ""
+"ja": "BitmaskExample.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "int a = 0x1301;",
-"ja": ""
+"ja": "int a = 0x1301;"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "if(a & b){",
-"ja": ""
+"ja": "if(a & b){"
 },
 {
 "i": 28,
 "where": "スライド3",
 "en": "000000014000101A  and  ecx,eax",
-"ja": ""
+"ja": "000000014000101A  and  ecx,eax"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "“Computes the bit-wise AND of first operand (source 1 operand) and the second operand (source 2 operand) and sets the SF, ZF, and PF status flags according to the result.”",
-"ja": ""
+"ja": "「第 1 オペランド(転送元 1)と第 2 オペランド(転送元 2)のビットごとの AND を計算し、結果に応じて SF、ZF、PF ステータスフラグを設定する。」"
 },
 {
 "i": 41,
 "where": "スライド4",
 "en": "Like CMP - sets flags, and throws away the result",
-"ja": ""
+"ja": "CMP と同様、フラグを設定して結果は捨てる"
 },
 {
 "i": 48,
 "where": "スライド5",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 50,
 "where": "スライド5",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 },
 {
 "i": 52,
 "where": "スライド6",
 "en": "BitmaskExample.c Takeaways",
-"ja": ""
+"ja": "BitmaskExample.c のまとめ"
 },
 {
 "i": 53,
 "where": "スライド6",
 "en": "Conditions depending on bit tests (which is often expressed with boolean logic instructions) will often see the RFLAGS set with the TEST instruction. TEST is like AND, but throws the results away",
-"ja": ""
+"ja": "ビット検査に依存する条件(ブール論理命令で表すことが多い)では、RFLAGS の設定に TEST 命令がよく使われる。TEST は AND と同じだが、結果を捨てる"
 },
 {
 "i": 54,
 "where": "スライド6",
 "en": "The unreachable jmp here is because it’s unoptimized code so the compiler is following a simpler set of asm construction rules",
-"ja": ""
+"ja": "ここに到達しない jmp があるのは、最適化なしのコードで、コンパイラがより単純なアセンブリ生成規則に従っているため"
 },
 {
 "i": 56,
 "where": "スライド6",
 "en": "int a = 0x1301;",
-"ja": ""
+"ja": "int a = 0x1301;"
 },
 {
 "i": 58,
 "where": "スライド6",
 "en": "if(a & b){",
-"ja": ""
+"ja": "if(a & b){"
 },
 {
 "i": 71,
 "where": "スライド6",
 "en": "000000014000101A  and  ecx,eax",
-"ja": ""
+"ja": "000000014000101A  and  ecx,eax"
 },
 {
 "i": 81,
 "where": "スライド7",
 "en": "Instructions we now know (22)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (22)"
 },
 {
 "i": 92,
 "where": "スライド7",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 130,
 "where": "スライド8",
 "en": "not",
-"ja": ""
+"ja": "not"
 },
 {
 "i": 154,
 "where": "スライド9",
 "en": "GREAT KID, DON’T GET COCKY",
-"ja": ""
+"ja": "いい子だ、調子に乗るな"
 },
 {
 "i": 155,
 "where": "スライド9",
 "en": "YOU BASICALLY JUST LEARNED HOW",
-"ja": ""
+"ja": "君はアルファベットの"
 },
 {
 "i": 156,
 "where": "スライド9",
 "en": "TO PRONOUNCE THE ALPHABET!",
-"ja": ""
+"ja": "読み方を覚えたにすぎない!"
 },
 {
 "i": 157,
 "where": "スライド11",
 "en": "Letter: mov",
-"ja": ""
+"ja": "文字: mov"
 },
 {
 "i": 158,
 "where": "スライド11",
 "en": "Letter: test",
-"ja": ""
+"ja": "文字: test"
 },
 {
 "i": 159,
 "where": "スライド11",
 "en": "Letter: je",
-"ja": ""
+"ja": "文字: je"
 },
 {
 "i": 160,
 "where": "スライド11",
 "en": "Word: “if-equal”",
-"ja": ""
+"ja": "単語:「if-equal」(等しければ)"
 },
 {
 "i": 161,
 "where": "スライド11",
 "en": "Word: “test-bits”",
-"ja": ""
+"ja": "単語:「test-bits」(ビットを検査)"
 },
 {
 "i": 162,
 "where": "スライド11",
 "en": "Word: “move mem to reg",
-"ja": ""
+"ja": "単語:「move mem to reg」(メモリからレジスタへ移動)"
 },
 {
 "i": 163,
 "where": "スライド11",
 "en": "Sentence: “If variable has bit 8 set, go somewhere, else continue.”",
-"ja": ""
+"ja": "文:「変数のビット 8 が立っていればどこかへジャンプ、そうでなければ続行」"
 }
 ]
 }

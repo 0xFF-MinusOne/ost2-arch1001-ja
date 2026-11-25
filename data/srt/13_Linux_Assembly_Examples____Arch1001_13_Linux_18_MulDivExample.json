@@ -6,91 +6,91 @@
 "start": "00:00:00,080",
 "end": "00:00:46,239",
 "en": "our next example was to demonstrate both the multiply and divide instruction so let's see that all right this was a simple example taking some constants 0xdefec7ed into a and multiplying it by a 0xde7ec7ab1e and dividing it by 0x2bad505ad note these are unsigned values so we would expect an unsigned multiply and an unsigned divide so let's go ahead and compile that and debug it so if we skim through the code we see typical function prolog we see 0xdefec7ed we see 0xde7ec7ab1e we see an",
-"ja": ""
+"ja": "次の例は、掛け算と割り算の命令の両方を示すものでした。見てみましょう。これは単純な例で、定数 0xdefec7ed を a に入れて、それに 0xde7ec7ab1e を掛け、0x2bad505ad で割る、というものです。これらは符号なしの値なので、符号なしの乗算と符号なしの除算が見えると思われます。では、コンパイルしてデバッグしましょう。コードをざっと見ると、典型的な関数プロローグがあり、0xdefec7ed があり、0xde7ec7ab1e があり、"
 },
 {
 "i": 1,
 "start": "00:00:42,800",
 "end": "00:01:17,759",
 "en": "imul so looks like gcc prefers the signed multiply over the unsigned multiply as well it's the two op operand form of the imul which is the form where it multiplies the two registers together and sticks it back into the same register thereby truncating it and then we don't see any divide instruction in the rest of this we see a mov of a large constant but that is not the 0x2bad505ad constant that we might expect we also see some shifting so let's see what the ultimate result of this is",
-"ja": ""
+"ja": "imul があります。gcc も、符号なしの乗算より符号つきの乗算を好むようです。これは imul の 2 オペランドの形で、2 つのレジスタを掛け合わせて、同じレジスタに戻すので、結果が切り詰められます。そして、残りのどこにも、除算命令は見えません。大きな定数の mov はありますが、期待される 0x2bad505ad という定数ではありません。シフトもあります。では、最終的な結果がどうなるか見てみましょう。"
 },
 {
 "i": 2,
 "start": "00:01:16,240",
 "end": "00:02:05,520",
 "en": "let's actually you know see what we should expect here so let's do a little bit of math so we got 0xdefec7ed times 0xde7ec7ab1e so this should be our intermediate result and that's supposed to be divided by 0x2bad505ad so let's step through the assembly and see at least our intermediate result so stepping stepping we're stepping 0xdefec7ed into rax rax into rbp minus 8 so that's going to be that a variable from here there's a right yep a and then a back into rax and then mov this 0xde7ec7ab1e into rdx",
-"ja": ""
+"ja": "まず、何が期待されるかを確かめましょう。少し計算をします。0xdefec7ed 掛ける 0xde7ec7ab1e が、中間結果になるはずで、それを 0x2bad505ad で割ることになっています。では、アセンブリをステップ実行して、少なくとも中間結果を見ましょう。ステップ、ステップ、0xdefec7ed を rax に、rax を rbp minus 8 に入れます。これがここからの変数 a です。はい、a です。そして a を rax に戻して、この 0xde7ec7ab1e を rdx に mov します。"
 },
 {
 "i": 3,
 "start": "00:02:02,560",
 "end": "00:02:41,280",
 "en": "and then imul is going to take rax times rdx and store the result into rax so step and there we go cf60 blah blah blah cc6 cf60 blah blah blah bcc6 so that's exactly what we would expect for the result of the multiplication and then now we would expect that to be stored back into a because it was a times equals operation in the C source code so step and that stores it and then plugs it back out and now we have this mov of this giant constant that we don't even know what that is",
-"ja": ""
+"ja": "そして imul が、rax 掛ける rdx をして、結果を rax に保存します。ステップすると、cf60 以下略、cc6、cf60 以下略、bcc6 となります。これが、掛け算の結果として期待されるとおりです。そして、C のソースコードでは「掛けて代入する」演算だったので、それが a に保存し直されると思われます。ステップすると、それが保存されて、また取り出されます。そして、これが何なのかもわからない、この巨大な定数の mov があります。"
 },
 {
 "i": 4,
 "start": "00:02:38,879",
 "end": "00:03:19,280",
 "en": "into rdx then we have a unsigned multiply by rdx and remember the unsigned multiply has only the single form the one where it implicitly is going to be multiplying whatever register you give it in r/mX against the 64-bit value so here it's going to multiply the rdx implicitly times the rax and store the result into a 128-bit value where the most significant bits are in rdx and the least significant bits are in rax so let's go ahead and do that alright so we got some giant results with the upper bits here",
-"ja": ""
+"ja": "rdx に入れます。そのあと、rdx による符号なし乗算があります。符号なし乗算には、1 つの形しかなく、r/mX で指定したレジスタを、暗黙に 64 ビットの値と掛ける、という形でした。ここでは、rdx を暗黙に rax と掛けて、結果を 128 ビットの値に保存します。上位ビットは rdx に、下位ビットは rax に入ります。では、実行しましょう。巨大な結果が出ました。上位ビットが、ここの"
 },
 {
 "i": 5,
 "start": "00:03:18,720",
 "end": "00:04:05,680",
 "en": "in rdx the lower bits in rax next it's just going to take the upper bits and it's going to stick them into rax so seems like it's just clobbering everything in the lower bits so step through that and then next it's going to logical shift right by 21 bits 0x21 so 33 and then this is the net result 0x4bf7be10. so if we go back and we look at our code right here and we take our intermediate result we divide it by this 0x2bad505ad then we're going to get 0x4bf7be10 so we yielded the right result but what",
-"ja": ""
+"ja": "rdx に、下位ビットが rax にあります。次に、上位ビットを取って rax に入れます。つまり、下位ビットはすべて上書きされるようです。それをステップ実行して、次に、21 ビット、つまり 0x21、33 だけ論理右シフトします。そして、これが最終的な結果、0x4bf7be10 です。ここでコードに戻って、中間結果を取り、これを 0x2bad505ad で割ると、0x4bf7be10 になります。ですから、正しい結果が得られました。でも、"
 },
 {
 "i": 6,
 "start": "00:04:04,480",
 "end": "00:04:38,560",
 "en": "was up with that giant random constant well the answer to that is that it was doing reciprocal multiplication and the basic point of reciprocal multiplication is that divide instructions are very expensive and so if you can instead multiply by a reciprocal then that'll be cheaper and that'll be a more optimized way of doing things so for instance instead of dividing by 10 you can multiply by 1 over 10 and then you know this tutorial talks about how a fraction like 1/10 can be represented you know in",
-"ja": ""
+"ja": "あの巨大でランダムな定数は何だったのでしょうか。その答えは、逆数による乗算をしていた、ということです。逆数による乗算の基本的なポイントは、除算命令がとても高価なので、代わりに逆数を掛けられれば、そのほうが安くなり、より最適化されたやり方になる、ということです。たとえば、10 で割る代わりに、10 分の 1 を掛けることができます。このチュートリアルでは、1/10 のような分数を、どう表せるかを説明しています。"
 },
 {
 "i": 7,
 "start": "00:04:36,880",
 "end": "00:05:14,800",
 "en": "decimal it's 0.1 because essentially this place is 10 raised to the negative 1 power and then the next place over that this is the tenths is 10 to the negative 1 hundredths is 10 to the negative 2 thousandths is 10 to the negative 3 and so it says here you can represent 0.1 in base 10 as 0.000110011 repeating but like there's no real justification of like how we got this number at all so to do that you know we have to recognize how fractions are represented that 10 to the negative 1 10",
-"ja": ""
+"ja": "10 進数では 0.1 です。この桁が 10 の -1 乗で、その次の桁、つまり 10 分の 1 の位が 10 の -1 乗、100 分の 1 が 10 の -2 乗、1000 分の 1 が 10 の -3 乗だからです。ここには、10 進数の 0.1 を 0.000110011 の繰り返しで表せる、と書かれています。でも、この数をどうやって得たのかの、実際の説明はありません。そのためには、分数がどう表されるかを見る必要があります。10 の -1 乗、10"
 },
 {
 "i": 8,
 "start": "00:05:13,600",
 "end": "00:05:45,680",
 "en": "to the negative 2 and then recognize that in binary it's going to be the same thing 2 to the negative 1 to the negative 2 etc so if you're trying to represent something like point one you would see that there's zero point fives in point one there's zero point two fives in point one there's zero point one two fives in point one but there is one point six in point one and there is further another point three in point one so adding those together is still less than point one and so the fraction would",
-"ja": ""
+"ja": "の -2 乗です。そして、2 進数でも同じだと理解します。2 の -1 乗、-2 乗などです。たとえば 0.1 のようなものを表そうとすると、0.1 の中には 0.5 は 0 個、0.25 は 0 個、0.125 は 0 個ありますが、0.0625 は 1 個あり、さらに 0.03 がもう 1 個あります。これらを足しても、まだ 0.1 より小さいので、分数は"
 },
 {
 "i": 9,
 "start": "00:05:43,759",
 "end": "00:06:17,600",
 "en": "continue and so that's basically what he's showing here is basically there's no point fives there's no point two fives there's no point one two fives but there is a .006 whatever it is 0.0625 and so forth so that is basically saying that we can represent fractions in decimal like this and then there's further examples I put this here just to say you know there's a tutorial you can go dig into it if you want but it's very long and it's detailed it's talking about 16-bit you know it explains why",
-"ja": ""
+"ja": "続きます。基本的に、彼がここで示しているのは、0.5 はなく、0.25 はなく、0.125 はないけれど、0.0625 などがある、ということです。これは、10 進数でこのように分数を表せるということです。さらに例がありますが、ここに置いたのは、チュートリアルがあって、見たければ掘り下げられる、ということを言いたいだけです。とても長くて詳しいもので、16 ビットの場合を扱っていて、なぜ"
 },
 {
 "i": 10,
 "start": "00:06:16,240",
 "end": "00:06:46,800",
 "en": "there's going to be you know things like bit shifts and so forth that that's where our shift came from and it ultimately gives you the generalized form of like how you calculate a reciprocal for some constant d and you know the answer is a bunch of math and the compiler has clearly done this sort of math in order to just pre-calculate what the reciprocal could be as an optimization so again my assertion is for the most part you really don't need to know exactly how to calculate those",
-"ja": ""
+"ja": "ビットシフトなどが出てくるのか、シフトがどこから来たのか、を説明しています。そして最終的に、ある定数 d の逆数をどう計算するかの、一般化された形を示しています。答えは、たくさんの計算です。コンパイラは、最適化として、逆数が何になるかを事前に計算するために、この種の計算を明らかにしています。ですから、もう一度言いますが、私の主張は、ほとんどの場合、それらの逆数を正確にどう計算するかは、本当は知らなくてよい、ということです。"
 },
 {
 "i": 11,
 "start": "00:06:46,840",
 "end": "00:07:16,000",
 "en": "reciprocals what you need is to be able to recognize when you see this kind of thing some giant weird constants some multiply some shift that probably what's going on is the compiler you know the human probably hasn't written that unless you know you're dealing with some you know human making malicious code that looks all weird but quite frankly again a human shouldn't write that they should be writing you know programmatically generated weird code if they're trying to do you know program up",
-"ja": ""
+"ja": "必要なのは、この種のものを見たときに、それと気づけることです。巨大で変な定数、掛け算、シフトがあれば、おそらくコンパイラがやっていることで、人間が書いたものではないでしょう。ただし、変な見た目の悪意あるコードを書く人間を相手にしている場合は別です。でも率直に言って、人間がそれを書くべきではなく、プログラムの"
 },
 {
 "i": 12,
 "start": "00:07:14,800",
 "end": "00:07:31,759",
 "en": "obfuscation so the point is just to recognize that this kind of thing is probably compiler generated optimization as opposed to something the programmer is going for and you just roll with it by just you know stepping through and seeing what the result is and taking it from there",
-"ja": ""
+"ja": "難読化をしようとするなら、プログラムで生成した変なコードを書くべきです。つまり、要点は、この種のものは、プログラマが狙ったものではなく、おそらくコンパイラが生成した最適化だと気づくことです。そして、ステップ実行して結果を見て、そこから進める、という形で、流れに任せればよいのです。"
 }
 ]
 }

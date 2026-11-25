@@ -6,168 +6,168 @@
 "start": "00:00:00,24",
 "end": "00:00:28,870",
 "en": "all right, So let's talk a little more deeply about the difference between the Intel syntax of x86 disassembly, which is what I've been showing you thus far, and the AT&T syntax, which is much more common than UNIX based systems So my classes, of course, prefer Intel syntax But originally I learned AT&T Syntax as part of the computer architecture class that utilized this binary bomb example that we're going to be using later on in the class So I personally believe that it's important to know if",
-"ja": ""
+"ja": "では、ここまでお見せしてきた x86 逆アセンブリの Intel 構文と、UNIX 系のシステムでずっとよく使われている AT&T 構文の違いについて、もう少し深く話しましょう。私の講義では、もちろん Intel 構文のほうを好みます。ただ、もともと私が AT&T 構文を学んだのは、この講義であとで使うバイナリボムの例を使っていた、コンピュータアーキテクチャの授業でした。ですから、私個人としては、"
 },
 {
 "i": 1,
 "start": "00:00:28,870",
 "end": "00:00:47,950",
 "en": "both sin taxes it's not particularly difficult to translate between them It's just another thing that you have to remember I believe this is important because depending on the security researchers that you're watching a talk for, you may be seeing it in Intel syntax or AT and T syntax And if you can't read one of them,",
-"ja": ""
+"ja": "両方の構文を知っておくことが大切だと思います。両者の間で変換するのは、特に難しくはありません。覚えておくことが一つ増えるだけです。これが大切だと思うのは、聞いている講演の発表者によって、Intel 構文で見ることもあれば、AT&T 構文で見ることもあるからです。どちらか一方が読めないと、"
 },
 {
 "i": 2,
 "start": "00:00:47,950",
 "end": "00:01:18,800",
 "en": "then you're not going to be able to understand what they're saying And part of the whole goal of this class is to help you understand how things work So the brief history of AT&T syntax is that Bell Labs created multi IX, which ran on mainframes Malt IX became the inspiration for UNIX, which ran on PDP Elevens was primarily written in assembly until the same folks who invented UNIX invented C which point they rewrote some of the unique stuff in C and then that made it much more portable",
-"ja": ""
+"ja": "その人たちの言っていることが理解できません。この講義全体の目標の一つは、物事がどう動くかを理解する手助けをすることです。では、AT&T 構文の短い歴史です。Bell Labs が Multics を作り、これはメインフレームで動いていました。Multics が UNIX のきっかけになり、UNIX は PDP-11 で動いて、主にアセンブリで書かれていました。やがて、UNIX を作ったのと同じ人たちが C を作り、そこで UNIX の一部を C で書き直したので、ずっと移植しやすくなりました。"
 },
 {
 "i": 3,
 "start": "00:01:18,800",
 "end": "00:01:44,970",
 "en": "Two different architectures and so unique thing eventually got ported to 80 86 with C and a bit of assembly But that assembly syntax was adapted from the syntax used for the PDP 11 And then finally, there is good news, not UNIX, with Richard Stallman flipping a table because we're going to be citing a lot of documentation from the canoe assembler So Intel syntax is what's preferred on windows,",
-"ja": ""
+"ja": "二つの異なるアーキテクチャがあり、UNIX はやがて、C と少しのアセンブリで 80x86 に移植されました。ただ、そのアセンブリの構文は、PDP-11 で使われていた構文を取り入れたものでした。そして最後に、良い知らせがあります。UNIX ではなく GNU です。リチャード・ストールマンが、怒ってテーブルをひっくり返しています。この講義では GNU アセンブラのドキュメントをたくさん引用するからです。では、Intel 構文は、Windows で好まれています。"
 },
 {
 "i": 4,
 "start": "00:01:44,970",
 "end": "00:02:04,610",
 "en": "and you can think of it sort of like algebra where you have the things on the right to get moved into the thing on the left, sources and destinations get moved to a destination on the left So here you have no idea which way this goes but because we can tell it's Intel syntax because it doesn't have these decorators,",
-"ja": ""
+"ja": "代数のようなものだと考えるとよいでしょう。右にあるものが、左にあるものに移されます。ソースとデスティネーションは、左のデスティネーションに移されます。ここでは、どちらの向きか分かりません。でも、Intel 構文だと分かるのは、こうした飾りが付いていないからです。"
 },
 {
 "i": 5,
 "start": "00:02:04,610",
 "end": "00:02:31,860",
 "en": "these percent signs Then we have to assume that it's going to be going from right to left Same thing Add it is, this is both a source and destination plus 14 back into the destination Okay, AT&T Syntex, which is preferred on most UNIX systems It's more like elementary school One plus two equals three The operations on the left to go to the right Sources and destinations move from left to right So here it is,",
-"ja": ""
+"ja": "パーセント記号です。ですから、右から左に行くと考えます。add も同じで、これはソースでもあり、デスティネーションでもあり、14 を足して、デスティネーションに戻します。では、AT&T 構文です。ほとんどの UNIX システムで好まれています。小学校の算数のようなものです。1 足す 2 は 3、というように、演算は左から右へ進みます。ソースとデスティネーションは、左から右へ移ります。ですから、これは、"
 },
 {
 "i": 6,
 "start": "00:02:31,860",
 "end": "00:02:57,230",
 "en": "RSP being moved into our VP and RSP plus 14 back into RSP Now, from this, you can see that there is this decoration in terms of registers getting percent signs and immediate values getting dollar signs Another big difference from Intel syntax is that whereas Intel syntax indicates the size of memory accesses with things like keyword,",
-"ja": ""
+"ja": "RSP が RBP に移されて、RSP 足す 14 が RSP に戻されます。ここから分かるように、レジスタにはパーセント記号、即値にはドル記号という飾りが付きます。Intel 構文からのもう一つの大きな違いは、Intel 構文が、メモリアクセスの大きさを keyword のようなもので示すのに対し、"
 },
 {
 "i": 7,
 "start": "00:02:57,230",
 "end": "00:03:18,280",
 "en": "pointer, AT&T, syntax indicates the size with a change to the pneumonic of the instruction So instead of just move its move, be to indicate that it's moving a bite Move W to indicate it's moving a word Move l to indicate it's moving along, which an Intel parlance is the D word move Q for a Quad Word,",
-"ja": ""
+"ja": "pointer で示すのに対して、AT&T 構文は、命令のニーモニックを変えることで大きさを示します。ですから、ただの mov ではなく、mov は、movb は 1 バイトを移すことを示し、movw は 1 ワードを移すことを示し、movl は long を移すことを示します。Intel の言い方では、これはダブルワードの mov です。movq はクワッドワードです。"
 },
 {
 "i": 8,
 "start": "00:03:18,280",
 "end": "00:03:42,390",
 "en": "which is secured the same as before of the key little bit here is that it says only when this is from this documentation It says only when no other way to dis ambiguity the instruction exists, so sometimes things could just be moved instead of move W move instead of move l And it sort of becomes incumbent upon the reader to understand what the size is at that point Furthermore,",
-"ja": ""
+"ja": "これも前と同じです。ここで大事なのは、このドキュメントによると、「ほかに命令を区別する方法がない場合にのみ」と書かれていることです。ですから、movw や movl ではなく、ただの mov のこともあります。その時点で大きさが何かを理解するのは、読む人の責任になります。さらに、"
 },
 {
 "i": 9,
 "start": "00:03:42,390",
 "end": "00:04:19,360",
 "en": "some mnemonics have been more or less renamed just to use this sort of VW lq naming convention But these are not necessarily just strict suffixes These are things like the CWD, which is one of those instructions I said We don't really care about that much, but it was convert word to D word through sign extension that turns into convert word too long or something like move S X for sign extension The X gets dropped and it turns into move sign extension bite Two words size And I personally really don't like this",
-"ja": ""
+"ja": "一部のニーモニックは、この b、w、l、q という命名規則を使うために、多かれ少なかれ名前が変わっています。ただ、これらは必ずしも単なる接尾辞ではありません。たとえば CWD です。これは、あまり気にしなくてよいと言った命令の一つで、符号拡張によってワードをダブルワードに変換するものでした。これが convert word to long のようなものになります。movsx のような符号拡張では、X が落ちて、符号拡張のバイトからワードサイズへ、というものになります。私は、これが本当に好きではありません。"
 },
 {
 "i": 10,
 "start": "00:04:19,360",
 "end": "00:04:27,710",
 "en": "because it means that if you're trying, you're looking at AT&T syntax and you're trying to go fine Okay I've never seen this move s and VW instruction before What is it?",
-"ja": ""
+"ja": "AT&T 構文を見ていて、「この movsbw という命令は見たことがない、何だろう」と調べようとしたときに、"
 },
 {
 "i": 11,
 "start": "00:04:28,100",
 "end": "00:04:49,650",
 "en": "You go You look at the manual and there is no move Sp w so makes it a lot harder to look things up in the manual Same thing, especially with this So just a quick example of this from some real code will Look at later can see that over here it's move s l two Q So long to cured You can see we've got a long here,",
-"ja": ""
+"ja": "マニュアルを見ても、movsbw はありません。ですから、マニュアルで調べるのが、ずっと難しくなります。特にこれが、そうです。では、あとで見る実際のコードからの簡単な例です。ここは movslq です。つまり long から quad です。ここには long があって、"
 },
 {
 "i": 12,
 "start": "00:04:49,650",
 "end": "00:05:17,610",
 "en": "a 32 bit value and a Q word 16, 64 bit value here, and same thing over here is move S x D Because there is actually a move SX and move s xD when it's operating on D word sizes extended to keyword sizes And then one of the things that I think is quite frankly, the worst about AT&T syntax is that this base plus index time scale plus displacement representation gets turned into base,",
-"ja": ""
+"ja": "32 ビットの値と、quad word の 64 ビットの値があります。こちらも同じで movsxd です。movsx と movsxd があって、movsxd はダブルワードの大きさを、クワッドワードの大きさに拡張する場合です。そして、率直に言って AT&T 構文の最悪な点の一つだと思うのが、base 足す index かける scale 足す displacement という表現が、base、"
 },
 {
 "i": 13,
 "start": "00:05:17,610",
 "end": "00:05:35,420",
 "en": "plus index time, scale plus displacement But you have no idea what the operations are actually between here So if you were just seeing this for the first time, you had no idea that there's some specific type of math going on So this becomes just another thing that you have to memorize and recognize Okay,",
-"ja": ""
+"ja": "index、scale、displacement に変わってしまうことです。でも、この間の演算が実際に何なのかは分かりません。ですから、これを初めて見る人は、何か特定の種類の計算が行われていることを知りません。ですから、これも、覚えて見分けなければならないことの一つです。では、"
 },
 {
 "i": 14,
 "start": "00:05:35,420",
 "end": "00:05:42,070",
 "en": "If I see you know, to operate a ends well, is it based plus index time scale plus one?",
-"ja": ""
+"ja": "こう書いてあるとき、base 足す index かける scale 足す 1 なのでしょうか。"
 },
 {
 "i": 15,
 "start": "00:05:42,070",
 "end": "00:05:43,910",
 "en": "Or is it index time scale?",
-"ja": ""
+"ja": "それとも index かける scale なのでしょうか。"
 },
 {
 "i": 16,
 "start": "00:05:44,400",
 "end": "00:06:09,260",
 "en": "So it gets a little more difficult, but usually it's relatively clear But later on, once we learn how to read the manual, it will become a little more clear how to disambiguate it if there's ambiguity So some examples of this is that you might have in Intel syntax, call Cured pointer And then it's calculating up this R BX plus RS items for minus E eight,",
-"ja": ""
+"ja": "少し難しくなりますが、たいていは比較的はっきりしています。あとでマニュアルの読み方を学べば、あいまいなときに区別する方法が、もう少し分かるようになります。例を挙げると、Intel 構文では、call qword ポインタがあって、これは RBX 足す RSI かける 4 引く 0xE8 を計算します。"
 },
 {
 "i": 17,
 "start": "00:06:09,270",
 "end": "00:06:31,050",
 "en": "whereas in AT&T Syntax E eight, the displacement gets moved outside of the parentheses and it just becomes our BX RC four, and you need to just know that that is multiplied And that is added, same thing, going the opposite direction So if we had a keyword pointer instead, that's going to turn into a move Q And RVP plus eight is the destination,",
-"ja": ""
+"ja": "一方 AT&T 構文では、0xE8 という displacement が、かっこの外に出て、RBX、RSI、4 になります。これは、かけ算と足し算だと、知っておく必要があります。逆向きでも同じです。keyword ポインタの代わりなら、movq になります。そして RBP 足す 8 がデスティネーションです。"
 },
 {
 "i": 18,
 "start": "00:06:31,050",
 "end": "00:06:54,360",
 "en": "so our x percent sign for register into rvp percent sign for Register plus eight Same thing here with Elia again, basically just taking the square brackets, turning into parentheses, three parameters on the inside, one displacement on the outside and flipping the order So if we go back and look at that simple assembly that we're going to see later on,",
-"ja": ""
+"ja": "つまり、レジスタの rax にパーセント記号が付いて、レジスタの rbp にパーセント記号が付いて、足す 8 です。lea でも同じで、基本的には、角かっこをかっこに変え、内側に三つのパラメータ、外側に一つの displacement を置き、順序を逆にします。では、あとで見る単純なアセンブリに戻ると、"
 },
 {
 "i": 19,
 "start": "00:06:54,370",
 "end": "00:07:31,020",
 "en": "we have a situation where there's a little bit of ambiguity here in terms of okay, move L Well, that's telling you specifically that this f f should be long sized So that's a D word being moved into Sorry Yeah, that's right Okay, double checking my syntax as I'm going back and forth Yes, 18 Syntex on this side Probably label that to the so this is moving a long so at 0000 f f f sorry ff into this memory location But right here we have moved from some memory location into a register",
-"ja": ""
+"ja": "少しあいまいなところがあります。movl があるので、これは、この ff が long サイズだと具体的に示しています。つまり、ダブルワードが移されています。ええと、そうです。行ったり来たりしているので、構文を確認します。はい、AT&T 構文はこちら側です。ラベルを付けておくべきでしょう。これは long を移しているので、0000 ffff を、このメモリの場所に移しています。でも、ここでは、あるメモリの場所から、レジスタに移しています。"
 },
 {
 "i": 20,
 "start": "00:07:31,500",
 "end": "00:07:39,130",
 "en": "But how do we know that this, you know, is actually moving a quad word like How do we know it's right over here?",
-"ja": ""
+"ja": "でも、これが実際にクワッドワードを移していると、どうやって分かるのでしょうか。ここだと、どうして分かるのでしょうか。"
 },
 {
 "i": 21,
 "start": "00:07:39,130",
 "end": "00:07:42,740",
 "en": "We see it's a quad word, but it's just moving from memory How do we know the size?",
-"ja": ""
+"ja": "クワッドワードだと分かりますが、メモリから移しているだけです。どうやって大きさが分かるのでしょうか。"
 },
 {
 "i": 22,
 "start": "00:07:42,740",
 "end": "00:07:59,530",
 "en": "We don't know whether it's a bite Whether it's two bites, whether it's four bites, whether it's eight bytes So this is one of those things where again, I wish they would be consistent Just use it all the time instead of saying, Oh yeah, it's not ambiguous Well, it's ambiguous to you because you don't yet know how to read the manual,",
-"ja": ""
+"ja": "1 バイトなのか、2 バイトなのか、4 バイトなのか、8 バイトなのか分かりません。ですから、これも、一貫してくれればいいのに、と思うことの一つです。「ああ、あいまいではありません」と言うのではなく、いつも付けてほしいのです。あいまいではないと言いますが、あなたにとってはあいまいです。まだマニュアルの読み方を知らないからです。"
 },
 {
 "i": 23,
 "start": "00:07:59,530",
 "end": "00:08:14,820",
 "en": "and therefore you can't look behind the scenes to see exactly how this instruction was encoded So unfortunately, for now, when we're going through these AT&T syntax examples there might be a little bit of ambiguity But hopefully we'll clear that up later on when you learn to read the fund manual",
-"ja": ""
+"ja": "ですから、命令が実際にどうエンコードされたのか、裏側を調べられません。残念ながら、今のところ、これらの AT&T 構文の例を見ていくときには、少しあいまいさが残るかもしれません。でも、マニュアルの読み方を学べば、あとできっと解消されます。"
 }
 ]
 }

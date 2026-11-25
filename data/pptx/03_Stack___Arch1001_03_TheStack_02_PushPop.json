@@ -5,445 +5,445 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "As seen in Hello.c! (on macOS)",
-"ja": ""
+"ja": "Hello.c での見え方(macOS)"
 },
 {
 "i": 25,
 "where": "スライド3",
 "en": "0000000100003f7c\tretq",
-"ja": ""
+"ja": "0000000100003f7c\tretq"
 },
 {
 "i": 27,
 "where": "スライド3",
 "en": "Disassembled from command line with “otool -tV”",
-"ja": ""
+"ja": "コマンドラインから「otool -tV」で逆アセンブル"
 },
 {
 "i": 28,
 "where": "ノート3",
 "en": "Or when compiled by Clang on macOS 11.",
-"ja": ""
+"ja": "macOS 11 の Clang でコンパイルした場合。"
 },
 {
 "i": 34,
 "where": "スライド4",
 "en": "1158:\tcallq  1050 <puts@plt>",
-"ja": ""
+"ja": "1158:\tcallq  1050 <puts@plt>"
 },
 {
 "i": 39,
 "where": "スライド4",
 "en": "116e:\txchg   %ax,%ax",
-"ja": ""
+"ja": "116e:\txchg   %ax,%ax"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "As seen in Hello.c! (on Linux)",
-"ja": ""
+"ja": "Hello.c での見え方(Linux)"
 },
 {
 "i": 41,
 "where": "スライド4",
 "en": "Ubuntu 20.04, GCC 9.3.0",
-"ja": ""
+"ja": "Ubuntu 20.04、GCC 9.3.0"
 },
 {
 "i": 42,
 "where": "スライド4",
 "en": "Disassembled with “objdump -d”",
-"ja": ""
+"ja": "「objdump -d」で逆アセンブル"
 },
 {
 "i": 43,
 "where": "ノート4",
 "en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
-"ja": ""
+"ja": "同じ Hello World でも、Ubuntu Linux の GCC など別のコンパイラでは見え方が変わることも学ぶ。"
 },
 {
 "i": 47,
 "where": "スライド5",
 "en": "AS ALL THINGS SHOULD BE",
-"ja": ""
+"ja": "すべて、あるべき姿のとおり"
 },
 {
 "i": 48,
 "where": "スライド6",
 "en": "Is the same as…",
-"ja": ""
+"ja": "これと同じ…"
 },
 {
 "i": 55,
 "where": "スライド6",
 "en": "Windows Visual Studio 2019 Community",
-"ja": ""
+"ja": "Windows Visual Studio 2019 Community"
 },
 {
 "i": 57,
 "where": "スライド6",
 "en": "Disassembled with Visual C++",
-"ja": ""
+"ja": "Visual C++ で逆アセンブル"
 },
 {
 "i": 58,
 "where": "ノート6",
 "en": "Is the same as this assembly when compiled from within Windows Visual Studio, and disassembled from within Visual Studio.",
-"ja": ""
+"ja": "Windows の Visual Studio でコンパイルし、Visual Studio 内で逆アセンブルした場合も、同じアセンブリになる。"
 },
 {
 "i": 59,
 "where": "スライド7",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "Mystery Listery"
 },
 {
 "i": 60,
 "where": "スライド7",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio では対にならないのはなぜ?"
 },
 {
 "i": 62,
 "where": "スライド8",
 "en": "Push quadword onto the stack",
-"ja": ""
+"ja": "クワッドワードをスタックに push する"
 },
 {
 "i": 63,
 "where": "スライド8",
 "en": "The push instruction automatically decrements the stack pointer, RSP, by 8",
-"ja": ""
+"ja": "push 命令は、スタックポインタ RSP を自動的に 8 減らす"
 },
 {
 "i": 64,
 "where": "スライド8",
 "en": "In 64-bit execution mode, operand can be",
-"ja": ""
+"ja": "64 ビット実行モードでのオペランド"
 },
 {
 "i": 65,
 "where": "スライド8",
 "en": "The value in a 64-bit register",
-"ja": ""
+"ja": "64 ビットレジスタの値"
 },
 {
 "i": 66,
 "where": "スライド8",
 "en": "A 64-bit value from memory, as given in \"r/mX\" form talked about next",
-"ja": ""
+"ja": "メモリ上の 64 ビット値。次に説明する「r/mX」形式で指定"
 },
 {
 "i": 69,
 "where": "スライド8",
 "en": "Book page 107",
-"ja": ""
+"ja": "書籍 107 ページ"
 },
 {
 "i": 70,
 "where": "ノート8",
 "en": "Will always be a QWORD because we will be running the processor in 64bit mode, and the instruction for a 16 bit push is the same as the one for a 32bit push is the same as the one for a 64 bit push. The processor just interprets the size based on the mode it is currently running in (or more accurately the segment, but that’s a story for Intermediate x86-64 ;))",
-"ja": ""
+"ja": "64 ビットモードで動作させるため、常に QWORD になる。16 ビット push・32 ビット push・64 ビット push は同じ命令で、プロセッサが現在のモード(正確にはセグメント)に応じてサイズを解釈する。詳しくは Intermediate x86-64 で ;)"
 },
 {
 "i": 71,
 "where": "スライド9",
 "en": "“r/mX” Addressing Forms 1",
-"ja": ""
+"ja": "「r/mX」アドレッシング形式 1"
 },
 {
 "i": 72,
 "where": "スライド9",
 "en": "“r/mX” is a term I made up to refer to anywhere you see “r/m8”, “r/m16”, “r/m32”, or “r/m64” in the Intel manual",
-"ja": ""
+"ja": "「r/mX」は私の造語で、Intel のマニュアルにある「r/m8」「r/m16」「r/m32」「r/m64」をまとめて指す"
 },
 {
 "i": 79,
 "where": "スライド9",
 "en": "Book page 123",
-"ja": ""
+"ja": "書籍 123 ページ"
 },
 {
 "i": 82,
 "where": "スライド10",
 "en": "“r/mX” Addressing Forms 2",
-"ja": ""
+"ja": "「r/mX」アドレッシング形式 2"
 },
 {
 "i": 83,
 "where": "スライド10",
 "en": "In Intel syntax, most of the time square brackets [] means to treat the value within as a memory address, and fetch the value at that address (like dereferencing a pointer)",
-"ja": ""
+"ja": "Intel 構文では、角かっこ [] は、中の値をメモリアドレスとして扱い、そのアドレスの値を取り出す意味になることが多い(ポインタのデリファレンスと同じ)"
 },
 {
 "i": 84,
 "where": "スライド10",
 "en": "An “r/mX” can take 4 forms:",
-"ja": ""
+"ja": "「r/mX」は 4 つの形をとる"
 },
 {
 "i": 88,
 "where": "スライド10",
 "en": "For X = 1, 2, 4, or 8",
-"ja": ""
+"ja": "X = 1、2、4、8"
 },
 {
 "i": 90,
 "where": "スライド10",
 "en": "For Y of 1 byte (0-2^8) or 4 bytes (0-2^32)",
-"ja": ""
+"ja": "Y は 1 バイト(0〜2^8)または 4 バイト(0〜2^32)"
 },
 {
 "i": 91,
 "where": "スライド10",
 "en": "Book page 123",
-"ja": ""
+"ja": "書籍 123 ページ"
 },
 {
 "i": 92,
 "where": "スライド11",
 "en": "“r/mX” Addressing Forms 3",
-"ja": ""
+"ja": "「r/mX」アドレッシング形式 3"
 },
 {
 "i": 94,
 "where": "スライド11",
 "en": "Has natural applicability to multi-dimensional array indexing, arrays of structs, etc",
-"ja": ""
+"ja": "多次元配列の添字や、構造体の配列などにそのまま使える"
 },
 {
 "i": 96,
 "where": "スライド11",
 "en": "So when I say in the future instructions support access to memory, I mean memory as encoded in an “r/mX” form",
-"ja": ""
+"ja": "今後「命令がメモリへのアクセスに対応する」と言うときは、「r/mX」形式で表現されたメモリを指す"
 },
 {
 "i": 97,
 "where": "スライド11",
 "en": "And when I say “r/mX”, I mean something that could be as simple as a single register, or as complicated as a memory address calculation in that form",
-"ja": ""
+"ja": "「r/mX」は、単一のレジスタのように単純なものから、メモリアドレス計算のように複雑なものまでを指す"
 },
 {
 "i": 98,
 "where": "スライド11",
 "en": "Book page 123",
-"ja": ""
+"ja": "書籍 123 ページ"
 },
 {
 "i": 99,
 "where": "スライド12",
 "en": "“r/mX” Addressing Example",
-"ja": ""
+"ja": "「r/mX」アドレッシングの例"
 },
 {
 "i": 100,
 "where": "スライド12",
 "en": "Book page 123",
-"ja": ""
+"ja": "書籍 123 ページ"
 },
 {
 "i": 101,
 "where": "スライド12",
 "en": "Note: there’s nothing special about the particular registers I chose above.",
-"ja": ""
+"ja": "注: 上で選んだレジスタに特別な意味はない。"
 },
 {
 "i": 102,
 "where": "スライド12",
 "en": "Any could be substituted with any other general purpose registers",
-"ja": ""
+"ja": "どれも、ほかの汎用レジスタに置き換えられる"
 },
 {
 "i": 109,
 "where": "スライド13",
 "en": "Note about the ` address convention",
-"ja": ""
+"ja": "` によるアドレス表記の約束"
 },
 {
 "i": 110,
 "where": "スライド13",
 "en": "When writing 64 bit numbers, it can be easy to lose track of whether you have the right number of digits",
-"ja": ""
+"ja": "64 ビットの数は、桁数が合っているか見失いやすい"
 },
 {
 "i": 111,
 "where": "スライド13",
 "en": "WinDbg (which we don’t use in this class, but do in future architecture classes) allows you to write 64 bit numbers with a ` between the two 32 bit halves.",
-"ja": ""
+"ja": "WinDbg(この講義では使わないが、今後のアーキテクチャ講義で使う)では、64 ビットの数を、32 ビットずつの間に ` を入れて書ける"
 },
 {
 "i": 112,
 "where": "スライド13",
 "en": "I think this is helpful to see when a number is > 32 bit or not (because there will be some non-zero value on the left side of the `)",
-"ja": ""
+"ja": "数が 32 ビットを超えるか分かりやすい(` の左側に 0 以外の値が入るため)"
 },
 {
 "i": 113,
 "where": "スライド13",
 "en": "So in this class I’ll often write 64 bit numbers like 0x12345678`12345678.",
-"ja": ""
+"ja": "そこでこの講義でも、64 ビットの数を 0x12345678`12345678 のように書くことが多い"
 },
 {
 "i": 114,
 "where": "スライド13",
 "en": "But keep in mind that the only tool which probably supports you entering them like that is WinDbg",
-"ja": ""
+"ja": "ただし、そのように入力できるツールは、おそらく WinDbg だけ"
 },
 {
 "i": 132,
 "where": "スライド14",
 "en": "Stack Before",
-"ja": ""
+"ja": "スタック(前)"
 },
 {
 "i": 135,
 "where": "スライド14",
 "en": "Registers Before",
-"ja": ""
+"ja": "レジスタ(前)"
 },
 {
 "i": 149,
 "where": "スライド14",
 "en": "Stack After",
-"ja": ""
+"ja": "スタック(後)"
 },
 {
 "i": 152,
 "where": "スライド14",
 "en": "Registers After",
-"ja": ""
+"ja": "レジスタ(後)"
 },
 {
 "i": 154,
 "where": "スライド15",
 "en": "Pop a value from the stack",
-"ja": ""
+"ja": "スタックから値を pop する"
 },
 {
 "i": 155,
 "where": "スライド15",
 "en": "In 64-bit execution mode, operand can be",
-"ja": ""
+"ja": "64 ビット実行モードでのオペランド"
 },
 {
 "i": 156,
 "where": "スライド15",
 "en": "A 64-bit register",
-"ja": ""
+"ja": "64 ビットレジスタ"
 },
 {
 "i": 157,
 "where": "スライド15",
 "en": "A 64-bit memory address, as given in \"r/mX\" form",
-"ja": ""
+"ja": "64 ビットのメモリアドレス。「r/mX」形式で指定"
 },
 {
 "i": 158,
 "where": "スライド15",
 "en": "Increments RSP by 0x8",
-"ja": ""
+"ja": "RSP を 0x8 増やす"
 },
 {
 "i": 159,
 "where": "スライド15",
 "en": "Book page 108",
-"ja": ""
+"ja": "書籍 108 ページ"
 },
 {
 "i": 180,
 "where": "スライド16",
 "en": "Stack Before",
-"ja": ""
+"ja": "スタック(前)"
 },
 {
 "i": 183,
 "where": "スライド16",
 "en": "Registers Before",
-"ja": ""
+"ja": "レジスタ(前)"
 },
 {
 "i": 196,
 "where": "スライド16",
 "en": "Stack After",
-"ja": ""
+"ja": "スタック(後)"
 },
 {
 "i": 199,
 "where": "スライド16",
 "en": "Registers After",
-"ja": ""
+"ja": "レジスタ(後)"
 },
 {
 "i": 201,
 "where": "スライド17",
 "en": "If you are executing in 32-bit mode, push/pop will add/remove values 32 bits at a time, rather than 64 bits, and thus they decrement/increment ESP by 4 rather than 8 at a time",
-"ja": ""
+"ja": "32 ビットモードでは、push/pop は 64 ビットではなく 32 ビットずつ値を出し入れし、ESP を 8 ではなく 4 ずつ減らす/増やす"
 },
 {
 "i": 202,
 "where": "スライド17",
 "en": "Likewise, if you’re in 16-bit mode, they push/pop 16-bit values, and decrement/increment SP by 2 at a time",
-"ja": ""
+"ja": "同様に 16 ビットモードでは、16 ビットずつ出し入れし、SP を 2 ずつ減らす/増やす"
 },
 {
 "i": 203,
 "where": "スライド18",
 "en": "Instructions we now know (3)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (3)"
 }
 ]
 }

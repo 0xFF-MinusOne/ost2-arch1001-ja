@@ -5,205 +5,205 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ShiftExample1.c",
-"ja": ""
+"ja": "ShiftExample1.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "ShiftExample1.c",
-"ja": ""
+"ja": "ShiftExample1.c"
 },
 {
 "i": 28,
 "where": "スライド3",
 "en": "unsigned int a, b, c;",
-"ja": ""
+"ja": "unsigned int a, b, c;"
 },
 {
 "i": 35,
 "where": "スライド4",
 "en": "Can be explicitly used with the C “<<” operator",
-"ja": ""
+"ja": "C の「<<」演算子で明示的に使える"
 },
 {
 "i": 36,
 "where": "スライド4",
 "en": "First operand (source and destination) is an r/mX",
-"ja": ""
+"ja": "第 1 オペランド(転送元兼転送先)は r/mX"
 },
 {
 "i": 37,
 "where": "スライド4",
 "en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
-"ja": ""
+"ja": "第 2 オペランドは cl(rcx の最下位バイト)または 1 バイトの即値。第 2 オペランドがシフトする桁数"
 },
 {
 "i": 38,
 "where": "スライド4",
 "en": "It multiplies the register by 2 for each place the value is shifted. More efficient than a multiply instruction",
-"ja": ""
+"ja": "シフトした桁ごとに、レジスタの値を 2 倍する。乗算命令より効率的"
 },
 {
 "i": 39,
 "where": "スライド4",
 "en": "Bits shifted off the left hand side are “shifted into” (set) the carry flag (CF)",
-"ja": ""
+"ja": "左端からあふれたビットは、キャリーフラグ(CF)に「シフトされて入る」(セットされる)"
 },
 {
 "i": 40,
 "where": "スライド4",
 "en": "For purposes of determining if the CF is set at the end, think of it as n independent 1 bit shifts",
-"ja": ""
+"ja": "最終的に CF がセットされるかは、1 ビットのシフトを n 回独立に行うものと考えればよい"
 },
 {
 "i": 53,
 "where": "スライド4",
 "en": "Book page 77-81",
-"ja": ""
+"ja": "書籍 77〜81 ページ"
 },
 {
 "i": 55,
 "where": "スライド5",
 "en": "Can be explicitly used with the C “>>” operator",
-"ja": ""
+"ja": "C の「>>」演算子で明示的に使える"
 },
 {
 "i": 56,
 "where": "スライド5",
 "en": "First operand (source and destination) is an r/mX",
-"ja": ""
+"ja": "第 1 オペランド(転送元兼転送先)は r/mX"
 },
 {
 "i": 57,
 "where": "スライド5",
 "en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
-"ja": ""
+"ja": "第 2 オペランドは cl(rcx の最下位バイト)または 1 バイトの即値。第 2 オペランドがシフトする桁数"
 },
 {
 "i": 58,
 "where": "スライド5",
 "en": "It divides the register by 2 for each place the value is shifted. More efficient than a divide instruction",
-"ja": ""
+"ja": "シフトした桁ごとに、レジスタの値を 2 で割る。除算命令より効率的"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "Bits shifted off the right hand side are “shifted into” (set) the carry flag (CF)",
-"ja": ""
+"ja": "右端からあふれたビットは、キャリーフラグ(CF)に「シフトされて入る」(セットされる)"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "For purposes of determining if the CF is set at the end, think of it as n independent 1 bit shifts",
-"ja": ""
+"ja": "最終的に CF がセットされるかは、1 ビットのシフトを n 回独立に行うものと考えればよい"
 },
 {
 "i": 77,
 "where": "スライド6",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 79,
 "where": "スライド6",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解度チェック"
 },
 {
 "i": 81,
 "where": "スライド7",
 "en": "ShiftExample1.c Takeaways:",
-"ja": ""
+"ja": "ShiftExample1.c のまとめ:"
 },
 {
 "i": 82,
 "where": "スライド7",
 "en": "Shifts in C are shifts in asm :P",
-"ja": ""
+"ja": "C のシフトは、アセンブリのシフトになる :P"
 },
 {
 "i": 97,
 "where": "スライド7",
 "en": "unsigned int a, b, c;",
-"ja": ""
+"ja": "unsigned int a, b, c;"
 },
 {
 "i": 103,
 "where": "スライド8",
 "en": "Instructions we now know (24)",
-"ja": ""
+"ja": "ここまでに学んだ命令 (24)"
 },
 {
 "i": 114,
 "where": "スライド8",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 153,
 "where": "スライド9",
 "en": "not",
-"ja": ""
+"ja": "not"
 },
 {
 "i": 162,
 "where": "スライド9",
 "en": "But wait, there’s more!",
-"ja": ""
+"ja": "まだ続きがある!"
 }
 ]
 }

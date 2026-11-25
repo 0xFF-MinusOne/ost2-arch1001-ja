@@ -5,643 +5,643 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "About this class",
-"ja": ""
+"ja": "このクラスについて"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "When you’re “done” with this class…you’re not done.",
-"ja": ""
+"ja": "このクラスを「修了」しても、終わりではありません。"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "You’ve just begun.",
-"ja": ""
+"ja": "まだ始まったばかりです。"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "I want peers who can do what I can do, and ultimately exceed me",
-"ja": ""
+"ja": "私と同じことができ、いずれ私を超える仲間がほしい"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Mastery requires spending significant time outside of class honing your skills",
-"ja": ""
+"ja": "習得には、授業の外で相当な時間をかけて腕を磨く必要があります"
 },
 {
 "i": 15,
 "where": "ノート3",
 "en": "Alright, before we start this class in earnest, I want to set the stage by way of my motivation for why I’m teaching this class. What it really comes down to is that I want peers who know what I know, can do what I can do, and can ultimately exceed me. I want more cool kids doing cool work that I can watch a presentation of and say “that’s cool!”",
-"ja": ""
+"ja": "では、本格的に始める前に、このクラスを教える動機を話します。要するに、私と同じ知識を持ち、同じことができ、最終的に私を超える仲間がほしいのです。かっこいい仕事をする人が増えて、その発表を見て「かっこいい!」と言いたいのです。"
 },
 {
 "i": 17,
 "where": "ノート3",
 "en": "But I’ve obviously got a bit of a head start on you if you’re going to exceed me, yes? Which is why you need to understand that while I want to help get you to my level ASAP, that’s not going to happen if you just watch this class and then call it a day. Mastery of these skills will require spending significant time outside of class honing your skills. Like, hundreds to thousands of hours. Obviously that’s why your best option is to get a job which lets you get paid to keep honing your skills. That’s how I got my thousands of hours in after all.",
-"ja": ""
+"ja": "ただし、私を超えるには、あなたは私より少し出遅れていますよね。私はあなたを早く私の水準に引き上げたいですが、このクラスを見るだけで終わりにしては、そうなりません。こうしたスキルの習得には、授業の外で、何百から何千時間もかけて腕を磨く必要があります。だから、スキルを磨き続けながら給料をもらえる仕事に就くのが最善です。私もそうして何千時間も積みました。"
 },
 {
 "i": 19,
 "where": "ノート3",
 "en": "So anyway, I just wanted you to know before you’re more than 1 slide into this class, that these videos are not the end, they’re just the beginning. I have high expectations of the students who start down our learning paths, and I hope that you’ll rise to meet them.",
-"ja": ""
+"ja": "1 枚目を越える前に伝えておきます。この動画は終わりではなく、始まりにすぎません。学習の道を歩み始める受講者への期待は高く、あなたがそれに応えてくれることを願っています。"
 },
 {
 "i": 20,
 "where": "スライド4",
 "en": "About the Class",
-"ja": ""
+"ja": "クラスについて"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "The intent of this class is to expose you to the most commonly generated assembly instructions, and the most frequently dealt with architecture hardware.",
-"ja": ""
+"ja": "このクラスの狙いは、最もよく生成されるアセンブリ命令と、最もよく扱うアーキテクチャのハードウェアに触れることです。"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "64 bit instructions/hardware",
-"ja": ""
+"ja": "64 ビットの命令・ハードウェア"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "Implementation of a Stack",
-"ja": ""
+"ja": "スタックの実装"
 },
 {
 "i": 24,
 "where": "スライド4",
 "en": "Common debugging/disassembling tools",
-"ja": ""
+"ja": "一般的なデバッグ・逆アセンブルのツール"
 },
 {
 "i": 25,
 "where": "スライド4",
 "en": "Many things will therefore be intentionally left out or deferred to later classes.",
-"ja": ""
+"ja": "そのため、多くの内容は意図的に省くか、後のクラスに回します。"
 },
 {
 "i": 26,
 "where": "スライド4",
 "en": "Floating point/vector instructions/hardware",
-"ja": ""
+"ja": "浮動小数点・ベクトルの命令・ハードウェア"
 },
 {
 "i": 27,
 "where": "スライド4",
 "en": "16 bit instructions/hardware",
-"ja": ""
+"ja": "16 ビットの命令・ハードウェア"
 },
 {
 "i": 28,
 "where": "スライド4",
 "en": "Complicated or rare instructions",
-"ja": ""
+"ja": "複雑な命令、まれな命令"
 },
 {
 "i": 29,
 "where": "スライド4",
 "en": "Instruction pipeline, alternate modes of operation, hardware virtualization, etc (see other classes for those)",
-"ja": ""
+"ja": "命令パイプライン、別の動作モード、ハードウェア仮想化など(ほかのクラスを参照)"
 },
 {
 "i": 30,
 "where": "ノート4",
 "en": "Alright, so what are we going to learn in this class? The main thing is that I want you to learn above the most common assembly, registers, how the stack works, and what kind of tools you need in order to keep learning after class.",
-"ja": ""
+"ja": "では、このクラスで何を学ぶのでしょうか。主に、最もよく使うアセンブリ、レジスタ、スタックの仕組み、そして授業のあとも学び続けるために必要なツールを学んでほしいと思います。"
 },
 {
 "i": 31,
 "where": "ノート4",
 "en": "This means that I’m explicitly leaving out less common things like floating point instructions and registers, complicated and rare instructions, and many other things which will instead show up in more advanced classes.",
-"ja": ""
+"ja": "つまり、浮動小数点の命令やレジスタ、複雑でまれな命令など、多くの内容は、上級クラスに回すため、あえて省きます。"
 },
 {
 "i": 32,
 "where": "スライド5",
 "en": "About the Class 2",
-"ja": ""
+"ja": "クラスについて 2"
 },
 {
 "i": 33,
 "where": "スライド5",
 "en": "The hope is that the material covered will be provide the required background to delve deeper into areas which may have seemed daunting previously.",
-"ja": ""
+"ja": "ここで扱う内容が、これまで難しそうに見えた分野に踏み込むための土台になることを期待しています。"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "Because I can’t anticipate the needs of all job classes, if there are specific areas which you think would be useful to certain job types, let me know. The focus areas are currently primarily influenced by my security background, but I would like to make the class as widely applicable as possible.",
-"ja": ""
+"ja": "あらゆる職種の必要を予想することはできません。特定の職種に役立ちそうな分野があれば、教えてください。今の重点分野は、主に私のセキュリティの経歴に影響されていますが、できるだけ広く役立つクラスにしたいと考えています。"
 },
 {
 "i": 35,
 "where": "スライド6",
 "en": "Optional Book (64 bit)",
-"ja": ""
+"ja": "参考書(任意・64 ビット)"
 },
 {
 "i": 36,
 "where": "スライド6",
 "en": "“Introduction to 64 Bit Assembly Programming for Linux and OS X: Third Edition” by Ray Seyfarth",
-"ja": ""
+"ja": "『Introduction to 64 Bit Assembly Programming for Linux and OS X: Third Edition』 Ray Seyfarth 著"
 },
 {
 "i": 37,
 "where": "スライド6",
 "en": "Optional book for the class, to give you alternative explanations to my own",
-"ja": ""
+"ja": "クラスの任意の参考書。私とは別の説明が読めます"
 },
 {
 "i": 38,
 "where": "スライド6",
 "en": "When you see “Book” page references in the bottom of slides, it is referring to this book.",
-"ja": ""
+"ja": "スライド下部に「Book」のページ番号があれば、この本のページを指します。"
 },
 {
 "i": 39,
 "where": "ノート6",
 "en": "FYI there’s an optional book for the class. There’s no strong need for it, in that you can always just google around if something’s not clear to you, but I wanted there to be a consistent single-author alternative explanation to mine, incase you wanted it.",
-"ja": ""
+"ja": "ちなみに、任意の参考書があります。分からないことは検索すれば済むので、強く必要なわけではありません。ただ、私とは別の、一人の著者による一貫した説明がほしい人のために用意しました。"
 },
 {
 "i": 40,
 "where": "スライド7",
 "en": "Miss Alaineous",
-"ja": ""
+"ja": "いろいろな話"
 },
 {
 "i": 41,
 "where": "スライド7",
 "en": "It’s called x86 because of the progression of Intel chips from 8086, 80186, 80286, etc.",
-"ja": ""
+"ja": "x86 という名前は、Intel のチップが 8086、80186、80286 と続いたことに由来します。"
 },
 {
 "i": 42,
 "where": "スライド7",
 "en": "Originally 16-bit architecture. Later evolved to 32 and 64-bit, but kept the backwards compatibility. The hardware actually starts up in 16 bit before software transitions it to 32 or 64 bit operation.",
-"ja": ""
+"ja": "もとは 16 ビットのアーキテクチャ。のちに 32 ビット、64 ビットへ進化しましたが、後方互換性を保っています。実際、ハードウェアは 16 ビットで起動し、ソフトウェアが 32 または 64 ビット動作へ切り替えます。"
 },
 {
 "i": 43,
 "where": "ノート7",
 "en": "OK, a few quick miscellaneous points:",
-"ja": ""
+"ja": "では、いくつか手短に補足します。"
 },
 {
 "i": 44,
 "where": "ノート7",
 "en": "The name x86 comes from the fact that Intel’s first chip to use this instruction set had a model number of 8086. Then they came out with the 80186, 80286 and so forth.",
-"ja": ""
+"ja": "x86 という名前は、この命令セットを最初に使った Intel のチップの型番が 8086 だったことに由来します。その後、80186、80286 と続きました。"
 },
 {
 "i": 45,
 "where": "ノート7",
 "en": "The 8086 was a 16-bit architecture, which means it had 16-bit registers, a 16-bit memory space, etc. Later on when Intel expanded it to 32 bit and then later 64 bit, they always kept the backwards compatibility. So in reality when most hardware first powers on, it is actually running in 16 bit mode. Which we’ll talk about more in a future advanced architecture class.",
-"ja": ""
+"ja": "8086 は 16 ビットのアーキテクチャで、16 ビットのレジスタや 16 ビットのメモリ空間などを持っていました。のちに Intel が 32 ビット、さらに 64 ビットへ拡張しても、後方互換性は常に保たれました。そのため、実際には、多くのハードウェアは電源を入れた直後は 16 ビットモードで動いています。これは今後の上級アーキテクチャのクラスで詳しく話します。"
 },
 {
 "i": 46,
 "where": "スライド8",
 "en": "Miss Alaineous 2",
-"ja": ""
+"ja": "いろいろな話 2"
 },
 {
 "i": 47,
 "where": "スライド8",
 "en": "Intel originally wanted to break from x86 when moving to 64 bit. This was IA64 (Intel Architecture 64 bit) aka Itanium. However, AMD decided to extend x86 to 64 bits itself, leading to the AMD64 architecture. When Itanium had very slow adoption, Intel decided to bite the bullet and license the 64 bit extensions from AMD.",
-"ja": ""
+"ja": "Intel はもともと、64 ビット化で x86 から離れるつもりでした。それが IA64(Intel Architecture 64 bit)、通称 Itanium です。しかし AMD が自力で x86 を 64 ビットに拡張し、AMD64 アーキテクチャが生まれました。Itanium の普及が非常に遅かったため、Intel は腹をくくり、AMD から 64 ビット拡張のライセンスを受けました。"
 },
 {
 "i": 48,
 "where": "スライド8",
 "en": "In the Intel manuals you will see the 64 bit extensions referred to as IA32e or EMT64 or Intel 64 (but never IA64. Again, that's Itanium, a completely different architecture).",
-"ja": ""
+"ja": "Intel のマニュアルでは、64 ビット拡張は IA32e、EMT64、Intel 64 などと呼ばれます(IA64 とは決して呼びません。繰り返しますが、IA64 は Itanium で、まったく別のアーキテクチャです)。"
 },
 {
 "i": 49,
 "where": "ノート8",
 "en": "Now when Intel originally was going to move from 32 bit to 64 bit, they were actually going to make a whole new architecture with all new instructions. This was known as Itanium, or IA64. But in parallel AMD decided to just extend 32 bit x86 to 64 bits in a fairly straightforward way. In the end Itanium didn’t really get widespread adoption, and Intel was forced to backpedal and license the 64 bit extensions from AMD.",
-"ja": ""
+"ja": "Intel は、32 ビットから 64 ビットへ移るとき、もともとは新しい命令をすべて備えた、まったく新しいアーキテクチャを作るつもりでした。それが Itanium、つまり IA64 です。一方で AMD は、32 ビットの x86 をわりと素直に 64 ビットへ拡張しました。結局、Itanium は広く普及せず、Intel は方針を転換して、AMD から 64 ビット拡張のライセンスを受けることになりました。"
 },
 {
 "i": 50,
 "where": "ノート8",
 "en": "In the Intel manuals this has a bunch of different names like IA32e, EMT64, and Intel 64.",
-"ja": ""
+"ja": "Intel のマニュアルでは、これは IA32e、EMT64、Intel 64 など、いくつもの名前で呼ばれています。"
 },
 {
 "i": 51,
 "where": "スライド9",
 "en": "Miss Alaineous 3",
-"ja": ""
+"ja": "いろいろな話 3"
 },
 {
 "i": 52,
 "where": "スライド9",
 "en": "You might sometimes see it called amd64 or x64 by MS or some linux distributions",
-"ja": ""
+"ja": "Microsoft や一部の Linux ディストリビューションでは、amd64 や x64 と呼ばれることもあります"
 },
 {
 "i": 53,
 "where": "スライド9",
 "en": "In this class we're going to go with x86-64",
-"ja": ""
+"ja": "このクラスでは x86-64 と呼びます"
 },
 {
 "i": 54,
 "where": "ノート9",
 "en": "Other names you might seen in Linux distributions or from Microsoft are amd64 or x64. But in this class we’re going to call it x86-64.",
-"ja": ""
+"ja": "Linux ディストリビューションや Microsoft では、amd64 や x64 という名前も見かけるかもしれません。このクラスでは x86-64 と呼びます。"
 },
 {
 "i": 55,
 "where": "スライド10",
 "en": "Where is x86-64 used?",
-"ja": ""
+"ja": "x86-64 はどこで使われているか"
 },
 {
 "i": 56,
 "where": "スライド10",
 "en": "More powerful (but thus power-hungry) systems such as PCs, servers, and even super-computers",
-"ja": ""
+"ja": "より高性能(その分、電力も大きい)なシステム。PC、サーバー、スーパーコンピュータなど"
 },
 {
 "i": 57,
 "where": "スライド10",
 "en": "Minimal adoption on phones or embedded systems. Intel does have the entire Atom line of lower-power chips targeted towards embedded systems though (and they’re starting to focus more on performance per Watt, which is where ARM has always been better)",
-"ja": ""
+"ja": "スマートフォンや組み込みシステムでは、ほとんど普及していません。ただし Intel には、組み込み向けの低消費電力チップ Atom シリーズがあります(ワット当たりの性能に力を入れ始めていますが、そこは昔から ARM のほうが得意です)"
 },
 {
 "i": 58,
 "where": "ノート10",
 "en": "So where is x86-64 used? Well you probably know that it’s mostly used in applications which need high computational power, such as PCs, servers, and even super-computers. With very high probability, the machine you’re watching this class on is an x86-64 machine. But the ARM-based systems, like Microsoft Surface or Apple’s M1 Macs - which I helped design the SecureBoot system for - are coming to give Intel a run for it’s money in the PC space.",
-"ja": ""
+"ja": "では、x86-64 はどこで使われているのでしょうか。高い計算能力が必要なアプリケーション、たとえば PC、サーバー、スーパーコンピュータなどで主に使われていることは、たぶんご存じでしょう。このクラスを見ているマシンも、ほぼ間違いなく x86-64 です。ただ、Microsoft Surface や Apple の M1 Mac のような ARM ベースのシステム(M1 の SecureBoot の設計は私も手伝いました)が、PC の分野で Intel を脅かし始めています。"
 },
 {
 "i": 60,
 "where": "ノート10",
 "en": "Intel has some chips which are more focused on power-constrained devices, like embedded systems, but they make up a tiny fraction of Intel’s chip volume.",
-"ja": ""
+"ja": "Intel には、組み込みシステムのような電力に制約のある機器向けのチップもありますが、Intel のチップ全体の数量に占める割合はごくわずかです。"
 },
 {
 "i": 61,
 "where": "スライド11",
 "en": "What you’re going to learn:",
-"ja": ""
+"ja": "これから学ぶこと:"
 },
 {
 "i": 62,
 "where": "スライド11",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 67,
 "where": "ノート11",
 "en": "So what are you going to learn in this class? Well, we’re going to be learning assembly by looking at simple C programs and seeing how the compiler outputs the equivalent assembly. So for instance you’ll learn that this simple Hello World program…",
-"ja": ""
+"ja": "このクラスでは、簡単な C プログラムを見て、コンパイラが対応するアセンブリをどう出力するかを見ながら、アセンブリを学びます。たとえば、この単純な Hello World プログラムが…"
 },
 {
 "i": 68,
 "where": "スライド12",
 "en": "Is the same as…",
-"ja": ""
+"ja": "次と同じです…"
 },
 {
 "i": 75,
 "where": "スライド12",
 "en": "Windows Visual Studio 2019 Community",
-"ja": ""
+"ja": "Windows Visual Studio 2019 Community"
 },
 {
 "i": 77,
 "where": "スライド12",
 "en": "Disassembled with Visual C++",
-"ja": ""
+"ja": "Visual C++ で逆アセンブル"
 },
 {
 "i": 78,
 "where": "ノート12",
 "en": "Is the same as this assembly when compiled from within Windows Visual Studio, and disassembled from within Visual Studio.",
-"ja": ""
+"ja": "これは、Windows の Visual Studio 内でコンパイルし、Visual Studio 内で逆アセンブルしたときの、次のアセンブリと同じです。"
 },
 {
 "i": 79,
 "where": "スライド13",
 "en": "which could be viewed as…",
-"ja": ""
+"ja": "次のようにも見えます…"
 },
 {
 "i": 90,
 "where": "スライド13",
 "en": "Windows Visual Studio 2019 Community",
-"ja": ""
+"ja": "Windows Visual Studio 2019 Community"
 },
 {
 "i": 92,
 "where": "スライド13",
 "en": "Disassembled with Ghidra 9.2",
-"ja": ""
+"ja": "Ghidra 9.2 で逆アセンブル"
 },
 {
 "i": 93,
 "where": "ノート13",
 "en": "Which could look like this, if you happened to disassemble the same program with a different disassembler like Ghidra.",
-"ja": ""
+"ja": "同じプログラムを Ghidra のような別の逆アセンブラで逆アセンブルすると、このように見えることもあります。"
 },
 {
 "i": 95,
 "where": "スライド14",
 "en": "1149:\tf3 0f 1e fa          \tendbr64",
-"ja": ""
+"ja": "1149:\tf3 0f 1e fa          \tendbr64"
 },
 {
 "i": 99,
 "where": "スライド14",
 "en": "1158:\te8 f3 fe ff ff       \tcallq  1050 <puts@plt>",
-"ja": ""
+"ja": "1158:\te8 f3 fe ff ff       \tcallq  1050 <puts@plt>"
 },
 {
 "i": 105,
 "where": "スライド14",
 "en": "116e:\t66 90                \txchg   %ax,%ax",
-"ja": ""
+"ja": "116e:\t66 90                \txchg   %ax,%ax"
 },
 {
 "i": 106,
 "where": "スライド14",
 "en": "which is equivalent to…",
-"ja": ""
+"ja": "次と等価です…"
 },
 {
 "i": 107,
 "where": "スライド14",
 "en": "Ubuntu 20.04, GCC 9.3.0",
-"ja": ""
+"ja": "Ubuntu 20.04、GCC 9.3.0"
 },
 {
 "i": 108,
 "where": "スライド14",
 "en": "Disassembled with “objdump -d”",
-"ja": ""
+"ja": "「objdump -d」で逆アセンブル"
 },
 {
 "i": 109,
 "where": "ノート14",
 "en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
-"ja": ""
+"ja": "同じ Hello World でも、Ubuntu Linux の GCC など別のコンパイラでコンパイルすると見た目が変わることも学びます。"
 },
 {
 "i": 110,
 "where": "スライド15",
 "en": "which is equivalent to…",
-"ja": ""
+"ja": "次と等価です…"
 },
 {
 "i": 116,
 "where": "スライド15",
 "en": "0000000100003f5f\tleaq\t0x38(%rip), %rdi        ## literal pool for: \"Hello World!\\n\"",
-"ja": ""
+"ja": "0000000100003f5f\tleaq\t0x38(%rip), %rdi        ## literal pool for: \"Hello World!\\n\""
 },
 {
 "i": 118,
 "where": "スライド15",
 "en": "0000000100003f68\tcallq\t0x100003f7e ## symbol stub for: _printf",
-"ja": ""
+"ja": "0000000100003f68\tcallq\t0x100003f7e ## symbol stub for: _printf"
 },
 {
 "i": 124,
 "where": "スライド15",
 "en": "0000000100003f7c\tretq",
-"ja": ""
+"ja": "0000000100003f7c\tretq"
 },
 {
 "i": 126,
 "where": "スライド15",
 "en": "Disassembled from command line with “otool -tV”",
-"ja": ""
+"ja": "コマンドラインから「otool -tV」で逆アセンブル"
 },
 {
 "i": 127,
 "where": "ノート15",
 "en": "Or when compiled by Clang on macOS 11.",
-"ja": ""
+"ja": "macOS 11 の Clang でコンパイルした場合も同様です。"
 },
 {
 "i": 128,
 "where": "スライド16",
 "en": "But it all boils down to…",
-"ja": ""
+"ja": "でも結局は、次のようになります…"
 },
 {
 "i": 131,
 "where": "スライド16",
 "en": ".text:000000014000100B call    printf",
-"ja": ""
+"ja": ".text:000000014000100B call    printf"
 },
 {
 "i": 135,
 "where": "スライド16",
 "en": "Windows Visual Studio 2019 Community, /GS option turned off",
-"ja": ""
+"ja": "Windows Visual Studio 2019 Community、/GS オプションをオフ"
 },
 {
 "i": 136,
 "where": "スライド16",
 "en": "Disassembled with IDA Freeware 7 (with some omissions for fitting on screen)",
-"ja": ""
+"ja": "IDA Freeware 7 で逆アセンブル(画面に収めるため一部省略)"
 },
 {
 "i": 137,
 "where": "ノート16",
 "en": "But at the end of the day the simplest version remains this 6-instruction version, here shown disassembled by yet another disassembler, IDA. We can see the basic outline of what’s going on here. We see something referencing the string “Hello World”, we see a call to the printf() function. And we see the number hex 1234 which is what this version of Hello World returned at the end. The rest of the assembly, well we’ve got no idea yet what’s going on there.",
-"ja": ""
+"ja": "でも結局、最も単純なのは、この 6 命令のバージョンです。ここでは、さらに別の逆アセンブラ IDA で逆アセンブルしています。何が起きているかの大まかな流れが分かります。文字列「Hello World」を参照するものがあり、printf() 関数の呼び出しがあります。そして、この Hello World が最後に返す 16 進数の 1234 があります。残りのアセンブリは、まだ何をしているか分かりません。"
 },
 {
 "i": 138,
 "where": "スライド17",
 "en": "Take Heart!",
-"ja": ""
+"ja": "安心してください!"
 },
 {
 "i": 139,
 "where": "スライド17",
 "en": "By one measure, only 14 assembly instructions account for 90% of code!",
-"ja": ""
+"ja": "ある調査では、わずか 14 個のアセンブリ命令が、コードの 90% を占めています!"
 },
 {
 "i": 141,
 "where": "スライド17",
 "en": "You’ve already seen 10 common instructions, just in the hello world variations! (And 2 special security instructions we’ll talk about later.)",
-"ja": ""
+"ja": "Hello World のバリエーションだけで、よく使う命令をすでに 10 個見ました!(あと、あとで話すセキュリティ用の特別な命令が 2 個あります。)"
 },
 {
 "i": 142,
 "where": "スライド17",
 "en": "I think that knowing about 20-30 (not counting variations) is good enough that you will have the check the manual very infrequently",
-"ja": ""
+"ja": "バリエーションを除いて 20〜30 個ほど知っていれば、マニュアルを見る機会はほとんどなくなると思います"
 },
 {
 "i": 143,
 "where": "ノート17",
 "en": "But take heart! By one measure, only 14 assembly instructions account for 90% of code! And you’ve already seen 10 common instructions just in the different versions of Hello World that different compilers generate!",
-"ja": ""
+"ja": "でも安心してください! ある調査では、わずか 14 個のアセンブリ命令が、コードの 90% を占めています! しかも、コンパイラごとに生成される Hello World のバリエーションだけで、よく使う命令をすでに 10 個見ました!"
 },
 {
 "i": 145,
 "where": "ノート17",
 "en": "My personal experience is that if you know about 30 instructions, you will be able to read most code, and only need to hit up the manual very infrequently.",
-"ja": ""
+"ja": "私の経験では、30 個ほどの命令を知っていれば、たいていのコードが読め、マニュアルを見る必要はほとんどありません。"
 },
 {
 "i": 146,
 "where": "スライド18",
 "en": "Take Heart!",
-"ja": ""
+"ja": "安心してください!"
 },
 {
 "i": 147,
 "where": "スライド18",
 "en": "Check out this newer reference!",
-"ja": ""
+"ja": "もっと新しい資料もあります!"
 },
 {
 "i": 149,
 "where": "ノート18",
 "en": "And since that BlackHat reference from 2006 might seem like it’s getting a bit stale, here’s a newer reference from 2011 which also showed that you really don’t need to know that many instructions to know most of the code used in common application types!",
-"ja": ""
+"ja": "2006 年の BlackHat の資料は少し古く感じられるかもしれません。そこで、2011 年のもっと新しい資料を紹介します。これも、一般的なアプリケーションのコードの大半を知るのに、それほど多くの命令は要らないことを示しています!"
 },
 {
 "i": 151,
 "where": "ノート18",
 "en": "For instance, we will see literally every assembly instruction, and more, which is cited in this frequency breakdown of a web browser’s instructions!",
-"ja": ""
+"ja": "たとえば、この Web ブラウザの命令の出現頻度の内訳に出てくる命令は、このクラスで、文字どおりすべて見ます。それ以外も見ます!"
 },
 {
 "i": 152,
 "where": "スライド19",
 "en": "Outcomes",
-"ja": ""
+"ja": "到達目標"
 },
 {
 "i": 153,
 "where": "スライド19",
 "en": "By the end of this class you should…",
-"ja": ""
+"ja": "このクラスを終えるまでに、次のことができるようになります。"
 },
 {
 "i": 154,
 "where": "スライド19",
 "en": "Know the x86-64 general purpose registers, and their 32 and 16 bit sub-register names",
-"ja": ""
+"ja": "x86-64 の汎用レジスタと、その 32 ビット・16 ビットのサブレジスタ名を知っている"
 },
 {
 "i": 155,
 "where": "スライド19",
 "en": "Understand how data like local variables or return addresses are stored on the stack",
-"ja": ""
+"ja": "ローカル変数や戻りアドレスなどのデータが、スタックにどう格納されるかを理解している"
 },
 {
 "i": 156,
 "where": "スライド19",
 "en": "Understand function calling conventions",
-"ja": ""
+"ja": "関数の呼び出し規約を理解している"
 },
 {
 "i": 157,
 "where": "スライド19",
 "en": "Be comfortable writing C code in an IDE (like Visual Studio) and reading and stepping through the disassembly (so you can find new instructions)",
-"ja": ""
+"ja": "IDE(Visual Studio など)で C コードを書き、逆アセンブルを読んだりステップ実行したりすることに慣れている(新しい命令を自分で見つけられる)"
 },
 {
 "i": 158,
 "where": "スライド19",
 "en": "Be able to read assembly well enough to determine the expected inputs to influence the control flow for an opaque binary (the infamous “Binary Bomb lab”)",
-"ja": ""
+"ja": "アセンブリを十分に読み、中身の分からないバイナリで、制御フローを変える期待入力を割り出せる(悪名高い「Binary Bomb lab」)"
 },
 {
 "i": 159,
 "where": "ノート19",
 "en": "Alright, so what’s the final outcome going to be from this class?",
-"ja": ""
+"ja": "では、このクラスの最終的な到達目標は何でしょうか。"
 },
 {
 "i": 160,
 "where": "ノート19",
 "en": "By the end I expect that you should know all the x86-64 general purpose registers, and the older 32 and 16 bit register names, which can still be accessed by 64 bit code.",
-"ja": ""
+"ja": "最後までに、x86-64 の汎用レジスタと、64 ビットコードからもまだ使える古い 32 ビット・16 ビットのレジスタ名を、すべて知っているはずです。"
 },
 {
 "i": 161,
 "where": "ノート19",
 "en": "<just read the rest of the slide>",
-"ja": ""
+"ja": "<スライドの残りを読んでください>"
 },
 {
 "i": 163,
 "where": "ノート19",
 "en": "Alright, well I think that’s quite enough of my face for now. I’m going to go ahead and disappear from a good chunk of the future videos, because <lean towards camera> it’s very annoying to have to keep talking into the camera, making virtual eye contact, while not looking down at my slides. But don’t worry, I’ll *pop* back in from time to time when I want to use my phase for *emphasis* <make funny face> ;)",
-"ja": ""
+"ja": "さて、私の顔はもう十分でしょう。今後の動画の多くでは、私は画面から消えます。<カメラに身を乗り出して> スライドを見ずにカメラに話しかけ続け、目を合わせ続けるのは、とてもやっかいなので。でも心配はいりません。ときどき *ポン* と戻ってきます。顔で *強調* したいときに <変な顔をする> ;)"
 }
 ]
 }

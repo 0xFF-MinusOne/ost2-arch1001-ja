@@ -6,497 +6,497 @@
 "start": "00:00:00,080",
 "end": "00:00:35,680",
 "en": "so guess what I have repeatedly misled you because simplification is misleading and those who want to be the true masters of their own destiny must know what lies below so it's time to learn the fascinating truth it's time to read the fun manual that's right read the fun manuals Intel's manual is available here volume 1 is a summary of life the universe and everything about x86 it's basically just overview type stuff volumes 2a through 2d explain all the various assembly instructions themselves",
-"ja": ""
+"ja": "さて、実は、私は何度も皆さんをだましていました。単純化は人をだますものだからです。自分の運命を本当に支配したい人は、その下に何があるかを知らなければなりません。ですから、魅力的な真実を学ぶときが来ました。fun manual を読むときです。そう、fun manual を読みましょう。Intel のマニュアルはここにあります。第 1 巻は、x86 についての人生と宇宙とすべての要約で、基本的には概要のような内容です。第 2A 巻から第 2D 巻では、さまざまなアセンブリ命令そのものを説明していて、"
 },
 {
 "i": 1,
 "start": "00:00:32,800",
 "end": "00:01:06,799",
 "en": "including all the assembly extensions and in volumes 3 a through 3d this is where all the gory details about you know everything actually exists so volume 1 summary it's good but you really gotta get into volume 3 before you really understand how stuff works so as a quick reminder we... all the volume numbers and references and everything are from the november 2019 version which comes with this class and we're primarily going to be looking at volume 2. now the correct way to interpret these pages that I'm going to",
-"ja": ""
+"ja": "アセンブリの拡張もすべて含まれています。そして第 3A 巻から第 3D 巻に、本当に何もかもの生々しい詳細が実際に載っています。第 1 巻の要約はよいのですが、本当に仕組みを理解するには、第 3 巻まで読む必要があります。念のため言っておくと、巻の番号や参照などは、すべて、このクラスに付属している 2019 年 11 月版のものです。主に見ていくのは第 2 巻です。では、これからお見せするページの正しい読み方は、"
 },
 {
 "i": 2,
 "start": "00:01:05,280",
 "end": "00:01:34,640",
 "en": "be showing you is given in Intel manual 2a sections 2.1 and 2.2 so I'm actually even going to be giving a further simplification for this next part and I'll leave it for some optional extra material if you really really want to dive even deeper it's material you don't strictly need to know unless you're you know trying to write a disassembler or something like that maybe you're hand tweaking some shell code then maybe you need to know it most people don't need to know so I'll have it available but you know",
-"ja": ""
+"ja": "Intel マニュアル 2A の 2.1 節と 2.2 節に書かれています。ここから先の部分は、さらに単純化して説明します。もっと深く掘り下げたい人向けに、任意の追加資料として残しておきます。逆アセンブラを書く場合などでなければ、厳密には知らなくてもよい内容です。シェルコードを手で調整している場合は、知る必要があるかもしれませんが、ほとんどの人は知る必要がありません。資料は用意しておきますが、"
 },
 {
 "i": 3,
 "start": "00:01:32,640",
 "end": "00:02:03,759",
 "en": "I'm not suggesting that most people need to check it out so really you gotta RTFM to RTFM but I'll give you the basics so here's what I said about the and instruction you know three bullet points and two examples right it's so simple and here's what the Intel manual says about the and instruction it's a bit more complicated so we need to learn to understand how to read that kind of table so let's go through it 1 column at a time opcode column this is going to represent the very literal bytes that you would",
-"ja": ""
+"ja": "ほとんどの人に見ておくよう勧めるわけではありません。ですから、RTFM を読むために RTFM する必要があるわけですが、基本は説明します。and 命令について、私は、箇条書き 3 つと例 2 つで説明しました。とても簡単ですね。Intel のマニュアルが and 命令について書いている内容は、もう少し複雑です。ですから、この種の表の読み方を学ぶ必要があります。では、1 列ずつ見ていきましょう。オペコードの列です。これは、特定のアセンブリ命令を指定するためにコンパイラが出力する、文字どおりのバイトを"
 },
 {
 "i": 4,
 "start": "00:02:03,119",
 "end": "00:02:39,680",
 "en": "see emitted by a compiler in order to specify a particular assembly instruction so if you saw 24 and then you saw a single byte that would always be the and instruction taking that single byte whatever it is one two three four five six seven eight that single byte as an immediate and anding it into the with the al register on the other hand if you had 0x25 then you would know that instead it's going into the ax register instead of al and it's 16 byte immediate or I guess it could be a 32-bit immediate",
-"ja": ""
+"ja": "表します。たとえば 24 が見えて、そのあとに 1 バイトが来たら、それは必ず and 命令です。その 1 バイト、つまり 1、2、3、4、5、6、7、8 のどれでも、その 1 バイトを即値として、al レジスタと and します。一方、0x25 だったら、al ではなく ax レジスタに入る命令で、16 ビットの即値、あるいは 32 ビットの即値かもしれません。"
 },
 {
 "i": 5,
 "start": "00:02:37,680",
 "end": "00:03:06,959",
 "en": "which should have said 16-bit immediate there but uh so how do you actually know the difference between those two right so a CPU when it's chugging along reading byte after byte trying to figure out you know how to decode these assembly instructions how does it know whether or not 25 should have two bytes after it for a 16 bit value or four bytes after it for 32-bit value well the answer is that it actually depends on which mode the processor is executing right now so if it were",
-"ja": ""
+"ja": "ここは 16 ビットの即値と言うべきところでした。では、その 2 つの違いは、実際にはどうやって分かるのでしょうか。CPU は、バイトを 1 つずつ読んでいって、これらのアセンブリ命令をどうデコードするかを判断しています。25 のあとに、16 ビットの値のための 2 バイトが来るのか、32 ビットの値のための 4 バイトが来るのかを、どう知るのでしょうか。答えは、プロセッサが今どのモードで実行しているかによって決まる、ということです。16 ビットモードで"
 },
 {
 "i": 6,
 "start": "00:03:05,120",
 "end": "00:03:40,080",
 "en": "executing in 16-bit mode then it would expect 2 bytes after 25 and if it was in 32 or 64-bit mode it would expect 4 bytes after it so each mode actually has a default operand size and that's going to basically tell the processor what it should be expecting now in reality well first of all the 64-bit mode default operand size is actually 32 bits rather than 64 bits so in general when you're reading through the manual you should expect that 64-bit will always be using the 32-bit immediate",
-"ja": ""
+"ja": "実行しているなら、25 のあとに 2 バイトが来ると予想して、32 ビットモードか 64 ビットモードなら、そのあとに 4 バイトが来ると予想します。各モードには、既定のオペランドサイズがあって、プロセッサが何を予想すべきかが決まります。実際には、まず、64 ビットモードの既定のオペランドサイズは、64 ビットではなく 32 ビットです。ですから、マニュアルを読むときは、64 ビットモードでも、常に 32 ビットの即値を使うと考えてください。"
 },
 {
 "i": 7,
 "start": "00:03:37,040",
 "end": "00:04:09,439",
 "en": "and 32-bit registers unless it happens to be using some extra instruction prefix to force it to use a 64-bit value so I talk about these instruction prefixes later but basically it can use either of these forms I don't want to jump ahead and talk about this column so all right so then the instruction column is a basic human readable mnemonic kind of what the assembly instruction will look like so if these are the bytes that you know a CPU processor is going to see that you know disassembler is chewing through",
-"ja": ""
+"ja": "そして 32 ビットレジスタを使います。ただし、命令プレフィックスを追加して、64 ビットの値を強制的に使う場合は別です。この命令プレフィックスについてはあとで話しますが、基本的には、どちらの形も使えます。この列については、先走って話したくありません。さて、次に命令の列です。これは、人が読める基本的なニーモニックで、アセンブリ命令が実際にどう見えるかを示します。CPU が見るバイトがこれで、逆アセンブラが処理していくのが、"
 },
 {
 "i": 8,
 "start": "00:04:07,680",
 "end": "00:04:42,000",
 "en": "these are the interpretations that a disassembler would try to show a human when it's you know interpreting the the sequence of bytes as a 24 followed by 1 byte or 25 followed by 4 bytes so that's what the human expects and this imm that's representing an immediate and you can see we've got 8-bit size 16-bit size 32-bit size and so forth well and just 32-bit size this column is frequently where you will see the r/mX specified so r/m8 to r/m16 r/m32 we'll see an example of that in a little",
-"ja": ""
+"ja": "こちらです。逆アセンブラは、24 のあとに 1 バイト、あるいは 25 のあとに 4 バイトが続くバイト列を解釈して、人に見せようとします。それが、人が期待する形です。この imm は即値を表していて、8 ビットサイズ、16 ビットサイズ、32 ビットサイズなどがあります。ここは 32 ビットサイズだけですね。この列には、r/mX が指定されることがよくあります。r/m8 や r/m16、r/m32 です。例はもう少しあとで"
 },
 {
 "i": 9,
 "start": "00:04:39,199",
 "end": "00:05:17,600",
 "en": "bit okay the operand encoding column has a little textual representation of how you would encode the various operands so here because it's dealing with immediate it's an I and so the I is basically saying that for these operands it's always going to be al ax eax rax and it's an immediate 8 16 32 8 16 or 32 for the second operand personally I don't particularly find this column super useful you know I mean clearly it shows you know it's an rm it's a this this is another way of saying rm32 it's an rm32",
-"ja": ""
+"ja": "見ます。次に、オペランドエンコーディングの列です。さまざまなオペランドをどうエンコードするかを、文字で簡単に表しています。ここでは即値なので I です。I は、このオペランドが常に al、ax、eax、rax で、2 つ目のオペランドが 8、16、32 ビットの即値だということを表しています。個人的には、この列はあまり役に立たないと思います。これは、rm32 を別の言い方で表した、rm32 です。"
 },
 {
 "i": 10,
 "start": "00:05:15,280",
 "end": "00:05:49,759",
 "en": "that the operand 1 is read from operand 2 is read from and then it's written back to operand 1 uh this particular column was actually added to the manuals sometime after I first started teaching x86 so I don't particularly have any use for it but maybe you will alright the 64-bit mode column specifies whether a given assembly instruction is valid in 64-bit mode this has to do with sometimes older versions of assembly instructions get cannibalized for alternate versions 64-bit versions of",
-"ja": ""
+"ja": "オペランド 1 から読んで、オペランド 2 から読んで、オペランド 1 に書き戻される、と示しています。この列は、私が x86 を教え始めてからあとで、マニュアルに加えられたものです。私は特に使いませんが、皆さんには役に立つかもしれません。次に、64 ビットモードの列です。これは、そのアセンブリ命令が 64 ビットモードで有効かどうかを示します。古い版のアセンブリ命令が、64 ビット版などの別の版のために転用されることがあり、"
 },
 {
 "i": 11,
 "start": "00:05:49,120",
 "end": "00:06:20,080",
 "en": "things but basically you can just go down this column to find out whether or not it's even possible to encode this uh when you're running in 64-bit mode sometimes for instance you know 16-bit values will not be possible in 64-bit mode so this should actually say so this is from the the manual right here and the V and the I should actually be valid and invalid and you might see things like N.E. saying that it's not encodable N.S. not supported so this is the interpretation of this column",
-"ja": ""
+"ja": "基本的には、この列を見れば、64 ビットモードで実行しているときに、そもそもエンコードできるかどうかが分かります。たとえば、16 ビットの値が 64 ビットモードでは使えないこともあります。ここは、マニュアルでは V と I ではなく、Valid と Invalid と書かれているべきです。N.E. は、エンコードできないという意味で、N.S. は、サポートされないという意味です。これが、この列の読み方です。"
 },
 {
 "i": 12,
 "start": "00:06:18,400",
 "end": "00:06:48,720",
 "en": "basically the same interpretation slightly less options because it's talking about the old form so valid invalid and not encodable usually the not encodable in this column and valid in this column means this is news some new form of the instruction that was added specifically for 64-bit mode so obviously you can imagine that when you're running 32-bit mode it would have had a immediate 32 and a 32-bit register but when you're you know running in 32-bit mode it can't access a 64-bit register because you're",
-"ja": ""
+"ja": "互換モードの列も、基本的には同じ読み方で、古い形の話なので、選択肢が少し少なくなっています。有効、無効、エンコード不可です。普通、この列でエンコード不可で、こちらの列で有効なら、64 ビットモードのために特別に追加された、新しい形の命令だということです。32 ビットモードで実行しているときは、32 ビットの即値と 32 ビットレジスタになるはずで、64 ビットレジスタにはアクセスできません。"
 },
 {
 "i": 13,
 "start": "00:06:47,199",
 "end": "00:07:18,000",
 "en": "basically falling back to some old compatibility mode and back before the 64-bit extensions they had no notion of the rax register then the description column is a usually longer form of the assembly instruction it's not going to be formatted sort of the way the assembly instruction will look it's just telling you what the operation is that's performed it'll be you know longer than inferring based on this but it'll be much shorter than a long form human readable paragraphs of description that is given below these",
-"ja": ""
+"ja": "古い互換モードに戻っているからです。64 ビット拡張より前には、rax レジスタという考え方がありませんでした。そして説明の列です。これは通常、アセンブリ命令の長めの説明です。アセンブリ命令の見た目のような形式ではなく、どんな操作が行われるかを示しています。ここから推測するよりは長いですが、これらの表の下にある、人が読むための長い説明の段落よりは、ずっと"
 },
 {
 "i": 14,
 "start": "00:07:16,800",
 "end": "00:07:50,879",
 "en": "sort of tables now if we go and look down at some of the rest of these forms of the and instruction we can see now these r/mX's appear the things I call an r/mX which I said the X is for could be an r/m8 it could be an r/m16 could be an r/m32 it could be an r/m64 now just taking a quick look back at the up code thing in the previous one we had you know numbers like 20 and then an immediate now we've added in a /r that /r is going to specify somehow a register and that's going to be",
-"ja": ""
+"ja": "短いものです。さて、and 命令のほかの形を下のほうで見ていくと、ここに r/mX が出てきます。私が r/mX と呼んでいるもので、X は、r/m8 でも、r/m16 でも、r/m32 でも、r/m64 でもよい、と言いました。では、前の表のオペコードを少し振り返ると、20 のような数字のあとに即値が来ていました。今度は /r が加わっています。この /r は、レジスタをなんらかの形で指定するもので、"
 },
 {
 "i": 15,
 "start": "00:07:47,919",
 "end": "00:08:20,479",
 "en": "a byte that specifies register so 22 and a byte to specify a register will give you the and instruction with an r/m8 and an r but then there's also this form that has a rex and a rex.w these are the things that force stuff to be 64-bit mode and I'm not going to talk about them too much now again that goes into the optional material when we really dig into this section so as I was looking through the and instruction to you know just talk about it with you I was noticing that okay well I probably",
-"ja": ""
+"ja": "レジスタを指定する 1 バイトのことです。22 に、レジスタを指定する 1 バイトが続くと、r/m8 と r の and 命令になります。ほかに、rex と rex.w を伴う形もあります。これは、64 ビットモードを強制するものです。今はあまり話しません。これも、この節を掘り下げるときの任意の資料に入ります。さて、and 命令を見ながら皆さんに説明しようとしていたとき、気づいたことがありました。おそらく"
 },
 {
 "i": 16,
 "start": "00:08:19,199",
 "end": "00:08:42,719",
 "en": "want to talk about the difference between you know there's a there's a r/m8 immediate and an r/m8 immediate and you're probably going to see that and say okay what's the difference what's the point what's going on here and the difference between those two things was just this rex byte which I said I didn't really want to talk about but I need to give you some sort of flavor to say like what's the difference here when am I going to see this when am I going to see that and when I'm looking",
-"ja": ""
+"ja": "r/m8 即値と r/m8 即値の違いについて話したくなったのです。皆さんもこれを見て、違いは何なのか、どういう意味があるのかと思うでしょう。この 2 つの違いは、さっきの rex バイトだけです。あまり話したくないと言いましたが、ここでの違いは何か、いつこちらが現れて、いつあちらが現れるかについて、ある程度の感触は伝えなければなりません。そして、これらを見ていると、"
 },
 {
 "i": 17,
 "start": "00:08:42,000",
 "end": "00:09:16,480",
 "en": "through these I see all of a sudden okay well this says and r/m8 and immediate 8 and that's an r/m8 and immediate okay that makes sense got and r/m8 r8 so that's an 8-bit register with an 8-bit register memory value back into register memory value and then this form same thing r/m8 r8 but all of a sudden it says r/m64 and it says r8 sign extended to 64 bits so that's kind of weird and I see another version of that for here where instead of going register to memory we're going potentially memory to",
-"ja": ""
+"ja": "急に気づきます。これは and r/m8 と即値 8 で、これは r/m8 と即値です。なるほど、納得できます。and r/m8 r8 もあります。これは 8 ビットレジスタと 8 ビットレジスタで、レジスタかメモリの値に戻すものです。そして、この形は同じ r/m8 r8 ですが、急に r/m64 と書かれていて、r8 が 64 ビットに符号拡張される、と書かれています。ちょっと変ですね。もうひとつ、これの別の版がここにあって、レジスタからメモリではなく、メモリから"
 },
 {
 "i": 18,
 "start": "00:09:15,839",
 "end": "00:09:48,640",
 "en": "register so what's the deal with this and then I said okay well maybe it's a typo maybe it's something I don't understand about the assembly instructions so let's go look at add instead add has a lot of the same forms as and it's got this immediate 8 and an r/m8 okay those two basically match up it's got an r/m8 and an immediate 8 and add sign extended immediate 8 to r/m8 what does it mean to sign extend an 8-bit value when you're interacting with another 8-bit value all right well that doesn't make any",
-"ja": ""
+"ja": "レジスタに行くものです。これはどういうことでしょうか。そこで私は、ミスプリントかもしれない、あるいはアセンブリ命令について私が理解していないことがあるのかもしれない、と考えました。そこで、add を見てみましょう。add には and と同じ形がたくさんあります。即値 8 と r/m8 があって、この 2 つは基本的に対応します。r/m8 と即値 8 があり、add は、符号拡張した即値 8 を r/m8 に足します。8 ビットの値を、別の 8 ビットの値とやりとりするときに、符号拡張するとはどういう意味でしょうか。これも"
 },
 {
 "i": 19,
 "start": "00:09:45,839",
 "end": "00:10:21,360",
 "en": "sense either but then these make sense so these are just plain add r/m8 r8 to r/m8 add r/m8 to r8 so basically in order to try to interpret this kind of thing I was like all right well let's just go see what a you know disassembler says about all this so in order to do a basic test of this I said okay well I want to understand the difference between you know 20 with register and rex 20 with a register let's go disassemble that in oda the online disassembler onlinedisassembler.com",
-"ja": ""
+"ja": "意味が通りません。でもこれらは意味が通ります。単純な add r/m8 r8 を r/m8 に足す、add r/m8 を r8 に足す、といった形です。こうしたものを解釈しようとして、逆アセンブラがこれについて何と言うかを見てみることにしました。簡単なテストをするために、レジスタ付きの 20 と、rex 付きでレジスタ付きの 20 の違いを理解したいと考えて、オンライン逆アセンブラの ODA、onlinedisassembler.com で逆アセンブルしました。"
 },
 {
 "i": 20,
 "start": "00:10:17,760",
 "end": "00:10:48,800",
 "en": "we said 20 and some byte equals an and al and in this case I did al so 20 in some byte is going to specify some sort of register 8 and an r/m8 so the sum byte I went and looked it up in a table that you know I'm going to talk about later on in the optional material came up with 20 and c0 is an and al, al you can change that to 20 and 1.",
-"ja": ""
+"ja": "20 に何かのバイトが続くと、and al になります。ここでは al にしました。20 に何かのバイトが続くと、ある種の 8 ビットレジスタと r/m8 を指定します。その何かのバイトを、あとで任意の資料で話す表で調べたところ、20 と c0 が and al, al になりました。これを 20 と 1 に変えられます。"
 },
 {
 "i": 21,
 "start": "00:10:44,480",
 "end": "00:11:28,640",
 "en": "now it's an and of cl sorry al into cl c2 goes into dl c3 goes into bl and c4 goes into ah so that's that particular interpretation let's throw in a rex byte which again you know I'll get into later but I'm just you know trying to figure out what's going on here so 0x40 is a rex byte but the disassembler says this is actually an inc instruction and this is an and instruction so that's because I have it set to i386 the 32-bit form of x86 so I need to set that to 64-bit form and then all of a sudden it",
-"ja": ""
+"ja": "すると、al を cl に and する形になります。c2 は dl に、c3 は bl に、c4 は ah になります。これが、その特定の解釈です。では、rex バイトを入れてみましょう。これもあとで説明しますが、ここでは何が起きているかを調べているだけです。0x40 は rex バイトですが、逆アセンブラは、これは実は inc 命令で、これは and 命令だと言っています。それは、i386、つまり x86 の 32 ビット形式に設定しているからです。64 ビット形式に設定する必要があります。すると、急に"
 },
 {
 "i": 22,
 "start": "00:11:28,160",
 "end": "00:12:10,079",
 "en": "will turn into and al, al okay so 40 20 c0 is and al, al and 20 c0 is and al, al so what exactly is going on here well what's really going on here is that if you have the rex byte and you get into a certain range specifically the range kind of mentioned here ah, bh, ch, and dh these little stars that were on here were saying in 64-bit mode the r/m8 cannot be encoded to access the following byte registers if the rex prefix is used ah, bh, ch, dh so what's going on here is if I use a",
-"ja": ""
+"ja": "and al, al になります。つまり、40 20 c0 は and al, al で、20 c0 も and al, al です。では、ここで実際に何が起きているのでしょうか。実際には、rex バイトがあって、ある範囲に入ると、特にここに書かれている、ah、bh、ch、dh の範囲に入ると、こうなります。ここにあった小さな星は、64 ビットモードでは、rex プレフィックスが使われている場合、r/m8 は次のバイトレジスタにアクセスするようにエンコードできない、と言っています。ah、bh、ch、dh です。つまり、ここで起きているのは、"
 },
 {
 "i": 23,
 "start": "00:12:08,160",
 "end": "00:12:52,720",
 "en": "rex prefix and I have 20 c4 which without the rex prefix turns into and al ah but with the rex prefix as the manual kind of warned us we can't access ah because they've decided to reuse it for spl stack pointer low that is the least significant byte of the stack pointer so they basically hijacked four version four of these things for ah, bh, ch, dh they hijacked it for spl bpl sil and dil if I go past this now all of a sudden I'm down to cl into al again so let's go ahead and back that up to",
-"ja": ""
+"ja": "rex プレフィックスを使って 20 c4 とすると、rex プレフィックスがなければ and al ah になるところが、マニュアルが警告していたとおり、ah にはアクセスできなくなる、ということです。ah の枠が、spl、つまりスタックポインタの最下位バイトのために再利用されたからです。ah、bh、ch、dh の 4 つの枠が、spl、bpl、sil、dil に乗っ取られたのです。これを過ぎると、また急に cl を al に、という形に戻ります。では、これを戻して、"
 },
 {
 "i": 24,
 "start": "00:12:50,880",
 "end": "00:13:30,160",
 "en": "let's go with c0 and 41. and now this particular thing still again with a rex byte so and t 20 c0 was and al, al if I throw a rex byte on there then all of a sudden it's accessing r8b so the the least significant byte of r8 so you can see kind of how this rex byte is forcing us to have access to 64-bit registers for instance so r8b plus 1 r9b plus 2 r10b etc and you would expect it would continue on through our 15b so given that the disam disassembler is telling me that you know",
-"ja": ""
+"ja": "c0 と 41 にしましょう。これもまだ rex バイトがあります。20 c0 は and al, al でしたが、rex バイトを付けると、急に r8b にアクセスします。r8 の最下位バイトです。このように、rex バイトが、たとえば 64 ビットレジスタへのアクセスを可能にしているのが分かります。r8b に 1 を足すと r9b、2 を足すと r10b、というふうに、r15b まで続くと考えられます。逆アセンブラは、"
 },
 {
 "i": 25,
 "start": "00:13:29,760",
 "end": "00:14:00,720",
 "en": "this 20 with you know some rex byte and you know whatever byte for whatever registers is still accessing the byte form I am left to conclude that these are bugs right it it's just the manual is wrong it's has nothing to do with an r/m64 I had a rex byte I had 20 I had some register and it was you know disassembling as uh you know 8-byte and 8-byte sorry 8-bit and 8-bit value right so you know of course the disassembler could be wrong too but you know I'm inclined to go with the",
-"ja": ""
+"ja": "rex バイトが付いた 20 と、何かのバイトで何かのレジスタを指定しても、バイト形式にアクセスしていると言っています。ですから、これはバグだと結論せざるをえません。マニュアルが間違っているのです。r/m64 とは関係ありません。rex バイトがあって、20 があって、何かのレジスタがあって、それが 8 バイト、いえ 8 ビットと 8 ビットの値として逆アセンブルされました。もちろん、逆アセンブラが間違っている可能性もあります。でも私は、"
 },
 {
 "i": 26,
 "start": "00:13:59,360",
 "end": "00:14:32,560",
 "en": "same interpretation of the manual is wrong and the disassembler is right so you should definitely not expect it to be the case that the manual is completely free of bugs even you know load these many years that uh Intel has been out there's actually a few other bugs that were in previous versions of this class for 32-bit and so forth that I had to point out as I go so when in doubt test it out so later on if you choose to read some of the optional material about how to for instance",
-"ja": ""
+"ja": "マニュアルが間違っていて、逆アセンブラが正しい、という解釈を取りたいと思います。ですから、マニュアルにバグがまったくないとは、決して思わないでください。Intel は長年存在していますが、このクラスの前のバージョンで、32 ビットなどについて指摘しなければならなかったバグも、いくつかありました。迷ったら、試すことです。あとで、任意の資料を読んで、たとえばコードに"
 },
 {
 "i": 27,
 "start": "00:14:29,360",
 "end": "00:14:58,000",
 "en": "emit raw bytes in your code and have them get turned into assembly then you know you can use that for testing or you can use an online disassembler like I just did so at the end of the day when I was talking about you know okay 22 and register versus rex 22 and register they say they do the exact same operation what's the difference what's the point the point is that this rex byte is essentially just there so that you can get access to these extended 64-bit registers spl,",
-"ja": ""
+"ja": "生のバイトを出力して、それをアセンブリに変換する方法を学べば、それをテストに使えます。あるいは、私がしたように、オンラインの逆アセンブラを使うこともできます。結局、22 とレジスタ、対、rex 22 とレジスタの話で、両方がまったく同じ操作をするなら、違いは何なのか、何のためにあるのか、ということでした。この rex バイトは、基本的に、64 ビットで拡張された spl、"
 },
 {
 "i": 28,
 "start": "00:14:56,839",
 "end": "00:15:33,040",
 "en": "bpl, sil so forth because as a reminder these spl, bpl, sil, dil these didn't actually exist in 16 or 32-bit mode they were extensions that were added when they did the 64-bit extensions they said hey for all these new registers r8 through r15 we want to get access to them at 64 32 16 and 8 bits at a time so let's go ahead and extend it so that these things can also be accessed 8 bits at a time and so we can you know call this the r4 register and do r4 or r4d or r4w or r4b or this particular disassembler oda",
-"ja": ""
+"ja": "bpl、sil などのレジスタにアクセスできるようにするためにあります。念のため言うと、spl、bpl、sil、dil は、16 ビットモードや 32 ビットモードには存在しませんでした。64 ビット拡張のときに追加されたものです。新しいレジスタ r8 から r15 を、64、32、16、8 ビット単位でアクセスできるようにしたいので、それなら、これらも 8 ビット単位でアクセスできるように拡張しよう、となったわけです。これを r4 レジスタと呼んで、r4、r4d、r4w、r4b とも呼べますし、この ODA という逆アセンブラは、"
 },
 {
 "i": 29,
 "start": "00:15:31,440",
 "end": "00:15:59,440",
 "en": "decided to call it spl, bpl, sil, dil so that's another one of those places where you can have two different names for the same register and just like we can have two different names for assembly instructions and it's up to the disassembler to decide how it wants to represent it and just a little bit more about stuff you're going to see in the manual there's going to be a description section which like I said is going to be a long form paragraphs of human readable text there's going to be an operations",
-"ja": ""
+"ja": "spl、bpl、sil、dil と呼ぶことにしました。これも、同じレジスタに 2 つの別の名前がある例のひとつです。アセンブリ命令に 2 つの別の名前がありえるのと同じで、どう表すかは逆アセンブラが決めます。マニュアルで目にするものについて、もう少しだけ話します。説明の節があり、これは先ほど言ったように、人が読むための長い段落です。そのあとに、操作の"
 },
 {
 "i": 30,
 "start": "00:15:57,759",
 "end": "00:16:25,360",
 "en": "section which talks about the operation and this is one of the simplest possible forms you can have you know destination and source goes is assigned into the destination and flags affect affected so here it says the overflow flag and cf flags are cleared so always cleared by the and instruction the sign flag zero flag and parity flag are set according to the result so you would expect that the sign flag gets set if the most significant bit is 1 zero flag is set if the result is 0",
-"ja": ""
+"ja": "節があります。ここでは操作を説明していて、これは取りうる中でもっとも単純な形のひとつです。ソースとデスティネーションがあり、結果がデスティネーションに代入されて、フラグが影響を受けます。ここには、オーバーフローフラグと CF フラグがクリアされる、と書かれています。and 命令では、常にクリアされます。符号フラグ、ゼロフラグ、パリティフラグは、結果に応じて設定されます。ですから、最上位ビットが 1 なら符号フラグが設定され、結果が 0 ならゼロフラグが設定される、と予想できます。"
 },
 {
 "i": 31,
 "start": "00:16:24,079",
 "end": "00:16:55,360",
 "en": "parity flag I haven't made the optional material yet so I don't know whether I've told you about it or not so ignore that for now uh and the state of the af flag is undefined so just reading this description quick it says it performs a bitwise and operation on the destination first and source second operation operands rather and stores the results into the destination operand location source operand can be immediates registers or memory location destination can be register or memory location",
-"ja": ""
+"ja": "パリティフラグについては、任意の資料をまだ作っていないので、もう話したかどうか分かりません。今は無視してください。そして、af フラグの状態は未定義です。この説明を軽く読むと、これは、デスティネーションオペランドを先に、ソースオペランドを後にして、ビットごとの and 演算を行い、結果をデスティネーションオペランドの場所に格納する、と書かれています。ソースオペランドは、即値、レジスタ、メモリの場所のどれでもよく、デスティネーションは、レジスタかメモリの場所です。"
 },
 {
 "i": 32,
 "start": "00:16:53,040",
 "end": "00:17:20,160",
 "en": "however two memory operands cannot be used in one instruction so that's the thing that I told you repeatedly throughout the class no memory to memory movs no memory to memory ands, adds xors anything like that and then it's just telling you what the and instruction does each bit of the result is set to 1 if the corresponding bit of the first and second operand are 1 otherwise it is set to 0 it says this instruction can be used with the lock prefix to allow it to be executed atomically well we don't know what the",
-"ja": ""
+"ja": "ただし、1 つの命令に 2 つのメモリオペランドは使えません。これは、クラスを通じて何度も言ってきたことです。メモリからメモリへの mov はありません。メモリからメモリへの and、add、xor などもありません。そして、and 命令が何をするかが書かれています。結果の各ビットは、1 つ目と 2 つ目のオペランドの対応するビットがどちらも 1 なら 1 に設定され、そうでなければ 0 に設定されます。この命令は lock プレフィックスと一緒に使えて、アトミックに実行できる、とも書かれています。lock プレフィックスが何かは"
 },
 {
 "i": 33,
 "start": "00:17:18,640",
 "end": "00:17:49,120",
 "en": "lock prefix is but you know I'll tell you it it's a prefix that can allow things to be executed atomically but we'll come back to instruction prefixes later lock is basically similar to rep from the rep movs I said movs is a actual instruction unto itself and rep is a prefix lock is another prefix you don't see it that often but we'll come back to it and cover it when we cover instruction prefixes and then in 64-bit mode the instructions default operation size is 32 bits that's",
-"ja": ""
+"ja": "まだ分かりませんが、アトミックに実行させられるプレフィックスだと言っておきます。命令プレフィックスについては、あとで戻ってきます。lock は、基本的には rep movs の rep に似ています。movs はそれ自体がひとつの命令で、rep はプレフィックスだと言いました。lock は別のプレフィックスです。あまり見かけませんが、命令プレフィックスを扱うときに戻ってきて説明します。そして 64 ビットモードでは、命令の既定の操作サイズは 32 ビットです。それは"
 },
 {
 "i": 34,
 "start": "00:17:47,280",
 "end": "00:18:17,520",
 "en": "what I said a little bit ago and using the rex prefix in the form of rex.r we don't know what that is yet permits access to additional registers so gets you access to you know the 64-bit extensions using rex prefix in the form of rex.w promotes operations to 64 bits so I said it defaults to 32 bits but there's a way to override it and force it to be 64-bit so it would be up to the compiler to specifically know how to format these rex prefixes and to spit out the right prefix to yield an assembly instruction",
-"ja": ""
+"ja": "少し前に言ったことです。そして、rex.r の形で rex プレフィックスを使うと、追加のレジスタにアクセスできます。これが、64 ビット拡張へのアクセスです。これが何かはまだ分かりません。rex.w の形で rex プレフィックスを使うと、操作が 64 ビットに引き上げられます。既定は 32 ビットだと言いましたが、それを上書きして、強制的に 64 ビットにする方法があるのです。ですから、これらの rex プレフィックスをどう整えて、正しいプレフィックスを出力するかは、コンパイラ次第です。そうして、"
 },
 {
 "i": 35,
 "start": "00:18:16,880",
 "end": "00:18:48,400",
 "en": "where the where the processor will treat the operation as 64-bit so there you go I went through you know one example the and example in the instruction manual so you're all good to go now right I can just uh let you loose and say read all the assembly instructions no no you want more you got it all right something close enough similar enough to and is add so what do we got here like if we were to just bump into this in the manual what would we see we would first kind of try to",
-"ja": ""
+"ja": "プロセッサが操作を 64 ビットとして扱うアセンブリ命令になります。以上で、命令マニュアルの and の例を、ひとつ見ました。これでもう大丈夫ですよね。ここで皆さんを放り出して、すべてのアセンブリ命令を読んでください、と言うこともできます。でも、もっと見たいですよね。いいでしょう。and に十分近くて、似ているものとして、add があります。では、マニュアルでこれにたまたま出会ったら、何が見えるでしょうか。まず、アセンブリ命令の"
 },
 {
 "i": 36,
 "start": "00:18:47,840",
 "end": "00:19:26,240",
 "en": "look for groupings of assembly instructions so we've got some forms here that have immediate 8 into al adding that 16 into ax 32-bit into a 32-bit register and a 32-bit into a 64-bit register so we could assume that this might be you know some bug maybe they meant to have immediate 64. but I'll just tell you that it's not a bug they can only support a 32-bit immediate being added to a 64-bit register when it's encoded in this form now there are other forms down here that for instance would you know take a",
-"ja": ""
+"ja": "グループを探します。ここには、即値 8 を al に、16 を ax に、32 ビットを 32 ビットレジスタに、32 ビットを 64 ビットレジスタに足す形があります。これはバグで、即値 64 のつもりだったのではないか、と思うかもしれません。でも、バグではありません。この形でエンコードされているときは、64 ビットレジスタに足せる即値は 32 ビットだけです。ここから下には、たとえば 64 ビットのレジスタを、64 ビットのレジスタやメモリの場所などに足す別の形があります。"
 },
 {
 "i": 37,
 "start": "00:19:24,799",
 "end": "00:20:00,320",
 "en": "64-bit register and add it to a you know 64-bit register memory location whatever so practically speaking what this means is you're never going to do an add that is encoded with a 64-bit constant in the add instruction but you could go off and use a mov instruction to move a 64-bit constant into a 64-bit register and then you could use something like this or this in order to add that register that has the 64-bit constant in it to use some other register okay so grouping wise what do we had we had",
-"ja": ""
+"ja": "実際上は、add 命令の中に 64 ビットの定数を直接エンコードした add を行うことはない、という意味です。でも、mov 命令で 64 ビットの定数を 64 ビットレジスタに move して、そのあと、これやこれのような形で、その 64 ビットの定数が入ったレジスタを、ほかのレジスタに足すことはできます。では、グループ分けとしては、何があったでしょうか。"
 },
 {
 "i": 38,
 "start": "00:19:56,320",
 "end": "00:20:31,600",
 "en": "this al, ax, eax, rax and we had the immediate sizes and so this literally hard coded like it must be al it must be ax so that's not very nice and generic but you can see that it's got a kind of low opcode number so that's probably one of the original assembly instructions from the 8086 then we've got a more generic form of things immediate 8 into an arbitrarily selected r/m8 so it could be any of the 8-bit registers could be a memory location specifying 8 bits then we've got another one of those it's",
-"ja": ""
+"ja": "この al、ax、eax、rax と、即値のサイズがありました。これは、文字どおり固定されていて、al でなければならず、ax でなければなりません。あまり汎用的ではありませんが、オペコード番号が小さいので、おそらく 8086 の元のアセンブリ命令のひとつです。次に、もう少し汎用的な形があります。即値 8 を、任意に選んだ r/m8 に入れる形で、8 ビットのレジスタのどれでも、8 ビットを指定するメモリの場所でもかまいません。そして、もうひとつ、"
 },
 {
 "i": 39,
 "start": "00:20:30,000",
 "end": "00:20:55,679",
 "en": "the exact same assembly instruction but there's a little star there with rex prefix and so I'm telling you that is just in case you want to access the r/m8 of the new 64-bit versions and it's talking about sign extended here again with you know immediate this is the this is the version that I actually copied and like I sliced up this thing is the one that like this sign extended should not be there okay so if the first grouping was 8, 16,",
-"ja": ""
+"ja": "まったく同じアセンブリ命令ですが、小さな星が付いていて、rex プレフィックスがあります。それは、新しい 64 ビット版の r/m8 にアクセスしたい場合のものだと言っておきます。ここにも符号拡張という言葉があって、即値と一緒に使われています。これは、私が実際にコピーして切り出したもので、この符号拡張は、ここにあるべきではありません。さて、最初のグループが、固定されたレジスタへの 8、16、"
 },
 {
 "i": 40,
 "start": "00:20:54,960",
 "end": "00:21:30,960",
 "en": "32 into hard coded registers the second grouping looks like 8, 16, 32 into specified registers and we've got a grouping of what looks like always 8 bits immediate 8 bits into 16, 32, 64. so that's going to add and those are legitimately sign extended because it makes sense to say your sign extending an 8-bit value and adding it to a 16-bit value so that makes sense 8 plus 32 makes sense 8 plus 64 makes sense so that would take whatever your 8-bit value is take the most significant bit",
-"ja": ""
+"ja": "32 だったとすると、2 つ目のグループは、指定したレジスタへの 8、16、32 のようです。そして、常に 8 ビットの即値を、16、32、64 に足すグループがあります。これらは、足すもので、ここは本当に符号拡張です。8 ビットの値を符号拡張して 16 ビットの値に足す、というのは意味が通るからです。8 足す 32 も意味が通り、8 足す 64 も意味が通ります。8 ビットの値の最上位ビットを取って、"
 },
 {
 "i": 41,
 "start": "00:21:29,440",
 "end": "00:22:01,440",
 "en": "and extend it until it's 16-bit wide 32-bit wide 64-bit wide and do the add on that next sort of grouping we have is a r8 so these were all immediate thus far so these are all literal hard-coded constants where those hard-coded constants are going to be hard-coded into the actual instruction stream now we've got registers register add a register 8 to an r/m8 so it could be register to register it could be register plus memory back into memory same thing again with the stars where if you want",
-"ja": ""
+"ja": "16 ビット幅、32 ビット幅、64 ビット幅になるまで拡張して、そのうえで足し算をするのです。次のグループは r8 です。ここまでは、すべて即値でした。つまり、命令の流れの中に直接埋め込まれた、文字どおりの固定された定数です。ここからは、レジスタです。レジスタ 8 を r/m8 に足します。レジスタからレジスタでも、レジスタ足すメモリをメモリに戻す形でもかまいません。同じく、星が付いたものは、8 ビットレジスタの拡張版に"
 },
 {
 "i": 42,
 "start": "00:22:00,320",
 "end": "00:22:35,440",
 "en": "to access the extended versions of the 8-bit registers so we've got 8, 16, 32s into 8, 16, 32s and because it's a register now we can do a register 64 added to a r/m64 and the final grouping we have here is just the flip side so if these things ultimately can store into memory these things can also ultimately read from memory and store into a register only so r/m8 8,",
-"ja": ""
+"ja": "アクセスしたい場合のものです。8、16、32 を 8、16、32 に足せます。レジスタなので、レジスタ 64 を r/m64 に足すこともできます。そして、最後のグループは、その反対側です。これらが最終的にメモリに格納できるなら、これらは、最終的にメモリから読んで、レジスタだけに格納することもできます。つまり r/m8、8、"
 },
 {
 "i": 43,
 "start": "00:22:30,159",
 "end": "00:23:04,080",
 "en": "16, 32, 64 into 8, 16, and 32s, and 64s so while these sort of instruction tables can look daunting in reality it's just you know a group of I don't know one two three four five different groupings of assembly instructions five little variations on the same add instruction and just multiplied out by the number of sizes that are available now if we read the description from the manual it's basically like the and in that it just says you know it's going to add this destination and the source and",
-"ja": ""
+"ja": "16、64 を、8、16、32、64 に足します。こうした命令の表は、見ると気が重くなるかもしれませんが、実際には、アセンブリ命令の、1、2、3、4、5 つくらいのグループ、同じ add 命令の 5 つの小さなバリエーションに、使えるサイズの数を掛け合わせたものにすぎません。マニュアルの説明を読むと、基本的に and と似ていて、デスティネーションとソースを足して、"
 },
 {
 "i": 44,
 "start": "00:23:02,480",
 "end": "00:23:37,039",
 "en": "store it in the destination register memory or immediate register memory can't be two memory so no memory to memory but then this bit right here that I highlighted is something that I just told you kind of off-handedly when we got to the control flow section it says the add instruction performs integer addition okay it evaluates the result for both signed and unsigned integer operands and sets the cf and overflow flags to indicate a carry overflow in the signed or unsigned results respectively",
-"ja": ""
+"ja": "デスティネーションに格納する、と書かれています。デスティネーションはレジスタ、メモリ、即値で、メモリは 2 つにはできません。つまりメモリからメモリはありません。そして、私がここでハイライトしたところは、制御フローの節のときに、さりげなく言ったことです。add 命令は整数の加算を行います。符号つきと符号なしの両方の整数オペランドで結果を評価して、cf とオーバーフローフラグを設定し、符号つきか符号なしの結果でキャリー、オーバーフローが起きたことを、それぞれ示す、と書かれています。"
 },
 {
 "i": 45,
 "start": "00:23:35,360",
 "end": "00:24:04,799",
 "en": "so basically it's saying if the carry flag is set after this that would mean that you know when you added two things together it was too big to fit in the register if you were operating on signed values and the overflow flag was too big to fit on the register if you were operating on unsigned values so it sets them both right based on you know it says it evaluates the results for both signed and unsigned operations operands uh and the sf flag indicates the sign of the signed result right so interpreted as if",
-"ja": ""
+"ja": "つまり、この命令のあとでキャリーフラグが設定されていたら、符号つきの値を扱っている場合に、2 つのものを足した結果が大きすぎてレジスタに収まらなかった、という意味です。オーバーフローフラグは、符号なしの値を扱っている場合に、大きすぎてレジスタに収まらなかった、という意味です。両方が設定されます。符号つきと符号なしの両方のオペランドで結果を評価する、と書かれていて、sf フラグは、符号つきの結果の符号を示します。つまり、最終的な結果の"
 },
 {
 "i": 46,
 "start": "00:24:04,080",
 "end": "00:24:41,520",
 "en": "the if the end result has the most significant bit set then it'll set the sign flag in the eflags register more you want more you've got it let's talk about control flow specifically jcc the jump if condition code is met all right well here's a giant list of assembly instructions and it only gets longer and this is just from the very first page of the jcc in the manual but if you look closely at the opcode column you will notice that some things are repeated so 74 for je and 74 for jz",
-"ja": ""
+"ja": "最上位ビットが設定されていれば、eflags レジスタの符号フラグが設定される、ということです。もっと見たいですよね。では、制御フローについて、特に jcc を話しましょう。条件コードが満たされたときにジャンプする命令です。ここに、アセンブリ命令の巨大な一覧があって、これはまだ増えていきます。これは、マニュアルの jcc の最初のページだけです。でも、オペコードの列をよく見ると、繰り返されているものがあるのに気づきます。je の 74 と、jz の 74 です。"
 },
 {
 "i": 47,
 "start": "00:24:39,600",
 "end": "00:25:15,760",
 "en": "they both just check if the zero flag is set 77 for ja 77 for jnbe they both check if carry flag equals 0 and zero flag equals 0 so this is sort of the proof of what I said before that there's different mnemonics for the same essential instruction and it's up to the disassembler to decide which way it's going to show it also if you look at the manual you will see that there are descriptions that say jump short versus jump near and then even for jump near there seem to be two forms there's a",
-"ja": ""
+"ja": "どちらも、ゼロフラグが設定されているかを調べるだけです。ja の 77 と、jnbe の 77 は、どちらもキャリーフラグが 0 で、ゼロフラグが 0 かを調べます。これは、同じ命令に別のニーモニックがあるという、前に言ったことの証拠です。どちらで表示するかは、逆アセンブラが決めます。また、マニュアルを見ると、ジャンプ short とジャンプ near という説明があります。ジャンプ near にも、2 つの形があるようです。"
 },
 {
 "i": 48,
 "start": "00:25:13,600",
 "end": "00:25:42,000",
 "en": "relative 16-bit displacement and a relative 32-bit displacement but they've got this extra little comment here that says this 16-bit displacement is not supported in 64-bit mode and it also says not supported in the 64-bit column so the manual is actually you know multiplied out by you know so you've got two different forms of each operand you've got then further short versus near and you've got two forms of the near so it's just kind of multiplying out the number of combinations of conditional control",
-"ja": ""
+"ja": "相対 16 ビットのディスプレースメントと、相対 32 ビットのディスプレースメントです。ただ、ここに小さな注釈があって、この 16 ビットのディスプレースメントは 64 ビットモードではサポートされない、と書かれています。64 ビットの列にも、サポートされないと書かれています。ですからマニュアルは、各オペランドに 2 つの形があって、さらに short と near があり、near にも 2 つの形があるというふうに、条件付き制御フローの組み合わせの数を、掛け合わせて"
 },
 {
 "i": 49,
 "start": "00:25:41,600",
 "end": "00:26:17,039",
 "en": "flow so for 64-bit it's always going to be a relative 32-bit displacement so what does it mean it's a signed 32-bit number so it means it can jump 2 billion forward or 2 billion backwards or if it happens to be a 8-bit value you know 127 forwards or 128 backwards further down in the manual if you look at the operation section now you can see it's a lot more complicated than it was for the and or the add now all of a sudden we've got conditional you know pseudocode trying to explain what's going on",
-"ja": ""
+"ja": "増やしているのです。64 ビットでは、常に相対 32 ビットのディスプレースメントです。これは符号つきの 32 ビットの数なので、20 億ほど前へも、20 億ほど後ろへもジャンプできる、という意味です。8 ビットの値なら、前へ 127、後ろへ 128 です。マニュアルの下のほうの操作の節を見ると、and や add よりずっと複雑になっています。ここでは急に、何が起きているかを説明する、条件付きの疑似コードが出てきます。"
 },
 {
 "i": 50,
 "start": "00:26:13,360",
 "end": "00:26:50,000",
 "en": "you know if the condition is met then you know temp eip equals eip plus sign extend of destination but if the operand size is 16 then you know bit mask it down so that it's just a 16 bit value now clearly eip is not actually what's going to be used if you're in 64-bit mode so this is again you know the manual is slightly out of date slightly inaccurate there should probably be an if 64-bit mode thing like the jump manual page has but perhaps they figure you get the gist of it right so eip versus rip basic point is",
-"ja": ""
+"ja": "条件が満たされたら、temp eip は eip に、デスティネーションを符号拡張したものを足したものになります。オペランドサイズが 16 なら、16 ビットの値だけになるようにビットマスクします。もちろん 64 ビットモードでは、eip は実際には使われません。ですから、これもまたマニュアルが少し古く、少し不正確です。jump のマニュアルページにあるような、64 ビットモードの場合の分岐があるべきですが、おそらく、大意が分かればよいと考えたのでしょう。eip と rip の違いはありますが、基本的な点は、"
 },
 {
 "i": 51,
 "start": "00:26:49,200",
 "end": "00:27:26,000",
 "en": "either way you take the destination you take the relative displacement and you add it to the instruction pointer in this little bit right here where it's talking about code segment limits we don't know about we're not going to learn about until the next class but we're going to see that keep coming up in the context of control flow more really okay call assembly instruction all right this is all the possible forms but let's take it one half at a time we've got a call relative 16",
-"ja": ""
+"ja": "どちらにしても、デスティネーションの相対ディスプレースメントを取って、それを命令ポインタに足す、ということです。ここのコードセグメントの上限について書かれている部分は、まだ分かりません。次のクラスまで学びませんが、制御フローの文脈で何度も出てくるのを見ることになります。もっと見たいですか。では、call アセンブリ命令です。取りうる形はこれですべてですが、半分ずつ見ていきましょう。call 相対 16 と、"
 },
 {
 "i": 52,
 "start": "00:27:20,000",
 "end": "00:27:55,679",
 "en": "a call relative 32 call r/m16 r/m32 r/m64 okay so this is a call near we just talked about short versus near a little bit ago short was the 8-bit form near was the 16 or 32 so these are 16 or 32 call near it's a relative displacement so it's going to be plus or minus half the bit width they don't have little this is not valid in 64-bit text right here because they say it right here this is not supported 16-bit displacement not supported in 64-bit mode great good to know so this",
-"ja": ""
+"ja": "call 相対 32、call r/m16、r/m32、r/m64 があります。これは call near です。short と near の違いは少し前に話しました。short は 8 ビットの形で、near は 16 か 32 ビットです。ですから、これは 16 か 32 の call near で、相対ディスプレースメントなので、ビット幅の半分のプラスマイナスです。ここは 64 ビットのテキストでは有効ではありません。ここにそう書かれています。16 ビットのディスプレースメントは 64 ビットモードではサポートされない、ということです。知っておいてよかったですね。ですから、これが"
 },
 {
 "i": 53,
 "start": "00:27:54,159",
 "end": "00:28:22,559",
 "en": "is the only row that you actually have to care about and then if we read the short description it says call near relative displacement relative to the next instruction so basically for the math you're not going to take the address where the call instruction is you're going to take the address after the call instruction and then you're going to add the 32-bit displacement which is sign extended to 64 bits and you're going to treat it as a signed value so you're either going next",
-"ja": ""
+"ja": "実際に気にする必要がある唯一の行です。短い説明を読むと、call near、次の命令からの相対ディスプレースメントです。つまり、計算では、call 命令があるアドレスではなく、call 命令の次のアドレスを取って、そこに 32 ビットのディスプレースメントを足します。このディスプレースメントは 64 ビットに符号拡張されて、符号つきの値として扱われます。ですから、次のアセンブリ命令に、"
 },
 {
 "i": 54,
 "start": "00:28:21,440",
 "end": "00:28:59,679",
 "en": "assembly instruction plus some signed 32-bit extended value or minus some sign 32-bit extended value all of those jcc assembly instructions that we saw were always relative displacements but now call has another form of displacement it can take an r/m16, 32, 64 okay well neither of those are valid so 64-bit so for 64. it's always going to be an r/m64 call near and absolute indirect address given by r/m64. so absolute indirect absolute means it's very literally whatever number you come up with",
-"ja": ""
+"ja": "符号拡張された符号つき 32 ビットの値を足すか、それを引くかのどちらかです。先ほど見た jcc のアセンブリ命令は、すべて相対ディスプレースメントでした。でも call には、別の形のディスプレースメントがあり、r/m16、32、64 を取れます。このうちどちらも 64 ビットでは有効ではないので、64 ビットでは、常に r/m64 です。call near、r/m64 で与えられる絶対間接アドレスです。絶対間接の、絶対とは、文字どおり、その数が何であれ、"
 },
 {
 "i": 55,
 "start": "00:28:58,240",
 "end": "00:29:31,200",
 "en": "that's the address that you're going to jump to it's called indirect because as an r/m64 it will be specified in a register and so there's actually some other things that have absolute addresses where it's literally like hard-coded into the assembly instruction you know jump to this absolute address but here it's absolutely indirect because we're indirecting through a register or you know the r/m64 meaning it could be some memory value so of course that can be done in the typical r/m64 form of base plus index",
-"ja": ""
+"ja": "それがジャンプ先のアドレスだという意味です。間接と呼ばれるのは、r/m64 としてレジスタで指定されるからです。ほかにも、アセンブリ命令の中に文字どおり固定されている絶対アドレスを持つものがあって、この絶対アドレスにジャンプする、という形になります。でもここは絶対間接で、レジスタを通して間接指定するからです。r/m64 なので、メモリの値でもかまいません。もちろん、典型的な r/m64 の形である、ベース足すインデックス"
 },
 {
 "i": 56,
 "start": "00:29:29,120",
 "end": "00:30:03,279",
 "en": "time scale plus displacement calculate up some address and then call to call meaning you know just jump to that address and push the next assembly instructions address onto the stack now the other half of the call instructions which I sort of lopped off there a second ago is that there's something called call far so we had short we had near we had near relative we had near absolute indirect there's a call far and that has like absolute where it's just a hard-coded address call far absolute indirect so some sort",
-"ja": ""
+"ja": "かけるスケール足すディスプレースメントで、アドレスを計算して、その call、つまりそのアドレスにジャンプして、次のアセンブリ命令のアドレスをスタックに push します。さて、call 命令のもう半分は、少し前に切り落としましたが、call far というものがあります。short があり、near があり、near 相対があり、near 絶対間接がありました。call far もあって、これには絶対があります。固定されたアドレスです。call far の絶対間接は、"
 },
 {
 "i": 57,
 "start": "00:30:01,600",
 "end": "00:30:32,240",
 "en": "of indirection through something else but basically I want to tell you that for now you need to ignore the call far these depend on things called segmentation or segment selectors and we don't know anything about those yet but you can learn about those later on in architecture 2001. so whenever you're digging around in the manuals after this video you see any references to far or segment selectors or gates or call gates and things like that we don't know about it yet just ignore it for now quite frankly it's",
-"ja": ""
+"ja": "何かを介した間接指定です。でも基本的に、今は call far は無視してください。これらは、セグメンテーションやセグメントセレクタというものに依存しますが、それについてはまだ何も知りません。あとで Architecture 2001 で学べます。このビデオのあとにマニュアルを調べていて、far やセグメントセレクタ、ゲート、コールゲートなどへの言及を見かけても、まだ分からないので、今は無視してください。率直に言って、"
 },
 {
 "i": 58,
 "start": "00:30:30,480",
 "end": "00:30:57,360",
 "en": "mostly you know operating systems type people who need to deal with that in user space you're typically not going to see that very much it won't be 0 there could be some operating system specific corner cases where it could appear but for the most part you really your learning assembly you really don't need to care about these for now all right so in the description then there's you know a whole giant section of description but out of all of these it's the near call that we care about and all the rest",
-"ja": ""
+"ja": "それを扱う必要があるのは、主にオペレーティングシステムの人たちで、ユーザー空間ではあまり見ません。ゼロではなく、OS 特有の特殊なケースで現れることはありますが、ほとんどの場合、アセンブリを学ぶ今のところは、気にしなくてかまいません。では、説明の節には、とても大きな説明がありますが、そのうち私たちが気にするのは near call だけで、それ以外の"
 },
 {
 "i": 59,
 "start": "00:30:54,640",
 "end": "00:31:27,360",
 "en": "of this is architecture 2001 stuff so you can try to read the description but it's got all of these various permutations of stuff that we don't know about yet but which you can learn about in 2001 furthermore the operations section is crazy long pseudocode it's almost 10 pages long of pseudocode talking about if this or that or that or that or that and so it has to deal with things like you know the different distances of whether you know you're you're going 16-bit relative versus",
-"ja": ""
+"ja": "すべては Architecture 2001 の内容です。説明を読んでみてもよいですが、まだ知らないいろいろな組み合わせが出てきます。それは 2001 で学べます。さらに、操作の節は、とても長い疑似コードで、ほぼ 10 ページあります。これならこう、あれならああ、というふうに、いろいろな場合が書かれていて、16 ビット相対と、"
 },
 {
 "i": 60,
 "start": "00:31:25,919",
 "end": "00:31:59,200",
 "en": "32-bit relative it has to do with different privilege level translations whether or not you're going from user space to kernel space has to deal with the new control flow enforcement technology it has to deal with the different forms of if you're in 64-bit mode 32-bit mode 16-bit mode so it's a lot of stuff to chew on more are you kidding me I'm not gonna do it I think we're done no okay we've got some more okay return assembly instruction not too many forms of that we've got a",
-"ja": ""
+"ja": "32 ビット相対のような、いろいろな場合を扱わなければなりません。それには、ユーザー空間からカーネル空間へ移るかどうかといった、特権レベルの変換が関係し、新しい制御フロー強制の技術も関係し、64 ビットモード、32 ビットモード、16 ビットモードのどれにいるかによる、いろいろな形も関係します。ですから、かみ砕くものがたくさんあります。もっと見たいか、ですって。冗談でしょう。もうやりません。もう終わりだと思います。いいえ、まだあります。では、return アセンブリ命令です。形はそれほど多くなく、"
 },
 {
 "i": 61,
 "start": "00:31:56,799",
 "end": "00:32:29,519",
 "en": "near return to the calling procedure far return oh far we don't care about that we don't know about that so basically just a near return we've got a near return with a pop additional immediate 16 bytes from the stack so I had told you before that you know mostly return just takes whatever's on the top of the stack and goes back to that address sets rip to that address but I also said that there's a lesser scene form where you can specify a constant and that many bytes will also be",
-"ja": ""
+"ja": "呼び出し元のプロシージャへの near return があり、far return もありますが、far は気にしなくてかまいません。まだ知らないことです。基本的には near return だけです。さらに、追加の 16 ビットの即値のバイト数をスタックから pop する near return があります。以前、return は基本的にスタックの一番上にあるものを取って、そのアドレスに戻る、つまり rip をそのアドレスに設定すると言いました。でも、あまり見かけない形もあって、定数を指定すると、そのバイト数だけ"
 },
 {
 "i": 62,
 "start": "00:32:26,559",
 "end": "00:33:00,640",
 "en": "you know added to rsp you know it says pop imm16 bytes but they're not popping into any registers or anything like that they're basically just discarded you're adding to the stack pointer and here again control flow is hard so if you were to look at the operations section of the manual you'd see about 10 pages here dealing with all sorts of different conditional cases of return just like call wow this guy is demanding okay what else do we have more control flow jmp assembly instruction jump short",
-"ja": ""
+"ja": "rsp にも足されます。pop imm16 バイトと書かれていますが、どのレジスタにも pop されるわけではなく、基本的に捨てられるだけです。スタックポインタに足しているのです。ここでも、制御フローは難しく、マニュアルの操作の節を見ると、call と同じように、return のいろいろな条件のケースを扱う約 10 ページがあります。この人は要求が多いですね。では、ほかには何があるでしょうか。さらに制御フローで、jmp アセンブリ命令です。jump short、"
 },
 {
 "i": 63,
 "start": "00:32:59,039",
 "end": "00:33:32,960",
 "en": "jump near jump near relative jump near absolute indirect jump near absolute indirect jump near absolute indirect okay so we got different size displacements for how far it's going to jump relative 8 relative 16 relative 32 oh 16 not valid in 64 bit mode and we've got the indirect forms where you specify some r/m 16, 32, 64 but neither the 16 or the 32 are valid in 64-bit mode so for all intents and purposes there are exactly three jmp instructions when you're in 16-bit mode so we've got jump",
-"ja": ""
+"ja": "jump near、jump near 相対、jump near 絶対間接、jump near 絶対間接、jump near 絶対間接があります。ジャンプの距離を決めるディスプレースメントのサイズには、相対 8、相対 16、相対 32 があって、16 は 64 ビットモードでは有効ではありません。また、r/m 16、32、64 を指定する間接の形がありますが、16 も 32 も 64 ビットモードでは有効ではありません。ですから、事実上、64 ビットモードで使える jmp 命令は、ちょうど 3 つです。まず jump"
 },
 {
 "i": 64,
 "start": "00:33:31,200",
 "end": "00:34:06,320",
 "en": "short so rip plus an 8-bit displacement which is sign extended 64-bit so it's you know plus 127 minus 128 same thing for a 32-bit value and both of those are relative displacements which means it's hard-coded into the assembly instruction stream and then there's the version which has a register that's specified by the compiler so ff and some particular encoding of a register will get you an absolute indirect jump so r/m64 it and that will calculate an address an absolute address",
-"ja": ""
+"ja": "short は、rip に、64 ビットに符号拡張された 8 ビットのディスプレースメントを足すもので、プラス 127、マイナス 128 です。32 ビットの値でも同じです。この 2 つはどちらも相対ディスプレースメントで、アセンブリ命令の流れの中に固定されています。そしてもうひとつは、コンパイラが指定するレジスタを使う形です。ff と、レジスタのなんらかのエンコードで、絶対間接ジャンプになります。r/m64 で、アドレス、つまり絶対アドレスを計算して、"
 },
 {
 "i": 65,
 "start": "00:34:04,080",
 "end": "00:34:26,119",
 "en": "where you want rip to set to to be set to only 5 pages of pseudocode to talk about how exactly a jmp works so it's easier than call and ret but control flow is still hard there's also this far displacement but again we don't know about that so we're gonna skip it more all right but this is the last one cbw,",
-"ja": ""
+"ja": "rip をそこに設定したい場所にします。jmp がどう動くかを説明する疑似コードは、5 ページだけです。ですから call や ret より簡単ですが、制御フローはやはり難しいものです。far ディスプレースメントもありますが、これもまだ分からないので、飛ばします。もっと見たいですか。では、これが最後です。cbw、"
 },
 {
 "i": 66,
 "start": "00:34:24,699",
 "end": "00:34:58,160",
 "en": "cwde, cdqe these are the things that I basically said I don't see too much I don't care too much and I said you don't really need to know them but you know hey we're coming back we're reading the manual so if I were to say hey go check this out and see how they work well you can go and see how they work and they're actually pretty simple it's basically you know take a single byte these are the byte versions convert byte to word so these are you know ultimately pretty simple uh they're just things like",
-"ja": ""
+"ja": "cwde、cdqe です。これらは、あまり見かけないし、あまり気にしなくてよいと言ったものです。知る必要はないと言いましたが、せっかくマニュアルを読んでいるので戻ってきました。これらを見て、どう動くか確かめてみようと言えば、実際に確かめられますし、実はとても簡単です。基本的に、1 バイトを取って、これらはバイト版で、バイトをワードに変換します。つまり、最終的にはとても簡単で、たとえば"
 },
 {
 "i": 67,
 "start": "00:34:54,240",
 "end": "00:35:30,079",
 "en": "convert a byte to a word so 8 bits to 16 bits it's just a sign extension 16 bits to 32 bits it's just a sign extension 32 to 64. it's just a sign extension and then there's these slightly different versions that look sort of more legacy-ish in that you know 16 to 32 but you're using you know the dx concatenated with ax 32 to 64 but you're doing ea edx concatenated with eax and 64 to 128 but it's the concatenated form now you might imagine that these forms are more likely to be used if you're",
-"ja": ""
+"ja": "バイトをワードに変換する、つまり 8 ビットから 16 ビットへの変換は、符号拡張にすぎません。16 ビットから 32 ビットも符号拡張で、32 から 64 も符号拡張です。そして、もう少し違った、より古い形に見えるものがあります。16 から 32 ですが、dx と ax をつなげたものを使います。32 から 64 では、edx と eax をつなげたものを使い、64 から 128 でも、つなげた形です。これらの形は、割り算命令のようなものを扱うときに"
 },
 {
 "i": 68,
 "start": "00:35:28,640",
 "end": "00:35:56,640",
 "en": "dealing with those things like divide instructions right because the div instruction was had some forms where it was implicitly always operating on these concatenated forms but there's really nothing to how these things actually operate it's just sine extend from a short value to a long value but now you can see how you could go into the manual you could read it you could see you know stuff you understand stuff you don't understand yet like rex but but you could at least have a hope of understanding it",
-"ja": ""
+"ja": "使われやすいと考えられます。div 命令には、暗黙のうちに、常にこれらのつなげた形に対して動作する形があったからです。でも、これらの実際の動きに難しいところはなく、short の値から long の値への符号拡張にすぎません。これで、マニュアルを開いて、読んで、理解できるものと、rex のようにまだ理解できないものを見て、それでも少なくとも理解できる見込みがある、ということが分かったと思います。"
 },
 {
 "i": 69,
 "start": "00:35:55,200",
 "end": "00:36:27,200",
 "en": "because that's what this section is all about giving you the tools that you need in order to go forth and read new things that you've never seen before and understand them alright so it looks like Kylo satisfied at this point as am I so a little mini exercise that I have for you after this section is go to the MulDivExample.c and change it to a signed long long instead of the unsigned long long and you know who does appear what assembly instruction pops up and why you should go read the code and",
-"ja": ""
+"ja": "この節は、まさにそのためのものだからです。まだ見たことのない新しいものを読んで理解するために必要な道具を、皆さんに渡すことが目的です。さて、Kylo も、私と同じように、ここで満足したようです。この節のあとの、小さな練習問題です。MulDivExample.c を開いて、unsigned long long を signed long long に変更してみてください。どのアセンブリ命令が現れるか、そしてその理由を調べてください。コードを読んで、"
 },
 {
 "i": 70,
 "start": "00:36:25,839",
 "end": "00:36:32,079",
 "en": "understand and you'll look up the assembly instruction if you haven't seen it before",
-"ja": ""
+"ja": "理解して、見たことのないアセンブリ命令は調べてください。"
 }
 ]
 }

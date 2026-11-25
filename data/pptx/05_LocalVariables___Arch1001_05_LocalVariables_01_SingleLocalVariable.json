@@ -5,277 +5,277 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "SingleLocalVariable.c",
-"ja": ""
+"ja": "SingleLocalVariable.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "SingleLocalVariable.c",
-"ja": ""
+"ja": "SingleLocalVariable.c"
 },
 {
 "i": 19,
 "where": "スライド3",
 "en": "Adding a single local variable",
-"ja": ""
+"ja": "ローカル変数を 1 つ追加"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "Right click on the next project and select \"Set as StartUp Project\" as you move between class examples to make them launch when you run the debugger. Its text will go bold after.",
-"ja": ""
+"ja": "クラスの例を切り替えるときは、次のプロジェクトを右クリックして「スタートアップ プロジェクトに設定」を選ぶと、デバッガの実行時にそれが起動します。選ぶと、プロジェクト名が太字になります。"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "SingleLocalVariable.c Stack",
-"ja": ""
+"ja": "SingleLocalVariable.c のスタック"
 },
 {
 "i": 35,
 "where": "スライド5",
 "en": "If we step through line 0000000140001004 in func(), the stack looks like this:",
-"ja": ""
+"ja": "func() の 0000000140001004 行をステップ実行すると、スタックは次のようになります:"
 },
 {
 "i": 60,
 "where": "スライド6",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 62,
 "where": "スライド6",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 64,
 "where": "スライド7",
 "en": "SingleLocalVariable.c Stack",
-"ja": ""
+"ja": "SingleLocalVariable.c のスタック"
 },
 {
 "i": 65,
 "where": "スライド7",
 "en": "If we step through line 0000000140001004 in func(), the stack looks like this:",
-"ja": ""
+"ja": "func() の 0000000140001004 行をステップ実行すると、スタックは次のようになります:"
 },
 {
 "i": 85,
 "where": "スライド7",
 "en": "undef`5CA1AB1E",
-"ja": ""
+"ja": "undef`5CA1AB1E"
 },
 {
 "i": 92,
 "where": "スライド7",
 "en": "Because the asm only wrote a  “dword ptr” (4 bytes) worth of memory at this location, so the top 4 bytes are untouched and thus undefined",
-"ja": ""
+"ja": "このアセンブリは、この位置に「dword ptr」(4 バイト)分しか書かないため、上位 4 バイトは手つかずで、未定義のままです"
 },
 {
 "i": 93,
 "where": "スライド8",
 "en": "A Little Bit About r/mX Forms",
-"ja": ""
+"ja": "r/mX 形式について少し"
 },
 {
 "i": 94,
 "where": "スライド8",
 "en": "That I Skipped",
-"ja": ""
+"ja": "飛ばした部分"
 },
 {
 "i": 95,
 "where": "スライド8",
 "en": "In Intel Syntax, for r/mX memory descriptions, it will use things like \"qword ptr\", \"dword ptr\", or \"word ptr\" to indicate the size of the data being operated on (8, 4, and 2 bytes respectively)",
-"ja": ""
+"ja": "Intel 構文では、r/mX のメモリ記述に「qword ptr」「dword ptr」「word ptr」などを使い、操作対象のデータの大きさ(それぞれ 8、4、2 バイト)を示します"
 },
 {
 "i": 99,
 "where": "スライド9",
 "en": "An Easy Way to See What Memory Changes",
-"ja": ""
+"ja": "メモリの変化を簡単に確認する方法"
 },
 {
 "i": 100,
 "where": "スライド9",
 "en": "You can click into the VS memory window and edit memory to initialize uninitialized memory, and then see what actually changes",
-"ja": ""
+"ja": "VS のメモリウィンドウをクリックしてメモリを編集すれば、未初期化のメモリを初期化して、実際に何が変わるかを確認できます"
 },
 {
 "i": 101,
 "where": "スライド10",
 "en": "SingleLocalVariable.c Takeaways",
-"ja": ""
+"ja": "SingleLocalVariable.c のまとめ"
 },
 {
 "i": 102,
 "where": "スライド10",
 "en": "Local variables lead to an allocation of space on the stack, within the function where the variable is scoped to",
-"ja": ""
+"ja": "ローカル変数があると、その変数のスコープである関数の中で、スタックに領域が確保されます"
 },
 {
 "i": 103,
 "where": "スライド10",
 "en": "In VS there is an over-allocation of space for local variables",
-"ja": ""
+"ja": "VS では、ローカル変数用の領域を余分に確保します"
 },
 {
 "i": 104,
 "where": "スライド10",
 "en": "0x18 reserved for only 0x4 (int) worth of data",
-"ja": ""
+"ja": "0x4(int)分のデータのために 0x18 を確保"
 },
 {
 "i": 125,
 "where": "スライド11",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "謎リスト"
 },
 {
 "i": 126,
 "where": "スライド11",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio ではなぜ対にならないのか?"
 },
 {
 "i": 127,
 "where": "スライド11",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何なのか?"
 },
 {
 "i": 128,
 "where": "スライド11",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS はなぜ、ローカル変数 1 つのために領域を余分に確保するのか?"
 },
 {
 "i": 132,
 "where": "スライド12",
 "en": "Simple Stack Diagram 3",
-"ja": ""
+"ja": "簡単なスタック図 3"
 },
 {
 "i": 133,
 "where": "スライド12",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 136,
 "where": "スライド12",
 "en": "int a = 3*y;",
-"ja": ""
+"ja": "int a = 3*y;"
 },
 {
 "i": 137,
 "where": "スライド12",
 "en": "printf(\"bar returned %d\", a);",
-"ja": ""
+"ja": "printf(\"bar returned %d\", a);"
 },
 {
 "i": 138,
 "where": "スライド12",
 "en": "return a;",
-"ja": ""
+"ja": "return a;"
 },
 {
 "i": 160,
 "where": "スライド12",
 "en": "int a",
-"ja": ""
+"ja": "int a"
 },
 {
 "i": 161,
 "where": "スライド12",
 "en": "“return address” to return",
-"ja": ""
+"ja": "foo() に戻るための「戻りアドレス」"
 },
 {
 "i": 162,
 "where": "スライド12",
 "en": "from bar() to foo()",
-"ja": ""
+"ja": "(bar() から foo() へ)"
 },
 {
 "i": 163,
 "where": "スライド12",
 "en": "“return address” to return",
-"ja": ""
+"ja": "main() に戻るための「戻りアドレス」"
 },
 {
 "i": 164,
 "where": "スライド12",
 "en": "from foo() to main()",
-"ja": ""
+"ja": "(foo() から main() へ)"
 },
 {
 "i": 166,
 "where": "スライド12",
 "en": "“return address” to return",
-"ja": ""
+"ja": "invoke_main() に戻るための「戻りアドレス」"
 },
 {
 "i": 167,
 "where": "スライド12",
 "en": "from main() to invoke_main()",
-"ja": ""
+"ja": "(main() から invoke_main() へ)"
 }
 ]
 }

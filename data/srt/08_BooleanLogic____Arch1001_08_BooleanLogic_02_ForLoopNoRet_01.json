@@ -6,70 +6,70 @@
 "start": "00:00:00,240",
 "end": "00:00:35,040",
 "en": "in this example we're going to see a basic for loop so it's just doing for i 0 to 10 and printing out the values and there happens to be an i-- at the end for no good reason there's also no return value for this so we get some new assembly instructions inc for increment well that's probably the i++ and dec for decrement that's probably the random i-- I threw in but why is this in the boolean section it's because I would like to direct your attention to the fact that it is zeroing out",
-"ja": ""
+"ja": "この例では、基本的な for ループを見ます。i を 0 から 10 まで回して、値を出力するだけです。最後に、特に理由もなく i-- が入っています。また、戻り値もありません。ここで新しいアセンブリ命令が出てきます。inc はインクリメントで、たぶん i++ のことです。dec はデクリメントで、私がなんとなく入れた i-- のことでしょう。でも、なぜこれがブール演算の章にあるのでしょうか。それは、この関数が戻る前に、戻り値を"
 },
 {
 "i": 1,
 "start": "00:00:32,719",
 "end": "00:00:39,120",
 "en": "the return value before this function returns. Why is it doing that?",
-"ja": ""
+"ja": "ゼロにしているところに注目してほしいからです。なぜそうしているのでしょうか。"
 },
 {
 "i": 2,
 "start": "00:00:36,800",
 "end": "00:00:43,040",
 "en": "Because the programmer forgot to include a return value in main.",
-"ja": ""
+"ja": "プログラマが、main に戻り値を書き忘れたからです。"
 },
 {
 "i": 3,
 "start": "00:00:40,960",
 "end": "00:00:49,680",
 "en": "So the compiler helpfully says: \"well, you know, I got your back, you forget a return value I'll just go ahead and have you return zero\".",
-"ja": ""
+"ja": "それでコンパイラが親切に、「戻り値を書き忘れたなら、私が 0 を返すようにしておきますよ」と言ってくれます。"
 },
 {
 "i": 4,
 "start": "00:00:47,760",
 "end": "00:01:16,960",
 "en": "So the inc and dec instruction are pretty trivial it's just gonna be increment so +1 and decrement -1 these instructions both take a single source/destination operand which can be specified in r/mX form and they increment or decrement by 1 now when assembly is optimized frequently compilers will tend to not include the inc and dec because in the Intel optimization guide it says not to.",
-"ja": ""
+"ja": "inc 命令と dec 命令は、とても単純です。インクリメントで +1、デクリメントで -1 です。どちらの命令も、r/mX の形で指定できる、ソース兼デスティネーションのオペランドをひとつ取り、1 だけ増やすか減らします。ところで、アセンブリが最適化されるときは、コンパイラは inc と dec を使わないことがよくあります。Intel の最適化ガイドに、使わないようにと書かれているからです。"
 },
 {
 "i": 5,
 "start": "00:01:14,799",
 "end": "00:01:37,520",
 "en": "So if you see an inc and dec, it may indicate that it's unoptimized code or the compiler is just you know not doing Intel's best practices or it might be even some handwritten assembly. Like other arithmetic operations these are ultimately going to change the various status flags. So if we had rax equal to 0xbe5077ed and you xor it with itself you'd,",
-"ja": ""
+"ja": "ですから、inc や dec を見かけたら、最適化されていないコードか、コンパイラが Intel のベストプラクティスに従っていないか、あるいは手書きのアセンブリかもしれません。ほかの算術演算と同じように、これらも最終的には、さまざまなステータスフラグを変更します。たとえば、rax が 0xbe5077ed で、それを自分自身と xor すると、"
 },
 {
 "i": 6,
 "start": "00:01:36,079",
 "end": "00:01:43,439",
 "en": "get down to zero and if you inc that zero it would increment up to 1.",
-"ja": ""
+"ja": "0 になります。その 0 を inc すると、1 に増えます。"
 },
 {
 "i": 7,
 "start": "00:01:40,640",
 "end": "00:01:54,399",
 "en": "If you had rax equal to 0x70ad57001 and you moved 0 over rax, getting you to 0, and you decremented 0, it would flip around to the 0xFFFF...",
-"ja": ""
+"ja": "rax が 0x70ad57001 のときに、rax に 0 を move して 0 にして、その 0 を dec すると、0xFFFF... という"
 },
 {
 "i": 8,
 "start": "00:01:51,200",
 "end": "00:02:01,280",
 "en": "value performing an integer underflow. So time to step through the assembly and this is a for loop which you haven't seen before.",
-"ja": ""
+"ja": "値に一周して戻ります。整数のアンダーフローです。では、アセンブリをステップ実行しましょう。これは、まだ見ていない for ループです。"
 },
 {
 "i": 9,
 "start": "00:01:59,119",
 "end": "00:02:12,319",
 "en": "So this should give you a good example of how the assembly jumps around backwards and forwards when it's executing a for loop and how it ultimately jumps around when it's done with the for loop.",
-"ja": ""
+"ja": "これで、for ループを実行しているときに、アセンブリが前へ後ろへとどうジャンプするか、そして for ループが終わったときに、最終的にどうジャンプするかが、よく分かるはずです。"
 }
 ]
 }

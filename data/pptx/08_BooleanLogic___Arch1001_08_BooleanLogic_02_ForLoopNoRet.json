@@ -5,193 +5,193 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ForLoopNoRet.c",
-"ja": ""
+"ja": "ForLoopNoRet.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 22,
 "where": "スライド3",
 "en": "000000014000102A  call 00000001400010B0",
-"ja": ""
+"ja": "000000014000102A  call 00000001400010B0"
 },
 {
 "i": 23,
 "where": "スライド3",
 "en": "000000014000102F  jmp  000000014000100E",
-"ja": ""
+"ja": "000000014000102F  jmp  000000014000100E"
 },
 {
 "i": 30,
 "where": "スライド3",
 "en": "ForLoopNoRet.c - simple for loop",
-"ja": ""
+"ja": "ForLoopNoRet.c - 単純な for ループ"
 },
 {
 "i": 31,
 "where": "スライド3",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 35,
 "where": "スライド3",
 "en": "for(i = 0; i < 10; i++){",
-"ja": ""
+"ja": "for(i = 0; i < 10; i++){"
 },
 {
 "i": 42,
 "where": "スライド4",
 "en": "Single source/destination operand can be r/mX",
-"ja": ""
+"ja": "単一のソース兼デスティネーションオペランドは r/mX にできる"
 },
 {
 "i": 43,
 "where": "スライド4",
 "en": "Increase or decrease the value by 1",
-"ja": ""
+"ja": "値を 1 増やす、または 1 減らす"
 },
 {
 "i": 44,
 "where": "スライド4",
 "en": "When optimized, compilers will tend to favor not using inc/dec, as directed by the Intel optimization guide. So their presence may be indicative of hand-written, or un-optimized code",
-"ja": ""
+"ja": "最適化時、コンパイラは、Intel の最適化ガイドの指示により、inc/dec を使わない傾向があります。そのため、これらがあれば、手書きか、最適化されていないコードかもしれません"
 },
 {
 "i": 45,
 "where": "スライド4",
 "en": "Modifies OF, SF, ZF, AF, PF, and CF flags",
-"ja": ""
+"ja": "OF、SF、ZF、AF、PF、CF フラグを変更する"
 },
 {
 "i": 69,
 "where": "スライド4",
 "en": "Book page 59",
-"ja": ""
+"ja": "書籍 59 ページ"
 },
 {
 "i": 74,
 "where": "スライド5",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 76,
 "where": "スライド5",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解の確認"
 },
 {
 "i": 78,
 "where": "スライド6",
 "en": "ForLoopNoRet.c Takeaways",
-"ja": ""
+"ja": "ForLoopNoRet.c のまとめ"
 },
 {
 "i": 79,
 "where": "スライド6",
 "en": "For loops will be some combination of a JCC (to determine if the exit condition is met yet), and an absolute JMP (to return from the end to the conditional checking code)",
-"ja": ""
+"ja": "for ループは、JCC(終了条件を満たしたかの判定)と、絶対 JMP(末尾から条件判定のコードへ戻る)の組み合わせになります"
 },
 {
 "i": 80,
 "where": "スライド6",
 "en": "In the absence of an explicit return value VS & GCC default to returning 0",
-"ja": ""
+"ja": "明示的な戻り値がない場合、VS も GCC も、既定で 0 を返します"
 },
 {
 "i": 92,
 "where": "スライド6",
 "en": "000000014000102A  call 00000001400010B0",
-"ja": ""
+"ja": "000000014000102A  call 00000001400010B0"
 },
 {
 "i": 93,
 "where": "スライド6",
 "en": "000000014000102F  jmp  000000014000100E",
-"ja": ""
+"ja": "000000014000102F  jmp  000000014000100E"
 },
 {
 "i": 100,
 "where": "スライド6",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 104,
 "where": "スライド6",
 "en": "for(i = 0; i < 10; i++){",
-"ja": ""
+"ja": "for(i = 0; i < 10; i++){"
 },
 {
 "i": 109,
 "where": "スライド7",
 "en": "Instructions we now know (21)",
-"ja": ""
+"ja": "ここまでに分かった命令 (21)"
 },
 {
 "i": 120,
 "where": "スライド7",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 158,
 "where": "スライド8",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

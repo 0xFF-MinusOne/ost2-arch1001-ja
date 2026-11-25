@@ -6,21 +6,21 @@
 "start": "00:00:00,080",
 "end": "00:00:33,200",
 "en": "all right now we've got a lab for you it is read the fund manual and write the front instructions so i want you to go into the manuals and i want you to look up the bytes that specify these assembly instructions then i want you to write the raw bytes using that dot byte keyword and confirm whether or not you can create this assembly sequence so again don't write the human viewable form write raw bytes and see if you can get this now as a reminder the att syntax adds some suffixes to",
-"ja": ""
+"ja": "では、皆さんにラボがあります。楽しいマニュアルを読んで、楽しい命令を書くことです。マニュアルを調べて、これらのアセンブリ命令を指定するバイトを探してください。そして、.byte キーワードを使って、生のバイトを書いて、このアセンブリの並びを作れるかどうかを確かめてください。もう一度言いますが、人が読める形ではなく、生のバイトを書いて、これを作れるか試してください。念のためですが、AT&T 構文では、いくつかの接尾辞が"
 },
 {
 "i": 1,
 "start": "00:00:31,039",
 "end": "00:00:59,920",
 "en": "uh in assembly instructions so if you go looking in the manual for move w you're not going to find it that's just because of 18c syntax so that's just the move assembly instruction so go look at the manual there's going to be things that we haven't even covered in class like saf and you know that's the whole point is you know how to read the manual now so go ahead and read the manual and write this sequence once you're done you know you want to compile it and then you want to look at it with a disassembler",
-"ja": ""
+"ja": "アセンブリ命令に付きます。ですから、マニュアルで movw を探しても、見つかりません。それは AT&T 構文のためで、これは単なる mov アセンブリ命令です。マニュアルを調べてください。クラスでまだ扱っていない saf のようなものも出てきますが、それが目的で、今はマニュアルの読み方が分かっているからです。では、マニュアルを読んで、この並びを書いてください。できたら、コンパイルして、逆アセンブラで"
 },
 {
 "i": 2,
 "start": "00:00:56,879",
 "end": "00:01:04,719",
 "en": "in gcc gdb for instance in order to see whether you successfully emitted the correct assembly",
-"ja": ""
+"ja": "たとえば gcc の gdb で見て、正しいアセンブリを出力できたかどうかを確かめてください。"
 }
 ]
 }

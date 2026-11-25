@@ -5,373 +5,373 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Mystery Listery 1 Solved!",
-"ja": ""
+"ja": "Mystery Listery 1 解決!"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "Mystery Listery"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio では対にならないのはなぜ?"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何?"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS が、ローカル変数 1 つのために余分に領域を確保するのはなぜ?"
 },
 {
 "i": 15,
 "where": "スライド4",
 "en": "SingleLocalVariable.c",
-"ja": ""
+"ja": "SingleLocalVariable.c"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "Adding a single local variable",
-"ja": ""
+"ja": "ローカル変数を 1 つ追加"
 },
 {
 "i": 37,
 "where": "スライド5",
 "en": "SingleLocalVariable2.c",
-"ja": ""
+"ja": "SingleLocalVariable2.c"
 },
 {
 "i": 39,
 "where": "スライド5",
 "en": "int i = 0x7a11;",
-"ja": ""
+"ja": "int i = 0x7a11;"
 },
 {
 "i": 43,
 "where": "スライド5",
 "en": "int j = 0x7a1e;",
-"ja": ""
+"ja": "int j = 0x7a1e;"
 },
 {
 "i": 54,
 "where": "スライド5",
 "en": "0000000140001004  mov         dword ptr [rsp],07A11h",
-"ja": ""
+"ja": "0000000140001004  mov         dword ptr [rsp],07A11h"
 },
 {
 "i": 60,
 "where": "スライド5",
 "en": "0000000140001024  mov         dword ptr [rsp+20h],7A1Eh",
-"ja": ""
+"ja": "0000000140001024  mov         dword ptr [rsp+20h],7A1Eh"
 },
 {
 "i": 74,
 "where": "スライド5",
 "en": "Functions with a single local variable",
-"ja": ""
+"ja": "ローカル変数が 1 つの関数"
 },
 {
 "i": 79,
 "where": "スライド6",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 81,
 "where": "スライド6",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 114,
 "where": "スライド7",
 "en": "undef`00007a1e",
-"ja": ""
+"ja": "undef`00007a1e"
 },
 {
 "i": 130,
 "where": "スライド7",
 "en": "undef`00007a11",
-"ja": ""
+"ja": "undef`00007a11"
 },
 {
 "i": 174,
 "where": "スライド8",
 "en": "undef`00007a1e",
-"ja": ""
+"ja": "undef`00007a1e"
 },
 {
 "i": 190,
 "where": "スライド8",
 "en": "undef`00007a11",
-"ja": ""
+"ja": "undef`00007a11"
 },
 {
 "i": 203,
 "where": "スライド9",
 "en": "\"The stack will always be maintained 16-byte aligned, except within the prolog (for example, after the return address is pushed) ...\" [1]",
-"ja": ""
+"ja": "「スタックは常に 16 バイトにそろえて維持される。ただしプロローグ内(例: 戻りアドレスが push された後)は除く…」[1]"
 },
 {
 "i": 205,
 "where": "スライド9",
 "en": "I left out further exceptions which you can go read on your own if you'd like",
-"ja": ""
+"ja": "ほかの例外は省略。気になる人は各自で読むこと"
 },
 {
 "i": 238,
 "where": "スライド10",
 "en": "undef`00007a1e",
-"ja": ""
+"ja": "undef`00007a1e"
 },
 {
 "i": 254,
 "where": "スライド10",
 "en": "undef`00007a11",
-"ja": ""
+"ja": "undef`00007a11"
 },
 {
 "i": 267,
 "where": "スライド10",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 268,
 "where": "スライド10",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 269,
 "where": "スライド10",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 270,
 "where": "スライド10",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 302,
 "where": "スライド11",
 "en": "undef`00007a1e",
-"ja": ""
+"ja": "undef`00007a1e"
 },
 {
 "i": 318,
 "where": "スライド11",
 "en": "undef`00007a11",
-"ja": ""
+"ja": "undef`00007a11"
 },
 {
 "i": 331,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 332,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 333,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 334,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 335,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 336,
 "where": "スライド11",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 337,
 "where": "スライド13",
 "en": "DoubleLocalVariable.c",
-"ja": ""
+"ja": "DoubleLocalVariable.c"
 },
 {
 "i": 367,
 "where": "スライド14",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 369,
 "where": "スライド14",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 374,
 "where": "スライド15",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 386,
 "where": "スライド15",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 397,
 "where": "スライド16",
 "en": "TripleLocalVariable.c",
-"ja": ""
+"ja": "TripleLocalVariable.c"
 },
 {
 "i": 407,
 "where": "スライド16",
 "en": "Adding a single local variable",
-"ja": ""
+"ja": "ローカル変数を 1 つ追加"
 },
 {
 "i": 420,
 "where": "スライド16",
 "en": "000000014000103A  add         rsp,28h",
-"ja": ""
+"ja": "000000014000103A  add         rsp,28h"
 },
 {
 "i": 431,
 "where": "スライド17",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 433,
 "where": "スライド17",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 438,
 "where": "スライド18",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 450,
 "where": "スライド18",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 452,
 "where": "スライド18",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 465,
 "where": "スライド19",
 "en": "TOO-LARGE LOCAL VARIABLE",
-"ja": ""
+"ja": "大きすぎるローカル変数"
 },
 {
 "i": 469,
 "where": "スライド20",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "Mystery Listery"
 },
 {
 "i": 470,
 "where": "スライド20",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio では対にならないのはなぜ?"
 },
 {
 "i": 471,
 "where": "スライド20",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何?"
 },
 {
 "i": 472,
 "where": "スライド20",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS が、ローカル変数 1 つのために余分に領域を確保するのはなぜ?"
 }
 ]
 }

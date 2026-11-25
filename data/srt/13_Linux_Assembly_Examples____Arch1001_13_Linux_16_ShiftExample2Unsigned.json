@@ -6,63 +6,63 @@
 "start": "00:00:00,080",
 "end": "00:00:22,800",
 "en": "okay the next example is ShiftExample2 Unsigned so that was the case where we took atoi into a multiplied by 8 and divided by 16 and what we were looking for is that we were expecting that the compiler would essentially turn the multiply by 8 into a left shift by 3 and divide by 16 into a right shift by 4.",
-"ja": ""
+"ja": "では、次の例は ShiftExample2 Unsigned です。これは、atoi の結果に 8 をかけて 16 で割るものでした。ここで見たいのは、コンパイラが 8 でのかけ算を 3 ビットの左シフトに、16 での割り算を 4 ビットの右シフトにしてくれるだろう、と予想していたことです。"
 },
 {
 "i": 1,
 "start": "00:00:20,800",
 "end": "00:01:00,239",
 "en": "so we'll see whether or not gcc does that here but i'm going to add a little optimization in to get rid of this atoi so if i just compile it as we normally do we've been you know compiling like this thus far and the net result of that is always this first initial sequence which we see over and over again which is essentially just save the argc and the argv pluck out the value from for from argv 1 and pass it to atoi so that it gets converted into a number which gets returned back into edx",
-"ja": ""
+"ja": "gcc がここでそうするかどうか見ていきます。ただ、この atoi を取り除くために、最適化を少し加えます。これまで、いつもこのようにコンパイルしてきました。その結果は、何度も見てきた、この最初の部分です。基本的に、argc と argv を保存して、argv の 1 番目の値を取り出して、atoi に渡して数値に変換し、それが edx に返されます。"
 },
 {
 "i": 2,
 "start": "00:00:57,920",
 "end": "00:01:27,280",
 "en": "so i want to focus more on the shifts that we're going to see so just to clean it up a little bit just like i did in the visual studio stuff i'm going to add in a little bit of optimization to simplify it down a little bit but not too much also the fact that it's using argv of 1 means the compiler can't shift it sorry can't uh simplify it too much because it doesn't actually know what the expected values are it can't like pre-compute some value and just you know spit out a hard code constant",
-"ja": ""
+"ja": "今回は、これから見るシフトのほうに注目したいと思います。そこで、Visual Studio のときと同じように、少しだけ最適化を加えて、ある程度単純にします。ただし、やりすぎません。argv の 1 番目を使っているので、コンパイラはあまり単純にできません。期待される値が分からないので、ある値をあらかじめ計算して、固定の定数を出力する、ということができないからです。"
 },
 {
 "i": 3,
 "start": "00:01:25,600",
 "end": "00:02:10,640",
 "en": "so along those same lines we've got to make sure we have the right thing in my gdb configuration because i was playing around with it for the next example so now let's compile it right with optimization 1 and gdb it summarization so what's going on here well we've got a super quick and dirty version of that plucking out the argv of 1 because it basically takes rsi adds 8 to it that gets you from argv 0 to argv 1 and then dereferences it and then moves that dereference value into rdi and that should exactly be",
-"ja": ""
+"ja": "同じ流れで、次の例のためにいじっていたので、gdb の設定が正しいか確認しておく必要があります。では、最適化 1 でコンパイルして、gdb で見ましょう。何が起きているでしょうか。argv の 1 番目を取り出すための、とても手早い版になっています。rsi に 8 を足して、argv の 0 番目から 1 番目に進み、それを参照外しして、その値を rdi に移しています。それはちょうど、"
 },
 {
 "i": 4,
 "start": "00:02:08,239",
 "end": "00:02:36,400",
 "en": "the pointer to the string which is argv of 1 so let's go ahead and step in and see if that's true got a little bit of allocation of space on the stack also I have a note we don't have the normal function prolog and that we're not pushing rbp we're not popping rbp at the end so optimization seems to have gotten rid of our stack frame usage which is about what we would expect because it's not strictly necessary and it does go faster without it so let's step over this in order to",
-"ja": ""
+"ja": "argv の 1 番目である文字列へのポインタのはずです。ステップインして、そうなっているか確かめましょう。スタックの領域を少し確保しています。それと、ふつうの関数プロローグがないことにも注目してください。rbp を push していませんし、最後に rbp を pop もしていません。最適化によって、スタックフレームの使用がなくなったようです。これは予想どおりです。厳密には必要ではなく、ないほうが速いからです。では、これをステップオーバーして、"
 },
 {
 "i": 5,
 "start": "00:02:34,800",
 "end": "00:03:11,599",
 "en": "allocate a little stack space and let's do this computation and we expect the result afterwards is going to be the string of argv 1 and indeed it is the parameter that I passed in my gdb config file now the question is what's up with this moving of 0xa to edx and 0 to esi and it seems to be not calling atoi anymore it's calling strtol so if we actually look at the man page for atoi we will see that it actually says in here the atoi function converts it you know into an integer",
-"ja": ""
+"ja": "スタック領域を少し確保して、この計算をします。結果は argv の 1 番目の文字列のはずで、実際に、gdb の設定ファイルで渡したパラメータになっています。ここで、0xa を edx に、0 を esi に移しているのは何でしょうか。もう atoi を呼んでいなくて、strtol を呼んでいるようです。atoi の man ページを見ると、atoi 関数は、文字列を整数に変換する、と書かれています。"
 },
 {
 "i": 6,
 "start": "00:03:08,480",
 "end": "00:03:44,720",
 "en": "this behavior is the same as strtol with the pointer to the string and then if you pass null and base 10 for the second two parameters then that'll do the same thing as atoi so the compiler when it's optimizing just decided that that would be a better way to go so that's what it's doing so I'm going to step over that and I would expect that the output of that strtol is going to be 31337 and it is 0x7a69 is 31337 and from there this is just the trivial shift left 3 shift right 4 these",
-"ja": ""
+"ja": "この動作は、文字列へのポインタを渡した strtol と同じで、あとの 2 つのパラメータに null と基数 10 を渡すと、atoi と同じことをします。コンパイラは、最適化するときに、そのほうが良いと判断しました。それで、こうなっています。では、これをステップオーバーします。strtol の出力は 31337 のはずで、実際にそうなりました。0x7a69 は 31337 です。そこから先は、単純な 3 ビットの左シフトと 4 ビットの右シフトです。これらは"
 },
 {
 "i": 7,
 "start": "00:03:43,920",
 "end": "00:04:22,880",
 "en": "are both logical shifts not arithmetic shifts because we're operating on unsigned values so it doesn't need to keep track of you know the sign bit and worry about clobbering it when it right shifts back so eax right now holds 31337 so shift it left by 3 shift it right by 4 and you get 0x3d34 and it is in rax still so that goes ahead and you know acts as the return value here now it's adding 8 back into rsp because that just compensates for the 8 that it subtracted to make the stack area for during the",
-"ja": ""
+"ja": "どちらも論理シフトで、算術シフトではありません。符号なしの値を扱っているからです。符号ビットを追跡して、右シフトで戻すときに壊さないよう気にする必要がないのです。eax には今 31337 が入っています。これを 3 ビット左にシフトし、4 ビット右にシフトすると、0x3d34 になります。それはまだ rax にあるので、そのまま戻り値になります。ここで rsp に 8 を足し戻しているのは、"
 },
 {
 "i": 8,
 "start": "00:04:19,759",
 "end": "00:04:22,880",
 "en": "function prologue",
-"ja": ""
+"ja": "関数プロローグで、スタック領域を作るために引いた 8 を、打ち消すためです。"
 }
 ]
 }

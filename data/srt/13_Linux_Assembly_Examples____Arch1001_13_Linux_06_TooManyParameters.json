@@ -6,119 +6,119 @@
 "start": "00:00:00,080",
 "end": "00:00:20,000",
 "en": "so our next example was TooManyParameters and that was one where we were basically trying to overwhelm the number of register past parameters and force things to start being passed on the stack so as a reminder let's take a look at that again that was the one where basically we had a function with 1, 2, 3,",
-"ja": ""
+"ja": "次の例は TooManyParameters でした。これは、レジスタで渡せる引数の数を使い切らせて、引数がスタックで渡され始めるようにする、というものでした。思い出すために、もう一度見ましょう。これは、1、2、3、"
 },
 {
 "i": 1,
 "start": "00:00:17,920",
 "end": "00:00:53,360",
 "en": "4, 5 and it took 5 parameters now if we look back at the System V calling convention we see that actually unlike windows it has 6 register passed parameters instead of 4 so this would lead to rdi rsi rdx rcx r8 we haven't actually exceeded the number of register passed parameters so the the statement said you know any remaining parameters above and beyond these 6 will be pushed onto the stack we're not actually going to see that here so let's just go ahead and you know go through this quick and and see it as is",
-"ja": ""
+"ja": "4、5 と、5 つの引数を取る関数がある例でした。System V の呼び出し規約に戻って見ると、Windows とは違って、レジスタで渡される引数が 4 つではなく 6 つあります。つまり、rdi、rsi、rdx、rcx、r8 になります。レジスタで渡せる引数の数は、まだ超えていません。規約では、この 6 つを超える残りの引数は、スタックに push される、とありました。でも、ここではそれは見えません。ですから、まずこのまま、さっと見ていきましょう。"
 },
 {
 "i": 2,
 "start": "00:00:51,680",
 "end": "00:01:16,240",
 "en": "and then we'll adjust it in order to add more parameters and see what that does to the stack so let's go ahead and compile it and debug it so you can see that the values are being placed into their respective registers 0x11 into edi it's edi instead of rdi because it's just an int being passed so 32-bit value so 0x11, 0x22, 0x33,",
-"ja": ""
+"ja": "そのあと、引数を増やすように変更して、それがスタックにどう影響するかを見ます。では、コンパイルしてデバッグしましょう。値が、それぞれのレジスタに入っていくのがわかります。0x11 が edi に入ります。rdi ではなく edi なのは、渡されているのが int、つまり 32 ビットの値だからです。0x11、0x22、0x33、"
 },
 {
 "i": 3,
 "start": "00:01:14,960",
 "end": "00:01:50,960",
 "en": "0x44, 0x45, 0x55 into *di, *si, *dx, *cx, *8, right so let's go ahead and step into this function step step step step step step step step step now inside of the function we're going to see the typical function prologue which we'll go ahead and step past and then we have rdi that was the first parameter being placed into rbp minus 0x18 rsi the second parameter rbp minus 0x20. so just looking at this I can see that I'm going to need you know space for at least 0x38 worth of things so let's go",
-"ja": ""
+"ja": "0x44、0x55 が、*di、*si、*dx、*cx、*8 に入ります。では、この関数にステップインしましょう。ステップ、ステップ、ステップ、ステップ、ステップ、ステップ、ステップ、ステップ、ステップ。関数の中に入ると、典型的な関数プロローグがあるので、それを通り過ぎます。そして rdi、これが最初の引数で、rbp minus 0x18 に入ります。rsi、2 番目の引数は、rbp minus 0x20 です。これを見るだけで、少なくとも 0x38 ぶんの領域が必要だとわかります。では、"
 },
 {
 "i": 4,
 "start": "00:01:49,439",
 "end": "00:02:32,480",
 "en": "ahead and display the stack and let's display it because these are rdi rsi so even though they're passed in as you know 4 byte values uh they're being used as 8 byte values here so let's go ahead and 30 is going to be 6 and so we're going to need 7 space for 7 qwords seven giant words in gdb hexadecimal display at rbp minus 0x38 so let's go ahead and start stepping and seeing that get filled in so step there's our 0x11 step there's our 0x22 and step step step and we're gonna see",
-"ja": ""
+"ja": "スタックを表示しましょう。これは rdi と rsi で、4 バイトの値として渡されていても、ここでは 8 バイトの値として使われています。ですから、30 は 6 になり、7 つのクワッドワード、つまり 7 つのジャイアントワードが必要です。gdb で rbp minus 0x38 を 16 進で表示します。では、ステップ実行して、それが埋まっていくのを見ましょう。ステップ、これが 0x11、ステップ、これが 0x22、そしてステップ、ステップ、ステップと進むと、"
 },
 {
 "i": 5,
 "start": "00:02:30,160",
 "end": "00:03:12,400",
 "en": "you know basically 0x11, 0x22, 0x33, 0x44, 0x55 then it's going to turn around it's going to start plucking them out of those locations for doing the math so pull rbp minus 0x18 that was this 0x11 put it into rax and then move that down to edx rdx and then move rbp minus 0x20 and put it into rax and add the two so that's the a + b - c + d etc so that's just going to be doing a bunch of math it's going to pull all those values out and when it's done with all of it it's going to be storing them into",
-"ja": ""
+"ja": "基本的に、0x11、0x22、0x33、0x44、0x55 が見えます。そのあと、折り返して、計算のために、それらの場所から値を取り出し始めます。rbp minus 0x18、つまりこの 0x11 を取って、rax に入れ、それを edx、rdx に mov します。次に rbp minus 0x20 を rax に入れて、2 つを足します。これは a + b - c + d などです。計算をたくさんして、それらの値をすべて取り出し、すべて終わったら、それを"
 },
 {
 "i": 6,
 "start": "00:03:09,760",
 "end": "00:03:46,319",
 "en": "rbp minus 4. so like we saw with the single local single parameter pass or Pass1Parameter.c rbp minus 4 is where the actual i value is that's going to store the result of that math so if we step step step we will see that being filled in right here so that's rbp minus 4 and because of endianness it's showing up on the most significant bytes because it's minus 4 but it's 4 bytes then of course that will be plucked out and put into rax as the return value of this function so if we were to see that",
-"ja": ""
+"ja": "rbp minus 4 に保存します。単一のローカル変数、単一の引数を渡す Pass1Parameter.c で見たのと同じように、rbp minus 4 は、実際の i の値の場所で、その計算の結果を保存します。ステップを進めると、ここにそれが埋まるのが見えます。これが rbp minus 4 です。エンディアンのため、最上位バイトのほうに表示されています。minus 4 で、4 バイトだからです。そして、もちろんそれが取り出されて、この関数の戻り値として rax に入れられます。それを見るために、"
 },
 {
 "i": 7,
 "start": "00:03:43,760",
 "end": "00:04:16,400",
 "en": "stack it would look something like this got the return address out of main you've got mains saved rbp got the return address when main is calling into func func's saved rbp which rsp and rbp point at accessing in the red zone the area below rsp just because it's a leaf function and it doesn't need to you know just subtract and then add immediately and then the i got filled in with the math but we sort of see the pattern here of these parameters which were passed in the registers a, b, c, d, e",
-"ja": ""
+"ja": "スタックを描くと、このようになります。main から戻る戻りアドレスがあり、main の保存された rbp があり、main が func を呼び出すときの戻りアドレスがあり、func の保存された rbp があり、rsp と rbp がそれを指します。レッドゾーン、つまり rsp より下の領域にアクセスしています。リーフ関数で、sub してすぐに add する必要がないからです。そして i には計算結果が入ります。でも、ここにはパターンが見えます。レジスタで渡された引数 a、b、c、d、e が、"
 },
 {
 "i": 8,
 "start": "00:04:13,360",
 "end": "00:04:42,800",
 "en": "are put into stack space sort of at the bottom of the function frame so this looks very similar to the microsoft shadow store and you know you would expect it to have the same general purpose which is to help debuggers figure out you know for a particular function what were the function parameters which were passed in because the registers are going to get clobbered as the function runs so it's desirable to have some way to find out what the parameters were so let's go ahead and edit this source",
-"ja": ""
+"ja": "関数フレームの底のあたりのスタック領域に置かれます。これは、Microsoft のシャドウストアにとてもよく似ていて、同じような一般的な目的があると考えられます。つまり、デバッガが、特定の関数に渡された引数が何だったかを調べられるようにするためです。関数が実行されるうちに、レジスタは上書きされてしまうので、引数が何だったかを調べる方法があるのが望ましいのです。では、このソース"
 },
 {
 "i": 9,
 "start": "00:04:41,360",
 "end": "00:05:18,000",
 "en": "code in order to make it have actually too many parameters and see the full pattern so we added two more things so now we have a total of 7 parameters which is going to be 1 too many and we would expect this g as 0x77 to end up pushed onto the stack instead of you know past and register because there's no more registers to use so let's go ahead and compile that and debug it and indeed right at the very beginning we see this push quad word 0x77 onto the stack so function prolog push 0x77",
-"ja": ""
+"ja": "コードを編集して、実際に引数を多すぎるようにして、全体のパターンを見ましょう。2 つ足したので、引数が合計 7 つになりました。1 つ多すぎます。この 0x77 の g は、レジスタで渡されるのではなく、スタックに push されることになると思われます。使えるレジスタがもうないからです。では、これをコンパイルしてデバッグしましょう。確かに、いちばん最初に、クワッドワードの 0x77 をスタックに push する命令が見えます。関数プロローグで push 0x77 です。"
 },
 {
 "i": 10,
 "start": "00:05:15,280",
 "end": "00:05:51,600",
 "en": "and then moving all of the values into their respective registers used by the calling convention so let's go ahead and step into the function and see if there's anything else interesting in there so once we get into the function we see it well let's just disassemble it simple function if we skim across to the entirety of the accesses to rbp we see what looks like 0x40 is the lowest that it's ever accessing so let's put up a new display display of 8 giant words in hex at rbp minus",
-"ja": ""
+"ja": "そのあと、すべての値を、呼び出し規約で使われるそれぞれのレジスタに mov します。では、関数にステップインして、ほかに面白いものがあるか見てみましょう。関数に入ったら、逆アセンブルしましょう。単純な関数です。rbp へのアクセスをざっと見ると、いちばん低いところで 0x40 までアクセスしているようです。では、新しく表示を加えましょう。rbp minus"
 },
 {
 "i": 11,
 "start": "00:05:48,560",
 "end": "00:06:24,400",
 "en": "0x40 and we expect that this r9 value is going to go into the minus 0x40 and so forth and we again at the very end to see rbp minus 4 being used to store the integer result of all of this math step step step step step step step and then there's only one little interesting bit here at the end right at the end because the very last math that's being done is you know once you've accumulated everything you're doing the last minus g uh it's taking from rbp plus 0x10 to find the g value the 0x77 that",
-"ja": ""
+"ja": "0x40 から、8 つのジャイアントワードを 16 進で表示します。この r9 の値は、minus 0x40 に入ると思われます。そして最後に、この計算の整数の結果を保存するのに、また rbp minus 4 が使われます。ステップ、ステップ、ステップ、ステップ、ステップ、ステップ、ステップ。最後のところにだけ、ちょっと面白い点があります。最後の計算は、すべてを積み上げたあと、最後の minus g をするところです。g の値を見つけるために、rbp plus 0x10 から取っています。スタックに push された 0x77 です。それを"
 },
 {
 "i": 12,
 "start": "00:06:23,199",
 "end": "00:06:57,280",
 "en": "was pushed onto the stack and it's moving it into rax so we can see on our stack diagram here rbp is set to df48 df48 and that plus 0x10 is this 0x77 on the stack so back when we were talking about calling conventions i said that you know on back in 32-bit systems you would frequently see rbp minus something equals local variables and rbp plus something equals parameters passed to a function here because the only parameter that actually lands on the stack instead of registers in that regard",
-"ja": ""
+"ja": "rax に mov しています。ここのスタック図でわかるように、rbp は df48 に設定されていて、それに 0x10 を足したところが、スタック上のこの 0x77 です。呼び出し規約の話をしたときに、32 ビットのシステムでは、rbp minus いくつがローカル変数で、rbp plus いくつが関数に渡された引数になることが多い、と言いました。ここでは、スタックに実際に載る引数は、レジスタではなく、"
 },
 {
 "i": 13,
 "start": "00:06:55,039",
 "end": "00:07:27,280",
 "en": "is the final one the too many the seventh one it's still going to be accessing that one as rbp plus 0x10 as opposed to for instance it could have stuck it somewhere down here on the stack if it wanted to so step step step step step step step and we've got kind of the stack all set up and we're about to exit the function so if we want to see what the stack frame would look like here it looks like this very similar to the previous one it just has this insertion and that's an error let's fix",
-"ja": ""
+"ja": "最後の 1 つ、多すぎた 7 番目の引数だけです。それでも、その引数は rbp plus 0x10 としてアクセスされます。スタックのこのあたりに置くこともできたはずですが、そうはなっていません。ステップ、ステップ、ステップ、ステップ、ステップ、ステップ、ステップ。これでスタックの準備がすべて整い、関数を抜けようとしています。ここでのスタックフレームがどうなるかを見ると、前のものにとてもよく似ていて、この挿入があるだけです。あ、これは間違いなので、"
 },
 {
 "i": 14,
 "start": "00:07:24,479",
 "end": "00:08:02,800",
 "en": "that just on the fly 77. so insertion of g it was pushed before it ever called into the function and therefore it's going to be above the return address and so rbp plus 10 is where it can find that and then i gets the same you know actually that's probably not even the same value because it's different math right so what is the actual value de copy and paste errors so I get the result of that math and a little bit of padding here and then this thing that looks very similar to the microsoft shadow store the",
-"ja": ""
+"ja": "その場で直しましょう。77 です。g の挿入は、関数を呼び出す前に push されたので、戻りアドレスより上にあります。ですから、rbp plus 10 でそれを見つけられます。そして i には、同じ、いや、計算が違うので、おそらく同じ値ではないでしょう。実際の値は何でしょうか。コピー&ペーストのミスですね。その計算の結果が入り、少しパディングがあり、そして、Microsoft のシャドウストアによく似たものがあります。"
 },
 {
 "i": 15,
 "start": "00:08:00,080",
 "end": "00:08:32,880",
 "en": "basic debug area the home area haven't found a good documentation for a canonical name for that yet as used by gcc but if I do find some good canonical documentation I will point you that in the links for this video so the basic takeaway here is that a couple of things as we've already seen there's of course access to the red zone for leaf nodes but also function parameters can be stored down in the red zone at the sort of notional end of the stack frame or top of the stack frame if you want and",
-"ja": ""
+"ja": "基本のデバッグ領域、ホーム領域です。gcc で使われているこれの正式な名前についての、よいドキュメントは、まだ見つけていません。でも、よい正式なドキュメントが見つかったら、この動画のリンクでお知らせします。ここでの基本的な要点は、これまでに見たとおり、リーフノードではレッドゾーンにアクセスできるということに加えて、関数の引数も、スタックフレームの観念上の終わり、つまり、言い方を変えればスタックフレームの先頭にあたる、レッドゾーンの下のほうに保存できる、ということです。そして"
 },
 {
 "i": 16,
 "start": "00:08:31,199",
 "end": "00:08:40,159",
 "en": "basically they're going to be used and useful for debuggers to be able to find the arguments that were passed into a function",
-"ja": ""
+"ja": "それは基本的に、デバッガが、関数に渡された引数を見つけるのに使われ、役に立ちます。"
 }
 ]
 }

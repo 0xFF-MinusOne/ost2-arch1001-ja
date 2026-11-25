@@ -5,703 +5,703 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "32-bit Calling Conventions",
-"ja": ""
+"ja": "32 ビットの呼び出し規約"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "In 32 bit code, there are many more calling conventions in use",
-"ja": ""
+"ja": "32 ビットのコードでは、使われる呼び出し規約がずっと多い"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "“cdecl” (default for most C code)",
-"ja": ""
+"ja": "「cdecl」(ほとんどの C コードの既定)"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "Caller cleans up the stack",
-"ja": ""
+"ja": "呼び出し元がスタックを片付ける"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "“stdcall” (for Windows' Win32 APIs)",
-"ja": ""
+"ja": "「stdcall」(Windows の Win32 API 用)"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "Callee cleans up the stack",
-"ja": ""
+"ja": "呼び出し先がスタックを片付ける"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "Function parameters are pushed onto stack from right to left",
-"ja": ""
+"ja": "関数の引数は、右から左へスタックに push する"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "leftmost parameter (the first function parameter) ends up at the lowest address",
-"ja": ""
+"ja": "最も左の引数(最初の引数)が、最も低いアドレスに来る"
 },
 {
 "i": 20,
 "where": "スライド3",
 "en": "32-bit Stack Calling Conventions throwback   1",
-"ja": ""
+"ja": "32 ビットのスタック呼び出し規約のおさらい 1"
 },
 {
 "i": 21,
 "where": "スライド4",
 "en": "//Change uint64 to int",
-"ja": ""
+"ja": "//uint64 を int に変更"
 },
 {
 "i": 22,
 "where": "スライド4",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 23,
 "where": "スライド4",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 29,
 "where": "スライド4",
 "en": "32-bit TooManyParameters.c",
-"ja": ""
+"ja": "32 ビット版 TooManyParameters.c"
 },
 {
 "i": 30,
 "where": "スライド4",
 "en": "Step 1: Set config to \"Win32\" instead of \"x64\" in VS",
-"ja": ""
+"ja": "手順 1: VS で構成を「x64」から「Win32」に変更"
 },
 {
 "i": 31,
 "where": "スライド4",
 "en": "Step 2: Start debugger",
-"ja": ""
+"ja": "手順 2: デバッガを開始"
 },
 {
 "i": 32,
 "where": "スライド4",
 "en": "Step 3: Set memory window to esp instead of rsp and 4 bytes at a time",
-"ja": ""
+"ja": "手順 3: メモリウィンドウを rsp ではなく esp にして、4 バイトずつ表示"
 },
 {
 "i": 37,
 "where": "スライド5",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 39,
 "where": "スライド5",
 "en": "DRAW A STACK DIAGRAM!",
-"ja": ""
+"ja": "スタック図を描こう!"
 },
 {
 "i": 41,
 "where": "スライド6",
 "en": "//Change uint64 to int",
-"ja": ""
+"ja": "//uint64 を int に変更"
 },
 {
 "i": 42,
 "where": "スライド6",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 43,
 "where": "スライド6",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 55,
 "where": "スライド6",
 "en": "arg1 = a = 0x11",
-"ja": ""
+"ja": "arg1 = a = 0x11"
 },
 {
 "i": 59,
 "where": "スライド6",
 "en": "32-bit TooManyParameters.c",
-"ja": ""
+"ja": "32 ビット版 TooManyParameters.c"
 },
 {
 "i": 60,
 "where": "スライド6",
 "en": "Not Microsoft stack “Shadow Space”, just the normal calling convention!",
-"ja": ""
+"ja": "Microsoft のスタックの「シャドウスペース」ではなく、通常の呼び出し規約です!"
 },
 {
 "i": 61,
 "where": "スライド6",
 "en": "No alignment attempts",
-"ja": ""
+"ja": "アライメントの調整はなし"
 },
 {
 "i": 64,
 "where": "スライド7",
 "en": "//Change uint64 to int",
-"ja": ""
+"ja": "//uint64 を int に変更"
 },
 {
 "i": 65,
 "where": "スライド7",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 66,
 "where": "スライド7",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 72,
 "where": "スライド7",
 "en": "32-bit TooManyParameters.c 2",
-"ja": ""
+"ja": "32 ビット版 TooManyParameters.c 2"
 },
 {
 "i": 87,
 "where": "スライド7",
 "en": "In 32 bit code when you see a bunch of pushes in front of a call, that usually makes it pretty clear what the arguments to the function are",
-"ja": ""
+"ja": "32 ビットのコードで、call の前に push が並んでいれば、たいてい、関数の引数がはっきり分かります"
 },
 {
 "i": 106,
 "where": "スライド7",
 "en": "arg1 = a = 0x11",
-"ja": ""
+"ja": "arg1 = a = 0x11"
 },
 {
 "i": 110,
 "where": "スライド8",
 "en": "//Change uint64 to int",
-"ja": ""
+"ja": "//uint64 を int に変更"
 },
 {
 "i": 111,
 "where": "スライド8",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 112,
 "where": "スライド8",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 118,
 "where": "スライド8",
 "en": "32-bit TooManyParameters.c 2",
-"ja": ""
+"ja": "32 ビット版 TooManyParameters.c 2"
 },
 {
 "i": 145,
 "where": "スライド8",
 "en": "Not a callee-save! It's a VS-ism for allocating a single int worth of space for a local variable!",
-"ja": ""
+"ja": "呼び出し先保存ではありません! ローカル変数用に int 1 個分の領域を確保する、VS 独特のやり方です!"
 },
 {
 "i": 152,
 "where": "スライド8",
 "en": "arg1 = a = 0x11",
-"ja": ""
+"ja": "arg1 = a = 0x11"
 },
 {
 "i": 156,
 "where": "スライド9",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元保存"
 },
 {
 "i": 164,
 "where": "スライド9",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先保存"
 },
 {
 "i": 189,
 "where": "スライド9",
 "en": "Caller vs. Callee-save Regs",
-"ja": ""
+"ja": "呼び出し元保存と呼び出し先保存のレジスタ"
 },
 {
 "i": 190,
 "where": "スライド10",
 "en": "Both cdecl and stdcall conventions perform explicit stack frame linkage",
-"ja": ""
+"ja": "cdecl も stdcall も、スタックフレームを明示的に連結する"
 },
 {
 "i": 191,
 "where": "スライド10",
 "en": "Each time you enter a new function, the old ebp (\"stack frame base pointer\" by Intel convention) gets pushed onto the stack, and the new esp (top-of-the stack pointer, which now points at the copy of ebp), gets moved into ebp",
-"ja": ""
+"ja": "新しい関数に入るたびに、古い ebp(Intel の慣例で「スタックフレームのベースポインタ」)をスタックに push し、新しい esp(スタックの最上位を指すポインタ。このとき ebp のコピーを指す)を ebp に移す"
 },
 {
 "i": 194,
 "where": "スライド10",
 "en": "32-bit Stack Calling Conventions throwback   2",
-"ja": ""
+"ja": "32 ビットのスタック呼び出し規約のおさらい 2"
 },
 {
 "i": 211,
 "where": "スライド11",
 "en": "Assembly changes from this:",
-"ja": ""
+"ja": "アセンブリが次から変わる:"
 },
 {
 "i": 212,
 "where": "スライド11",
 "en": "Changing to 32 bit compilation",
-"ja": ""
+"ja": "32 ビットコンパイルに変更"
 },
 {
 "i": 233,
 "where": "スライド12",
 "en": "To this:",
-"ja": ""
+"ja": "次のようになる:"
 },
 {
 "i": 234,
 "where": "スライド12",
 "en": "Changing to 32 bit compilation",
-"ja": ""
+"ja": "32 ビットコンパイルに変更"
 },
 {
 "i": 235,
 "where": "スライド13",
 "en": "32-bit Stack Frame Diagram",
-"ja": ""
+"ja": "32 ビットのスタックフレーム図"
 },
 {
 "i": 251,
 "where": "スライド13",
 "en": "“return address” func() to main()",
-"ja": ""
+"ja": "func() から main() への「戻りアドレス」"
 },
 {
 "i": 260,
 "where": "スライド13",
 "en": "Animated slide, don't let the esp location fool you, it moves!",
-"ja": ""
+"ja": "アニメーションのスライドです。esp の位置にだまされないでください。動きます!"
 },
 {
 "i": 261,
 "where": "スライド13",
 "en": "“return address” main() to invoke_main()",
-"ja": ""
+"ja": "main() から invoke_main() への「戻りアドレス」"
 },
 {
 "i": 279,
 "where": "スライド14",
 "en": "32-bit Simple Stack Diagram 4",
-"ja": ""
+"ja": "32 ビットの簡単なスタック図 4"
 },
 {
 "i": 280,
 "where": "スライド14",
 "en": "#include <stdio.h>",
-"ja": ""
+"ja": "#include <stdio.h>"
 },
 {
 "i": 283,
 "where": "スライド14",
 "en": "int a = 3*y;",
-"ja": ""
+"ja": "int a = 3*y;"
 },
 {
 "i": 284,
 "where": "スライド14",
 "en": "printf(\"bar returned %d\", a);",
-"ja": ""
+"ja": "printf(\"bar returned %d\", a);"
 },
 {
 "i": 285,
 "where": "スライド14",
 "en": "return a;",
-"ja": ""
+"ja": "return a;"
 },
 {
 "i": 308,
 "where": "スライド14",
 "en": "“return address” bar() to foo()",
-"ja": ""
+"ja": "bar() から foo() への「戻りアドレス」"
 },
 {
 "i": 309,
 "where": "スライド14",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 319,
 "where": "スライド14",
 "en": "“return address” main() to invoke_main()",
-"ja": ""
+"ja": "main() から invoke_main() への「戻りアドレス」"
 },
 {
 "i": 323,
 "where": "スライド14",
 "en": "Function arguments (x=7)",
-"ja": ""
+"ja": "関数の引数 (x=7)"
 },
 {
 "i": 327,
 "where": "スライド14",
 "en": "Function arguments (y=b)",
-"ja": ""
+"ja": "関数の引数 (y=b)"
 },
 {
 "i": 330,
 "where": "スライド14",
 "en": "int a",
-"ja": ""
+"ja": "int a"
 },
 {
 "i": 336,
 "where": "スライド15",
 "en": "32-bit Maximum Stack Diagram",
-"ja": ""
+"ja": "32 ビットの最大スタック図"
 },
 {
 "i": 344,
 "where": "スライド15",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 345,
 "where": "スライド15",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 346,
 "where": "スライド15",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 347,
 "where": "スライド15",
 "en": "“return address” bar() to foo()",
-"ja": ""
+"ja": "bar() から foo() への「戻りアドレス」"
 },
 {
 "i": 348,
 "where": "スライド15",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 358,
 "where": "スライド15",
 "en": "“return address” from main() to whoever called main()",
-"ja": ""
+"ja": "main() から、main() を呼んだ側への「戻りアドレス」"
 },
 {
 "i": 362,
 "where": "スライド15",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 363,
 "where": "スライド15",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 364,
 "where": "スライド15",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 365,
 "where": "スライド15",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 366,
 "where": "スライド15",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 367,
 "where": "スライド15",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 371,
 "where": "スライド15",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 374,
 "where": "スライド16",
 "en": "Quiz: How can you tell if a register's being used as a callee-save reg?",
-"ja": ""
+"ja": "クイズ: レジスタが呼び出し先保存として使われているかは、どう見分ける?"
 },
 {
 "i": 376,
 "where": "スライド16",
 "en": "A: it's saved at the beginning of a function and restored at the end",
-"ja": ""
+"ja": "答え: 関数の冒頭で保存され、末尾で復元される"
 },
 {
 "i": 378,
 "where": "スライド16",
 "en": "Quiz: How can you tell if a register's being used as a caller-save reg?",
-"ja": ""
+"ja": "クイズ: レジスタが呼び出し元保存として使われているかは、どう見分ける?"
 },
 {
 "i": 379,
 "where": "スライド16",
 "en": "A: It's being saved before a call, and restored after",
-"ja": ""
+"ja": "答え: 呼び出しの前に保存され、呼び出しのあとに復元される"
 },
 {
 "i": 380,
 "where": "スライド17",
 "en": "Function parameters tend to get referenced as \"ebp+offset\"",
-"ja": ""
+"ja": "関数の引数は、たいてい「ebp+オフセット」で参照される"
 },
 {
 "i": 381,
 "where": "スライド17",
 "en": "Local variables tend to get referenced as \"ebp-offset\"",
-"ja": ""
+"ja": "ローカル変数は、たいてい「ebp-オフセット」で参照される"
 },
 {
 "i": 382,
 "where": "スライド17",
 "en": "Although gcc sometimes references as esp+offset",
-"ja": ""
+"ja": "ただし gcc は esp+オフセットで参照することもある"
 },
 {
 "i": 383,
 "where": "スライド17",
 "en": "32-bit Stack Calling Conventions throwback   3",
-"ja": ""
+"ja": "32 ビットのスタック呼び出し規約のおさらい 3"
 },
 {
 "i": 384,
 "where": "スライド18",
 "en": "32-bit Maximum Stack Diagram 2",
-"ja": ""
+"ja": "32 ビットの最大スタック図 2"
 },
 {
 "i": 389,
 "where": "スライド18",
 "en": "Local variables @ [ebp - ...] (or [esp + ...])",
-"ja": ""
+"ja": "ローカル変数は [ebp - ...](または [esp + ...])"
 },
 {
 "i": 403,
 "where": "スライド18",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 404,
 "where": "スライド18",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 405,
 "where": "スライド18",
 "en": "local variables (if any)",
-"ja": ""
+"ja": "ローカル変数(あれば)"
 },
 {
 "i": 406,
 "where": "スライド18",
 "en": "“return address” bar() to foo()",
-"ja": ""
+"ja": "bar() から foo() への「戻りアドレス」"
 },
 {
 "i": 407,
 "where": "スライド18",
 "en": "“return address” foo() to main()",
-"ja": ""
+"ja": "foo() から main() への「戻りアドレス」"
 },
 {
 "i": 415,
 "where": "スライド18",
 "en": "“return address” from main() to whoever called main()",
-"ja": ""
+"ja": "main() から、main() を呼んだ側への「戻りアドレス」"
 },
 {
 "i": 419,
 "where": "スライド18",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 420,
 "where": "スライド18",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 421,
 "where": "スライド18",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 422,
 "where": "スライド18",
 "en": "Caller-save regs (if any)",
-"ja": ""
+"ja": "呼び出し元保存レジスタ(あれば)"
 },
 {
 "i": 423,
 "where": "スライド18",
 "en": "Callee-save regs (if any)",
-"ja": ""
+"ja": "呼び出し先保存レジスタ(あれば)"
 },
 {
 "i": 424,
 "where": "スライド18",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 428,
 "where": "スライド18",
 "en": "Function arguments (if any)",
-"ja": ""
+"ja": "関数の引数(あれば)"
 },
 {
 "i": 429,
 "where": "スライド20",
 "en": "MS also supports other conventions such as \"fastcall\" which passes first 2 params in EDX, ECX, and then the rest on the stack",
-"ja": ""
+"ja": "MS には「fastcall」などの規約もあります。最初の 2 個の引数を EDX、ECX で渡し、残りはスタックで渡します"
 },
 {
 "i": 430,
 "where": "スライド20",
 "en": "It's like a more limited version of the x86-64 calling convention",
-"ja": ""
+"ja": "x86-64 の呼び出し規約を、より限定した版のようなものです"
 },
 {
 "i": 431,
 "where": "スライド20",
 "en": "No use of stack frames (since that's extra overhead, which would make it less fast!)",
-"ja": ""
+"ja": "スタックフレームは使いません(余計な負荷になり、速さが損なわれるため)"
 },
 {
 "i": 433,
 "where": "スライド20",
 "en": "32-bit Stack Calling Conventions throwback   4",
-"ja": ""
+"ja": "32 ビットのスタック呼び出し規約のおさらい 4"
 },
 {
 "i": 434,
 "where": "スライド21",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元保存"
 },
 {
 "i": 446,
 "where": "スライド21",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先保存"
 },
 {
 "i": 471,
 "where": "スライド21",
 "en": "Caller vs. Callee-save Regs",
-"ja": ""
+"ja": "呼び出し元保存と呼び出し先保存のレジスタ"
 },
 {
 "i": 472,
 "where": "スライド23",
 "en": "TODO: thiscall",
-"ja": ""
+"ja": "TODO: thiscall"
 },
 {
 "i": 474,
 "where": "スライド23",
 "en": "32-bit Stack Calling Conventions throwback   4",
-"ja": ""
+"ja": "32 ビットのスタック呼び出し規約のおさらい 4"
 }
 ]
 }

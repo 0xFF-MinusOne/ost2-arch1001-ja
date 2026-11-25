@@ -5,325 +5,325 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ShiftExample3Signed.c",
-"ja": ""
+"ja": "ShiftExample3Signed.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "That’s the power of love sign!",
-"ja": ""
+"ja": "これが符号の力!"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "unsigned int a, b, c;",
-"ja": ""
+"ja": "unsigned int a, b, c;"
 },
 {
 "i": 17,
 "where": "スライド3",
 "en": "a = atoi(argv[0]);",
-"ja": ""
+"ja": "a = atoi(argv[0]);"
 },
 {
 "i": 22,
 "where": "スライド3",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 26,
 "where": "スライド3",
 "en": "int a, b, c;",
-"ja": ""
+"ja": "int a, b, c;"
 },
 {
 "i": 27,
 "where": "スライド3",
 "en": "a = atoi(argv[0]);",
-"ja": ""
+"ja": "a = atoi(argv[0]);"
 },
 {
 "i": 33,
 "where": "スライド3",
 "en": "\"The power of sign, is a curious thing!",
-"ja": ""
+"ja": "「符号の力は、不思議なもの!"
 },
 {
 "i": 34,
 "where": "スライド3",
 "en": "Make one man weep, make another man sing!\"",
-"ja": ""
+"ja": "ある人を泣かせ、ある人を歌わせる!」"
 },
 {
 "i": 35,
 "where": "スライド3",
 "en": "It's about integer overflow vulnerabilities! :D",
-"ja": ""
+"ja": "整数オーバーフローの脆弱性の話です! :D"
 },
 {
 "i": 36,
 "where": "ノート3",
 "en": "http://4.bp.blogspot.com/-FAaWCtna3mw/Tc69R-mPbFI/AAAAAAAABxA/Nriylz_dc20/s1600/hlhlfr.jpeg",
-"ja": ""
+"ja": "http://4.bp.blogspot.com/-FAaWCtna3mw/Tc69R-mPbFI/AAAAAAAABxA/Nriylz_dc20/s1600/hlhlfr.jpeg"
 },
 {
 "i": 37,
 "where": "スライド4",
 "en": "ShiftExample3Signed.c",
-"ja": ""
+"ja": "ShiftExample3Signed.c"
 },
 {
 "i": 38,
 "where": "スライド4",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 42,
 "where": "スライド4",
 "en": "int a, b, c;",
-"ja": ""
+"ja": "int a, b, c;"
 },
 {
 "i": 43,
 "where": "スライド4",
 "en": "a = atoi(argv[1]);",
-"ja": ""
+"ja": "a = atoi(argv[1]);"
 },
 {
 "i": 54,
 "where": "スライド4",
 "en": "0000000140001011  and  edx,0Fh",
-"ja": ""
+"ja": "0000000140001011  and  edx,0Fh"
 },
 {
 "i": 61,
 "where": "スライド4",
 "en": "Note: Compiled with /O2 “Maximize Speed”, to clear away a bit of cruft",
-"ja": ""
+"ja": "注: 余計なものを減らすため、/O2「速度を最大化」でコンパイルしています"
 },
 {
 "i": 68,
 "where": "スライド5",
 "en": "0000000140001021  and         edx,0Fh",
-"ja": ""
+"ja": "0000000140001021  and         edx,0Fh"
 },
 {
 "i": 81,
 "where": "スライド5",
 "en": "Vs",
-"ja": ""
+"ja": "対"
 },
 {
 "i": 83,
 "where": "スライド5",
 "en": "Changed",
-"ja": ""
+"ja": "変更点"
 },
 {
 "i": 84,
 "where": "スライド5",
 "en": "CDQ is added as an VS-ism. It’s necessary for the math to work out, but I feel like I’ve only run into it once ever in the wild. So I don’t consider it that important for beginners to know and I’m skipping it. But you can feel free to come back and read this code once we’ve gone through the RTFM section.",
-"ja": ""
+"ja": "CDQ は VS 独特のもので追加されます。計算が成り立つには必要ですが、実際に見かけたのは一度きりです。初心者が知る必要はあまりないと考え、省きます。RTFM の節を終えたら、このコードに戻って読んでみてください。"
 },
 {
 "i": 86,
 "where": "スライド6",
 "en": "Can be explicitly used with the C “>>” operator, if operands are signed",
-"ja": ""
+"ja": "オペランドが符号つきなら、C の「>>」演算子で明示的に使える"
 },
 {
 "i": 87,
 "where": "スライド6",
 "en": "First operand (source and destination) is an r/mX",
-"ja": ""
+"ja": "第 1 オペランド(ソース兼デスティネーション)は r/mX"
 },
 {
 "i": 88,
 "where": "スライド6",
 "en": "Second operand is either cl (lowest byte of ecx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
-"ja": ""
+"ja": "第 2 オペランドは cl(ecx の最下位バイト)か、1 バイトの即値。第 2 オペランドは、シフトする桁数"
 },
 {
 "i": 89,
 "where": "スライド6",
 "en": "It divides the register by 2 for each place the value is shifted. More efficient than a divide instruction",
-"ja": ""
+"ja": "シフトする桁ごとに、レジスタを 2 で割る。除算命令より効率的"
 },
 {
 "i": 90,
 "where": "スライド6",
 "en": "Each bit shifted off the right side is placed in CF",
-"ja": ""
+"ja": "右端からはみ出した各ビットは CF に入る"
 },
 {
 "i": 116,
 "where": "スライド7",
 "en": "Actually behaves exactly the same as SHL!",
-"ja": ""
+"ja": "実は SHL とまったく同じ動作です!"
 },
 {
 "i": 117,
 "where": "スライド7",
 "en": "First operand (source and destination) is an r/mX",
-"ja": ""
+"ja": "第 1 オペランド(ソース兼デスティネーション)は r/mX"
 },
 {
 "i": 118,
 "where": "スライド7",
 "en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
-"ja": ""
+"ja": "第 2 オペランドは cl(rcx の最下位バイト)か、1 バイトの即値。第 2 オペランドは、シフトする桁数"
 },
 {
 "i": 119,
 "where": "スライド7",
 "en": "It multiplies the register by 2 for each place the value is shifted. More efficient than a multiply instruction",
-"ja": ""
+"ja": "シフトする桁ごとに、レジスタを 2 倍する。乗算命令より効率的"
 },
 {
 "i": 120,
 "where": "スライド7",
 "en": "Each bit shifted off the left side is placed in CF",
-"ja": ""
+"ja": "左端からはみ出した各ビットは CF に入る"
 },
 {
 "i": 149,
 "where": "スライド8",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 151,
 "where": "スライド8",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解の確認"
 },
 {
 "i": 153,
 "where": "スライド9",
 "en": "ShiftExample3Signed.c Takeaways",
-"ja": ""
+"ja": "ShiftExample3Signed.c のまとめ"
 },
 {
 "i": 154,
 "where": "スライド9",
 "en": "Compilers still prefer shifts for mul/div over powers of 2",
-"ja": ""
+"ja": "コンパイラは、2 のべき乗の乗算・除算では、やはりシフトを好む"
 },
 {
 "i": 155,
 "where": "スライド9",
 "en": "But when the operands are signed rather than unsigned, it must use different instructions, and potentially do more work to deal with a signed multiply",
-"ja": ""
+"ja": "ただし、オペランドが符号なしでなく符号つきのときは、別の命令を使い、符号つきの乗算に対応するため、より多くの処理が必要になる場合がある"
 },
 {
 "i": 156,
 "where": "スライド9",
 "en": "CDQ isn’t super important for beginners to know, left as an exercise for the reader to RTFM for later ;)",
-"ja": ""
+"ja": "CDQ は初心者にはあまり重要でないので、あとで RTFM(マニュアルを読む)ことを、読者の課題として残します ;)"
 },
 {
 "i": 163,
 "where": "スライド9",
 "en": "0000000140001021  and  edx,0Fh",
-"ja": ""
+"ja": "0000000140001021  and  edx,0Fh"
 },
 {
 "i": 168,
 "where": "スライド9",
 "en": "#include <stdlib.h>",
-"ja": ""
+"ja": "#include <stdlib.h>"
 },
 {
 "i": 172,
 "where": "スライド9",
 "en": "int a, b, c;",
-"ja": ""
+"ja": "int a, b, c;"
 },
 {
 "i": 173,
 "where": "スライド9",
 "en": "a = atoi(argv[1]);",
-"ja": ""
+"ja": "a = atoi(argv[1]);"
 },
 {
 "i": 178,
 "where": "スライド10",
 "en": "Instructions we now know (26)",
-"ja": ""
+"ja": "ここまでに分かった命令 (26)"
 },
 {
 "i": 189,
 "where": "スライド10",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 228,
 "where": "スライド11",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

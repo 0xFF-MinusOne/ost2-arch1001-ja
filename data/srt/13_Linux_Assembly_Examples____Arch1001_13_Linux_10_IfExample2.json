@@ -6,21 +6,21 @@
 "start": "00:00:00,160",
 "end": "00:00:49,920",
 "en": "now let's see the same sort of control flow but using unsigned values instead in IfExample2 right so unsigned int a and unsigned int b so that unsigned int a that negative 1 is ffff that's going to be interpreted as just a unsigned value ffff so when we do is a equal to b that's not true but is a ffff greater than b yes that is true all f's is greater than two so we expect this one to return 2 all the time and never return 3 1 or 0xdefea7ed so let's compile that and debug it so there we go the same negative 1",
-"ja": ""
+"ja": "では、同じような制御フローを、今度は符号なしの値で見ましょう。IfExample2 です。unsigned int の a と、unsigned int の b があります。この unsigned int の a は、マイナス 1 が ffff で、これは単なる符号なしの値 ffff と解釈されます。そこで、a は b に等しいか調べると、それは成り立ちません。でも、a の ffff は b より大きいか、と調べると、成り立ちます。すべて f なので、2 より大きいのです。ですから、これはいつも 2 を返して、3 や 1 や 0xdefea7ed は決して返さないと予想できます。ではコンパイルして、デバッグしましょう。同じマイナス 1 で、"
 },
 {
 "i": 1,
 "start": "00:00:47,600",
 "end": "00:01:28,159",
 "en": "ffffs but it's going to be interpreted as a positive 4 billion so let's step step step step step step step we don't expect the not equal to happen now here this is a below or equal check because it's a unsigned comparison so we use below and above instead of greater than less than when we're dealing with unsigned values so pull the negative 2 out which is actually all f's put it in eax there you go all f's and then compare it is all f's below 2 and the answer is no it is not so it's going to fall",
-"ja": ""
+"ja": "ffff ですが、これは約 40 億の正の値と解釈されます。では、ステップ、ステップ、ステップと進みましょう。ここで、等しくない場合は起きないと予想します。ここは below or equal のチェックです。符号なしの比較なので、符号なしの値を扱うときは、より大きい、より小さいのかわりに、above と below を使います。マイナス 2、実際はすべて f の値を取り出して、eax に入れます。これですべて f になりました。そして、すべて f は 2 より below か、と比較すると、答えは違います。ですから、このまま"
 },
 {
 "i": 2,
 "start": "00:01:26,320",
 "end": "00:01:40,159",
 "en": "through it's not going to take the below or equal jump it will fall through and return 2 step step unconditional jump to the end and then exit out of the function",
-"ja": ""
+"ja": "下に進んで、below or equal のジャンプは取られずに、そのまま進んで 2 を返します。ステップ、ステップ、最後への無条件ジャンプで、関数を抜けます。"
 }
 ]
 }

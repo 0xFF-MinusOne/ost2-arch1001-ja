@@ -44,6 +44,7 @@ def merge_cues(cues):
 def extract_srt(up):
     up = pathlib.Path(up); out = DATA / 'srt'; out.mkdir(parents=True, exist_ok=True); n = 0
     for f in sorted(up.rglob('*.srt')):
+        if re.search(r'_[a-z]{2}(_[a-z]{2})?\.srt$', f.name): continue   # 他の言語の字幕(pt_br など)は、英語版を訳すので対象にしない
         rel = f.relative_to(up).as_posix()
         units = merge_cues(parse_srt(f.read_text(encoding='utf-8', errors='replace')))
         name = rel.replace('/', '__')[:-4]
@@ -161,12 +162,14 @@ def build_pptx(up, outdir):
         d = json.loads(p.read_text(encoding='utf-8'))
         by = {u['i']: u for u in d['units'] if u['ja']}
         if not by: continue
-        prs = Presentation(str(up / d['source']))
+        prs = Presentation(str(up / d['source'])); used = set()
         for k, (para, where) in enumerate(walk_pptx(prs)):
             u = by.get(k)
             if not u or para_text(para) != u['en'] or not para.runs: continue   # 原文が変わっていたら書き換えない
-            para.runs[0].text = u['ja']
+            para.runs[0].text = u['ja']; used.add(k)
             for r in para.runs[1:]: r.text = ''
+        missed = set(by) - used
+        if missed: print('  書き戻せなかった段落:', pathlib.Path(d['source']).name, sorted(missed)[:8], len(missed), '件')
         dst = outdir / pathlib.Path(d['source']).parent / (pathlib.Path(d['source']).stem + '.ja.pptx'); dst.parent.mkdir(parents=True, exist_ok=True)
         prs.save(str(dst)); n += 1
     print('日本語のスライド:', n, '本')

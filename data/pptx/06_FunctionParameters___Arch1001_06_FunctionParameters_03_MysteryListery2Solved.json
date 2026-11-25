@@ -5,235 +5,235 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "Mystery Lystery 2 Solved!",
-"ja": ""
+"ja": "Mystery Lystery 2 解決!"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons の「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明記すること"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah の『Architecture 1001: x86-64 Assembly』講義(https://ost.fyi)の派生物です」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "Mystery Listery"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio では対にならないのはなぜ?"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何?"
 },
 {
 "i": 14,
 "where": "スライド3",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS が、ローカル変数 1 つのために余分に領域を確保するのはなぜ?"
 },
 {
 "i": 17,
 "where": "スライド4",
 "en": "CallASubroutine1.c",
-"ja": ""
+"ja": "CallASubroutine1.c"
 },
 {
 "i": 34,
 "where": "スライド5",
 "en": "CallASubroutine1.c:",
-"ja": ""
+"ja": "CallASubroutine1.c:"
 },
 {
 "i": 35,
 "where": "スライド5",
 "en": "STACK FRAME TIME OUT",
-"ja": ""
+"ja": "スタックフレーム小休止"
 },
 {
 "i": 61,
 "where": "スライド5",
 "en": "main”’s frame",
-"ja": ""
+"ja": "main のフレーム"
 },
 {
 "i": 63,
 "where": "スライド5",
 "en": "main’s frame",
-"ja": ""
+"ja": "main のフレーム"
 },
 {
 "i": 65,
 "where": "スライド5",
 "en": "Stack",
-"ja": ""
+"ja": "スタック"
 },
 {
 "i": 66,
 "where": "スライド5",
 "en": "func never even makes a stack frame",
-"ja": ""
+"ja": "func はスタックフレームを作りもしない"
 },
 {
 "i": 67,
 "where": "ノート5",
 "en": "Colon notation means the full value is represented by the concatenation of the two values.",
-"ja": ""
+"ja": "コロン表記は、2 つの値を連結したものが全体の値であることを表す。"
 },
 {
 "i": 68,
 "where": "ノート5",
 "en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
-"ja": ""
+"ja": "rdx = 0x11112222、eax = 0x33334444 のとき、rdx:eax はクワッドワード 0x1111222233334444 になる"
 },
 {
 "i": 69,
 "where": "スライド6",
 "en": "CallASubroutine1.c:",
-"ja": ""
+"ja": "CallASubroutine1.c:"
 },
 {
 "i": 70,
 "where": "スライド6",
 "en": "STACK FRAME TIME OUT",
-"ja": ""
+"ja": "スタックフレーム小休止"
 },
 {
 "i": 74,
 "where": "スライド6",
 "en": "16-byte-stack-alignment padding",
-"ja": ""
+"ja": "16 バイトのスタック位置合わせ用パディング"
 },
 {
 "i": 101,
 "where": "スライド6",
 "en": "main”’s frame",
-"ja": ""
+"ja": "main のフレーム"
 },
 {
 "i": 104,
 "where": "スライド6",
 "en": "Stack",
-"ja": ""
+"ja": "スタック"
 },
 {
 "i": 108,
 "where": "スライド6",
 "en": "func never even makes a stack frame",
-"ja": ""
+"ja": "func はスタックフレームを作りもしない"
 },
 {
 "i": 109,
 "where": "スライド6",
 "en": "main’s frame",
-"ja": ""
+"ja": "main のフレーム"
 },
 {
 "i": 110,
 "where": "ノート6",
 "en": "Colon notation means the full value is represented by the concatenation of the two values.",
-"ja": ""
+"ja": "コロン表記は、2 つの値を連結したものが全体の値であることを表す。"
 },
 {
 "i": 111,
 "where": "ノート6",
 "en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
-"ja": ""
+"ja": "rdx = 0x11112222、eax = 0x33334444 のとき、rdx:eax はクワッドワード 0x1111222233334444 になる"
 },
 {
 "i": 112,
 "where": "スライド7",
 "en": "SEEMINGLY USELESS OVER-ALLOCATION  OF",
-"ja": ""
+"ja": "関数を呼ぶ関数での、一見むだな"
 },
 {
 "i": 113,
 "where": "スライド7",
 "en": "SPACE IN FUNCTIONS THAT CALL FUNCTIONS",
-"ja": ""
+"ja": "領域の過剰確保"
 },
 {
 "i": 114,
 "where": "スライド8",
 "en": "MICROSOFT \"x64\" ABI",
-"ja": ""
+"ja": "MICROSOFT「x64」ABI"
 },
 {
 "i": 116,
 "where": "スライド9",
 "en": "Mystery Listery",
-"ja": ""
+"ja": "Mystery Listery"
 },
 {
 "i": 117,
 "where": "スライド9",
 "en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
-"ja": ""
+"ja": "GCC/Clang の HelloWorld では push と pop が対になっているのに、Visual Studio では対にならないのはなぜ?"
 },
 {
 "i": 118,
 "where": "スライド9",
 "en": "What’s up with the sub/add 0x28 in main()?",
-"ja": ""
+"ja": "main() の sub/add 0x28 は何?"
 },
 {
 "i": 119,
 "where": "スライド9",
 "en": "Why is VS over-allocating space for a single local variable?",
-"ja": ""
+"ja": "VS が、ローカル変数 1 つのために余分に領域を確保するのはなぜ?"
 }
 ]
 }

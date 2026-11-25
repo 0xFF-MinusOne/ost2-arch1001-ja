@@ -5,193 +5,193 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "TooManyParameters.c",
-"ja": ""
+"ja": "TooManyParameters.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "with GCC",
-"ja": ""
+"ja": "GCC 版"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 5,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 9,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 11,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 12,
 "where": "スライド3",
 "en": "TooManyParameters.c",
-"ja": ""
+"ja": "TooManyParameters.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "#define uint64 unsigned long long",
-"ja": ""
+"ja": "#define uint64 unsigned long long"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
-"ja": ""
+"ja": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 60,
 "where": "スライド4",
 "en": "First 6 parameters (from left to right) are put into RDI, RSI, RDX, RCX, R8, R9 respectively",
-"ja": ""
+"ja": "最初の 6 個の引数は、左から順に RDI、RSI、RDX、RCX、R8、R9 に入れる"
 },
 {
 "i": 61,
 "where": "スライド4",
 "en": "Remaining parameters pushed onto the stack so that the left-most parameter is at the lowest address",
-"ja": ""
+"ja": "残りの引数は、最も左の引数が最も低いアドレスになるようにスタックへ push する"
 },
 {
 "i": 62,
 "where": "スライド4",
 "en": "Book page 111",
-"ja": ""
+"ja": "書籍 111 ページ"
 },
 {
 "i": 63,
 "where": "スライド4",
 "en": "int func(int a, int b, int c, int d, int e){",
-"ja": ""
+"ja": "int func(int a, int b, int c, int d, int e){"
 },
 {
 "i": 64,
 "where": "スライド4",
 "en": "int i = a+b-c+d-e;",
-"ja": ""
+"ja": "int i = a+b-c+d-e;"
 },
 {
 "i": 75,
 "where": "ノート4",
 "en": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif",
-"ja": ""
+"ja": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif"
 },
 {
 "i": 77,
 "where": "ノート4",
 "en": "TODO: calling convention identification reinforcement goes here, or at end of deck, or after we’ve seen some asm?",
-"ja": ""
+"ja": "TODO: 呼び出し規約を見分ける練習は、ここか、スライドの最後か、アセンブリを見たあとに置く?"
 },
 {
 "i": 78,
 "where": "ノート4",
 "en": "Give students an example randomized C call, and the equivalent templated, randomized, x86 code and ask them to pick which calling convention it uses",
-"ja": ""
+"ja": "受講者に、ランダムな C の呼び出しの例と、それに対応する、ランダムなテンプレート化した x86 コードを見せて、どの呼び出し規約を使っているか選ばせる"
 },
 {
 "i": 79,
 "where": "スライド5",
 "en": "The stack looks like this at line 0x5555`55555168 in func():",
-"ja": ""
+"ja": "func() の 0x5555`55555168 行でのスタックは次のとおりです:"
 },
 {
 "i": 116,
 "where": "スライド5",
 "en": "Red zone",
-"ja": ""
+"ja": "レッドゾーン"
 },
 {
 "i": 118,
 "where": "スライド5",
 "en": "A pattern emerges!",
-"ja": ""
+"ja": "パターンが見えてきました!"
 },
 {
 "i": 119,
 "where": "スライド6",
 "en": "The stack looks like this at line 0x5555`55555168 in func():",
-"ja": ""
+"ja": "func() の 0x5555`55555168 行でのスタックは次のとおりです:"
 },
 {
 "i": 156,
 "where": "スライド6",
 "en": "Red zone",
-"ja": ""
+"ja": "レッドゾーン"
 },
 {
 "i": 158,
 "where": "スライド6",
 "en": "A pattern emerges!",
-"ja": ""
+"ja": "パターンが見えてきました!"
 },
 {
 "i": 159,
 "where": "スライド7",
 "en": "TooManyParameters.c takeaways",
-"ja": ""
+"ja": "TooManyParameters.c のまとめ"
 },
 {
 "i": 160,
 "where": "スライド7",
 "en": "GCC also stores register-passed function parameters on the stack, for debugging purposes",
-"ja": ""
+"ja": "GCC も、デバッグのために、レジスタで渡された関数の引数をスタックに保存する"
 },
 {
 "i": 161,
 "where": "ノート7",
 "en": "You can confirm that the typical sub rsp, 0x28 that you see is due to shadow space reservation by just changing func() to only take 4 parameters instead of 5, and seeing that it only reserves 0x28 again instead of 0x38 like seen here. But if you then add a local variable, which should technically fit in the reserved stack space (just like this 5th parameter should have), it will again bump it up to 0x38. Still not sure what’s up with the over-allocation of stack space in general (possibly just 0x10 alignment)…",
-"ja": ""
+"ja": "よく見る sub rsp, 0x28 が、シャドウスペースの確保によるものであることは、func() の引数を 5 個から 4 個に変えるだけで確認できます。0x38 ではなく、再び 0x28 しか確保されません。ところが、そこにローカル変数を足すと(技術的には、この 5 番目の引数と同じく、確保済みのスタック領域に収まるはずなのに)、再び 0x38 に増えます。そもそもスタック領域を余分に確保する理由は、まだ分かりません(0x10 のアライメントかもしれません)…"
 }
 ]
 }

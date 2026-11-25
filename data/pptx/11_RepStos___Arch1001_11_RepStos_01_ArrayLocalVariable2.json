@@ -5,385 +5,385 @@
 "i": 0,
 "where": "スライド1",
 "en": "Architecture 1001:",
-"ja": ""
+"ja": "Architecture 1001:"
 },
 {
 "i": 2,
 "where": "スライド1",
 "en": "ArrayLocalVariable2.c",
-"ja": ""
+"ja": "ArrayLocalVariable2.c"
 },
 {
 "i": 3,
 "where": "スライド1",
 "en": "Xeno Kovah – 2021",
-"ja": ""
+"ja": "Xeno Kovah – 2021"
 },
 {
 "i": 4,
 "where": "スライド1",
 "en": "xeno@darkmentor.com",
-"ja": ""
+"ja": "xeno@darkmentor.com"
 },
 {
 "i": 5,
 "where": "スライド2",
 "en": "All materials is licensed under a Creative Commons “Share Alike” license.",
-"ja": ""
+"ja": "すべての資料は Creative Commons「Share Alike」ライセンスで提供されます。"
 },
 {
 "i": 6,
 "where": "スライド2",
 "en": "http://creativecommons.org/licenses/by-sa/4.0/",
-"ja": ""
+"ja": "http://creativecommons.org/licenses/by-sa/4.0/"
 },
 {
 "i": 7,
 "where": "スライド2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 8,
 "where": "スライド2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 9,
 "where": "ノート2",
 "en": "Attribution condition: You must indicate that derivative work",
-"ja": ""
+"ja": "帰属条件: 派生物であることを明示してください"
 },
 {
 "i": 10,
 "where": "ノート2",
 "en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
-"ja": ""
+"ja": "「Xeno Kovah のクラス『Architecture 1001: x86-64 Assembly』(https://ost.fyi)に基づく」"
 },
 {
 "i": 11,
 "where": "スライド3",
 "en": "ArrayLocalVariable2.c",
-"ja": ""
+"ja": "ArrayLocalVariable2.c"
 },
 {
 "i": 13,
 "where": "スライド3",
 "en": "int a;",
-"ja": ""
+"ja": "int a;"
 },
 {
 "i": 15,
 "where": "スライド3",
 "en": "a = 0x5eaf00d;",
-"ja": ""
+"ja": "a = 0x5eaf00d;"
 },
 {
 "i": 16,
 "where": "スライド3",
 "en": "b[1] = (short)a;",
-"ja": ""
+"ja": "b[1] = (short)a;"
 },
 {
 "i": 27,
 "where": "スライド3",
 "en": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh",
-"ja": ""
+"ja": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh"
 },
 {
 "i": 30,
 "where": "スライド3",
 "en": "000000014000102A  movzx       ecx,word ptr [rsp]",
-"ja": ""
+"ja": "000000014000102A  movzx       ecx,word ptr [rsp]"
 },
 {
 "i": 38,
 "where": "スライド3",
 "en": "Zero-initializing the array",
-"ja": ""
+"ja": "配列をゼロで初期化"
 },
 {
 "i": 41,
 "where": "スライド4",
 "en": "Repeat Store String",
-"ja": ""
+"ja": "ストア文字列の繰り返し"
 },
 {
 "i": 42,
 "where": "スライド4",
 "en": "STOS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
-"ja": ""
+"ja": "STOS は、「rep」プレフィックスを付けられる命令の 1 つです。rep を付けると、1 つの命令を複数回繰り返します。"
 },
 {
 "i": 43,
 "where": "スライド4",
 "en": "All rep operations use *cx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements *cx by 1. Once *cx == 0, it continues to the next instruction.",
-"ja": ""
+"ja": "rep の操作はすべて、*cx レジスタを命令のループ回数を決める「カウンタ」として使います。実行のたびに *cx を 1 減らし、*cx == 0 になったら次の命令へ進みます。"
 },
 {
 "i": 44,
 "where": "スライド4",
 "en": "Either stores 1, 2, 4, or 8 bytes at a time",
-"ja": ""
+"ja": "一度に 1、2、4、8 バイトのいずれかを格納する"
 },
 {
 "i": 45,
 "where": "スライド4",
 "en": "Either fill 1 byte at [di] with al or fill 1/2/4/8 bytes at [*di] with al/*ax",
-"ja": ""
+"ja": "[di] の 1 バイトを al で埋めるか、[*di] の 1/2/4/8 バイトを al/*ax で埋める"
 },
 {
 "i": 48,
 "where": "スライド4",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101-102 ページ"
 },
 {
 "i": 49,
 "where": "ノート4",
 "en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
-"ja": ""
+"ja": "「LOCK」などほかの命令プレフィックスと同様、「REP」は、マニュアルに定められた特定の命令にしか使えません。"
 },
 {
 "i": 51,
 "where": "スライド5",
 "en": "Repeat Store String",
-"ja": ""
+"ja": "ストア文字列の繰り返し"
 },
 {
 "i": 52,
 "where": "スライド5",
 "en": "Increments the *di register by 1/2/4/8 bytes at a time, so that the repeated store operation is storing into consecutive locations.",
-"ja": ""
+"ja": "*di レジスタを 1/2/4/8 バイトずつ増やすので、繰り返しの格納は、連続した位置に書き込む。"
 },
 {
 "i": 53,
 "where": "スライド5",
 "en": "So there are 3 pieces which must happen before the actual rep stos occurs:",
-"ja": ""
+"ja": "そのため、実際の rep stos の前に、3 つのことが必要です:"
 },
 {
 "i": 54,
 "where": "スライド5",
 "en": "Set *di to the start destination,",
-"ja": ""
+"ja": "*di に格納先の先頭を設定"
 },
 {
 "i": 55,
 "where": "スライド5",
 "en": "Set *ax/al to the value to store,",
-"ja": ""
+"ja": "*ax/al に格納する値を設定"
 },
 {
 "i": 56,
 "where": "スライド5",
 "en": "Set *cx to the number of times to store",
-"ja": ""
+"ja": "*cx に格納する回数を設定"
 },
 {
 "i": 59,
 "where": "スライド5",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101-102 ページ"
 },
 {
 "i": 60,
 "where": "ノート5",
 "en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
-"ja": ""
+"ja": "「LOCK」などほかの命令プレフィックスと同様、「REP」は、マニュアルに定められた特定の命令にしか使えません。"
 },
 {
 "i": 62,
 "where": "スライド6",
 "en": "Repeat Store String",
-"ja": ""
+"ja": "ストア文字列の繰り返し"
 },
 {
 "i": 63,
 "where": "スライド6",
 "en": "STOS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
-"ja": ""
+"ja": "STOS は、「rep」プレフィックスを付けられる命令の 1 つです。rep を付けると、1 つの命令を複数回繰り返します。"
 },
 {
 "i": 64,
 "where": "スライド6",
 "en": "64 bit rep operations use rcx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements rcx by 1. Once rcx == 0, it continues to the next instruction.",
-"ja": ""
+"ja": "64 ビットの rep の操作は、rcx レジスタを命令のループ回数を決める「カウンタ」として使います。実行のたびに rcx を 1 減らし、rcx == 0 になったら次の命令へ進みます。"
 },
 {
 "i": 65,
 "where": "スライド6",
 "en": "Either stores 1, 2, 4, or 8 bytes at a time",
-"ja": ""
+"ja": "一度に 1、2、4、8 バイトのいずれかを格納する"
 },
 {
 "i": 66,
 "where": "スライド6",
 "en": "Fill 1/2/4/8 bytes at [rdi] with al/ax/eax/rax",
-"ja": ""
+"ja": "[rdi] の 1/2/4/8 バイトを al/ax/eax/rax で埋める"
 },
 {
 "i": 67,
 "where": "スライド6",
 "en": "Increment the rdi register by 1/2/4/8 bytes at a time, so that the repeated store operation is storing into consecutive locations.",
-"ja": ""
+"ja": "rdi レジスタを 1/2/4/8 バイトずつ増やすので、繰り返しの格納は、連続した位置に書き込む。"
 },
 {
 "i": 68,
 "where": "スライド6",
 "en": "So there are 3 pieces which must happen before the actual rep stos occurs:",
-"ja": ""
+"ja": "そのため、実際の rep stos の前に、3 つのことが必要です:"
 },
 {
 "i": 69,
 "where": "スライド6",
 "en": "Set rdi to the start destination",
-"ja": ""
+"ja": "rdi に格納先の先頭を設定"
 },
 {
 "i": 70,
 "where": "スライド6",
 "en": "Set rax/al to the value to store",
-"ja": ""
+"ja": "rax/al に格納する値を設定"
 },
 {
 "i": 71,
 "where": "スライド6",
 "en": "Set rcx to the number of times to store",
-"ja": ""
+"ja": "rcx に格納する回数を設定"
 },
 {
 "i": 74,
 "where": "スライド6",
 "en": "Book page 101-102",
-"ja": ""
+"ja": "書籍 101-102 ページ"
 },
 {
 "i": 75,
 "where": "ノート6",
 "en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
-"ja": ""
+"ja": "「LOCK」などほかの命令プレフィックスと同様、「REP」は、マニュアルに定められた特定の命令にしか使えません。"
 },
 {
 "i": 76,
 "where": "スライド7",
 "en": "VS\nCaller-saved",
-"ja": ""
+"ja": "VS\n呼び出し元保存"
 },
 {
 "i": 86,
 "where": "スライド7",
 "en": "VS \nCallee-saved",
-"ja": ""
+"ja": "VS\n呼び出し先保存"
 },
 {
 "i": 96,
 "where": "スライド7",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 98,
 "where": "スライド7",
 "en": "Caller-saved",
-"ja": ""
+"ja": "呼び出し元保存"
 },
 {
 "i": 108,
 "where": "スライド7",
 "en": "System V",
-"ja": ""
+"ja": "System V"
 },
 {
 "i": 110,
 "where": "スライド7",
 "en": "Callee-saved",
-"ja": ""
+"ja": "呼び出し先保存"
 },
 {
 "i": 121,
 "where": "スライド7",
 "en": "Caller vs. Callee-save Regs",
-"ja": ""
+"ja": "呼び出し元保存と呼び出し先保存のレジスタ"
 },
 {
 "i": 126,
 "where": "スライド8",
 "en": "THE ASSEMBLY",
-"ja": ""
+"ja": "アセンブリ"
 },
 {
 "i": 128,
 "where": "スライド8",
 "en": "CHECK YOUR UNDERSTANDING",
-"ja": ""
+"ja": "理解の確認"
 },
 {
 "i": 130,
 "where": "スライド9",
 "en": "ArrayLocalVariable2.c takeaways",
-"ja": ""
+"ja": "ArrayLocalVariable2.c のまとめ"
 },
 {
 "i": 131,
 "where": "スライド9",
 "en": "If you’re manually coding asm, REP STOS is functionally a memset()",
-"ja": ""
+"ja": "アセンブリを手書きするなら、REP STOS は機能的に memset() と同じです"
 },
 {
 "i": 132,
 "where": "スライド9",
 "en": "Sometimes when you use memset() from C, the compiler may turn it into a REP STOS",
-"ja": ""
+"ja": "C で memset() を使うと、コンパイラが REP STOS に変えることがあります"
 },
 {
 "i": 134,
 "where": "スライド9",
 "en": "int a;",
-"ja": ""
+"ja": "int a;"
 },
 {
 "i": 136,
 "where": "スライド9",
 "en": "a = 0x5eaf00d;",
-"ja": ""
+"ja": "a = 0x5eaf00d;"
 },
 {
 "i": 137,
 "where": "スライド9",
 "en": "b[1] = (short)a;",
-"ja": ""
+"ja": "b[1] = (short)a;"
 },
 {
 "i": 148,
 "where": "スライド9",
 "en": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh",
-"ja": ""
+"ja": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh"
 },
 {
 "i": 151,
 "where": "スライド9",
 "en": "000000014000102A  movzx       ecx,word ptr [rsp]",
-"ja": ""
+"ja": "000000014000102A  movzx       ecx,word ptr [rsp]"
 },
 {
 "i": 159,
 "where": "スライド10",
 "en": "Instructions we now know (29)",
-"ja": ""
+"ja": "ここまでに分かった命令 (29)"
 },
 {
 "i": 170,
 "where": "スライド10",
 "en": "AND/OR/XOR/NOT",
-"ja": ""
+"ja": "AND/OR/XOR/NOT"
 },
 {
 "i": 211,
 "where": "スライド11",
 "en": "not",
-"ja": ""
+"ja": "not"
 }
 ]
 }

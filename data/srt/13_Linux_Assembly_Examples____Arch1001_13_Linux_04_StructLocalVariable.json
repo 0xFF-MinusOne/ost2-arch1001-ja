@@ -6,70 +6,70 @@
 "start": "00:00:00,080",
 "end": "00:00:33,840",
 "en": "our next example is going to be StructLocalVariable so let's go into that and this was the same thing as the ArrayLocalVariable except we basically put what were local variables into a struct and then we just instantiate one instance of that struct on the stack sorry i said instantiation like this is you know C++ we create one instance on the stack foo and then we do the same thing 0xbabe into foo of a 0xba1b0ab1edb100d into c b of 1 gets a b of 4 gets b of 1 plus b of c all right let's compile it",
-"ja": ""
+"ja": "次の例は StructLocalVariable です。これは ArrayLocalVariable と同じものですが、ローカル変数だったものを構造体に入れて、その構造体のインスタンスを 1 つスタックに作ります。インスタンスと言いましたが、C++ のようですね。スタックに foo というインスタンスを 1 つ作り、同じことをします。foo の a に 0xbabe を、c に 0xba1b0ab1edb100d を、b の 1 に a を、b の 4 に b の 1 と c を足したものを入れます。では、コンパイルして、"
 },
 {
 "i": 1,
 "start": "00:00:34,640",
 "end": "00:01:22,799",
 "en": "and let's debug it so I'm going to step past the function prologue and once again we have these accesses below rbp so I need to get a sense of like how much space is being used so I can do disassemble main and I can eyeball the function and I see minus 0x30 minus 0x30 minus 0x28 0x10 0x1c 0x1c so minus 0x30 looks like the maximum so for that we're going to need display and 12 because it's 4 per 0x10 so 3, 4 times 3 12 what gdb calls words which are actually 4 byte values in hex 12 at rbp",
-"ja": ""
+"ja": "デバッグしましょう。関数プロローグを越えると、また rbp より下へのアクセスがあります。そのため、どれくらいの領域が使われているかを知る必要があります。disassemble main をして、関数を目で見ると、マイナス 0x30、マイナス 0x30、マイナス 0x28、0x10、0x1c、0x1c とあります。マイナス 0x30 が最大のようなので、それに対して display が必要で、12 です。0x10 バイトあたり 4 なので、3 掛ける 4 で 12 です。gdb がワードと呼ぶのは、実際には 4 バイトの値で、16 進数で、12 個を rbp"
 },
 {
 "i": 2,
 "start": "00:01:19,600",
 "end": "00:01:59,439",
 "en": "minus 0x30 now we're at this line so it's going to be moving the word hex six sorry the 16 bits into rbp minus 0x30 so the value right here so let's step over that and indeed 0xbabe went right here and the rest of this is just sort of uninitialized garbage and then 0xba1b0ab1edb100d into rax again movabs there's not really any assembly instruction into itself it's just a new assembler version of mov a immediate value rax gets 0xba1b0ab1edb100d then mov that into rbp minus 0x10",
-"ja": ""
+"ja": "マイナス 0x30 から表示します。いまこの行にいて、16 進数の 6、失礼、16 ビットを rbp マイナス 0x30 に移します。つまり、ちょうどここの値です。これを実行すると、確かに 0xbabe がここに入り、残りは初期化されていないゴミです。次に、0xba1b0ab1edb100d を rax に入れます。これも movabs で、実際にはそういうアセンブリ命令があるわけではなく、新しいアセンブラによる mov の版で、即値です。rax が 0xba1b0ab1edb100d になり、それを rbp マイナス 0x10 に mov します。"
 },
 {
 "i": 3,
 "start": "00:01:56,799",
 "end": "00:02:35,200",
 "en": "all right so 0xba1b0ab1edb100d then move with zero extension this word too long so 16-bit value to a 32-bit value so that's 0xbabe then we see cwtl and again if we search the Intel manual for that we wouldn't find it because this is another example of new assembler making up a new mnemonic for something and that is a mnemonic for the stuff that you know we said we don't really care about these things like cdq they're basically sign extension things convert double to qword we saw that previously",
-"ja": ""
+"ja": "これで 0xba1b0ab1edb100d が入りました。次に、ゼロ拡張つきの mov で、このワード、長すぎるので、16 ビットの値を 32 ビットの値にします。それが 0xbabe です。そのあとに cwtl があります。Intel のマニュアルで検索しても出てきません。新しいアセンブラが、あるものに新しいニーモニックを付けた例だからです。これは、cdq のように、あまり気にしないと言ったものに対するニーモニックです。基本的に符号拡張で、ダブルワードをクワッドワードに変換するものでした。前に"
 },
 {
 "i": 4,
 "start": "00:02:34,319",
 "end": "00:03:13,599",
 "en": "in the signed shifting example but basically for these things like convert byte to word convert word to dword etc they just have new mnemonics which are basically convert byte to word and so the one we're looking at right now is convert word to long so it's converting a 16-bit value into a 32-bit value and converting just meaning sign extend so convert word to long is just going to be taking word which is 16-bit ax and putting it into eax so if we do that well it's already you know 0xbabe there we",
-"ja": ""
+"ja": "符号つきシフトの例で見ました。このように、バイトをワードに、ワードをダブルワードに変換するものには、新しいニーモニックがあります。今見ているのは、convert word to long で、16 ビットの値を 32 ビットの値に変換します。ここでの変換は符号拡張のことです。convert word to long は、16 ビットの ax のワードを取って、eax に入れます。実行すると、もう 0xbabe が入っていて、"
 },
 {
 "i": 5,
 "start": "00:03:13,280",
 "end": "00:03:49,280",
 "en": "go the sign extension just like we saw previously so you can see this is just a different way of achieving the same thing that we did in the array local variable example now it's going to take eax into rbp minus 0x28. there we go so that must be the b of 1 because babe which was a was sign extended and put into b of 1 then it's going to pluck it back out it's going to do the math with 0xba1b0ab1edb100d so pluck it back out and then mov it to dx and then mov 0xba1b0ab1edb100d into rax and add them just like we did",
-"ja": ""
+"ja": "前に見た符号拡張のとおりです。配列のローカル変数の例でやったことと同じことを、別のやり方で実現しているだけだと分かります。次に、eax を rbp マイナス 0x28 に入れます。できました。これは b の 1 のはずです。a である babe が符号拡張されて、b の 1 に入ったからです。次に、それを取り出して、0xba1b0ab1edb100d と計算します。取り出して、dx に mov し、0xba1b0ab1edb100d を rax に mov して、足します。前と同じです。"
 },
 {
 "i": 6,
 "start": "00:03:48,480",
 "end": "00:04:22,960",
 "en": "before and that yields the exact same result as before of course and now we're going to save this into rbp minus 0x1c and that's going to be b of 4 and then pull the value right back out of b of 4 and return it so step step and that's our return value the one thing I would note here is just like we saw in visual studio when you have a struct the values need to be in the correct order for that struct so in this case you have babe which is the struct a field and then this part right",
-"ja": ""
+"ja": "前と同じ結果になるのは、もちろんです。これを rbp マイナス 0x1c に保存します。これが b の 4 です。そして、b の 4 から値を取り出して、返します。ステップ、ステップ、これが戻り値です。ここで 1 つ言っておきたいのは、Visual Studio で見たように、構造体があるときは、値が、その構造体の正しい順序になっている必要があることです。この場合は、構造体のフィールド a が babe で、そのすぐ"
 },
 {
 "i": 7,
 "start": "00:04:22,160",
 "end": "00:04:53,520",
 "en": "here was just uninitialized but we don't necessarily know immediately whether or not this is like all packed together like when we enable the pragma pack or whether this is just uninitialized untouched garbage the way we could infer what's maybe going on here we could of course change the code and do a bunch of tests and things like that but given the fact that we saw this was b of 1 that kind of implies that this is b of 0 and if that's b of 0 then it's not really all packed together and that",
-"ja": ""
+"ja": "ここは初期化されていません。ただ、これが、pragma pack を有効にしたときのように、すべて詰め込まれているのか、初期化されていない、触られていないゴミなのかは、すぐには分かりません。何が起きているかを推測する方法として、もちろんコードを変えて、たくさんテストをする方法もあります。ただ、これが b の 1 だと分かったので、これが b の 0 だということになり、それなら、すべて詰め込まれているわけではなく、"
 },
 {
 "i": 8,
 "start": "00:04:53,199",
 "end": "00:05:30,000",
 "en": "means it's probably just uninitialized struct padding area followed by b of 1 sorry b of 0 b of 1 b of 2 b of 3 b of 4 b of 5 and then furthermore we can see okay well but that's not c so that's not 0xba1b0ab1edb100d so we see 0xba1b0ab1edb100d next so this is also probably garbage padding we see 0xba1b0ab1edb100d and then we see another 8 bytes and we don't know whether this is struct padding or whether this is stack alignment padding or what so here i'm going to just leave this as a",
-"ja": ""
+"ja": "おそらく、初期化されていない構造体のパディング領域で、そのあとに b の 1、失礼、b の 0、b の 1、b の 2、b の 3、b の 4、b の 5 が来ます。さらに、これは c ではないので、0xba1b0ab1edb100d ではありません。次に 0xba1b0ab1edb100d が見えるので、これもおそらくゴミのパディングです。0xba1b0ab1edb100d があって、そのあとにさらに 8 バイトがあります。これが構造体のパディングなのか、スタックのアライメントのパディングなのか、分かりません。ここでは、これを"
 },
 {
 "i": 9,
 "start": "00:05:27,600",
 "end": "00:05:48,240",
 "en": "exercise for the reader you know go off change the code and try to make some changes that allow you to infer whether or not this is struct padding or whether this is stack padding caused by gcc so that's pretty much it for this example we're just at function epilog and we would exit out and exit out of main",
-"ja": ""
+"ja": "読者への課題として残します。コードを変えて、これが構造体のパディングなのか、gcc によるスタックのパディングなのかを推測できるような変更を、試してみてください。この例は、だいたい以上です。いま関数エピローグまで来たので、ここから抜けて、main からも抜けます。"
 }
 ]
 }

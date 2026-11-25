@@ -6,91 +6,91 @@
 "start": "00:00:00,080",
 "end": "00:00:33,200",
 "en": "so for the rest of the class we're mostly going to be covering common things you see in the C language and how they translate down to assembly in this particular case we're going to talk about boolean logic operations so for instance we wrote some very simple C here that had things like xor, not, and and or and consequently we're going to see new assembly instructions for xor, not, and and or. So the boolean logic assembly instructions do set the majority of the status flags and",
-"ja": ""
+"ja": "この講義の残りでは、おもに C 言語でよく見るものが、アセンブリにどう変換されるかを扱います。今回は、ブール論理演算の話です。たとえば、ここに書いたとても単純な C のコードには、xor、not、and、or のようなものがあります。ですから、xor、not、and、or の、新しいアセンブリ命令が登場します。ブール論理のアセンブリ命令は、ステータスフラグの大半をセットします。"
 },
 {
 "i": 1,
 "start": "00:00:31,279",
 "end": "00:00:49,280",
 "en": "the ones we care about for instance sign flag or zero flag you can imagine that if you do an or and if the result leads to something with a 1 in the most significant bit then the status flag will be set. If you do an and, and you ultimately get 0 as the output result that'll set the zero flag.",
-"ja": ""
+"ja": "その中でも気にするのは、たとえばサインフラグやゼロフラグです。or を実行して、その結果の最上位ビットが 1 になったら、そのステータスフラグがセットされる、と想像できますね。and を実行して、最終的な結果が 0 になったら、ゼロフラグがセットされます。"
 },
 {
 "i": 2,
 "start": "00:00:47,360",
 "end": "00:01:01,920",
 "en": "so each of these instructions basically exactly follows the boolean logic in C the binary operator single ampersand not the double ampersand is going to be your bitwise and.",
-"ja": ""
+"ja": "これらの命令は、基本的に C のブール論理にそのまま対応しています。2 つではなく 1 つのアンパサンドの二項演算子が、ビットごとの and です。"
 },
 {
 "i": 3,
 "start": "00:00:58,800",
 "end": "00:01:05,280",
 "en": "Double ampersand is the logical and.",
-"ja": ""
+"ja": "アンパサンドが 2 つなら、論理 and です。"
 },
 {
 "i": 4,
 "start": "00:01:01,920",
 "end": "00:01:37,119",
 "en": "The and can have a two operand form and the destination can be an r/mX or a register and the source can be an r/mX or a register or an immediate but you can't have both the source and the destination as r/mXs is because again that would lead to a memory to memory move which isn't supported on Intel for basic assembly instructions so as an example if we had and al, bl and if al held this value 0x33 and bl held this value 0x55 the bitwise and is basically just one at a time go: 1 and 1",
-"ja": ""
+"ja": "and には 2 つのオペランドの形があり、デスティネーションは r/mX かレジスタで、ソースは r/mX かレジスタか即値です。でも、ソースとデスティネーションの両方を r/mX にすることはできません。それだと、メモリからメモリへの移動になり、Intel の基本的なアセンブリ命令では対応していないからです。例として、and al, bl があって、al が値 0x33、bl が値 0x55 だとします。ビットごとの and は、1 つずつ、1 and 1 なら"
 },
 {
 "i": 5,
 "start": "00:01:34,240",
 "end": "00:02:13,360",
 "en": "that is 1, 1 and 0 that is 0 and so forth... So it's just down the line doing the and operation on these two operands bit at a time so here's 42 and al so using an immediate this time but you're ultimately doing the same thing just go vertically do an and operation: 1 and 0 is 0 1 and 1 is 1 and so forth all the way down the line the or instruction is the bitwise or the binary operator is a single bar it's not the double bar that's the logical or once again destination can be r/mX or register",
-"ja": ""
+"ja": "1、1 and 0 なら 0、というふうに続きます。つまり、この 2 つのオペランドに対して、1 ビットずつ、順に and の演算をするだけです。次は 42 と al の and で、今度は即値を使っていますが、やっていることは同じです。縦に見て and の演算をします。1 and 0 は 0、1 and 1 は 1、と最後まで続きます。or 命令は、ビットごとの or です。二項演算子は、縦棒が 2 つの論理 or ではなく、1 つのものです。ここでも、デスティネーションは r/mX かレジスタで、"
 },
 {
 "i": 6,
 "start": "00:02:11,039",
 "end": "00:02:26,560",
 "en": "source can be r/mX register or immediate and no source and destination as r/mXs or is going to be a bit or, so it just does 1 or 1 that's 1, 1 or 0 that's 1, 0 or 1 that's 1.",
-"ja": ""
+"ja": "ソースは r/mX かレジスタか即値で、ソースとデスティネーションの両方を r/mX にすることはできません。or はビットごとの or なので、1 or 1 は 1、1 or 0 は 1、0 or 1 は 1 になります。"
 },
 {
 "i": 7,
 "start": "00:02:24,319",
 "end": "00:03:00,560",
 "en": "so basically as long as you know the basic boolean operations then you just go down the line and do it bit wise on the two operands xor exclusive or is represented in C as the carret symbol and once again source and destination same forms as the and and or so FYI you may commonly see xor appearing in the assembly even if a human didn't actually write an xor that's because by definition xoring something with itself will lead to 0 and so frequently the compiler will automatically generate a",
-"ja": ""
+"ja": "基本的なブール演算が分かっていれば、2 つのオペランドに対して、ビットごとに順にやっていくだけです。排他的論理和の xor は、C ではキャレットの記号で表します。ここでも、ソースとデスティネーションの形は、and や or と同じです。ちなみに、人間が xor を書いていなくても、アセンブリによく xor が出てくることがあります。定義上、あるものを自分自身と xor すると 0 になるので、コンパイラが、"
 },
 {
 "i": 8,
 "start": "00:02:58,480",
 "end": "00:03:36,159",
 "en": "xor of a register with itself in order to zero that register so here if we had xor al, al and 1 xor 1 is 0, 1 xor 1 is 0, 0 xor 0 is 0, and so forth... Finally, the NOT is essentially one's complement negation we talked before that negative numbers are two's complement which is one's complement where you flip all the bits from 0 to 1 and 1 to 0 and then you add 1 so NOT is just one's complement flip all the bits so in C, this is given by the tilde it's not the exclamation point symbol or",
-"ja": ""
+"ja": "レジスタを 0 にするために、そのレジスタ自身との xor を自動的に生成することがよくあるのです。たとえば、xor al, al なら、1 xor 1 は 0、1 xor 1 は 0、0 xor 0 は 0、というふうに続きます。最後に NOT は、基本的に 1 の補数による反転です。前に、負の数は 2 の補数だと話しました。2 の補数とは、1 の補数、つまりすべてのビットを 0 から 1、1 から 0 に反転して、そこに 1 を足したものです。NOT は、1 の補数で、すべてのビットを反転するだけです。C では、これはチルダで表します。エクスクラメーションマークではありません。"
 },
 {
 "i": 9,
 "start": "00:03:34,239",
 "end": "00:04:06,080",
 "en": "I implicitly want to say it's not the NOT, that's the logical NOT and NOT takes a single source and destination operand so whatever you give as the source is going to be the destination it's going to in place flip all the bits the operand is specified in an r/mX form so if we had this value right here then I think you can all see clearly that if you flip all the bits which you get is tessellated toads! tessellated toads!",
-"ja": ""
+"ja": "それは論理 NOT で、ここでの NOT とは別のものです。NOT は、ソースとデスティネーションが同じ 1 つのオペランドを取るので、ソースとして渡したものが、そのままデスティネーションになり、その場ですべてのビットを反転します。オペランドは r/mX の形で指定します。では、ここにこの値があったとして、すべてのビットを反転すると、どうなるかは、皆さんもはっきり分かると思います。テセレートされたヒキガエルです。テセレートされたヒキガエル。"
 },
 {
 "i": 10,
 "start": "00:04:01,760",
 "end": "00:04:06,080",
 "en": "tesselated toads!",
-"ja": ""
+"ja": "テセレートされたヒキガエル。"
 },
 {
 "i": 11,
 "start": "00:04:08,239",
 "end": "00:04:18,239",
 "en": "and now you should stop and step through the assembly and check your understanding.",
-"ja": ""
+"ja": "では、ここで一時停止して、アセンブリをステップ実行し、理解できているか確かめてください。"
 },
 {
 "i": 12,
 "start": "00:04:13,120",
 "end": "00:04:18,239",
 "en": "all glory to Hypnotoad",
-"ja": ""
+"ja": "すべての栄光を、ヒプノトードに。"
 }
 ]
 }
