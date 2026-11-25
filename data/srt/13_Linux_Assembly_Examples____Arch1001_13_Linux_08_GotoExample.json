@@ -1,0 +1,33 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_08_GotoExample.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:34,640",
+"en": "okay now we're into the control flow examples and the first of those was the GoToExample so the original point of this was to see whether or not we could see a jump instruction as the simple unconditional thing because we had this goto mylabel and then it would print goto ftw! so let's see what that looks like when compiled well we can actually see the entire function right here see typical prologue but then we see a nop and endbr64 which is effectively a nop an lea of some sort of address",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,239",
+"end": "00:01:03,280",
+"en": "right before a put us put us being equivalent to printf in this case so that's probably just the printf of goto for the win and then a move of boldfaced bit 0xb01dface before returning so we don't actually see an unconditional jump here but let's go ahead and just step through this and you know confirm for instance that this is the goto ftw! string so step step creating some function stack frame stepping over the nop nothing in here changes stepping over the endbr of course nothing",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:02,399",
+"end": "00:01:40,159",
+"en": "here changes and then calculating a relative displacement from rip rip plus ea7 goes into rdi so that is actually a new thing for the x86-64 extensions in 32-bit you couldn't calculate a displacement relative to rip is what's known as rip relative addressing and so we'll have an optional section later on where we'll dive into that a little bit more but you're just seeing it implicitly here so or not even implicitly explicitly so let's go ahead and check that rdi and see whether or not that is what we",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:37,280",
+"end": "00:01:55,680",
+"en": "think it is so examine it as a string it is goto ftw! at that address so let's step over the puts and this is the output basically putting it out to the standard out and then not much else going on return 0xb01d face",
+"ja": ""
+}
+]
+}

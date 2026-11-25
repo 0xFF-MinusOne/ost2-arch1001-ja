@@ -1,0 +1,197 @@
+{
+"source": "13_Linux_Assembly_Examples/_Arch1001_13_Linux_06_TooManyParameters.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "with GCC",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 9,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 11,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド4",
+"en": "First 6 parameters (from left to right) are put into RDI, RSI, RDX, RCX, R8, R9 respectively",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド4",
+"en": "Remaining parameters pushed onto the stack so that the left-most parameter is at the lowest address",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド4",
+"en": "Book page 111",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド4",
+"en": "int func(int a, int b, int c, int d, int e){",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド4",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 75,
+"where": "ノート4",
+"en": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif",
+"ja": ""
+},
+{
+"i": 77,
+"where": "ノート4",
+"en": "TODO: calling convention identification reinforcement goes here, or at end of deck, or after we’ve seen some asm?",
+"ja": ""
+},
+{
+"i": 78,
+"where": "ノート4",
+"en": "Give students an example randomized C call, and the equivalent templated, randomized, x86 code and ask them to pick which calling convention it uses",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド5",
+"en": "The stack looks like this at line 0x5555`55555168 in func():",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド5",
+"en": "Red zone",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド5",
+"en": "A pattern emerges!",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド6",
+"en": "The stack looks like this at line 0x5555`55555168 in func():",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド6",
+"en": "Red zone",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド6",
+"en": "A pattern emerges!",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド7",
+"en": "TooManyParameters.c takeaways",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド7",
+"en": "GCC also stores register-passed function parameters on the stack, for debugging purposes",
+"ja": ""
+},
+{
+"i": 161,
+"where": "ノート7",
+"en": "You can confirm that the typical sub rsp, 0x28 that you see is due to shadow space reservation by just changing func() to only take 4 parameters instead of 5, and seeing that it only reserves 0x28 again instead of 0x38 like seen here. But if you then add a local variable, which should technically fit in the reserved stack space (just like this 5th parameter should have), it will again bump it up to 0x38. Still not sure what’s up with the over-allocation of stack space in general (possibly just 0x10 alignment)…",
+"ja": ""
+}
+]
+}

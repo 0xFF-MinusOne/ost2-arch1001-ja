@@ -1,0 +1,19 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_04_StructLocalVariable_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:34,079",
+"en": "okay so if you chose to do that in the four byte granularity that we ultimately used for the local variables last time you'd see something like this a being 0xbabe the two bytes here but there's an extra two bytes of padding beyond it then we have b 0 through 5 and a little bit of padding and then c and some padding so this is slightly different before we add a c b this time we have a b c so what this implies is that we should expect that the variables the elements of a struct are",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,399",
+"end": "00:01:04,719",
+"en": "going to be in the same order that they're declared a b c upside down from the declaration order but in that particular example we actually have a little bonus challenge for you so go ahead and stop and there's some pragmas around the struct pragma pack one let's see what the effect of these pragmas are on the stack diagram so go ahead and uncomment the pragmas and draw the new stack diagram with the change to the stack",
+"ja": ""
+}
+]
+}

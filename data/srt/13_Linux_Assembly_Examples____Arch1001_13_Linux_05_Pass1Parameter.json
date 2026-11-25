@@ -1,0 +1,47 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_05_Pass1Parameter.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:42,320",
+"en": "next we're going to start looking again at how function parameters are passed so we're going to start with Pass1Parameter let's take a look at that that was the one that had main with no local variables calling func with hardcoded 0x11 a which is the argument gets put into local variable i which then just gets immediately returned so let's compile it and debug it okay so we see that 0x11 is going to be moving into edi so that has to do with the System V calling convention where we said",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:39,040",
+"end": "00:01:17,840",
+"en": "rsi or sorry rdi rsi rdx rcx r8 r9 are the registers that are used for passing parameters so let's go ahead and step into this then inside of function we have the standard function prolog then we see edi which is because it's an int being put into rbp minus 0x14 so again accessing the red zone then it's immediately pulling it right back out and putting it into eax and then eax goes into 4 and then 4 gets put into the return value so we've got the thing being stored here onto the stack a couple of times",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:16,720",
+"end": "00:01:59,200",
+"en": "duplicatively go ahead and you know just take a look at this let's set up a display and we need to display at least 0x14 down so i'm going to go ahead and display it in integer sizes so display 5 words because that's the integer size for gdb in hex and starting at rbp minus 0x14 so let's go ahead and step step step step there we go we saw that moved into rbp minus 0x14 0x11 goes there and then it's going to be pulled right back out put into eax and eax is gonna go into rbp minus 4",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:56,479",
+"end": "00:02:27,040",
+"en": "so there we go we saw that right there rbp minus 4 and that's just pulled back out and put into eax which is the return value and so that's all that happens in this function if we wanted to get a sense of what our stack was looking like here it would look something like this you have the return address to get back out of main you've got the ebp which gets saved immediately when you get into main 0 because there's no further stack frames before this then when main calls into func you get",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:25,680",
+"end": "00:02:57,760",
+"en": "the return address there and again first thing it does is save the ebp or rbp is what that should actually say I'll fix that slide in a bit and then the 0x11 gets placed at rbp minus 0x14 and I'm going to tell you that that's a and then the 0x11 gets placed at ebp minus or rbp minus 4 and I'm going to tell you that's I and in order to really come to those conclusions you know we could do more experiments we could play around with the code but we've already got a pre-made experiment for us it's going to",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:56,560",
+"end": "00:03:10,959",
+"en": "be the next example which is too many parameters now let's just get a sense of there's a local variable and there's some sort of storage of the function parameter which may or may not look like something we've seen in the past",
+"ja": ""
+}
+]
+}

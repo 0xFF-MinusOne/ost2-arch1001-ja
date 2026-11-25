@@ -1,0 +1,201 @@
+{
+"source": "12_RepMovs/__Arch1001_12_RepMovs_01_Journey2memcpy_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:34,160",
+"en": "so I said that typically I taught this and I would step through slides explaining every single one so that someone could read it later but thanks to the video format of this class now i can just save myself all that work of writing out all those slides and we'll do it live so here we are over in JourneyToThe CenterOfMemcpy.c so to get the show on the road we need to have a break point at the entry point of main and we want to step into memcpy so let's go ahead and start the debugger",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:35,280",
+"end": "00:01:12,080",
+"en": "over to the disassembly view and let's step into step into step into until we step into the memcpy now you should expect just based on what the source code is that rcx which is the first argument is going to be the address of b and you can see in this mode where we have the symbol names on that that's the address of b and this is the address of a so that's fine you can go ahead and see the symbol names little extra help never hurt and r8 the third argument is going to be 8 that's the current",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:08,720",
+"end": "00:01:58,640",
+"en": "size of our struct so let's step into and there's some jump to memcpy sure whatever all right and now we are at the memcpy assembly so I'm going to start writing down a little bit of notes and pseudo code in order to help me remember what's going on here so first of all rcx into r11 so r11 equals rcx and what is rcx it's the first argument to memcpy so that is going to be the address of b our destination then we have rdx into r10 so r10 equals rdx equals the address of a our source",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:55,119",
+"end": "00:02:56,800",
+"en": "and then you see a comparison of r8 to r10 well maybe a little preface here that it was r8 which got the length in the memcpy call so an immediate check of is r8 below or equal 10 0x10. so what would that look like in pseudocode that would be something like if r8 which is len is less than or equal to below or equal so what is below below is the unsigned notion so is it below 0x10 and if so go to this particular address all right so let's see if that's going to be taken and we know from r8 is",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:54,800",
+"end": "00:03:44,879",
+"en": "8 because our size of our struct is 8 so 8 is less than 0x10 so we know that that's going to be taken step into and there we go we're now at that address so let's go ahead and write out what is at that address so we have move rcx into rax and let's just go ahead and call it like it is the address would be our destination next we have lea of some random memory address into r9 so that's literally just going to take this exact value and put it into r9 and we can confirm that by stepping over",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:03:42,000",
+"end": "00:04:40,960",
+"en": "it in the assembly step step and r9 is indeed a seven f f b seven sixty four nine zero zero zero seven f f b seven sixty nine zero zero zero all right next we have r9 which is that number plus our 8 which is our size times 4 plus 0x27000 don't know what's up with that but whatever let's just see what gets plucked out of memory there and put into ecx step ecx rcx gets this value so let's just go ahead and note that down and then it adds r9 r9 has this value which we wrote right there so basically",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:04:36,000",
+"end": "00:05:30,160",
+"en": "rcx is getting a plus equals of that value and then what does it do with it it actually uses it as a address to jump to so this is the jump indirect so it's just calculating an address and then it's jumping to that location so that is a new address we're gonna find out what's at that address so basically it's just doing go to rcx which is that let's put that down and say what is the code there step into and what do we have we have a move quad word from rdx well what is rdx at this point",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:05:30,800",
+"end": "00:06:16,160",
+"en": "rdx is still the address of a so it's plucking 8 bytes qword pointer plucking 8 bytes out of the source and putting it into rcx what does it do next it takes that 8 bytes and it puts it into the memory specified by rax what is rax rax is rcx is the address of b so it's plucking 8 bytes out of the source and writing 8 bytes to the destination using two move instructions and it can do that because r8 which is our length was 8 bytes so that is doing the mem copy and we're done we're done with the memcpy yay",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:06:13,840",
+"end": "00:06:51,919",
+"en": "except we didn't find the elusive rep movs which we're searching for so that's no good we need to try try again so based on this pseudo code we have right now the most interesting bit the only sort of conditional control flow bit that we ran into is this check of if the length is less than or equal to 0x10 it go here so we want to not go there so we need to make sure that the length is greater than 0x10 so we can easily do that by sticking in 0x10 in this variable 2 and now 0x10 plus 4 for the int will",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:06:51,599",
+"end": "00:07:42,560",
+"en": "be definitely greater than 0x10. so let's start it all over again boo diagnostics all right disassembly step step step step step step into the breach step step step all right now this time r8 is 0x20 sorry decimal 20 which is greater than 0x10 so it's not going to take the jump boom but then we have an immediate compare of r8 against 0x20 so 22 hex sorry hex sorry decimal 20 to decimal 32 and jump if below or equal well that's definitely below or equal so let's update our pseudo code if you",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:07:41,199",
+"end": "00:07:52,720",
+"en": "don't take the jump then r8 which is your length and now our length is 0x14.",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:07:50,160",
+"end": "00:08:40,240",
+"en": "if the length is less than or equal to 0x20 then where's it going to go it's going to go right there so because that's the value right now it will take that jump and where does it land a bunch of movups with xmmo registers and xmmword pointers and that's scary so we're just going to escape okay there we go I just stepped and I eventually stepped out of the memcpy well the main point there is that we did not see rep movs on that path and so we gotta try try again so I'll update my pseudo code a little",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:08:37,440",
+"end": "00:09:37,839",
+"en": "bit before i do that just to say that at this particular address that was this first path was 2 mov instructions copying 8 bytes and then returning and this path is some movs movups instructions which are scary so once again we have a situation where the only conditional control flow was the 0x10 check which we bypassed by increasing the size now there's a 0x20 check and we should probably bypass that by increasing the size so 0x20 let's go disassembly step step step step step",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:09:34,839",
+"end": "00:10:22,720",
+"en": "step now our r8 is 0x24 so we're going to step step step step until we get to this compare against 0x20 we are greater than 0x20 now hold on a sec let's get this into hex view hexadecimal display much better all right so now it is not going to take this jump below or equal so it's going to fall through so let's go ahead and fall through and let's get a sense of what's coming up next so didn't take the jump below now we fall through let's pseudo code out what happens if we fall through",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:10:24,959",
+"end": "00:11:16,720",
+"en": "so it's going to take rdx and subtract rcx from it and stick the value back into rdx well what is rdx at this point rdx is the source so it's basically rd rdx equals rdx minus rcx which basically means which basically means take the source address and subtract the destination address okay it does that subtract but then there's an immediate jump above or equal so it's kind of like that's being used as a compare except that they are actually still storing the result of that comparison",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:11:13,680",
+"end": "00:12:03,200",
+"en": "back into rdx so jump above or equal is this going to be taken well the way we would interpret that is is this greater than or equal to rcx so let's look at the registers quick rdx 0x14fdb0 and rcx 0x14fdd8 so is this greater than this the answer is no this one ends in b0 this one ends in d0 so cx is greater than dx so we don't expect this jump to actually be taken so do so we're going to put in our conditional control flow we're going to say well they're going to use this for",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:11:59,600",
+"end": "00:13:12,240",
+"en": "if rdx let's just put yeah if rdx which is the source is above or equal rcx which is the dest then it's going to go to here but it is not going to actually take that jump this time because it is not so let's keep stepping didn't take the jump now we have an lea so what's going on with the lea it is doing r8 plus r10 and it's putting it into rax well what is r8 r8 is our length r10 is our source so it's basically going to say rax equals r10 plus source plus r8 which is length but it's basically the address",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:13:09,760",
+"end": "00:14:19,360",
+"en": "of that right this is basically an address this is basically a size and so it's going to get a new address which is basically the end of the source buffer so end of the source buffer all right and what's next it's going to compare rcx to rax so compare is if rcx is below so if rcx is strictly below rax then it's going to take this jump so let's do a little bit of interpretation of this stuff that we're seeing so far let's add some curly braces so let's look at this sort of nested if",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:14:17,760",
+"end": "00:15:32,160",
+"en": "condition that we have so we have if source is greater than or equal to dest that implies that the else is if if source is less than dest and then what is this rax was this end of source buffer and rcx is equal to the dest so this is basically if dest is less than source plus length and because this if is nested inside of this if the way that you actually get to this goto is if source is less than dest and dest is less than source plus length ah what is it doing there we go so you go here if essentially",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:15:29,600",
+"end": "00:16:07,040",
+"en": "your destination is overlapping with your source so destination is greater than source but it's less than source plus length and that means the place that you're mem copying into is going to be a place that is within the source buffer so that could potentially be a problem but let's see whether it actually takes that jump here so compare jump below and it did not take that jump so it just fell through to this next thing compare r8 to 0x80. so great we didn't do any of that so let's",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:16:05,600",
+"end": "00:16:54,800",
+"en": "just go out here and say if r8 less than 0x80. now why am i putting it out here well because it turns out that if you look back at the actual addresses here this jump above right here actually transfers down to here so this is a little nested condition inside of here and if this condition doesn't hold then you just kind of jump over this extra check so you know probably the better place to put it would be right here so i guess i'll just put it there for now all right compare against 0x80 well we",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:16:52,639",
+"end": "00:16:58,959",
+"en": "know that we're not greater than 0x80.",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:16:54,800",
+"end": "00:17:37,120",
+"en": "so is it going to take this below you betcha all right take the jump and ah some more movups let's get out of here step step let's step until the return head for the exit there we go we're out we're safe well this again suggests that we need to do something that's length greater than 0x80.",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:17:34,960",
+"end": "00:18:50,400",
+"en": "so let's go ahead and put that down here somewhere 49 15 30 49 13 30 yep so let's loop down that's on that path let's bump the size to 0x80 and once more and now we know that we are greater than 0x80 so this below or equal is not going to be taken so it'll just fall through to the next stuff so test all right so if this go there else stuff so it's doing some sort of test of a byte pointer against 2 well let's check what's at that byte pointer paste that in and it looks like the",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:18:47,840",
+"end": "00:19:45,200",
+"en": "memory at that address is actually 2 and it's a byte pointer so we may as well display it one byte at a time so it's going to pluck memory out of that value and it's going to test it against 2 now test we said is an and instruction that throws away the results so the way we might interpret this and there's a jump equal immediately after so it's an and with a jump equal so if some value equals zero then it's going to take the jump and what is that value well that value is this byte pointer anded with 2",
+"ja": ""
+},
+{
+"i": 25,
+"start": "00:19:42,480",
+"end": "00:20:35,440",
+"en": "so i might say that this is the dereferencing of a byte pointer char star not a car char char star of this value dereferenced so get to memory grab that value out it's grabbing a byte because it's a char star and then bitwise and it with 2 so if the result of that bitwise and is equal to zero then it's going to take the jump and if not it's going to go somewhere else you can see there's a hard coded jump if it doesn't take that so if else and we looked at memory so we know that",
+"ja": ""
+},
+{
+"i": 26,
+"start": "00:20:34,880",
+"end": "00:21:39,840",
+"en": "it the value there is 2 so the result is not going to be 0 the result of this operation is not going to be 0 so it's not going to take that it's going to take this my wife doesn't like it when i don't put spaces after my comments all right skipped over the jump equal take the jump and where do we land rep movs here it is folks this is what we've been searching for so I'm gonna go ahead and copy that out and we will take a look at what's up with that after we learn more about this",
+"ja": ""
+},
+{
+"i": 27,
+"start": "00:21:36,840",
+"end": "00:21:39,840",
+"en": "instruction",
+"ja": ""
+}
+]
+}

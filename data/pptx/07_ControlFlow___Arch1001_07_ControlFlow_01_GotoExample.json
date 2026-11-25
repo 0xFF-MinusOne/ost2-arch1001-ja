@@ -1,0 +1,221 @@
+{
+"source": "07_ControlFlow/_Arch1001_07_ControlFlow_01_GotoExample.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "GotoExample.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Control Flow",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Two forms of control flow",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Conditional - go somewhere if a condition is met. Think “if”s, switches, loops",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Unconditional - always go somewhere. Function calls, goto, exceptions, interrupts",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "We’ve already seen function calls manifest themselves as call/ret, let’s see how goto manifests itself in asm",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド4",
+"en": "GotoExample.c",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド4",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド5",
+"en": "Unconditionally change RIP to given address",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド5",
+"en": "Ways to specify the address:",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド5",
+"en": "Short, relative (RIP = RIP of next instruction + 1 byte sign-extended-to-64-bits displacement)",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド5",
+"en": "Frequently used in small loops",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド5",
+"en": "Some disassemblers will indicate this with a mnemonic by writing it as “jmp short”",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド5",
+"en": "jmp -2 == infinite loop for short relative jmp :)",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド5",
+"en": "“jmp 0000000140001012” doesn’t have the number 0000000140001012 anywhere in it, it’s really “jmp 0x0C bytes forward”",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド5",
+"en": "Far, absolute indirect - We'll discuss in future class",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド5",
+"en": "Book page 91",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド6",
+"en": "Ways to specify the address:",
+"ja": ""
+},
+{
+"i": 51,
+"where": "スライド6",
+"en": "Near, relative (RIP = RIP of next instruction + 4 byte sign-extended-to-64-bits displacement)",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド6",
+"en": "Near, absolute indirect (address calculated with r/m64)",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド6",
+"en": "Book page 91",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド7",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド7",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド8",
+"en": "GotoExample.c takeaways",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド8",
+"en": "goto == jmp in asm :)",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド8",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド9",
+"en": "Instructions we now know (13)",
+"ja": ""
+}
+]
+}

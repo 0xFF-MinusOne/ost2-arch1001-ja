@@ -1,0 +1,389 @@
+{
+"source": "11_RepStos/_Arch1001_11_RepStos_01_ArrayLocalVariable2.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ArrayLocalVariable2.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "ArrayLocalVariable2.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "a = 0x5eaf00d;",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "b[1] = (short)a;",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド3",
+"en": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド3",
+"en": "000000014000102A  movzx       ecx,word ptr [rsp]",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド3",
+"en": "Zero-initializing the array",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "Repeat Store String",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド4",
+"en": "STOS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド4",
+"en": "All rep operations use *cx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements *cx by 1. Once *cx == 0, it continues to the next instruction.",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド4",
+"en": "Either stores 1, 2, 4, or 8 bytes at a time",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド4",
+"en": "Either fill 1 byte at [di] with al or fill 1/2/4/8 bytes at [*di] with al/*ax",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド4",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 49,
+"where": "ノート4",
+"en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
+"ja": ""
+},
+{
+"i": 51,
+"where": "スライド5",
+"en": "Repeat Store String",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド5",
+"en": "Increments the *di register by 1/2/4/8 bytes at a time, so that the repeated store operation is storing into consecutive locations.",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド5",
+"en": "So there are 3 pieces which must happen before the actual rep stos occurs:",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド5",
+"en": "Set *di to the start destination,",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド5",
+"en": "Set *ax/al to the value to store,",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド5",
+"en": "Set *cx to the number of times to store",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド5",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 60,
+"where": "ノート5",
+"en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド6",
+"en": "Repeat Store String",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド6",
+"en": "STOS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド6",
+"en": "64 bit rep operations use rcx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements rcx by 1. Once rcx == 0, it continues to the next instruction.",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド6",
+"en": "Either stores 1, 2, 4, or 8 bytes at a time",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド6",
+"en": "Fill 1/2/4/8 bytes at [rdi] with al/ax/eax/rax",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド6",
+"en": "Increment the rdi register by 1/2/4/8 bytes at a time, so that the repeated store operation is storing into consecutive locations.",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド6",
+"en": "So there are 3 pieces which must happen before the actual rep stos occurs:",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド6",
+"en": "Set rdi to the start destination",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド6",
+"en": "Set rax/al to the value to store",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド6",
+"en": "Set rcx to the number of times to store",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド6",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 75,
+"where": "ノート6",
+"en": "As with other instructions prefixes like “LOCK”, “REP” can only be used with certain instructions - as defined in the manual.",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド7",
+"en": "VS\nCaller-saved",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド7",
+"en": "VS \nCallee-saved",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド7",
+"en": "System V",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド7",
+"en": "Caller-saved",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド7",
+"en": "System V",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド7",
+"en": "Callee-saved",
+"ja": ""
+},
+{
+"i": 121,
+"where": "スライド7",
+"en": "Caller vs. Callee-save Regs",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド8",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド8",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド9",
+"en": "ArrayLocalVariable2.c takeaways",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド9",
+"en": "If you’re manually coding asm, REP STOS is functionally a memset()",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド9",
+"en": "Sometimes when you use memset() from C, the compiler may turn it into a REP STOS",
+"ja": ""
+},
+{
+"i": 134,
+"where": "スライド9",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 136,
+"where": "スライド9",
+"en": "a = 0x5eaf00d;",
+"ja": ""
+},
+{
+"i": 137,
+"where": "スライド9",
+"en": "b[1] = (short)a;",
+"ja": ""
+},
+{
+"i": 148,
+"where": "スライド9",
+"en": "000000014000101A  mov         dword ptr [rsp],5EAF00Dh",
+"ja": ""
+},
+{
+"i": 151,
+"where": "スライド9",
+"en": "000000014000102A  movzx       ecx,word ptr [rsp]",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド10",
+"en": "Instructions we now know (29)",
+"ja": ""
+},
+{
+"i": 170,
+"where": "スライド10",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 211,
+"where": "スライド11",
+"en": "not",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,12 @@
+{
+"source": "09_Shifts/__Arch1001_09_Shifts_01_ShiftExample1_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:25,359",
+"en": "so what's the takeaway from shift example one it's another one of these trivial ones shifts in C are shifts in assembly so that's two more assembly instructions to our bountiful collection and i know you thought you were done when you had consumed the full pie here but wait there's more so we have now as others shift left and shift right",
+"ja": ""
+}
+]
+}

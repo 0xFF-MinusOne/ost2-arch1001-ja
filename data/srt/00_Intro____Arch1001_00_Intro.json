@@ -1,0 +1,180 @@
+{
+"source": "00_Intro/__Arch1001_00_Intro.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:07,359",
+"en": "Before we start this class in earnest I want to speak a little bit about my motivations for teaching the class.",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:05,359",
+"end": "00:00:14,799",
+"en": "What it ultimately comes down to is that I want peers who can know what I know, do what I can do and ultimately exceed me.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:12,960",
+"end": "00:00:43,280",
+"en": "I want more cool kids doing cool research that I can go watch and say that's cool but obviously I've got a bit of a head start on you if you're going to ultimately exceed me yes that's why I wanted you to know that just watching the videos in this class is not going to be the end of what's required of you if you truly want mastery of these skills it's going to require significant time outside of this class honing those skills to the tune of hundreds or possibly even thousands of hours",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:00:41,440",
+"end": "00:01:11,680",
+"en": "now the best option of course is to go get a job that lets you use these skills routinely that's certainly how i got my thousands of hours in but what i really wanted was that before we even get more than one slide into the rest of the class for you to understand that these videos are not the end they're just the beginning I have very high expectations of the people who start down these learning paths on open security training and I hope that you'll rise to meet my expectations",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:08,400",
+"end": "00:01:40,240",
+"en": "alright so enough about that so let's talk about the class well the overall intent of the class is to expose you to the most common information about x86 assembly that I think you need to know in order to succeed in the future follow-on classes in order to do something useful with the material so this includes things like learning the general purpose registers learning the most common assembly or learning about how the stack is used by this assembly this means i'm explicitly and",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:38,159",
+"end": "00:02:08,160",
+"en": "intentionally leaving out some materials such as floating point instructions things like the 16-bit reset vector complicated and rare instructions virtualization and so forth some of these materials are going to be covered by future classes that build on top of this and some of these are things that I just really haven't encountered that much and therefore they're pretty specialized and most people aren't going to need to know them now if you get confused at some point in this class and you want an",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:06,320",
+"end": "00:02:39,200",
+"en": "alternate explanation of course you can just google around and find alternate explanations on the internet if however you want a more consistent set of explanations then i recommend checking out this book i cite references to which sections talk about the same sort of material in various slides later on so let's talk about a little bit of miscellaneous stuff so the first thing is why is it even called x86 well that's because the first intel chips that use this architecture were the 8086",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:02:35,760",
+"end": "00:02:50,000",
+"en": "followed by the 80186 80286 and so forth so the x is really just a variable that's filling in for these names they're all just x86 family of chips.",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:02:47,599",
+"end": "00:03:20,959",
+"en": "Now originally, this first 8086 was a 16-bit architecture and later on intel expanded it to 32-bit and 64-bit operation but they kept the backwards compatibility because of course as you introduce each new generation of hardware you want to make sure they can still run the old software and actually when you get to the class about this reset vector for x86 you'll find that it actually still continues to start up in 16-bit mode on a lot of hardware and then it has to transition into",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:03:17,840",
+"end": "00:03:56,720",
+"en": "32-bit operation later on so when intel was expanding x86 to be 64-bit capable uh they ultimately wanted to make a complete break from the architecture and you know do clean slate and invent something new this was called the intel architecture 64 also known as itanium, but itanium didn't really take off it only saw some limited adoption on server grade platforms and ultimately in parallel amd decided that they would go ahead and extend the x86 32-bit architecture to support 64-bit uh making the sort of",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:03:54,400",
+"end": "00:04:23,199",
+"en": "natural extensions to registers and instructions that you might expect ultimately intel had to adopt and license this x86-64 extension later on when itanium didn't take off so also there's many different names that you'll find in the intel manuals such as IA32e for extended EMT64 or intel 64.",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:04:19,759",
+"end": "00:04:58,720",
+"en": "but i just wanted to be clear that IA64 is a completely different architecture itanium is not using the same assembly instructions as x86-64 furthermore you might see names such as amd 64 or x64 used by various linux distributions or microsoft but in this class i just want to be clear we're just going to call it x86-64 so that it's very clear what we're talking about so where is x86-64 used well more likely than not you probably know and you're probably using an x86 system right now",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:04:56,160",
+"end": "00:05:32,000",
+"en": "to watch this video on so most desktop systems are still x86 although ARM is starting to make some inroads here and then you have server systems or super computers are even using x86-64 basically you can expect that the intel architecture was generally optimized for maximum performance as opposed to lower power utilization like some other architectures so while intel did start to try to make inroads into lower power places with a line of chips called atom and other various chips",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:05:30,479",
+"end": "00:06:02,880",
+"en": "they really haven't gotten too much uptake there so you'll mostly see x86-64 on desktop servers supercomputer type stuff so what are we going to learn in this class well the most important thing that i want to show you is that we're going to be doing translations between very simple c programs and the assembly that underlies them so for instance here's a basic hello world which you'll note is returning 0x1234 so that it's nice and easy to see where the return value might appear",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:06:00,560",
+"end": "00:06:35,120",
+"en": "and when we go look at that we could use for instance windows visual studio 2019 if we disassemble that with a variety of compiler options set to make the assembly simpler we would see something like this and at the high level you know we can see well there's a call to printf so okay that makes sense printf of hello world there's a move of 0x1234 into eax register so that's probably something to do with our return value and so we might not know what the rest of this is but we have some hints about how that hello",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:06:34,400",
+"end": "00:07:02,639",
+"en": "world elements translated into assembly so here's that assembly disassembled right from within visual studio after compilation but you could have also seen it in some completely different format so later on if you learn about the ghidra multi-tool for disassembly and decompilation that same assembly would look like this and then there we have a little more clear view that okay well there's a hello world string in there somewhere there's a printf in there there's the one two three four",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:07:01,280",
+"end": "00:07:35,199",
+"en": "some other bytes we don't know what's going on yet additionally this same hello world if we compiled and disassembled it on a different architecture such as ubuntu compiled with gcc could have you know extra assembly instructions that we didn't see in the visual studio version and it could be longer it could be shorter and so here's an example that disassembled with the objdump tool on ubuntu here is an example of the same hello world compiled with clang on mac os 11. and if we ultimately just",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:07:34,080",
+"end": "00:08:09,680",
+"en": "boil it down this is still what it looks like it's the simplest form is something to do with the hello world string being printf and the one two three four being set to some return value and this is an example of it disassembled in the ida multi-tool so you can take heart though because by one particular measure it actually only takes 14 assembly instructions to account for 90 of the assembly code that you would need to read you've actually already seen 10 different assembly instructions in just",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:08:07,599",
+"end": "00:08:39,120",
+"en": "the different variations of hello world that are created by multiple different compilers so ultimately i think that if you know a good 20 to 30 assembly instructions you'll have a pretty easy time of things and you won't have to consult the assembly manual that much and so that reference was a little bit getting stale from 2006. i went and looked for another reference and here's one from 2011 where they said you know for instance in web browser here are the assembly instruction frequencies",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:08:37,120",
+"end": "00:09:12,160",
+"en": "and so it turns out that actually we are going to see every single one of these assembly instructions in this class although there's four percent others so at least 94% of the assembly instructions will be covered in this class alone all right so what's the outcome going to be of this class well ultimately you're going to learn the x86-64 64-bit registers as well as the 32 and 16-bit sub-registers which still exist originally they refer you know they existed in their 16-bit form the 32-bit form",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:09:10,720",
+"end": "00:09:41,200",
+"en": "and now they exist for backwards compatibility and because you know the sub portions of assembly registers can still be accessed by current assembly instructions you'll also learn about how things like local variables or potentially function arguments can be pushed onto the stack and how the assembly manipulates the stack in order to get its job done you'll learn things about calling conventions and how particular registers are used to store particular values when functions are",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:09:40,000",
+"end": "00:10:13,200",
+"en": "being called and this is a big one like i said this class teaches you assembly by translating from C code back down to assembly you're going to learn how to use particular IDEs integrated development environments like visual studio in order to write some assemb write some source code in C and ultimately compile it and see the corresponding assembly this is an intentional crutch to basically say you know what the C code is doing or at least you're expected to because C is a prerequisite for this class",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:10:11,360",
+"end": "00:10:41,680",
+"en": "you know what the c code is doing and now you can see what the assembly is doing and you can literally step step step through every single instruction and see how the register has changed see how the memory changes and in so doing get a get more comfortable with the assembly and how it corresponds back to the C programming language and finally at the very end of this class you'll be expected to complete an exercise on reading assembly on a completely opaque binary blob called the binary",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:10:40,399",
+"end": "00:11:17,360",
+"en": "bomb lab which expects certain inputs and you're supposed to read the assembly and figure out what inputs is it actually expecting and by doing this exercise you'll ultimately get a very good understanding of the assembly language this is a exercise which is used in many undergrad computer architecture classes and which ultimately leads to a deep understanding of assembly all right now i'm going to go ahead and peace out of these videos for a while because it's particularly annoying to have to keep",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:11:14,800",
+"end": "00:11:27,920",
+"en": "the virtual eye contact with the camera while resisting the urge to look down at my notes but i'll appear again later on when i need to emphasize things in the class",
+"ja": ""
+}
+]
+}

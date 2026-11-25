@@ -1,0 +1,75 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_02_SingleLocalVariable.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,320",
+"end": "00:00:34,480",
+"en": "all right next we're going to look at SingleLocalVariable which again for historical reasons is in the wrong folder name so go to ExampleSubroutine2 and let's go ahead and cap that out so we can remember what that was okay we had a single function we're calling a function and it has a single variable 0x5ca1ab1e which goes into i which gets returned so let's go ahead and compile it so gcc again no stack protector SingleLocalVariable.c and let's do gdb again as well so at the beginning again",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,640",
+"end": "00:01:08,159",
+"en": "this nop and a typical function prolog here we've got the 0 which I didn't comment on before 0 into eax basically this function doesn't take any arguments so this to me seems like the compiler is choosing to zero initialize eax just in case the function doesn't return anything so let's go ahead and step step step now we've got zero which was rbp was pushed onto the stack the return address is there rsp was moved into rbp so now they point at the same location this 0x7ffdf60 right 0",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:04,640",
+"end": "00:01:45,439",
+"en": "into eax so you can see 0 there and now we're going to step into this function which didn't actually take any arguments okay the typical nop at the beginning function prolog setup step step and so now the stack frame has the saved rbp the saved return address the old rbp which was 0 and the other return address to get back out of main now it's going to push it's going to sorry mov 0x5ca1ab1e into rbp minus 4 and that's kind of weird because we can see that you know our stack has rbp pointing at df50 but it's",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:43,439",
+"end": "00:02:16,640",
+"en": "actually going to be accessing below the end of the stack and we had said previously that in general that's supposed to be treated as undefined that should never be touched so why exactly is it doing this this is what our stack looks like at this point we have the saved rip the saved rbp saved rip saved rbp and then 0x5ca1ab1e going into rbp minus 4 so 8 byte granularity here and then moving to four byte granularity there so how come I can get away with this well if we consult",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:13,599",
+"end": "00:02:43,120",
+"en": "the System V ABI it turns out that there's this discussion of how the stack should look like when you're using a base pointer and so we have the things you might ex expect about arguments potentially up here above the return address uh sort of looking like the shadow stack so they're not necessarily going to be used that way we'll see more about that when we look at multiple function parameters later on return address and then rbp and so rbp minus something is typically going to be your local",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:42,239",
+"end": "00:03:12,720",
+"en": "variables and then there's this discussion of an area called the red zone so specifically it says the 128-byte area beyond the location pointed to by rsp is considered to be reserved and shall not be modified by signal or interrupt handlers therefore functions may use this area as temporary data that is not needed across function calls in particular leaf functions may use this area for their entire stack frame rather than adjusting the stack pointer in the prologue and epilogue this area",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:11,280",
+"end": "00:03:41,360",
+"en": "is known as the red zone so essentially what it's saying is normally you might see a function prolog subtract rsp down to here to allocate space for the local variables and then add rsp back up when you're leaving the function but it's saying if you're in a leaf function you can go ahead and just not bother with the subtract and the add go ahead and just use this area below where rbp and rsp would be both pointing right here go ahead and just use it because we know that your function is a leaf function",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:39,680",
+"end": "00:04:06,879",
+"en": "it's not going to call anything else and so it should just be you know used and then destroyed immediately when it goes out of scope so basically that's why it's allowed to get away with accessing below the bottom of the stack like this it'll be safe because they define in the ABI that you know exception handlers if some sort of interrupt occurs it shall not you know clobber over these things so you can resume from the interrupt without destroying your stack data which would you know ruin the program execution so",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:05,840",
+"end": "00:04:39,440",
+"en": "let's go ahead and step over this and then it's going to just immediately plug that value back out that was the i local variable so it was moving the 0x5ca1ab1e into i and then it was returning i so it's plucking the value back out and putting it into the return value eax step now we're going to pop rbp so we're going to take this saved rbp pop it into there there we go that now is df60 instead of df50 and then return is going to pop the value off the top of the stack and put it into rip",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:36,160",
+"end": "00:04:52,720",
+"en": "so we should go to 14f for rip there we go 14f for rip and then we just exit out of the function because we're done tearing down mains frame step and we're now back in the function that called main that's it for that example",
+"ja": ""
+}
+]
+}

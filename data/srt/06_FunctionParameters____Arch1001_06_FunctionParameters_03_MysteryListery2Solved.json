@@ -1,0 +1,26 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_03_MysteryListery2Solved.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,480",
+"end": "00:00:33,040",
+"en": "so at this point I think we have enough information in order to solve our second mystery what's up with the sub/add 0x28 in main so when we first call we first saw this it was in our very first example CallASubroutine1, main was just calling func no parameters no variables anywhere super simple but 0x28 was being allocated in main and we saw this in our sort of virtual debugging session where we said yeah there's you know something there's a return address on the stack there's some undefined stuff there's",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:31,679",
+"end": "00:01:06,159",
+"en": "another return address we didn't know enough about what was going on in the stack yet to figure this out so let's go ahead and expand out our view of the stack fill in the coloring convention that we've been using thus far and what we see is inside of this function there's a return address there's 16 byte alignment padding and then there's four register locations for the shadow store for microsoft for rcx rdx r8 and r9 then of course there's a return address when main calls to func so who is this",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:04,479",
+"end": "00:01:24,960",
+"en": "seemingly useless over allocation of space and functions that call functions that's been terrorizing us well it turns out it's the microsoft x64 ABI shadow space and with that the mystery machine rolls on and has solved another case only one more to go",
+"ja": ""
+}
+]
+}

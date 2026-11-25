@@ -1,0 +1,19 @@
+{
+"source": "07_ControlFlow/__Arch1001_07_ControlFlow_04_SwitchExample.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:25,920",
+"en": "so now a quick example of another one of the major forms of conditional control flow the switch statement and there's no new assembly instructions here so you should know everything you've seen imul, sub, call mov conditional things looks like we've only got some je here otherwise the rest is jumps. je because it's checking does it equal exactly zero? Does it equal exactly one?",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:24,000",
+"end": "00:00:53,039",
+"en": "and somehow someway it's going to make its way to the default case so all I really want is for you to get more experience stepping through assembly code understanding the various components like what is this stuff before the sub rsp well we should know from previous examples so go ahead and do the example here so aren't you glad that I'm going to give you another opportunity to step through the assembly code to deepen your experience",
+"ja": ""
+}
+]
+}

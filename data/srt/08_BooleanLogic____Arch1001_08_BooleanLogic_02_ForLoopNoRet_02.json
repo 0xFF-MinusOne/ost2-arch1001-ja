@@ -1,0 +1,26 @@
+{
+"source": "08_BooleanLogic/__Arch1001_08_BooleanLogic_02_ForLoopNoRet_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:30,880",
+"en": "so the takeaways from ForLoopNoRet is of course then no ret is in reference to the fact that if there is no return value the compiler will just stick in a default of zero for you and then a for loop having this sort of conditional check inside of it is probably going to turn into some sort of conditional check in the assembly and as usual that conditional check will be greater than above and so forth based on the sign of the variables under operation this is i is a signed int and therefore",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:29,439",
+"end": "00:01:03,440",
+"en": "it's using a signed greater than check from our previous heuristic about how to interpret compares and conditional jumps we could see it's comparing some memory location well that's probably i to the value 10 which is 0xA so is i greater than or equal to 10 if so take the jump down to 31 so that's basically the exit condition if it's greater than or equal to then it exits the for loop. Two new assembly instructions inc and dec and even though the Intel compiler optimization guidance says not",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:02,320",
+"end": "00:01:18,560",
+"en": "to use them for the assembly that was used for this statistical comparison in that thing that I cited way at the beginning turns out that inc and dec do still show up here inc coming in at one percent and dec coming in at one percent",
+"ja": ""
+}
+]
+}

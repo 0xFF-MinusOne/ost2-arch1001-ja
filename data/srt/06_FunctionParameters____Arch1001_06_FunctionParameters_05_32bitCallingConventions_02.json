@@ -1,0 +1,194 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_05_32bitCallingConventions_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,044",
+"end": "00:00:32,094",
+"en": "So your stack diagram should look something like this You have your typical return address of whoever called main And then you would have noticed that the very first thing that you see inside of main is a push ebp So whatever the ebp register was pointing out that gets pushed onto the stack Then you start seeing your parameters for the call to func being pushed on the stack from right to left So push 55 push 44 push 33 so forth That's to make them basically take this ordering And this looks very much like the shadow stack diagram",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,094",
+"end": "00:01:03,004",
+"en": "that we saw before in 64 bit that we have 1, 2, 3, 4, 5 upwards But this is not the Shadow Stack This is just how the calling convention works out in 32 bit systems Then, when main called the func, you'd get a return address again func First thing push ebp, and there's no sort of padding, no alignment attempts here,",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:03,005",
+"end": "00:01:37,022",
+"en": "so it just does the math of a + b - c + d - e sticks it into \"i\" So this would be \"i\" down here So here's the assembly that I saw and a common thing about 32-bit code is that if you see a bunch of pushes right before a call that typically gives you a very good hint of this is how many arguments there are and what the particular values are that this particular function was being called. In more complicated code there could be more additional manipulation that's going onto the stack so that it's not literally every argument as a",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:37,022",
+"end": "00:02:07,002",
+"en": "push It could just be moved onto the stack after some math But this gives you a pretty good idea of what's going on with functions in 32-bit code Also, you could be forgiven if you thought this push ecx right at the beginning of func was something like a calle's register save But it's actually not the reason that you shouldn't think that is because you don't see balance here There's no push ecx and corresponding pop ecx restoration at the end And with a callee save register,",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:07,002",
+"end": "00:02:30,009",
+"en": "we would expect saving at the beginning of the function and restoring at the end Also, now that I'm showing you the 32 bit caller versus callee-save regs ecx is not a callee-save reg anyways so these are all the exact same things that you saw on the 64 bit esi edi Instead of rsi rdi all the same conventions,",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:30,009",
+"end": "00:02:51,016",
+"en": "it's just 32 bit e register forms instead of 64 bit r registered forms But here's an interesting difference between the calling convention that we've seen on the Microsoft visual studio thus far in these 32 bit calling conventions, both cdecl and standard call Do what I call explicit stack frame linkage So each time you enter a new function,",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:51,017",
+"end": "00:03:15,023",
+"en": "the old ebp gets pushed onto the stack We saw that in the code we're just looking at as a reminder ebp the bp stands for stack frame base pointer So it's sort of a base of a stack frame and we also saw that the new esp gets moved into ebp So the sort of like second assembly instruction is usually move esp to ebp Again,",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:15,023",
+"end": "00:03:42,023",
+"en": "the esp is the top of the stack pointer gets moved into ebp, the base of the stack frame So what's going on there So let's look at that in a simpler example than the TooManyParameters So back to this very simple calling a function This was the code in 64 bit, and this is what the code would look like in 32 bit So I've created a nice new coloring pneumonic be for balanced push,",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:42,023",
+"end": "00:04:05,009",
+"en": "pop push pop and lavender for linkage So let's see what's going on here We're going to draw this in our sort of simplified stack diagram that we have been building up So when main starts running, of course, there's a return address on the top of the stack esp is pointing at the return address, and ebp is pointing somewhere else And I'm going to say it's,",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:05,009",
+"end": "00:04:42,046",
+"en": "you know, at some higher address than esp So main's frame is now created because we're into main First thing main is going to do is push the ebp So esp moves down, automatically decremented by the push assembly instruction and that pushed ebp So ebp register points at some address up here that saved ebp is actually pointing at wherever ebp is pointing The next assembly instruction is doing mov esp to ebp so that's going to move ebp So that's pointing at the same place as esp So they're now both pointing out this lot",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:42,047",
+"end": "00:05:07,007",
+"en": "And this lot, in some notional sense is pointing back wherever ebp used to point before it just got moved here and then main is going to call func So that's going to push your return address onto the stack decrementing esp func now has a notional stack frame First thing func does with that stack frame is it's going to push the ebp esp decrements ebp,",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:07,071",
+"end": "00:05:36,009",
+"en": "which still points up here It's pointing out this address on the stack It's going to push that address of this location on the stack So in some notional sense, it is pointing back at where ebp pointed is currently pointing rather And then again, the next assembly instruction mov esp to ebp thereby moving down ebp So this is the sort of linkage that I'm talking about ebp is always kind of being kept pointing at the base of each stack frame,",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:05:36,091",
+"end": "00:05:58,027",
+"en": "but the the value at that base is pointing back at the previous bases, pointing back at the previous base So let's put together more what this code would look like that we've been building up are stacked diagrams for throughout the class If we were doing the 32 bit calling convention, So ebp is pointing somewhere on the stack. And when main gets called,",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:05:58,028",
+"end": "00:06:18,032",
+"en": "the return address of whoever called main is going to be there esp now points there Stack frame exists for main, and first assembly instruction in main would be the push ebp, and that would cause this sort of notional linkage back to the previous value of ebp Next assembly instruction would be anticipated to be mov esp to ebp,",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:06:18,051",
+"end": "00:06:48,006",
+"en": "pulling it down and pointing it at the beginning of this new stack frame And then, in this particular case, main has a single local variable C, so it would allocate some space for a local variable Then it would further allocate some space It would push onto the stack 7 as the parameter to foo, So push the function arguments 7, esp moving down once again and then call into the function and it's going to push the return address onto the stack Then we're going to be in foo and the first",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:06:48,006",
+"end": "00:07:13,036",
+"en": "thing we would expect in that sort of function prologue using this new term, that first little bit of assembly at the beginning of the function we call the function prologue First bit of assembly push ebp So a new stack frame, push ebp, which has the value that points up here at the previous saved ebp and then mov esp to ebp There you go Move it down Now it's pointing at the base of this stack frame Alright,",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:07:13,036",
+"end": "00:07:40,067",
+"en": "\"b\" has a single, sorry foo has a single local variable of \"b\" so that would get allocated and placed under the stack And then any function parameters such as this \"b\", which acts as the \"y\" for bar is going to be pushed onto the stack And then when you call the function, the return address is going to get pushed on the stack So now, you're notionally in the bar frame and we expect the first assembly instruction to be push ebp it's going to save ebp,",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:07:40,067",
+"end": "00:08:07,041",
+"en": "which points back here, where ebp currently points and then mov esp to ebp to move it down There is a single local variable \"a\" in bar, so it would allocate space for that, it would fill in the value of three times \"y\" and do all the math there bar does call other functions so it would actually push the parameters This a pointer to a string for printf and the value of \"a\". But we're just going to stop there to keep it simple for now So at this point,",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:08:07,041",
+"end": "00:08:29,092",
+"en": "I think you're ready to see the sort of maximum stack diagram This is the thing that I said was super complicated and I tried to get into it too early in previous classes But now that we've learned all about calling functions and passing parameters and local variables callee-save registers, caller-save registers We can finally see sort of what all is going to be in a maximum stack So again,",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:08:29,092",
+"end": "00:08:53,026",
+"en": "we would have ebp, esp And so we've got the return address from main to whoever called main as the first thing, always some new stack frame Then, in a 32 bit world with 32 bit stack calling conventions, you would have always saved ebp as the first thing on that frame You have local variables stored on the stack frame If any local variables,",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:08:53,064",
+"end": "00:09:14,022",
+"en": "you would have callee save registers, if any And then before it starts calling a function, it would save any callers, save registers, and it would push any function arguments And when it finally calls it, it would have the return address to get back to main So this is sort of the maximum stack contents But see that it says,",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:09:14,023",
+"end": "00:09:47,019",
+"en": "if any, all of these places So, quite frankly, there could be no local variables There could be no callee-save registers, caller-save registers or function arguments If this was a leaf node, of course, it would have just saved ebp, like we saw in our simple example before and no further usage of the stack frame And so that would continue as a function calls other functions, saved ebp go first and so forth, all the stuff that we just saw in the previous example And when we finally get to a leaf node,",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:09:47,023",
+"end": "00:10:05,046",
+"en": "we would expect the leaf node and the leaf function to have only these things only potentially call the same registers local variables and the saved ebp No caller save registers, no function arguments and no return address if it doesn't call anything And so one little helpful thing if you happen to be looking at 32 bit code,",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:10:05,074",
+"end": "00:10:33,072",
+"en": "is that frequently you will see function parameters getting referenced as ebp plus something and local variables as ebp minus something Or depending on the compiler, it might be esp plus something So you can see that if this was our final sort of stack diagram, and ebp is always kind of pointing at the beginning of a particular frame for the function that you're in then ebp plus something is going to be the function arguments If you're in bar,",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:10:33,072",
+"end": "00:10:53,065",
+"en": "the functional arguments are here If you're in foo function, arguments are here, but they're always kind of ebp plus something and the local variables would then be a ebp minus something that would be typical of a local variable access But some compilers or some compiler options Instead, they index things as esp plus something,",
+"ja": ""
+},
+{
+"i": 25,
+"start": "00:10:54,004",
+"end": "00:11:14,036",
+"en": "and sometimes it's mixed, so they'll still do ebp plus something for function arguments and esp plus something for locals Or it might just be esp plus something for all of it But that's just a basic heuristic for you If you happen to be looking at 32-bit code and you see ebp plus something, it's probably a function argument If you see ebp minus something,",
+"ja": ""
+},
+{
+"i": 26,
+"start": "00:11:14,049",
+"end": "00:11:16,036",
+"en": "it's probably a local variable access",
+"ja": ""
+}
+]
+}

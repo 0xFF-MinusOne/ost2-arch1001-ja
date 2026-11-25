@@ -1,0 +1,449 @@
+{
+"source": "03_Stack/_Arch1001_03_TheStack_02_PushPop.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "As seen in Hello.c! (on macOS)",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド3",
+"en": "0000000100003f7c\tretq",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド3",
+"en": "Disassembled from command line with “otool -tV”",
+"ja": ""
+},
+{
+"i": 28,
+"where": "ノート3",
+"en": "Or when compiled by Clang on macOS 11.",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド4",
+"en": "1158:\tcallq  1050 <puts@plt>",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド4",
+"en": "116e:\txchg   %ax,%ax",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "As seen in Hello.c! (on Linux)",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "Ubuntu 20.04, GCC 9.3.0",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド4",
+"en": "Disassembled with “objdump -d”",
+"ja": ""
+},
+{
+"i": 43,
+"where": "ノート4",
+"en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド5",
+"en": "AS ALL THINGS SHOULD BE",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド6",
+"en": "Is the same as…",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド6",
+"en": "Windows Visual Studio 2019 Community",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド6",
+"en": "Disassembled with Visual C++",
+"ja": ""
+},
+{
+"i": 58,
+"where": "ノート6",
+"en": "Is the same as this assembly when compiled from within Windows Visual Studio, and disassembled from within Visual Studio.",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド7",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド7",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド8",
+"en": "Push quadword onto the stack",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド8",
+"en": "The push instruction automatically decrements the stack pointer, RSP, by 8",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド8",
+"en": "In 64-bit execution mode, operand can be",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド8",
+"en": "The value in a 64-bit register",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド8",
+"en": "A 64-bit value from memory, as given in \"r/mX\" form talked about next",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド8",
+"en": "Book page 107",
+"ja": ""
+},
+{
+"i": 70,
+"where": "ノート8",
+"en": "Will always be a QWORD because we will be running the processor in 64bit mode, and the instruction for a 16 bit push is the same as the one for a 32bit push is the same as the one for a 64 bit push. The processor just interprets the size based on the mode it is currently running in (or more accurately the segment, but that’s a story for Intermediate x86-64 ;))",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド9",
+"en": "“r/mX” Addressing Forms 1",
+"ja": ""
+},
+{
+"i": 72,
+"where": "スライド9",
+"en": "“r/mX” is a term I made up to refer to anywhere you see “r/m8”, “r/m16”, “r/m32”, or “r/m64” in the Intel manual",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド9",
+"en": "Book page 123",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド10",
+"en": "“r/mX” Addressing Forms 2",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド10",
+"en": "In Intel syntax, most of the time square brackets [] means to treat the value within as a memory address, and fetch the value at that address (like dereferencing a pointer)",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド10",
+"en": "An “r/mX” can take 4 forms:",
+"ja": ""
+},
+{
+"i": 88,
+"where": "スライド10",
+"en": "For X = 1, 2, 4, or 8",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド10",
+"en": "For Y of 1 byte (0-2^8) or 4 bytes (0-2^32)",
+"ja": ""
+},
+{
+"i": 91,
+"where": "スライド10",
+"en": "Book page 123",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド11",
+"en": "“r/mX” Addressing Forms 3",
+"ja": ""
+},
+{
+"i": 94,
+"where": "スライド11",
+"en": "Has natural applicability to multi-dimensional array indexing, arrays of structs, etc",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド11",
+"en": "So when I say in the future instructions support access to memory, I mean memory as encoded in an “r/mX” form",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド11",
+"en": "And when I say “r/mX”, I mean something that could be as simple as a single register, or as complicated as a memory address calculation in that form",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド11",
+"en": "Book page 123",
+"ja": ""
+},
+{
+"i": 99,
+"where": "スライド12",
+"en": "“r/mX” Addressing Example",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド12",
+"en": "Book page 123",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド12",
+"en": "Note: there’s nothing special about the particular registers I chose above.",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド12",
+"en": "Any could be substituted with any other general purpose registers",
+"ja": ""
+},
+{
+"i": 109,
+"where": "スライド13",
+"en": "Note about the ` address convention",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド13",
+"en": "When writing 64 bit numbers, it can be easy to lose track of whether you have the right number of digits",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド13",
+"en": "WinDbg (which we don’t use in this class, but do in future architecture classes) allows you to write 64 bit numbers with a ` between the two 32 bit halves.",
+"ja": ""
+},
+{
+"i": 112,
+"where": "スライド13",
+"en": "I think this is helpful to see when a number is > 32 bit or not (because there will be some non-zero value on the left side of the `)",
+"ja": ""
+},
+{
+"i": 113,
+"where": "スライド13",
+"en": "So in this class I’ll often write 64 bit numbers like 0x12345678`12345678.",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド13",
+"en": "But keep in mind that the only tool which probably supports you entering them like that is WinDbg",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド14",
+"en": "Stack Before",
+"ja": ""
+},
+{
+"i": 135,
+"where": "スライド14",
+"en": "Registers Before",
+"ja": ""
+},
+{
+"i": 149,
+"where": "スライド14",
+"en": "Stack After",
+"ja": ""
+},
+{
+"i": 152,
+"where": "スライド14",
+"en": "Registers After",
+"ja": ""
+},
+{
+"i": 154,
+"where": "スライド15",
+"en": "Pop a value from the stack",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド15",
+"en": "In 64-bit execution mode, operand can be",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド15",
+"en": "A 64-bit register",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド15",
+"en": "A 64-bit memory address, as given in \"r/mX\" form",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド15",
+"en": "Increments RSP by 0x8",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド15",
+"en": "Book page 108",
+"ja": ""
+},
+{
+"i": 180,
+"where": "スライド16",
+"en": "Stack Before",
+"ja": ""
+},
+{
+"i": 183,
+"where": "スライド16",
+"en": "Registers Before",
+"ja": ""
+},
+{
+"i": 196,
+"where": "スライド16",
+"en": "Stack After",
+"ja": ""
+},
+{
+"i": 199,
+"where": "スライド16",
+"en": "Registers After",
+"ja": ""
+},
+{
+"i": 201,
+"where": "スライド17",
+"en": "If you are executing in 32-bit mode, push/pop will add/remove values 32 bits at a time, rather than 64 bits, and thus they decrement/increment ESP by 4 rather than 8 at a time",
+"ja": ""
+},
+{
+"i": 202,
+"where": "スライド17",
+"en": "Likewise, if you’re in 16-bit mode, they push/pop 16-bit values, and decrement/increment SP by 2 at a time",
+"ja": ""
+},
+{
+"i": 203,
+"where": "スライド18",
+"en": "Instructions we now know (3)",
+"ja": ""
+}
+]
+}

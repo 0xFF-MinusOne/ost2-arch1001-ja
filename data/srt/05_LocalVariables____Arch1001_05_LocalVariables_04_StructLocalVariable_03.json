@@ -1,0 +1,61 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_04_StructLocalVariable_03.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,04",
+"end": "00:00:22,89",
+"en": "the result of adding the pragma pack one is that it will basically squish together all of the fields in the struct and make sure that there's no padding between them So now you'll see something that looks like \"a\", two bytes babe, the short immediately followed by \"b\" and then immediately followed by \"c\" But if we're drawing this in this four byte aligned way,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:22,9",
+"end": "00:00:28,05",
+"en": "then essentially the b[0] is going to end up getting split across this boundary.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:28,19",
+"end": "00:00:48,76",
+"en": "The least significant bytes are going to be here, followed by the most significant bytes b[1] which got babe with 0xffff on top is going to be here and so on and so forth, ultimately leading to b[5], followed by \"c\", which then actually gets split across three of these lines because Balboa bled blood,",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:00:48,83",
+"end": "00:01:06,17",
+"en": "it's going to split across all these lines Furthermore, we're going to see lots of padding in this four byte-aligned view because in some sense you can think of this like that case where you had a single local variable taking up this first slot of eight and visual studio wants to make sure it's in a slot of 16,",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:06,17",
+"end": "00:01:38,18",
+"en": "a total size of 16 So you know, it's as if this was eight, and it says no But I want another 8 for padding here and so it adds that. That might suggest, and you might test on your own time that if you, for instance, decreased the size of b[] that maybe we would see no padding whatsoever I don't know It's a hypothesis Maybe you should find out That's a good example of part of the point of teaching you this from within visual studio You can now go play around and see what the actual changes and effects are from changing source code changing",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:38,18",
+"end": "00:01:40,16",
+"en": "assembly changing stack layout.",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:01:41,54",
+"end": "00:01:49,06",
+"en": "So the takeaway from StructLocalVariable.c is that the fields of the struct must be stored in the same order that they are defined in the high level language.",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:01:49,54",
+"end": "00:02:04,46",
+"en": "You're going to see these uppermost elements like \"a\" showing up at the lower locations on the stack, something like this: If you had a, b, c, then, given the way that we draw a stack diagram in this class, you should expect to see a, b, c",
+"ja": ""
+}
+]
+}

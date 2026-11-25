@@ -1,0 +1,96 @@
+{
+"source": "01_Registers/__Arch1001_01_Regs1_GP_Regs.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,399",
+"end": "00:00:32,079",
+"en": "so they're small storage areas which are built into the processor and which are volatile memory so in the case of intel x86-64 it has 16 general purpose registers and then it's going to have the instruction pointer which points at the next assembly instruction which should execute of these 16 quote unquote general purpose registers two of them are not that general we'll talk about that in a bit so when you have 32-bit systems you didn't have 16 you actually only had eight plus the instruction",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,000",
+"end": "00:01:05,920",
+"en": "pointer and when they expanded it to 64-bit they upset the number of general purpose registers to allow compilers to have more registers in which to juggle values 32-bit systems the registers are 32-bit wide 64-bit there are 64 bits wide so i want to talk briefly about the evolution of the register and to do that i have to actually start back at the intel 8 bit 80 08 rather than an x86 processor so this in the beginning had an a register and it was only eight bits wide the reason i need to mention that is",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:04,000",
+"end": "00:01:44,399",
+"en": "because when they then moved to the 16-bit 8086 architecture then you had ax which stood for a-extended so you had ax 16 bit wide extended over the previous a register and the 8086 and you still could access that ax register one byte at a time with the a low (al) or the a high (ah) when they then further extended that to the 32-bit 80386 you had extended ax or extended a extended and in the 32-bit architecture you could have 32 bits at a time in eax or you could still access the 16-bit",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:43,360",
+"end": "00:02:01,600",
+"en": "register ax or the a-high or a-low the assembly instructions could still access these sub-registers and when amd did their 64-bit extensions in the opteron or later on in the intel pentium 4.",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:58,159",
+"end": "00:02:28,800",
+"en": "they had rax was the extended 64-bit version of eax but they also introduced a new naming scheme so rax could also be called r0 and this is going to lead to the 16 registers being r0 through r15 so rax well you could think of it like r stands for really wide ax or you can just think of it like register ax register 0.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:26,800",
+"end": "00:03:07,280",
+"en": "furthermore this new naming scheme introduced the sub values instead of calling the old register eax they could call it r0d word size because remember intel called a four byte value a double word or a 16 bit value a word or a eight bit value a byte so they introduced this naming scheme it's going to end up being a consistent naming scheme across all of these 16 general purpose registers so r0 through r15 for the 64-bit version r0 through r15d for the double word and the word and the byte so",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:05,360",
+"end": "00:03:13,280",
+"en": "these are the general purpose registers that we have in x86 64.",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:10,159",
+"end": "00:03:49,760",
+"en": "let's zoom in on them so in my diagram the blue color is going to be the 64-bit version the green the 32-bit version and the yellow the 16-bit version and even though i list you know the 16-bit yellow color for here it's really just saying in the original 16-bit architecture you had ax and you had a low and you had a high and like i mentioned there was the r0 r1r2r3 naming convention and the word and byte version of that but the ordering of the original x86 had sort of alphabetically named",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:46,560",
+"end": "00:04:19,919",
+"en": "register so ax bx cx dx but it turns out that abcd is not 0 1 2 3 for historical reasons and instruction encoding reasons that we're not going to get into it so what it really comes down to though is that these these names rax or r0 these are mnemonics for the particular register and it actually ends up being up to the particular disassembler for whether it's going to call a register rax or whether it's going to call it r0 and most of the time because it's easier for folks who you know knew previous",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:18,320",
+"end": "00:04:54,960",
+"en": "architectures to know the abcd most of the time disassemblers will name these alphabetical registers in their alphabetical form so you won't actually see r0 r0d etc used that much in disassemblers so these are the the first four values of registers then we have the next four these are the not quite generic generic general purpose registers rsp used for stack pointer rbp used for base frame of a stack pointer talk about it in a little bit rsi for string operations the source index",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:53,199",
+"end": "00:05:23,840",
+"en": "rdi for string operations the destination index but again their general purpose and the compiler can really use them any way that it wants these are just sort of you know naming conventions that have to do with usage conventions now the thing i would point out here is that rsp is an extended version of esp is an extended version of sp which existed back in the 16-bit world but there wasn't actually a way to access just the least significant byte of sp that was something that amd",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:22,160",
+"end": "00:05:56,880",
+"en": "introduced when they did their 16-bit extensions and they did that again so that they could have a consistent naming convention and when we get into the extra registers that they added then they want to be able to access you know byte 2 byte 4 byte 8 byte versions of these registers so here is that uh instruction pointer register it was originally instruction pointer and 16 bit extended instruction pointer and really extended instruction pointer in 64-bit but then now we see these extra general",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:05:54,560",
+"end": "00:06:25,680",
+"en": "purpose registers which were introduced in the 64-bit extension so if this was r0 through r7 down there then we have r8 through r15 over here and like i said they want to have a consistent naming view and so they have r8 byte r8 word r8 double word and r8 all the way down through the 64 bit uh sorry through the r15 as well so here you go we've got the general versions of r8 through r15",
+"ja": ""
+}
+]
+}

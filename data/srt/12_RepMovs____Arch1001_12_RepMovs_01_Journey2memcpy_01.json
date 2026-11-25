@@ -1,0 +1,33 @@
+{
+"source": "12_RepMovs/__Arch1001_12_RepMovs_01_Journey2memcpy_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:45,200",
+"en": "OST presents Brendan Fraser in journey to the center of the memcpy so JourneyToTheCenterOfMemcpy.c we are going to dig down in memcpy looking for the elusive rep movs instruction so we have a structure here that we've pragma pack 1 to squish it all together, we have 2 instances of the structure we set a single variable to 0xff and then memcpy from a to b so that we can confirm when it's actually copied of course we return 0xAce0fBa5e so here's the assembly and I want you to step into the unknown. memcpy is a",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:43,360",
+"end": "00:01:14,479",
+"en": "library function this is not our source code but I want you to step in in the assembly view and dig down in it until you find rep movs so rep movs is the assembly instruction we're searching for here we just learned about rep stos and so this is going to be somehow related to that now traditionally in the in person class I had just you know taken people through the source code and explained it in slides this is necessary because typically this example comes towards the end of the",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:12,960",
+"end": "00:01:48,399",
+"en": "class and I need to make sure we get the entire class done but it is much better for your learning experience if those of you who are bold will now choose to go do this exercise by yourself before I show you the solution so what I need you to do is stop step through the memcpy assembly and find the rep movs now in particular you're probably going to need well I shouldn't say probably you're definitely going to need to modify the struct in order to force the memcpy assembly down the right path that ultimately",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:46,159",
+"end": "00:02:12,239",
+"en": "leads you to rep movs and to make it even more challenging when you finally find the rep movs I want you to write down pseudocode for the path that leads to it alright so now bold adventurers once more into the abyss you",
+"ja": ""
+}
+]
+}

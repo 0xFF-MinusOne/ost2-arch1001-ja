@@ -1,0 +1,40 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_14_BitmaskExample.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:32,239",
+"en": "and our last example that exemplified some boolean operations was the BitmaskExample so let's take a look at that that was the one where we had some hex value and some other hex value and we were explicitly anding them together and so there's going to be an explicit and in here but then there's also an implicit and in that there's going to be a test assembly instruction and tests act like and instructions just throw the result away set the flags so if the a and b yield some non-zero results so anything",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:31,279",
+"end": "00:01:15,680",
+"en": "that's non-zero is a logical true if it's non-zero which we know it's definitely going to be non-zero because that one and the one and the three are going to yield a final result of 0x100 here so if that 0x100 is not equal to 0 which is true then it's going to return 0x70dd1e else return 0x707 so this will always return 0x70dd1e so let's compile it and disassemble it so step step step now we have 301 into rbp minus 4 100 into rbp minus 8 so that's a and b respectively so go ahead and",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:13,680",
+"end": "00:01:50,640",
+"en": "set those into memory and then plug them back out put them into the register so a into eax and now it's going to do a and b a and b stored back into the register eax and we know the result of that is always going to be 0x100 and now there is a test assembly instruction and we said test the same way that compare acts like a subtraction that throws away the results test acts like an and and throws the results away so testing this value with itself right so it's going to be 0x100 and",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:49,200",
+"end": "00:02:26,319",
+"en": "0x100 and then a jump if equal now jump if equal is another mnemonic for jump if zero and so jump zero means the zero flag was set and so the question is when would this instruction set the zero flag and the answer is it would set the zero flag when an and would set the zero flag when would it and set the zero flag when the net result is 0 is this anded with itself 0 it is not because the 1 and the 1 again line up and you get a net result of 0x100 so 0 is not true so this jump of 0 is not",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:25,040",
+"end": "00:02:46,800",
+"en": "going to be taken and it's going to fall through and return 0x70dd1e so step step and there we go it was not taken and it fell through it's going to return 0x70dd1e putting it into eax right before an unconditional jump past the 0x707 and now we're to the function epilogue and it's just going to exit out with 0x70dd1e in the return value",
+"ja": ""
+}
+]
+}

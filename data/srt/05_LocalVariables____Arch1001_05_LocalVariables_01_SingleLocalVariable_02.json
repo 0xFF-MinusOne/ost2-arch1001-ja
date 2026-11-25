@@ -1,0 +1,82 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_01_SingleLocalVariable_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:32,480",
+"en": "all right what you should see when you draw your stack diagram is something like this first there will be a return address on the stack immediately when you get into the first assembly instruction in main this will be your stack address and this will be the return address next main is going to allocate hex 28 that's that mystery hex 28 that we don't really understand yet but we'll figure out later then main is going to call into func and that's going to cause it to push a return address onto the stack",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,320",
+"end": "00:00:47,600",
+"en": "furthermore func is going to allocate hex 18 worth of space but then you'll see that i being a integer only has four bytes and so that hex scalable value goes onto the stack at fdc0.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:45,760",
+"end": "00:01:16,320",
+"en": "but you might have you know drawn the actual literal value for this and this and this and this but the reality is if you don't see assembly initializing something which we don't for this address space or this address space that means it's actually undefined it's uninitialized space or it's padding space of some sort it's undefined and that's what we should actually draw there so in particular on scalable if you would have looked at the assembly instruction you would have seen that it says it's actually moving",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:13,280",
+"end": "00:01:48,640",
+"en": "a dword pointer worth 32bit of data into that memory so i need to highlight an element of the rmx form that i skipped before specifically in intel syntax when you're using the rmx form it will actually annotate it with this portion at the beginning saying for instance qword pointer dword pointer word pointer byte pointer etc and so that's essentially telling you in this move instruction that's moving some value to memory so here it's using immediates to memory here it's using a registered memory",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:47,040",
+"end": "00:02:21,520",
+"en": "it's telling you what is the size of data which is going to be written to memory and i told you before when we were talking about uh you know values being written to registers i said that you know if you're moving a 32-bit value to a 64-bit register intel you know expands that with zero extension but i said that doesn't apply to memory so here if you write exactly 32 bytes d word pointer worth of content to memory at rsp you're going to get exactly 32 bytes so let me show you a quick example of",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:20,000",
+"end": "00:02:52,000",
+"en": "how you can for instance see the difference between things that are initialized and not initialized easily in visual studio so in single local variable if we go ahead and start the debugger i'm going to go ahead and continue and hit this breakpoint at func i'm going to go to the disassembly we can see this is that hex 18 worth of space being allocated on the stack i've got my memory window down here that is at rsp and it's continuously re-evaluating so that it always stay at rsp",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:49,120",
+"end": "00:03:25,760",
+"en": "if i now step over this instruction it will have done the sub 18 rsp i can actually click into the memory view here and i can just start typing ones and so i can go ahead and initialize this hex 18 myself to all ones and now when i step through the assembly i will see when stuff changes so this next instruction is going to be moved scalable to rsp dword pointer size so it should be four bytes if i step over this instruction i will see scalable is there but this is all still ones meaning that you know it",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:23,680",
+"end": "00:03:56,720",
+"en": "wasn't actually touched but i can further you know change this to a four byte view instead of an eight byte view and then it'll make it more clear that these ones were not touched whatsoever and these four bytes right here just had scalable move there so that's a little trick that'll possibly be helpful for you in determining uh what is you know initialized what is uninitialized but really the authoritative source is you know what are the sizes that are being specified uh in move instructions when things are",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:53,760",
+"end": "00:04:27,759",
+"en": "being you know targeting an rmx form all right so what's our take away from single local variable well we can see that local variables are allocated on the stack so this assembly taking this value for what is clearly the local variable i putting it on to the stack at rsp means that you know local variables must exist on the stack but another big takeaway is that visual studio is clearly over allocating space on the stack for four bytes of data it's allocating hex 18 and we don't know why that is",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:25,919",
+"end": "00:04:56,800",
+"en": "so let's go ahead and add another thing to our mystery list why is visual studio over allocating space for a single local variable and one final thing we can say about local variables is now that we know that they're stored on the stack if we go back to this example foo car main calls foo calls bar where they've got each other single local variable with the stack growing downwards we have you know the return address to get from main back to the function that invoked main then main has",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:53,840",
+"end": "00:05:22,240",
+"en": "its frame and that c that local variable is going to go somewhere on the stack for main's frame and when main calls to foo there's going to be a return address to get back to main and we have foo's frame, foo has a local variable b when foo calls bar it's going to have a return address on the stack and a bar has a single local variable that it uses on the stack but it doesn't call anything so it's not going to have any return address",
+"ja": ""
+}
+]
+}

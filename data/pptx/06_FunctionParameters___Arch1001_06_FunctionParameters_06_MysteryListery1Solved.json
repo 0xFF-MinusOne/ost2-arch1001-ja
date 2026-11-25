@@ -1,0 +1,629 @@
+{
+"source": "06_FunctionParameters/_Arch1001_06_FunctionParameters_06_MysteryListery1Solved.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Mystery Lystery 1 Solved!",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "What’s up with the sub/add 0x28 in main()?",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Why is VS over-allocating space for a single local variable?",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド4",
+"en": "As seen in Hello.c! (on macOS)",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド4",
+"en": "0000000100003f7c\tretq",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド4",
+"en": "Disassembled from command line with “otool -tV”",
+"ja": ""
+},
+{
+"i": 36,
+"where": "ノート4",
+"en": "Or when compiled by Clang on macOS 11.",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド5",
+"en": "1158:\tcallq  1050 <puts@plt>",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド5",
+"en": "116e:\txchg   %ax,%ax",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド5",
+"en": "As seen in Hello.c! (on Linux)",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド5",
+"en": "Ubuntu 20.04, GCC 9.3.0",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド5",
+"en": "Disassembled with “objdump -d”",
+"ja": ""
+},
+{
+"i": 51,
+"where": "ノート5",
+"en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド6",
+"en": "Generally doesn't use of frame pointers for most code",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド6",
+"en": "Parameter Conventions:Microsoft “x64” ABI",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド6",
+"en": "First 4 parameters (from left to right) are put into RCX, RDX, R8, R9 respectively",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド6",
+"en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
+"ja": ""
+},
+{
+"i": 58,
+"where": "ノート6",
+"en": "Colon notation means the full value is represented by the concatenation of the two values.",
+"ja": ""
+},
+{
+"i": 59,
+"where": "ノート6",
+"en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
+"ja": ""
+},
+{
+"i": 60,
+"where": "ノート6",
+"en": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド7",
+"en": "64-bit Maximum Stack Diagram - VS",
+"ja": ""
+},
+{
+"i": 72,
+"where": "スライド7",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド7",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド7",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド7",
+"en": "“return address” bar() to foo()",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド7",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド7",
+"en": "“return address” from main() to whoever called main()",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド7",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド7",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド7",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド7",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド7",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド7",
+"en": "Shadow space + extra function arguments (if any)",
+"ja": ""
+},
+{
+"i": 87,
+"where": "スライド7",
+"en": "Shadow space + extra function arguments (if any)",
+"ja": ""
+},
+{
+"i": 93,
+"where": "スライド9",
+"en": "64-bit Maximum Stack Diagram - VS++",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド9",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド9",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド9",
+"en": "“return address” from main() to whoever called main()",
+"ja": ""
+},
+{
+"i": 105,
+"where": "スライド9",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド9",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 107,
+"where": "スライド9",
+"en": "Shadow space + extra function arguments (if any)",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド9",
+"en": "“Saved rbp” (if any)",
+"ja": ""
+},
+{
+"i": 109,
+"where": "スライド9",
+"en": "_alloca() space (if any)",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド9",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド9",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 112,
+"where": "スライド9",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 113,
+"where": "スライド9",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド9",
+"en": "“Saved rbp” (if any)",
+"ja": ""
+},
+{
+"i": 115,
+"where": "スライド9",
+"en": "_alloca() space (if any)",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド9",
+"en": "Shadow space + extra function arguments (if any)",
+"ja": ""
+},
+{
+"i": 117,
+"where": "スライド9",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド9",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド9",
+"en": "“Saved rbp” (if any)",
+"ja": ""
+},
+{
+"i": 120,
+"where": "スライド9",
+"en": "_alloca() space (if any)",
+"ja": ""
+},
+{
+"i": 127,
+"where": "スライド10",
+"en": "When Does VS Use a Frame Pointer?",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド10",
+"en": "[2] https://docs.microsoft.com/en-us/cpp/build/prolog-and-epilog?view=msvc-160",
+"ja": ""
+},
+{
+"i": 129,
+"where": "スライド10",
+"en": "From [1] it definitely does if _alloca() is used",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド10",
+"en": "\"_alloca is required to be 16-byte aligned and additionally required to use a frame pointer.\"",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド10",
+"en": "\"If space is dynamically allocated (alloca) in a function, then a nonvolatile register must be used as a frame pointer to mark the base of the fixed part of the stack and that register must be saved and initialized in the prolog.\"",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド10",
+"en": "Note it said \"a nonvolatile register\", it didn't say it had to be rbp. Elsewhere [2] they have an example using r13 instead of rbp",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド10",
+"en": "Not clear if there are any other situations",
+"ja": ""
+},
+{
+"i": 135,
+"where": "ノート10",
+"en": "Colon notation means the full value is represented by the concatenation of the two values.",
+"ja": ""
+},
+{
+"i": 136,
+"where": "ノート10",
+"en": "If rdx = 0x11112222 and eax = 0x33334444, then rdx:eax is the quadword 0x1111222233334444",
+"ja": ""
+},
+{
+"i": 137,
+"where": "ノート10",
+"en": "http://2.bp.blogspot.com/-RA88gtJkvMM/UUYB6qSrLiI/AAAAAAAAADw/NU7nOMw8kCE/s1600/Eisntein5.jpg",
+"ja": ""
+},
+{
+"i": 140,
+"where": "スライド11",
+"en": "Still use frame pointers in the 32-bit style, unless directed not to by compile options",
+"ja": ""
+},
+{
+"i": 142,
+"where": "スライド11",
+"en": "First 6 parameters (from left to right) are put into RDI, RSI, RDX, RCX, R8, R9 respectively",
+"ja": ""
+},
+{
+"i": 143,
+"where": "スライド11",
+"en": "Remaining parameters “pushed” onto the stack so that the left-most parameter is at the lowest address",
+"ja": ""
+},
+{
+"i": 144,
+"where": "スライド11",
+"en": "Book page 111",
+"ja": ""
+},
+{
+"i": 145,
+"where": "ノート11",
+"en": "http://24.media.tumblr.com/tumblr_m9p96hnQVc1qgy3iwo1_500.gif",
+"ja": ""
+},
+{
+"i": 147,
+"where": "ノート11",
+"en": "TODO: calling convention identification reinforcement goes here, or at end of deck, or after we’ve seen some asm?",
+"ja": ""
+},
+{
+"i": 148,
+"where": "ノート11",
+"en": "Give students an example randomized C call, and the equivalent templated, randomized, x86 code and ask them to pick which calling convention it uses",
+"ja": ""
+},
+{
+"i": 152,
+"where": "スライド12",
+"en": "64-bit Maximum Stack Diagram - SysV",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド12",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 161,
+"where": "スライド12",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド12",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド12",
+"en": "“return address” bar() to foo()",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド12",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 174,
+"where": "スライド12",
+"en": "“return address” from main() to whoever called main()",
+"ja": ""
+},
+{
+"i": 178,
+"where": "スライド12",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 179,
+"where": "スライド12",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 180,
+"where": "スライド12",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 181,
+"where": "スライド12",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 182,
+"where": "スライド12",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 183,
+"where": "スライド12",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 187,
+"where": "スライド12",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド13",
+"en": "PRESENCE OF PUSH/POP",
+"ja": ""
+},
+{
+"i": 191,
+"where": "スライド13",
+"en": "IN SYSTEM V CODE",
+"ja": ""
+},
+{
+"i": 192,
+"where": "スライド13",
+"en": "ABSENSE IN MS CODE",
+"ja": ""
+},
+{
+"i": 194,
+"where": "スライド14",
+"en": "MS & SYSTEM V ABIs",
+"ja": ""
+},
+{
+"i": 195,
+"where": "スライド15",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 196,
+"where": "スライド15",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 197,
+"where": "スライド15",
+"en": "What’s up with the sub/add 0x28 in main()?",
+"ja": ""
+},
+{
+"i": 198,
+"where": "スライド15",
+"en": "Why is VS over-allocating space for a single local variable?",
+"ja": ""
+}
+]
+}

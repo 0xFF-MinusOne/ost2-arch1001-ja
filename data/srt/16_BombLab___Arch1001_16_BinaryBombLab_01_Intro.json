@@ -1,0 +1,96 @@
+{
+"source": "16_BombLab/_Arch1001_16_BinaryBombLab_01_Intro.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,960",
+"end": "00:00:32,800",
+"en": "welcome at last my friends to the binary bomb lab I say without a doubt and without hyperbole that this is the most important assembly exercise you will ever do so just like college classes have weed out courses which are basically designed to dissuade someone from continuing in a particular major if they're not cut out for it this lab is kind of the weed out exercise for the learning paths that continue to build on this knowledge so things like reverse engineering for purposes of understanding",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:31,519",
+"end": "00:01:01,440",
+"en": "vulnerabilities or malware or just software in general these things that build on top of this you have to have a particular personality type that allows you to be you know very detail-oriented very single-mindedly focused so that you can understand what exactly is going on with software when faced with a lot of ambiguity and a lot of difficult choices so it's better for you to find out now that this is not for you than to continue on because there's nothing wrong with not having this",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:59,520",
+"end": "00:01:34,320",
+"en": "particular personality type it's just the kind of thing where we know that there are different types of people who work better in different types of jobs so this binary bomb lab is derived from the carnegie mellon computer architecture course and you can find the course at this url now I originally had this in undergrad at the university of minnesota as opposed to carnegie mellon and of course as you might expect the class was a little bit less rigorous at the university of minnesota than cmu",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:32,560",
+"end": "00:02:01,759",
+"en": "and you know my anecdote for this particular material goes like this so when I was first taking this college class I was paying my way through college working night audit at a hotel basically stay up overnight audit their books and ostensibly I was supposed to be able to work on my homework all night in order to you know give me more time and make some money at the same time now the reality of this situation is it didn't work out well at all that particular semester I got three C's",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:00,799",
+"end": "00:02:30,319",
+"en": "and a B which meant that later on I had to come back and retake this course to try to bring up my gpa now when I first took this class me plus a partner took about 2 weeks in order to complete the binary bomb lab that's you know off and on between courses whenever we would get together that kind of thing later on when I retook the class of course everything was much easier and that's kind of you know hint for people when you have something difficult especially here on open security",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:29,680",
+"end": "00:02:59,599",
+"en": "training just take the class again it's always easier the second time around well the second time around through the computer architecture class it only took me perhaps a day by myself and so these days you know just to see approximately how long you know to give some kind of gauge these days being you know extremely rusty because having worked at apple for the last five years I didn't have to look at assembly most of the time I just forced you know third party vendors to give me the source code and I",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:58,000",
+"end": "00:03:40,640",
+"en": "just read that instead so I'm extremely rusty at this and still it only took me about 2 hours to do the entire binary bomb lab so somewhere between 2 weeks and 2 hours is approximately how long it should take you to do this so basically this is an intentionally difficult exercise and it's the kind of thing where there's going to be a lot of situations where you're blocked and you can't understand what's going on and you know you're just hitting your head against the wall and that's by design so you know I",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:38,720",
+"end": "00:04:08,000",
+"en": "didn't make this original material but I found it to be extremely useful and I found it to be very indicative of whether a particular person is good at this kind of material or not so I have to give thanks to the professors for the architecture class professor Bryant and O'Hallaron basically they provided me the source code for the binary bomb a long time ago when I was still at mitre I asked for the source code so that I could you know port it to 64-bit before they had a 64-bit version of",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:07,040",
+"end": "00:04:35,280",
+"en": "their course port it to Windows port it to arm and so you know I definitely appreciate them providing this so that we can use this as kind of a common material for learning different assembly languages learning more about reverse engineering that kind of thing because this was not originally you know intentionally a security or reverse engineering type exercise it just happens to work really well for that and so the textbooks for their course is here if you want to you know find the",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:33,360",
+"end": "00:05:06,160",
+"en": "link below the video later on go check it out you can learn about their you know similar architecture the the y86 architecture that they teach in the class as a way to try to build you up on x86 but but here I want to just like get directly to it and so we we learn x86 directly so what is the binary bomb well it is a simple binary that we provide you and your goal is to figure out what the inputs are that this binary is expecting of you you're provided no other information it's just",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:04,320",
+"end": "00:05:37,039",
+"en": "run the executable and if you give the wrong input it explodes and if you give the right input it continues on so your job is to avoid the explosion so I'm going to walk through the very first phase with you in the actual architecture class you didn't even get that much but here just to show you in the particular tools that we've been learning about in this course this will help you understand a bit of you know how you should continue on through the subsequent phases so we're going to have a variety of",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:35,199",
+"end": "00:06:07,199",
+"en": "different debuggers that we will teach about on the open security training site and so depending on you know what you think you're going to be using this material for later on in your career or the learning path that you're taking you're going to want to use you know gdb if you're going to be using Linux systems a lot you're going to use windbg if you're going to work on Windows or possibly will eventually have some of the what I call multi-tools the professional reverse engineers tools things like IDA",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:03,840",
+"end": "00:06:29,759",
+"en": "uh Ghidra Radare2 things like that so basically you're going to want to pick the specific tool for your eventual learning path in your eventual focus area but we'll teach a bunch of different tools and then it's up to you to decide what's the right one for you so now let's go see some videos where I walk through the first phase and then we'll come back and get a few more comments afterwards",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,26 @@
+{
+"source": "15_WritingAsm/__Arch1001_15_WritingASM_03_GCC_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:33,200",
+"en": "all right now we've got a lab for you it is read the fund manual and write the front instructions so i want you to go into the manuals and i want you to look up the bytes that specify these assembly instructions then i want you to write the raw bytes using that dot byte keyword and confirm whether or not you can create this assembly sequence so again don't write the human viewable form write raw bytes and see if you can get this now as a reminder the att syntax adds some suffixes to",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:31,039",
+"end": "00:00:59,920",
+"en": "uh in assembly instructions so if you go looking in the manual for move w you're not going to find it that's just because of 18c syntax so that's just the move assembly instruction so go look at the manual there's going to be things that we haven't even covered in class like saf and you know that's the whole point is you know how to read the manual now so go ahead and read the manual and write this sequence once you're done you know you want to compile it and then you want to look at it with a disassembler",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:56,879",
+"end": "00:01:04,719",
+"en": "in gcc gdb for instance in order to see whether you successfully emitted the correct assembly",
+"ja": ""
+}
+]
+}

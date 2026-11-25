@@ -1,0 +1,103 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_07_SpecialMaths_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:01,034",
+"end": "00:00:30,014",
+"en": "So the takeaway from SpecialMaths.c is that when the compiler happens to see some special math that it knows can be computed in that form that is like the base plus index time scale plus displacement that we learned about in the RMX form Then it can actually do that math using an lea Instead of doing the individual adds and multiplies Also a couple little miscellaneous things in case you missed it So there is a push our rbx at the beginning of the function,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,014",
+"end": "00:00:37,059",
+"en": "and there is a pop rbx at the end of the function So what kind of saving of registers do we think that is?",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:37,006",
+"end": "00:01:04,037",
+"en": "Well, I'll ask you in a quiz question in the second Also, you might notice that there is only a sub 0x20 instead of 0x28 That probably has to do with the fact that there's this push our rbx, which means that in total, the call the return address that's pushed onto the stack ends up getting balanced by this push our rbx so that the compiler sees it as 16 byte aligned So that's just another little interesting bit there All right,",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:04,037",
+"end": "00:01:21,095",
+"en": "So we've picked up yet another assembly instruction, lea, and this one happens to be one of the larger 5% slices of this pie And at this point, we can go back to the Hello World, and we should actually be able to fully read this assembly at this point So what's going on in hello world?",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:22,034",
+"end": "00:01:37,019",
+"en": "Well, there's the sub rsp 0x28 which we know is the combination of both stack alignment padding after the return address and the 0x20 for the shadow store area Then there is an lea taking something and putting it into rcx Well, what is this?",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:37,019",
+"end": "00:01:57,038",
+"en": "Something likely to be in the context of a print if it's probably the string But let's go ahead and confirm that now, using our disassembly and bugger So go ahead and set hello world as your startup project start your debugger, Go to the disassembly and let's go ahead and take a look at that memory location So I've turned off symbols here,",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:01:57,038",
+"end": "00:02:27,065",
+"en": "so you don't see this listed as printf You don't see this listed with all that other weird stuff If you have the symbol names you'd see what we see before, but let's turn it off for a second so we can just see what the actual assembly instruction is So sub rsp 0x28 Let's go ahead and put our stack on eight byte size rsp automatically following along Then let's step into that instruction and rsp got moved by 0x28 Then this next instruction What's going to happen with lea Well,",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:02:27,065",
+"end": "00:02:50,032",
+"en": "it's not going to use the square brackets to go to memory It's just going to literally take this value and move it into rcx But we came over here to the debugger to see what is that value So let's go ahead and step over this so that we can confirm that Yes, it does Put that exact value into rcx Then let's put rcx into our memory window And what is that?",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:02:50,032",
+"end": "00:02:51,002",
+"en": "That memory address?",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:02:51,002",
+"end": "00:02:56,099",
+"en": "Well, it looks like it's actually the ASCII String Hello world and why is it going into rcx?",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:02:57,000",
+"end": "00:03:35,009",
+"en": "Well, we learn from our calling conventions That visual studio puts the first argument to a function into rcx, so rcx now holds a pointer to a string Hello World, which will be passed into the call to printf so, let's go ahead and step over that call to printf and we would see over here in our executable it prints out Hello world as expected and then moving 0x1234 to eax Why eax? Because by convention eax or rax is the place where you return the return value from a C function So step over that",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:03:35,001",
+"end": "00:03:59,086",
+"en": "And there we go 0x1234 in rax and finally balancing out the subtraction of 0x28 from the stack We have to add back in 0x28 to the stack So do that And let's look at the stack And what we expect to see in a return instruction is the address of some code that we're going to return to This specifically is the code that called main So there we go Hello world,",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:03:59,087",
+"end": "00:04:19,013",
+"en": "Just a few instructions But it takes us quite a while to understand exactly what all is going on here in terms of calling convention stack padding, Microsoft Shadow store, different argument, different registers that are used to pass back return values versus parameters and all of that good stuff So congratulations,",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:04:19,014",
+"end": "00:04:21,056",
+"en": "You now understand Hello World",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,110 @@
+{
+"source": "04_CallASubroutine1/__Arch1001_04_CallASubroutine1_01_new_instructions.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:31,840",
+"en": "we're now going to get into the heart of the class which is looking at very simple c code and seeing the assembly instructions that it generates so here we have something that's utterly trivial just main calls a function function just returns a hard-coded constant and then we don't actually even do anything with that return address and main returns some other hard-coded constant so what gets generated for this here's the assembly and it looks like we have five completely new assembly instructions",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:29,279",
+"end": "00:01:03,199",
+"en": "that we need to learn about the first one call call's job is to transfer control to a different function in a way that the control can later be resumed where it left off so basically it's going to push the address of the next instruction onto the stack so implicitly that push is going to move rsp down by eight and so that's going to serve as what we call the return address which will be used by the return instruction in order to get back to the calling function so i mentioned that in the stack section",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:01,600",
+"end": "00:01:33,040",
+"en": "return addresses are one of the things that end up on the stack after the return address is pushed into the stack by the call assembly instruction it changes rip the really long instruction pointer to the address that's given in the instructions so that's going to be the address of the target function that you want to call now the destination address can actually be specified in multiple ways it could be an absolute address or it could be a relative address which could either be relative to the",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:31,280",
+"end": "00:02:03,759",
+"en": "end of the call instruction or it could be relative to some completely different register so we're not exactly going to care about these you're not going to really see the differences between the encoding for the most part but later on when we talk about assembly instruction encoding or if and if you happen to be you know hard coding some assembly yourself then you'll certainly care about how exactly targets of call assembly instructions are encoded so perfectly balanced the call has its",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:03,360",
+"end": "00:02:36,400",
+"en": "own return there are two forms of return the first one just basically pops the top of the stack whatever is on top of the stack at the time that the ret instruction is called that's going to go back into rip and of course because it's popping implicitly pop is going to increment the stack pointer rsp by 8. so basically whatever's on the stack stick it in rip and rsp plus 8. there's also another form of pop that you will see less frequently where it can essentially do the same thing as that but then you",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:34,720",
+"end": "00:03:05,040",
+"en": "can actually also specify some number of bytes that you want also added to rsp so instead of just popping one thing off the top of the stack it's like pop it off the top of the stack put it in rip and then go ahead and add an extra 8 bytes to rrsp add an extra 20 bytes like i said you won't see this as much but there is a particular way of calling functions that's used by windows apis and so if you ever start disassembling windows apis you will potentially see this type of assembly",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:02,840",
+"end": "00:03:41,280",
+"en": "instruction now before we get to the next instruction we have to talk about how intel versus at t syntax deal with two operand instructions so in Intel syntax two operand instructions have the sources on the right and the destinations on the left so windows uses this form typically windows tends to use intel assembly and things like unix's tend to use AT&T assembly syntax so sources on the right destinations on the left you can think of this kind of like c programming or algebra where you have",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:39,519",
+"end": "00:04:13,200",
+"en": "stuff over here and it goes into the thing on the left so if i show you a move rsp to rbp if i show you an instruction move and two operands you don't necessarily know which way it's going except that i'm telling you if you're in Intel syntax it's going from the right to the left so this would take the register rsp and put the value into rbp add you know we haven't covered these assembly instructions yet but you know just add is going to take rsp plus 14 and then it's going to put it back into",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:11,200",
+"end": "00:04:46,639",
+"en": "rsp so even though there's kind of two assembly instructions this is both a source and a destination right AT&T syntax it's the opposite direction so elementary school one plus two equals three so again move rsp rbp you have no way to implicitly know what the direction is of here other than that i'm telling you if it's at t syntax it's moving from the left to the right move rsp to rbp also you'll see that registers get a percent sign prefix in front of them so you know like okay that's register",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:45,680",
+"end": "00:05:15,919",
+"en": "that's register and immediates those constant values get a dollar sign prefix in front of them so in this class i'm going to prefer Intel syntax even though i originally learned AT&T syntax but it's important for you to know both and you know we'll cover AT&T and Intel syntax more later on but you need to know both because essentially you know per one of the reasons why should you learn assembly because people giving talks might be showing you some assembly to try to make a point",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:14,240",
+"end": "00:05:42,400",
+"en": "you don't get to choose how the particular person giving the talk is going to put it in intel or AT&T syntax so you're going to be able to read both to understand what they're saying so the move instruction has many different forms it can move from one register to the next register it can take memory and put it into a register it can take register and put it into memory and it can take an immediate value and put it into a register or immediate value into memory but the form you don't see here",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:40,160",
+"end": "00:06:15,520",
+"en": "is memory to memory so move does not support memory to memory transfers and whenever i talk about memory up here in the possible forms memory addresses are always given in rmx forms so for instance i said it can put an immediate into memory so that would be like an immediate value and stick it into a memory address intel can't actually support 64-bit immediate values when moving into memory but it can support 64-bit immediate values when moving into a register so here we have you know the various",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:13,600",
+"end": "00:06:47,360",
+"en": "forms of rmx that we saw before we said it does register to memory or memory to register so Intel syntax register the source operand goes on the right side the destination operand on the left side so register to memory or memory as specified in rmx form on the right side to register the destination and register to register then we have the add and subtract assembly instructions which of course add and subtract exactly like you would expect now the destination operand can be an",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:06:45,680",
+"end": "00:07:23,919",
+"en": "rmx or a register the source operand can be an rmx or a register or an immediate but you can't have source and destination rmx's because that would allow for memory to memory which again we don't have memory to memory transfers moves ads subtracts never memory to memory only these other combination forms so Intel syntax style add rsp plus eight takes rsp plus eight and moves it back into rsp so again in two operand form this actually has source and destination but the destination",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:21,680",
+"end": "00:07:45,280",
+"en": "is always going to be on the left likewise subtract rax rbx times two it's an rmx form which is going to take rbx to multiply it by 2 treat it as a memory address grab a value from that memory address add it to rax and then put it back into sorry subtract it from rax and then put the value back into rax",
+"ja": ""
+}
+]
+}

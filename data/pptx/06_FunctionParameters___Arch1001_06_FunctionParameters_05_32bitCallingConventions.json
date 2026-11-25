@@ -1,0 +1,707 @@
+{
+"source": "06_FunctionParameters/_Arch1001_06_FunctionParameters_05_32bitCallingConventions.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "32-bit Calling Conventions",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "In 32 bit code, there are many more calling conventions in use",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "“cdecl” (default for most C code)",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Caller cleans up the stack",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "“stdcall” (for Windows' Win32 APIs)",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "Callee cleans up the stack",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "Function parameters are pushed onto stack from right to left",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "leftmost parameter (the first function parameter) ends up at the lowest address",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド3",
+"en": "32-bit Stack Calling Conventions throwback   1",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド4",
+"en": "//Change uint64 to int",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド4",
+"en": "int func(int a, int b, int c, int d, int e){",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド4",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド4",
+"en": "32-bit TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド4",
+"en": "Step 1: Set config to \"Win32\" instead of \"x64\" in VS",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド4",
+"en": "Step 2: Start debugger",
+"ja": ""
+},
+{
+"i": 32,
+"where": "スライド4",
+"en": "Step 3: Set memory window to esp instead of rsp and 4 bytes at a time",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド5",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド5",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド6",
+"en": "//Change uint64 to int",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド6",
+"en": "int func(int a, int b, int c, int d, int e){",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド6",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド6",
+"en": "arg1 = a = 0x11",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド6",
+"en": "32-bit TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド6",
+"en": "Not Microsoft stack “Shadow Space”, just the normal calling convention!",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド6",
+"en": "No alignment attempts",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド7",
+"en": "//Change uint64 to int",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド7",
+"en": "int func(int a, int b, int c, int d, int e){",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド7",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 72,
+"where": "スライド7",
+"en": "32-bit TooManyParameters.c 2",
+"ja": ""
+},
+{
+"i": 87,
+"where": "スライド7",
+"en": "In 32 bit code when you see a bunch of pushes in front of a call, that usually makes it pretty clear what the arguments to the function are",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド7",
+"en": "arg1 = a = 0x11",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド8",
+"en": "//Change uint64 to int",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド8",
+"en": "int func(int a, int b, int c, int d, int e){",
+"ja": ""
+},
+{
+"i": 112,
+"where": "スライド8",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド8",
+"en": "32-bit TooManyParameters.c 2",
+"ja": ""
+},
+{
+"i": 145,
+"where": "スライド8",
+"en": "Not a callee-save! It's a VS-ism for allocating a single int worth of space for a local variable!",
+"ja": ""
+},
+{
+"i": 152,
+"where": "スライド8",
+"en": "arg1 = a = 0x11",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド9",
+"en": "VS\nCaller-saved",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド9",
+"en": "VS \nCallee-saved",
+"ja": ""
+},
+{
+"i": 189,
+"where": "スライド9",
+"en": "Caller vs. Callee-save Regs",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド10",
+"en": "Both cdecl and stdcall conventions perform explicit stack frame linkage",
+"ja": ""
+},
+{
+"i": 191,
+"where": "スライド10",
+"en": "Each time you enter a new function, the old ebp (\"stack frame base pointer\" by Intel convention) gets pushed onto the stack, and the new esp (top-of-the stack pointer, which now points at the copy of ebp), gets moved into ebp",
+"ja": ""
+},
+{
+"i": 194,
+"where": "スライド10",
+"en": "32-bit Stack Calling Conventions throwback   2",
+"ja": ""
+},
+{
+"i": 211,
+"where": "スライド11",
+"en": "Assembly changes from this:",
+"ja": ""
+},
+{
+"i": 212,
+"where": "スライド11",
+"en": "Changing to 32 bit compilation",
+"ja": ""
+},
+{
+"i": 233,
+"where": "スライド12",
+"en": "To this:",
+"ja": ""
+},
+{
+"i": 234,
+"where": "スライド12",
+"en": "Changing to 32 bit compilation",
+"ja": ""
+},
+{
+"i": 235,
+"where": "スライド13",
+"en": "32-bit Stack Frame Diagram",
+"ja": ""
+},
+{
+"i": 251,
+"where": "スライド13",
+"en": "“return address” func() to main()",
+"ja": ""
+},
+{
+"i": 260,
+"where": "スライド13",
+"en": "Animated slide, don't let the esp location fool you, it moves!",
+"ja": ""
+},
+{
+"i": 261,
+"where": "スライド13",
+"en": "“return address” main() to invoke_main()",
+"ja": ""
+},
+{
+"i": 279,
+"where": "スライド14",
+"en": "32-bit Simple Stack Diagram 4",
+"ja": ""
+},
+{
+"i": 280,
+"where": "スライド14",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 283,
+"where": "スライド14",
+"en": "int a = 3*y;",
+"ja": ""
+},
+{
+"i": 284,
+"where": "スライド14",
+"en": "printf(\"bar returned %d\", a);",
+"ja": ""
+},
+{
+"i": 285,
+"where": "スライド14",
+"en": "return a;",
+"ja": ""
+},
+{
+"i": 308,
+"where": "スライド14",
+"en": "“return address” bar() to foo()",
+"ja": ""
+},
+{
+"i": 309,
+"where": "スライド14",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 319,
+"where": "スライド14",
+"en": "“return address” main() to invoke_main()",
+"ja": ""
+},
+{
+"i": 323,
+"where": "スライド14",
+"en": "Function arguments (x=7)",
+"ja": ""
+},
+{
+"i": 327,
+"where": "スライド14",
+"en": "Function arguments (y=b)",
+"ja": ""
+},
+{
+"i": 330,
+"where": "スライド14",
+"en": "int a",
+"ja": ""
+},
+{
+"i": 336,
+"where": "スライド15",
+"en": "32-bit Maximum Stack Diagram",
+"ja": ""
+},
+{
+"i": 344,
+"where": "スライド15",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 345,
+"where": "スライド15",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 346,
+"where": "スライド15",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 347,
+"where": "スライド15",
+"en": "“return address” bar() to foo()",
+"ja": ""
+},
+{
+"i": 348,
+"where": "スライド15",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 358,
+"where": "スライド15",
+"en": "“return address” from main() to whoever called main()",
+"ja": ""
+},
+{
+"i": 362,
+"where": "スライド15",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 363,
+"where": "スライド15",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 364,
+"where": "スライド15",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 365,
+"where": "スライド15",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 366,
+"where": "スライド15",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 367,
+"where": "スライド15",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 371,
+"where": "スライド15",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 374,
+"where": "スライド16",
+"en": "Quiz: How can you tell if a register's being used as a callee-save reg?",
+"ja": ""
+},
+{
+"i": 376,
+"where": "スライド16",
+"en": "A: it's saved at the beginning of a function and restored at the end",
+"ja": ""
+},
+{
+"i": 378,
+"where": "スライド16",
+"en": "Quiz: How can you tell if a register's being used as a caller-save reg?",
+"ja": ""
+},
+{
+"i": 379,
+"where": "スライド16",
+"en": "A: It's being saved before a call, and restored after",
+"ja": ""
+},
+{
+"i": 380,
+"where": "スライド17",
+"en": "Function parameters tend to get referenced as \"ebp+offset\"",
+"ja": ""
+},
+{
+"i": 381,
+"where": "スライド17",
+"en": "Local variables tend to get referenced as \"ebp-offset\"",
+"ja": ""
+},
+{
+"i": 382,
+"where": "スライド17",
+"en": "Although gcc sometimes references as esp+offset",
+"ja": ""
+},
+{
+"i": 383,
+"where": "スライド17",
+"en": "32-bit Stack Calling Conventions throwback   3",
+"ja": ""
+},
+{
+"i": 384,
+"where": "スライド18",
+"en": "32-bit Maximum Stack Diagram 2",
+"ja": ""
+},
+{
+"i": 389,
+"where": "スライド18",
+"en": "Local variables @ [ebp - ...] (or [esp + ...])",
+"ja": ""
+},
+{
+"i": 403,
+"where": "スライド18",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 404,
+"where": "スライド18",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 405,
+"where": "スライド18",
+"en": "local variables (if any)",
+"ja": ""
+},
+{
+"i": 406,
+"where": "スライド18",
+"en": "“return address” bar() to foo()",
+"ja": ""
+},
+{
+"i": 407,
+"where": "スライド18",
+"en": "“return address” foo() to main()",
+"ja": ""
+},
+{
+"i": 415,
+"where": "スライド18",
+"en": "“return address” from main() to whoever called main()",
+"ja": ""
+},
+{
+"i": 419,
+"where": "スライド18",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 420,
+"where": "スライド18",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 421,
+"where": "スライド18",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 422,
+"where": "スライド18",
+"en": "Caller-save regs (if any)",
+"ja": ""
+},
+{
+"i": 423,
+"where": "スライド18",
+"en": "Callee-save regs (if any)",
+"ja": ""
+},
+{
+"i": 424,
+"where": "スライド18",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 428,
+"where": "スライド18",
+"en": "Function arguments (if any)",
+"ja": ""
+},
+{
+"i": 429,
+"where": "スライド20",
+"en": "MS also supports other conventions such as \"fastcall\" which passes first 2 params in EDX, ECX, and then the rest on the stack",
+"ja": ""
+},
+{
+"i": 430,
+"where": "スライド20",
+"en": "It's like a more limited version of the x86-64 calling convention",
+"ja": ""
+},
+{
+"i": 431,
+"where": "スライド20",
+"en": "No use of stack frames (since that's extra overhead, which would make it less fast!)",
+"ja": ""
+},
+{
+"i": 433,
+"where": "スライド20",
+"en": "32-bit Stack Calling Conventions throwback   4",
+"ja": ""
+},
+{
+"i": 434,
+"where": "スライド21",
+"en": "VS\nCaller-saved",
+"ja": ""
+},
+{
+"i": 446,
+"where": "スライド21",
+"en": "VS \nCallee-saved",
+"ja": ""
+},
+{
+"i": 471,
+"where": "スライド21",
+"en": "Caller vs. Callee-save Regs",
+"ja": ""
+},
+{
+"i": 472,
+"where": "スライド23",
+"en": "TODO: thiscall",
+"ja": ""
+},
+{
+"i": 474,
+"where": "スライド23",
+"en": "32-bit Stack Calling Conventions throwback   4",
+"ja": ""
+}
+]
+}

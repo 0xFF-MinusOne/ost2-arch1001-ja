@@ -1,0 +1,26 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_10_IfExample2.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:49,920",
+"en": "now let's see the same sort of control flow but using unsigned values instead in IfExample2 right so unsigned int a and unsigned int b so that unsigned int a that negative 1 is ffff that's going to be interpreted as just a unsigned value ffff so when we do is a equal to b that's not true but is a ffff greater than b yes that is true all f's is greater than two so we expect this one to return 2 all the time and never return 3 1 or 0xdefea7ed so let's compile that and debug it so there we go the same negative 1",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:47,600",
+"end": "00:01:28,159",
+"en": "ffffs but it's going to be interpreted as a positive 4 billion so let's step step step step step step step we don't expect the not equal to happen now here this is a below or equal check because it's a unsigned comparison so we use below and above instead of greater than less than when we're dealing with unsigned values so pull the negative 2 out which is actually all f's put it in eax there you go all f's and then compare it is all f's below 2 and the answer is no it is not so it's going to fall",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:26,320",
+"end": "00:01:40,159",
+"en": "through it's not going to take the below or equal jump it will fall through and return 2 step step unconditional jump to the end and then exit out of the function",
+"ja": ""
+}
+]
+}

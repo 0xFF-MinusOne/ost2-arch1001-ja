@@ -1,0 +1,125 @@
+{
+"source": "02_FirstAsm_NOP/_Arch1001_02_NOP.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "First Assembly Instruction: NOP",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Your first x86-64 instruction:NOP",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Just there to pad/align bytes, or to delay time",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Attackers use it to make simple exploits more reliable. But that’s another class ;)",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド4",
+"en": "Extra! Extra!Late-breaking NOP news!",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド4",
+"en": "Amaze those who know x86 by citing this interesting bit of trivia:",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド4",
+"en": "“The one-byte NOP instruction is an alias mnemonic for the XCHG (E)AX, (E)AX instruction.”",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド4",
+"en": "I had never looked in the manual for NOP apparently :)",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド4",
+"en": "XCHG instruction is not officially in this class. But if I hadn’t just told you what it does, I bet you would have guessed right anyway",
+"ja": ""
+},
+{
+"i": 22,
+"where": "ノート4",
+"en": "Thanks to Jon Erickson for cluing me in to this.",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド6",
+"en": "Instructions we now know (1)",
+"ja": ""
+}
+]
+}

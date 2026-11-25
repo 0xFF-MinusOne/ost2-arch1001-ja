@@ -1,0 +1,26 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_02_ThereWillBe0xb100d_03.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:35,520",
+"en": "so whence cometh this rep stos well it turns out that that code is there because i purposely chose not to disable the runtime checks and so specifically it is this stack frame check which is being responsible for padding out the buffer on either side putting c's there and then checking at the end did somebody corrupt my c's because if they did then that means they have a stack buffer overflow now this is not actually a security check and you would not generally expect to see this",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,880",
+"end": "00:01:09,680",
+"en": "in production code this is more just to help programmers know when they've screwed up and they're going to break something and it is this added complexity which is the reason why i specified that people should always be disabling all of these runtime checks in order to make our assembly code much simpler thus far if we do disable that runtime check then we will see much simpler code which we are more familiar with the typical overallocation of space for the shadow store indexing into our array at index 0x27",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:05,119",
+"end": "00:01:13,360",
+"en": "which is 39 storing 42 to the array and returning 0xb100d",
+"ja": ""
+}
+]
+}

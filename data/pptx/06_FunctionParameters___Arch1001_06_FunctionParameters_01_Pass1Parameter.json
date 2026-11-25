@@ -1,0 +1,173 @@
+{
+"source": "06_FunctionParameters/_Arch1001_06_FunctionParameters_01_Pass1Parameter.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Pass1Parameter.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Pass1Parameter.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "int func(int a){",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "int i = a;",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド3",
+"en": "Adding a single argument",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド4",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 42,
+"where": "ノート4",
+"en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド5",
+"en": "The stack looks like this at line 000000014000100F in func():",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド5",
+"en": "a = ecx = 0x11",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド5",
+"en": "Hmm... func() wrote the register-passed argument above the return address? Outside of its own frame?!",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド6",
+"en": "Pass1Parameter.c takeaways",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド6",
+"en": "int func(int a){",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド6",
+"en": "int i = a;",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド6",
+"en": "Something very interesting is going on with the stack!",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド6",
+"en": "The value which is passed in a register is then still being stored on the stack…doesn’t that kind of defeat the speed benefit of passing arguments in registers?",
+"ja": ""
+}
+]
+}

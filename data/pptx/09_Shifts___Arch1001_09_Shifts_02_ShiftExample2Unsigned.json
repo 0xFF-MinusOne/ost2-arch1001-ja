@@ -1,0 +1,125 @@
+{
+"source": "09_Shifts/_Arch1001_09_Shifts_02_ShiftExample2Unsigned.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ShiftExample2.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "ShiftExample2Unsigned.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "unsigned int a, b, c;",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド3",
+"en": "😱Where are the multiply and divide instructions?!🙀",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド3",
+"en": "Note: Compiled with /O2 “Maximize Speed”, to clear away a bit of cruft",
+"ja": ""
+},
+{
+"i": 32,
+"where": "スライド4",
+"en": "ShiftExample2Unsigned.c Takeaway",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド4",
+"en": "When a multiply or divide is by a power of 2, compilers prefer shift instructions as a more efficient way to perform the computation",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド5",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド5",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+}
+]
+}

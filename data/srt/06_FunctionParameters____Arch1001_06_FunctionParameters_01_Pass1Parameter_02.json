@@ -1,0 +1,26 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_01_Pass1Parameter_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:33,600",
+"en": "so by the point that you get to assigning \"a\" to \"i\" you should see a stack diagram that looks like this and you've got your typical return addresses your padding the gray stuff that we don't really understand why it's there except that in this particular case now where we have a function argument we see that func actually reaches up outside of its own frame which seems a little weird and it sticks that function argument into this memory space it already has the function argument it was passed",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,239",
+"end": "00:01:02,480",
+"en": "within a register from main to func but then func goes and sticks it in memory that seems kind of weird so that is pretty much our takeaway from this single parameter passing thing something weird is going on in the stack and we're going to investigate that in the next set of videos the key thing is that it seems very superfluous because main had already successfully gotten a parameter passed into func via a register and that's nice and fast you don't have to touch memory remember with our memory",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:01,520",
+"end": "00:01:22,960",
+"en": "hierarchy reading and writing registers is much faster than reading or writing ram or cache and the fact that it's sticking it back into the stack means that it's writing to cache and or writing to ram so that seems very suboptimal so why is it doing it well let's move on and let's do some more experimentation with more parameters in order to find out",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,269 @@
+{
+"source": "13_Linux_Assembly_Examples/_Arch1001_13_Linux_17_ShiftExample3Signed.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ShiftExample3Signed.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "with GCC",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 9,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 11,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "That’s the power of love sign!",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "unsigned int a, b, c;",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド3",
+"en": "a = atoi(argv[0]);",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド3",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド3",
+"en": "a = atoi(argv[0]);",
+"ja": ""
+},
+{
+"i": 34,
+"where": "ノート3",
+"en": "http://4.bp.blogspot.com/-FAaWCtna3mw/Tc69R-mPbFI/AAAAAAAABxA/Nriylz_dc20/s1600/hlhlfr.jpeg",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド4",
+"en": "ShiftExample3Signed.c",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド4",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド4",
+"en": "0000000140001011  and  edx,0Fh",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド4",
+"en": "Note: Compiled with /O2 “Maximize Speed”, to clear away a bit of cruft",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド5",
+"en": "0000000140001021  and         edx,0Fh",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド5",
+"en": "Vs",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド5",
+"en": "Changed",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド5",
+"en": "CDQ is added as an VS-ism. It’s necessary for the math to work out, but I feel like I’ve only run into it once ever in the wild. So I don’t consider it that important for beginners to know and I’m skipping it. But you can feel free to come back and read this code once we’ve gone through the RTFM section.",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド6",
+"en": "ShiftExample3Signed.c",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド6",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 88,
+"where": "スライド6",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 89,
+"where": "スライド6",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド6",
+"en": "0x000055555555515a <+17>: mov    $0x0,%esi",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド6",
+"en": "0x000055555555517a <+49>: retq",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド6",
+"en": "Note: Compiled with -O1, to clear away a bit of cruft",
+"ja": ""
+},
+{
+"i": 109,
+"where": "スライド7",
+"en": "CMOVcc - Conditional MOV",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド7",
+"en": "Like \"Jcc\", the cc stands for some conditional code like e, ne, g, le, nbe, s, ns",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド7",
+"en": "If the condition is met, the MOV happens, else not",
+"ja": ""
+},
+{
+"i": 112,
+"where": "スライド7",
+"en": "Book page 128",
+"ja": ""
+},
+{
+"i": 115,
+"where": "スライド8",
+"en": "Instructions we now know (32)",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド8",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド8",
+"en": "CMOVcc",
+"ja": ""
+},
+{
+"i": 170,
+"where": "スライド9",
+"en": "not",
+"ja": ""
+}
+]
+}

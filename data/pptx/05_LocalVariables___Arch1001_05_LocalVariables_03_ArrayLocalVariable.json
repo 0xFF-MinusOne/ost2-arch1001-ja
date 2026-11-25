@@ -1,0 +1,497 @@
+{
+"source": "05_LocalVariables/_Arch1001_05_LocalVariables_03_ArrayLocalVariable.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ArrayLocalVariable.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "ArrayLocalVariable.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "short a;",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "a = 0xbabe;",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド3",
+"en": "Adding and accessing an array local variable",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド4",
+"en": "FYI, Visual Studio seems to have a predilection for imul over mul (unsigned multiply). You’ll see it showing up in places you expect mul",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド4",
+"en": "I haven’t been able to get it to generate normal mul for simple examples",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド4",
+"en": "Three forms. One, two, or three operands:",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド4",
+"en": "Three operands? Possibly the only “basic” instruction (meaning non-added-on-instruction-set(MMX,AVX,AEX,VMX,etc)) of it’s kind?",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド4",
+"en": "Book page 65",
+"ja": ""
+},
+{
+"i": 56,
+"where": "ノート4",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 57,
+"where": "ノート4",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド5",
+"en": "There are 13 forms, spread across 3 groups",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド5",
+"en": "Can also be seen as 5 groups depending on how you slice the 3-operand groups",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド5",
+"en": "So I'm going to show you 5 groups to not have too much on a single slide",
+"ja": ""
+},
+{
+"i": 62,
+"where": "ノート5",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 63,
+"where": "ノート5",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド6",
+"en": "AX = AL * r/m8",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド6",
+"en": "DX:AX = AX * r/m16",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド6",
+"en": "EDX:EAX = EAX * r/m32",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド6",
+"en": "RDX:RAX = RAX * r/m64",
+"ja": ""
+},
+{
+"i": 73,
+"where": "ノート6",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 74,
+"where": "ノート6",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 83,
+"where": "ノート7",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 84,
+"where": "ノート7",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド8",
+"en": "Three Operands, 8 Bit Immediate",
+"ja": ""
+},
+{
+"i": 94,
+"where": "ノート8",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 95,
+"where": "ノート8",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド9",
+"en": "Three Operands, 16 Bit Immediate",
+"ja": ""
+},
+{
+"i": 101,
+"where": "ノート9",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 102,
+"where": "ノート9",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド10",
+"en": "Three Operands, 32 Bit Immediate",
+"ja": ""
+},
+{
+"i": 110,
+"where": "ノート10",
+"en": "http://www.microsoft.com/msj/0698/hood0698.aspx - “There's even a form of the IMUL instruction that takes three operands. To my knowledge, this is the only instruction in the Intel opcode set with this distinction.”",
+"ja": ""
+},
+{
+"i": 111,
+"where": "ノート10",
+"en": "I found that quote while trying to find a way to make visual studio naturally emit a MUL instruction. Also, while things containing an r/mX can encode a mnemonic which looks like is has more operands, the information is still contained in a the normal combo of one or two bytes",
+"ja": ""
+},
+{
+"i": 117,
+"where": "スライド11",
+"en": "Registers Before",
+"ja": ""
+},
+{
+"i": 121,
+"where": "スライド11",
+"en": "AX = AL * r/m8",
+"ja": ""
+},
+{
+"i": 122,
+"where": "スライド11",
+"en": "Registers After",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド12",
+"en": "Registers Before",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド12",
+"en": "Registers After",
+"ja": ""
+},
+{
+"i": 149,
+"where": "スライド13",
+"en": "Registers Before",
+"ja": ""
+},
+{
+"i": 154,
+"where": "スライド13",
+"en": "Registers After",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド13",
+"en": "0xE5A3577504602A2C",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド14",
+"en": "MOVZX - Move with zero extend",
+"ja": ""
+},
+{
+"i": 161,
+"where": "スライド14",
+"en": "MOVSX - Move with sign extend",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド14",
+"en": "Used to move small values (from smaller types) into larger registers (holding larger types)",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド14",
+"en": "Support same r->r, r->m, m->r, i->m, i->r forms as normal MOV",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド14",
+"en": "“Zero extend” means the CPU unconditionally fills the high order bits of the larger register with zeros",
+"ja": ""
+},
+{
+"i": 165,
+"where": "スライド14",
+"en": "“Sign extend” means the CPU fills the high order bits of the destination larger register with whatever the sign bit is set to on the small value",
+"ja": ""
+},
+{
+"i": 166,
+"where": "スライド14",
+"en": "Book page 53",
+"ja": ""
+},
+{
+"i": 171,
+"where": "スライド15",
+"en": "MOVSXD - Move with sign extend",
+"ja": ""
+},
+{
+"i": 172,
+"where": "スライド15",
+"en": "MOVSX technically only sign extends from 8 or 16 bit values",
+"ja": ""
+},
+{
+"i": 173,
+"where": "スライド15",
+"en": "If you want to sign extend a 32 bit value to 64 bits, you need to use MOVSXD",
+"ja": ""
+},
+{
+"i": 174,
+"where": "スライド15",
+"en": "There's no \"MOVZXD\", it's always just MOVZX",
+"ja": ""
+},
+{
+"i": 175,
+"where": "スライド15",
+"en": "I'm not going to give it its own star though 💫",
+"ja": ""
+},
+{
+"i": 176,
+"where": "スライド15",
+"en": "Book page 53",
+"ja": ""
+},
+{
+"i": 183,
+"where": "スライド16",
+"en": "Because the sign bit (most significant bit) of 0xF00DFACE is 1",
+"ja": ""
+},
+{
+"i": 188,
+"where": "スライド17",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド17",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 192,
+"where": "ノート17",
+"en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
+"ja": ""
+},
+{
+"i": 196,
+"where": "スライド18",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 206,
+"where": "スライド18",
+"en": "0ba1b0ab`1edb100d",
+"ja": ""
+},
+{
+"i": 215,
+"where": "スライド19",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 239,
+"where": "スライド19",
+"en": "a = undef  babe (2 bytes)",
+"ja": ""
+},
+{
+"i": 243,
+"where": "スライド19",
+"en": "4-byte-granularity addresses",
+"ja": ""
+},
+{
+"i": 244,
+"where": "スライド20",
+"en": "ArrayLocalVariable.c takeaways",
+"ja": ""
+},
+{
+"i": 245,
+"where": "スライド20",
+"en": "Local variables need not be stored on the stack in the same order they are defined in the high level language",
+"ja": ""
+},
+{
+"i": 246,
+"where": "スライド20",
+"en": "(In VS unoptimized code) Array access is typically done by multiplying the size of the array element (4 bytes for an int in this case), times the index that is desired to be access (indices 1 and 4 in this case)",
+"ja": ""
+},
+{
+"i": 247,
+"where": "スライド20",
+"en": "Moving a small value to a large register will result in a zero extend. Addition using signed values could result in a sign extend, if the arithmetic is done in a larger register",
+"ja": ""
+},
+{
+"i": 249,
+"where": "スライド20",
+"en": "short a;",
+"ja": ""
+},
+{
+"i": 252,
+"where": "スライド20",
+"en": "a = 0xbabe;",
+"ja": ""
+},
+{
+"i": 279,
+"where": "スライド21",
+"en": "Good quiz question for this section:",
+"ja": ""
+},
+{
+"i": 280,
+"where": "スライド21",
+"en": "If you change the size of the elements of b[] to long long, which lines, would you expect to change from 4 to 8?",
+"ja": ""
+},
+{
+"i": 281,
+"where": "スライド22",
+"en": "Instructions we now know (11)",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,54 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_01_ArrayLocalVariable2_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:39,520",
+"en": "in arraylocalvariable.c earlier in the class we saw how the assembly looks when you're accessing an array local variable in arraylocalvariable2.c we're going to add some zeroization to an initialization of an array and what does this lead to well this leads to a new assembly instruction rep stos so what is rep stops this is the repeat store string now this is actually the stos instruction which is a store a string with the rep instruction prefix in front of it so the rep prefix means let's do a stos",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:37,520",
+"end": "00:01:16,960",
+"en": "over and over and over and over again so any assembly instruction which supports the rep prefix which is not all of them just a small subset when it tries to do this assembly instruction it's going to do it cx number of times so cx meaning cx and 16 bit ecx in 32 bit or rcx in 64-bit is used as a counter to basically say I want to do a stos operation cx number of times each time the operation is done cx is decremented by 1 and when cx finally equals zero then this stos operation stops and it moves",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:15,040",
+"end": "00:01:54,320",
+"en": "on to the next assembly instruction in this case it either stores 1, 2 4 or 8 bytes at a time to a destination so this di register so there's one form that takes only a single byte and stores it at di that's more for 16-bit form we don't care as much about that it'll store to di whatever is in al we care more about the form that stores 1, 2, 4 or 8 bytes at a time to di meaning di edi rdi with either al if it's one byte at a time or ax eax rax if it's 2, 4 or 8 bytes at a time",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:51,119",
+"end": "00:02:27,920",
+"en": "so it's basically going to take the value from this register let's say it's rax and it's going to copy it to rdi after it's copied that value into rdi it's going to actually increment the register by 1, 2, 4, 8 bytes however many bytes were copied so that when this repeated store happens it can basically do you know 1 byte 1 byte 1 byte 1 byte 1 byte 1 byte all consecutively so the net result is that a rep stos instruction is effectively a memset in a box except that there's some setup that has",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:26,560",
+"end": "00:03:02,400",
+"en": "to occur first first you need to set di to the destination you need to set al or ax to the value to store some number of times and you need to set the cx to the number of times that you want to store the value so I was just talking in generalities about the different forms for different 16 32 64-bit modes let's talk in specificities to the version that we're going to see here so basically it is going to store 1, 2, 4, or 8 bytes at a time to rdi so the memory pointed to by rdi",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:58,400",
+"end": "00:03:35,200",
+"en": "with a value from al, ax, ecx or rcx based on whether it's 1, 2, 4, 8 bytes that's being copied and then it will increment rdi by 1 2, 4, 8 bytes based on the number of bytes it's being copied at a time but just as a reminder this assembly instruction has baked into it a store to the memory pointed to by rdi. rdi is a callee save register so this is going to mean there's probably going to be some need to save and restore rdi before the rep stos assembly instruction uses it alright with all that said now it is",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:33,440",
+"end": "00:03:43,599",
+"en": "time for you to step through the assembly and make sure you understand all the various components that are being used in it",
+"ja": ""
+}
+]
+}

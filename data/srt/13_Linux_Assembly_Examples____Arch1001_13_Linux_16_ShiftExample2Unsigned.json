@@ -1,0 +1,68 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_16_ShiftExample2Unsigned.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:22,800",
+"en": "okay the next example is ShiftExample2 Unsigned so that was the case where we took atoi into a multiplied by 8 and divided by 16 and what we were looking for is that we were expecting that the compiler would essentially turn the multiply by 8 into a left shift by 3 and divide by 16 into a right shift by 4.",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:20,800",
+"end": "00:01:00,239",
+"en": "so we'll see whether or not gcc does that here but i'm going to add a little optimization in to get rid of this atoi so if i just compile it as we normally do we've been you know compiling like this thus far and the net result of that is always this first initial sequence which we see over and over again which is essentially just save the argc and the argv pluck out the value from for from argv 1 and pass it to atoi so that it gets converted into a number which gets returned back into edx",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:57,920",
+"end": "00:01:27,280",
+"en": "so i want to focus more on the shifts that we're going to see so just to clean it up a little bit just like i did in the visual studio stuff i'm going to add in a little bit of optimization to simplify it down a little bit but not too much also the fact that it's using argv of 1 means the compiler can't shift it sorry can't uh simplify it too much because it doesn't actually know what the expected values are it can't like pre-compute some value and just you know spit out a hard code constant",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:25,600",
+"end": "00:02:10,640",
+"en": "so along those same lines we've got to make sure we have the right thing in my gdb configuration because i was playing around with it for the next example so now let's compile it right with optimization 1 and gdb it summarization so what's going on here well we've got a super quick and dirty version of that plucking out the argv of 1 because it basically takes rsi adds 8 to it that gets you from argv 0 to argv 1 and then dereferences it and then moves that dereference value into rdi and that should exactly be",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:08,239",
+"end": "00:02:36,400",
+"en": "the pointer to the string which is argv of 1 so let's go ahead and step in and see if that's true got a little bit of allocation of space on the stack also I have a note we don't have the normal function prolog and that we're not pushing rbp we're not popping rbp at the end so optimization seems to have gotten rid of our stack frame usage which is about what we would expect because it's not strictly necessary and it does go faster without it so let's step over this in order to",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:34,800",
+"end": "00:03:11,599",
+"en": "allocate a little stack space and let's do this computation and we expect the result afterwards is going to be the string of argv 1 and indeed it is the parameter that I passed in my gdb config file now the question is what's up with this moving of 0xa to edx and 0 to esi and it seems to be not calling atoi anymore it's calling strtol so if we actually look at the man page for atoi we will see that it actually says in here the atoi function converts it you know into an integer",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:08,480",
+"end": "00:03:44,720",
+"en": "this behavior is the same as strtol with the pointer to the string and then if you pass null and base 10 for the second two parameters then that'll do the same thing as atoi so the compiler when it's optimizing just decided that that would be a better way to go so that's what it's doing so I'm going to step over that and I would expect that the output of that strtol is going to be 31337 and it is 0x7a69 is 31337 and from there this is just the trivial shift left 3 shift right 4 these",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:43,920",
+"end": "00:04:22,880",
+"en": "are both logical shifts not arithmetic shifts because we're operating on unsigned values so it doesn't need to keep track of you know the sign bit and worry about clobbering it when it right shifts back so eax right now holds 31337 so shift it left by 3 shift it right by 4 and you get 0x3d34 and it is in rax still so that goes ahead and you know acts as the return value here now it's adding 8 back into rsp because that just compensates for the 8 that it subtracted to make the stack area for during the",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:19,759",
+"end": "00:04:22,880",
+"en": "function prologue",
+"ja": ""
+}
+]
+}

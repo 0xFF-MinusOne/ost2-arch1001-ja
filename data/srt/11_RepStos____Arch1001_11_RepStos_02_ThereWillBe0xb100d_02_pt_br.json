@@ -1,0 +1,12 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_02_ThereWillBe0xb100d_02_pt_br.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:25,760",
+"en": "portanto, mesmo quando você passa pelo montagem e desenhar um diagrama de pilha, você talvez ainda não saiba exatamente o que está acontecendo em Então, se eu puder fazer uma proposta modesta, eu sugerir que você incremente o índice do buffer para o ponto em que ele ultrapassa o fim do buffer e siga em frente e execute o código e veja o que acontece",
+"ja": ""
+}
+]
+}

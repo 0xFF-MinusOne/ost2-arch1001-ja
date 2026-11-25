@@ -1,0 +1,431 @@
+{
+"source": "08_BooleanLogic/_Arch1001_08_BooleanLogic_01_BooleanInstructions.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Boolean instructions",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "0000000140001013  mov  rax,7EE707A11EDh",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド3",
+"en": "0000000140001029  and  ecx,eax",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド3",
+"en": "000000014000102D  not  eax",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド3",
+"en": "000000014000102F  or   eax,7AB00h",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド3",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 32,
+"where": "スライド3",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド3",
+"en": "uint64 k = 0x7ee707a11ed;",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド3",
+"en": "BooleanBecause.c",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド4",
+"en": "This Class",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド4",
+"en": "Boolean operations modify most of the yellow status flags",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド5",
+"en": "AND - Bitwise AND",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド5",
+"en": "C binary operator \"&\" (not &&, that's logical AND)",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド5",
+"en": "Destination operand can be r/mX or register",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド5",
+"en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド5",
+"en": "AND",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド5",
+"en": "and al, bl",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド5",
+"en": "AND",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド5",
+"en": "and al, 0x42",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド5",
+"en": "Book page 75",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド6",
+"en": "OR - Bitwise OR",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド6",
+"en": "C binary operator \"|\" (not ||, that's logical OR)",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド6",
+"en": "Destination operand can be r/mX or register",
+"ja": ""
+},
+{
+"i": 87,
+"where": "スライド6",
+"en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド6",
+"en": "OR",
+"ja": ""
+},
+{
+"i": 94,
+"where": "スライド6",
+"en": "or al, bl",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド6",
+"en": "OR",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド6",
+"en": "or al, 0x42",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド6",
+"en": "Book page 76",
+"ja": ""
+},
+{
+"i": 105,
+"where": "スライド7",
+"en": "XOR - Bitwise Exclusive OR",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド7",
+"en": "C binary operator \"^\"",
+"ja": ""
+},
+{
+"i": 107,
+"where": "スライド7",
+"en": "Destination operand can be r/mX or register",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド7",
+"en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
+"ja": ""
+},
+{
+"i": 109,
+"where": "スライド7",
+"en": "FYI XOR is commonly used to zero a register, by XORing it with itself, because it’s faster than a MOV",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド7",
+"en": "OR",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド7",
+"en": "Book page 77",
+"ja": ""
+},
+{
+"i": 127,
+"where": "スライド8",
+"en": "NOT - One's Complement Negation",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド8",
+"en": "C binary operator \"~\" (not !, that's logical NOT)",
+"ja": ""
+},
+{
+"i": 129,
+"where": "スライド8",
+"en": "Single source/destination operand can be r/mX",
+"ja": ""
+},
+{
+"i": 134,
+"where": "スライド8",
+"en": "(RAX = 0x7E55E11A7ED70AD5!)",
+"ja": ""
+},
+{
+"i": 135,
+"where": "スライド8",
+"en": "not rax",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド8",
+"en": "Book page 74",
+"ja": ""
+},
+{
+"i": 139,
+"where": "スライド9",
+"en": "NOT - One's Complement Negation",
+"ja": ""
+},
+{
+"i": 140,
+"where": "スライド9",
+"en": "C binary operator \"~\" (not !, that's logical NOT)",
+"ja": ""
+},
+{
+"i": 141,
+"where": "スライド9",
+"en": "Single source/destination operand can be r/mX",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド9",
+"en": "(RAX = 0x7E55E11A7ED70AD!)",
+"ja": ""
+},
+{
+"i": 147,
+"where": "スライド9",
+"en": "not rax",
+"ja": ""
+},
+{
+"i": 150,
+"where": "スライド9",
+"en": "Book page 74",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド10",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド10",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド11",
+"en": "0000000140001013  mov  rax,7EE707A11EDh",
+"ja": ""
+},
+{
+"i": 167,
+"where": "スライド11",
+"en": "0000000140001029  and  ecx,eax",
+"ja": ""
+},
+{
+"i": 169,
+"where": "スライド11",
+"en": "000000014000102D  not  eax",
+"ja": ""
+},
+{
+"i": 170,
+"where": "スライド11",
+"en": "000000014000102F  or   eax,7AB00h",
+"ja": ""
+},
+{
+"i": 179,
+"where": "スライド11",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 180,
+"where": "スライド11",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 185,
+"where": "スライド11",
+"en": "uint64 k = 0x7ee707a11ed;",
+"ja": ""
+},
+{
+"i": 189,
+"where": "スライド11",
+"en": "BooleanBecause.c Takeaways",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド11",
+"en": "C binary operators correspond 1:1 to assembly instructions",
+"ja": ""
+},
+{
+"i": 191,
+"where": "スライド12",
+"en": "Instructions we now know (19)",
+"ja": ""
+},
+{
+"i": 202,
+"where": "スライド12",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 239,
+"where": "スライド13",
+"en": "not",
+"ja": ""
+}
+]
+}

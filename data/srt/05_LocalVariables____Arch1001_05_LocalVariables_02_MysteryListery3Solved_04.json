@@ -1,0 +1,19 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_02_MysteryListery3Solved_04.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:38,399",
+"en": "and once again you should have seen what i was expecting to see you should see three variables filled in and there's still extra eight bytes in order to achieve 16 byte alignment because microsoft is essentially trying to allocate space in 16 byte chunks at a time plus of course the return address padding all right well i think we've got this mystery solved so you know let's find out who this is this too large local variable allocations aha it's 16 byte alignment padding of course",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:35,840",
+"end": "00:00:47,280",
+"en": "all right well good job gang this is the first of our mysteries solved and i look forward to solving more of them with you as the mystery machine rolls on",
+"ja": ""
+}
+]
+}

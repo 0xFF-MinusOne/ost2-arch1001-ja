@@ -1,0 +1,19 @@
+{
+"source": "08_BooleanLogic/__Arch1001_08_BooleanLogic_01_BooleanInstructions_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:35,360",
+"en": "so the takeaway from BooleanBecause.c is quite simple it's that there's a one-to-one correspondence between any boolean bitwise operations you may place into your C code and boolean bitwise operations that will be generated in the assembly so we just picked up four new assembly instructions where do they show up well we've got and here coming in at one percent we've got or at one percent we've got xor at three percent that's probably because like I said the compiler will generate more xors than people actually",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:33,680",
+"end": "00:00:45,840",
+"en": "write because it uses them to zero registers and we've got not coming in at not at least one percent so it's in the bucket with the others",
+"ja": ""
+}
+]
+}

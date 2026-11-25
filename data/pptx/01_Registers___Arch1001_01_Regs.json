@@ -1,0 +1,353 @@
+{
+"source": "01_Registers/_Arch1001_01_Regs.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Intel Registers",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Architecture - Registers",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Registers are small memory storage areas built into the processor (still volatile memory)",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Intel has 16 “general purpose” registers + the instruction pointer which points at the next instruction to execute",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "But 2 of the 16 are not that general",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "On x86-32, registers are 32 bits wide",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "On x86-64, registers are 64 bits wide",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "Book Chapter 5",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド4",
+"en": "Intel Register Evolution",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド5",
+"en": "Intel Register Evolution",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド5",
+"en": "A eXtended",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド5",
+"en": "A High",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド5",
+"en": "A Low",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド6",
+"en": "Intel Register Evolution",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド6",
+"en": "Extended AX",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド7",
+"en": "Intel Register Evolution",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド7",
+"en": "64-bit AMD Opteron / Intel Pentium 4",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド8",
+"en": "Intel Register Evolution",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド8",
+"en": "Really-wide AX",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド8",
+"en": "Or just",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド8",
+"en": "Register 0",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド8",
+"en": "64-bit AMD Opteron / Intel Pentium 4",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド8",
+"en": "R0-D(ouble)Word",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド8",
+"en": "R0-Word",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド8",
+"en": "R0-Byte",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド10",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド10",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド11",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド11",
+"en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド11",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド12",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド12",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 51,
+"where": "ノート12",
+"en": "note to scornwell: maybe a simple game here like:",
+"ja": ""
+},
+{
+"i": 52,
+"where": "ノート12",
+"en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
+"ja": ""
+},
+{
+"i": 53,
+"where": "ノート12",
+"en": "“What is the word-sized access register for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 54,
+"where": "ノート12",
+"en": "“What is the 16 bit access for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド13",
+"en": "Intel Register Conventions 1",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド13",
+"en": "These are Intel’s suggestions to compiler developers (and assembly handcoders). Registers don’t have to be used these ways, but if you see them being used like this, you’ll know why. But I simplified some descriptions. I also color coded as GREEN for the ones which we will actually see in this class (as opposed to future ones), and RED for not.",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド13",
+"en": "RAX - Stores function return values",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド13",
+"en": "RBX - Base pointer to the data section",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド13",
+"en": "RCX - Counter for string and loop operations",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド13",
+"en": "RDX - I/O pointer",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド13",
+"en": "Intel Arch v1 Section 3.4.1 - General-Purpose Registers, page 3-11",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド14",
+"en": "Intel Register Conventions 2",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド14",
+"en": "RSI - Source index pointer for string operations",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド14",
+"en": "RDI - Destination index pointer for string operations",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド14",
+"en": "RSP - Stack (top) pointer",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド14",
+"en": "RBP - Stack frame base pointer",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド14",
+"en": "RIP - Pointer to next instruction to execute (“instruction pointer”)",
+"ja": ""
+}
+]
+}

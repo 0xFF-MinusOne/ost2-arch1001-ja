@@ -1,0 +1,293 @@
+{
+"source": "10_MulDiv/_Arch1001_10_MulDiv_01_MulDivExample.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "MulDivExample.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "MulDivExample.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "uint64 a = 0xdefec7ed;",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "a *= 0xde7ec7ab1e;",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "a /= 0x2bad505ad;",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "return a;",
+"ja": ""
+},
+{
+"i": 37,
+"where": "ノート3",
+"en": "We already saw that when a C operand is a power of 2, it uses shifts instead of multiplies/divides, but this shows that in other cases, it uses multiply or divide instructions.",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド4",
+"en": "Three forms",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "Unsigned divide ax by r/m8, al = quotient, ah = remainder",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "Unsigned divide edx:eax by r/m32, eax = quotient, edx = remainder",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド4",
+"en": "Unsigned divide rdx:rax by r/m64, rax = quotient, rdx = remainder",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド4",
+"en": "If dividend is 32/64bits, edx/rdx will just be set to 0 by the compiler before the instruction (as occurred in the MulDivExample.c code)",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド4",
+"en": "If the divisor is 0, a divide by zero exception is raised.",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド4",
+"en": "Book page 69",
+"ja": ""
+},
+{
+"i": 75,
+"where": "ノート4",
+"en": "Note that there’s no form which takes an immediate.",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド5",
+"en": "If you were to then change MulDivExample to signed, you would see the IDIV instruction appear",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド5",
+"en": "Three forms",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド5",
+"en": "Signed divide ax by r/m8, al = quotient, ah = remainder",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド5",
+"en": "Signed divide edx:eax by r/mX, eax = quotient, edx = remainder",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド5",
+"en": "Signed divide rdx:rax by r/m64, rax = quotient, rdx = remainder",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド5",
+"en": "If dividend is 32/64bits, edx/rdx will just be set to 0 by the compiler before the instruction",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド5",
+"en": "If the divisor is 0, a divide by zero exception is raised.",
+"ja": ""
+},
+{
+"i": 113,
+"where": "スライド5",
+"en": "Book page 69",
+"ja": ""
+},
+{
+"i": 114,
+"where": "ノート5",
+"en": "Note that there’s no form which takes an immediate.",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド6",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 121,
+"where": "スライド6",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 123,
+"where": "スライド7",
+"en": "MulDivExample.c Takeaways",
+"ja": ""
+},
+{
+"i": 124,
+"where": "スライド7",
+"en": "When a multiply or divide is not by a power of 2, compilers will use normal multiply/divide instructions",
+"ja": ""
+},
+{
+"i": 125,
+"where": "スライド7",
+"en": "VS compiler prefers IMUL over MUL (unsigned multiply)",
+"ja": ""
+},
+{
+"i": 143,
+"where": "スライド7",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 145,
+"where": "スライド7",
+"en": "uint64 a = 0xdefec7ed;",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド7",
+"en": "a *= 0xde7ec7ab1e;",
+"ja": ""
+},
+{
+"i": 147,
+"where": "スライド7",
+"en": "a /= 0x2bad505ad;",
+"ja": ""
+},
+{
+"i": 148,
+"where": "スライド7",
+"en": "return a;",
+"ja": ""
+},
+{
+"i": 150,
+"where": "ノート7",
+"en": "We already saw that when a C operand is a power of 2, it uses shifts instead of multiplies/divides, but this shows that in other cases, it uses multiply or divide instructions.",
+"ja": ""
+},
+{
+"i": 151,
+"where": "スライド8",
+"en": "Instructions we now know (28)",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド8",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 202,
+"where": "スライド9",
+"en": "not",
+"ja": ""
+}
+]
+}

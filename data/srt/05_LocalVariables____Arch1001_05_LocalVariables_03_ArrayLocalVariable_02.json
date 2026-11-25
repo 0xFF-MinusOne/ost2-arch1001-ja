@@ -1,0 +1,68 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_03_ArrayLocalVariable_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:31,760",
+"en": "so if you were to go through that example you should see something sort of like this you should have 0xbabe at the low order bytes you should have bulb should you should have balboa bled blood right here and then you should have some stuff that was the b array about right here filling in the sign extended babe and the result of the addition that took place now this is kind of difficult to look at and it's hard to see kind of semantically what's going on since we had that four-byte sized",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,560",
+"end": "00:01:04,960",
+"en": "integer array it's probably easier to look at this in four-byte alignment rather than eight byte alignment so if i draw a stack diagram for that where instead i have every four bytes of memory shown then it makes a little bit more clear what's going on so at the bottom we have hex babe taking up two bytes and then two bytes that are undefined we have some alignment padding for reasons that I'll talk about a little bit we have balboa blade blood as c and then we can see b of zero b of one b of two",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:02,160",
+"end": "00:01:33,119",
+"en": "etcetera up through b of five and then some further alignment padding so that makes it a little more clear semantically what's going on but what's interesting is that we declared our local variables a, b, c but we see that they got rearranged by the compiler a padding c b padding so the takeaway from array local variable.c is that local variables do not need to be stored on the stack in the same order they're defined in the high level language furthermore we can see that visual",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:31,439",
+"end": "00:02:02,960",
+"en": "studio likes to take indices of arrays and use them with the imul instruction in order to multiply out and you know access an element of an array so we talked about before you know the r/mX form can allow us to you know skip past stuff and can be used for array indexing but in this particular case it's using imul in order to access the array so in particular if we look at these two instructions right here we can see that the first thing is a going into b of one and so moving four",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:02,560",
+"end": "00:02:23,599",
+"en": "into eax and then taking four times one that essentially looks like we're accessing index 1 of the thing later on we see a similar you know mechanism you can see you know 4 into here 4 into 1 that's this access of b of 1.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:20,080",
+"end": "00:02:55,680",
+"en": "even further down then we see 4 into ecx rcx times 4 that probably then is the indexing of element 4 of the array 4 for the size and 4 for the index right so we can kind of see that this is the index this is the size this is the index this this the size and through the magic of video editing i'm going to correct this assembly right here quick okay and then the other interesting takeaway here was first of all there was you know you might have noticed that even though we only said hex babe in the",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:52,640",
+"end": "00:03:30,319",
+"en": "source code the compiler decided to sign extend that into a constant an immediate of FFFFBABE and put it into this 32-bit register it's doing that because it you know sees that a is a signed short value so it puts it into eax but then it's actually only moving ax the bottom two bytes so really just hex babe goes into rsp one word pointer size thing so only the two bytes are actually going to change there and so we saw that you know that rsp is going to be the two bytes babe later on it can pull that back out it's",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:28,720",
+"end": "00:04:04,319",
+"en": "going to read a word pointer the two bytes and it will sign extend it and again put it into a 32-bit value because that's then going to be used to store into a 32-bit b of 1 storage location so sign extension happening when some smaller value gets moved in that is signed gets moved into a larger value that's signed whereas instead 0 extension happening or essentially truncation happening when this b of 4 gets turned back down from a 32-bit value into a 16-bit value truncating it down to a short so we just",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:03,040",
+"end": "00:04:32,000",
+"en": "added the three new assembly instructions imul, move with zero extension and move with sign extension so where are they on our pie well imul is in others because it doesn't get its own slice not common enough but move with zero extension is right here coming in at one percent and move with sign extension not enough at least in this particular compiled version so we picked up our first others and there are many more to come",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,33 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_15_ShiftExample1.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,320",
+"end": "00:00:37,840",
+"en": "all right now let's see some examples using shift so ShiftExample1 first so as a reminder this was literally using shift as in the C operator for left shift and right shift so if we take 5 and we left shift it by 4 and right shift it by 3 the net result is that it's left shifted by 1 so we would expect that we would see you know shift left and shift right assembly instructions which we already learned about here so let's compile it and debug it get rid of this little optimization thing i'm",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:34,239",
+"end": "00:01:14,880",
+"en": "going to use on the next examples all right so what do we see here well we see standard function prolog we see 5 which was a variable moved into rbp minus 4 that's about what we would expect based on the past examples then we see rbp minus 4 into eax shifted left by 4 and shifted right by 3 so this one's pretty stock pretty standard but let's just go ahead and watch the changes in the registers step step step all right 5 into rbp minus 4 it looks like rbp minus 8 is the smallest so i'm",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:13,600",
+"end": "00:02:05,360",
+"en": "going to go ahead and put a display here of 2 words from rbp minus 8 there goes the 5 and then read it back out put it into eax and it gets left shifted by 4 so now it's 50 and stored back over here and read back in and shifted to the right so now it's 10 so 5 left shifted by 1 would be 10 because times 2 times 2 to the power of 1 and that goes out to oh no rbp minus 0xc which i don't have on my thing and i don't wanna change so step and let's just go ahead and do it x slash word x rbp minus",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:02:02,320",
+"end": "00:02:11,599",
+"en": "0xc there you go there's your 10. and put that into the return value and exit out pretty simple",
+"ja": ""
+}
+]
+}

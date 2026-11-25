@@ -1,0 +1,96 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_06_MysteryListery1Solved.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,560",
+"end": "00:00:35,360",
+"en": "so now we can go ahead and investigate our final mystery why do the GCC and Clang hello worlds have balanced push pop instructions but visual studio doesn't so we saw this assembly before and i've now moved it to my new and more beautiful color coding convention of blue for balanced and lavender for linkage so these are the assembly we saw before but now that we've seen the 32-bit calling conventions we might have a sense of why they might be doing this it's a push pop thing with a mov rbp",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,880",
+"end": "00:00:37,840",
+"en": "sorry mov rsp to rbp. See? It gets you!",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:35,360",
+"end": "00:01:12,640",
+"en": "the Intel syntax versus AT&T syntax it's backwards move rsp to rbp well that kind of sounds like it's the same thing that 32-bit calling conventions were doing so let's look into it so this is what we said about the Microsoft x64 ABI and what we now also say is that generally speaking it does not make use of frame pointers for most code so let's see what a 64-bit stack diagram would look like for visual studio return addresses as per usual rsp calling into a function return address",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:10,400",
+"end": "00:01:50,799",
+"en": "gets onto the stack rsp points at local variables if any callee-save registers, caller-save registers and then the Microsoft specific shadow space and any extra function arguments above beyond the four parameters if any and then return addresses so this is kind of what we expect to see on stack frames for visual studio derived code and of course as before at a leaf node function we might have local variables, we might have callee-save registers but we're not going to see any caller-",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:48,479",
+"end": "00:02:21,599",
+"en": "save registers or function parameters and so forth but now let's go look at the Microsoft documentation and see what they say about the stack frame layout and how it makes things a little bit more complicated so from this link here's a picture of the stack according to Microsoft they also draw high addresses high and low address is low so that's great for us here's the shadow store area of rcx rdx r8 r9 and then it says you know stack parameter area return addresses so this all maps up to",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:19,520",
+"end": "00:02:52,800",
+"en": "what we expect local variables the non-volatile registers aka the callee-saved registers but then there's this interesting bit right here it says if used frame pointer will generally point here so it's saying they can have a frame pointer but instead of pointing at the base of the frame it's actually going to be sort of in the middle here after the local variables after the callee-save registers and before any allocation before any parameters and so forth so it's kind of a weird location so let's see what the",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:50,800",
+"end": "00:03:26,319",
+"en": "actual filled in thing looks like so if they have a stack frame it's that it will generally point here the saved rbp will be between the local variables the callee-save registers any alloca space and caller-save registers so they can have this linkage but it'll be kind of into the middle so from the documentation it's clear that if you use alloca then it's definitely going to be using a frame pointer because it says alloca is required to be 16-byte aligned and additionally required to use a frame",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:23,840",
+"end": "00:03:54,319",
+"en": "pointer. alloca is specifically a thing that allocates space on the stack instead of the heap and so if space is dynamically allocated for instance with alloca in a function then non-volatile registers must be used as a frame pointer that says a non-volatile register must be used as frame pointer it doesn't actually say it must be rbp it could actually be anyone and there's some other examples elsewhere in their documentation where they use r13 instead where they're kind of hand coding up you know here's an",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:52,400",
+"end": "00:04:26,320",
+"en": "example of what you might make a function prologue look like. So anyways it's not currently clear to me from the documentation if Microsoft will naturally use the frame pointer in any other locations other than where some code happens to be using alloca but if you know about such situation then let me know! Now, here was what we said about the System V x86-64 ABI and let's add to that that it still uses frame pointers basically in the 32-bit style unless directed not to via compiler",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:25,199",
+"end": "00:04:54,560",
+"en": "options so therefore here's what the 64-bit stack would look like on System V. Call a function, return address as per usual and then saved rbp right at the base of the stack frame linking back up to wherever rbp used to point to and then the mov rsp to rbp and moving it down just like we saw in 32-bit so basically from there it looks the same as 32-bit all the same sort of things saved rbp,",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:53,680",
+"end": "00:05:28,880",
+"en": "local variables, callee-save, caller-save, function arguments and return address and just keeps going as we saw before if you call another function you're going to have caller-save registers potentially function arguments and return address and then for a leaf node saved rbp linking back as before moving rsp into rbp saving local variables callee-save registers if appropriate but none of the rest of it if you're not actually calling any other functions so who was this presence of push pop in",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:26,000",
+"end": "00:05:33,360",
+"en": "System V code absence in Microsoft code that's been terrorizing us so far?",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:05:32,000",
+"end": "00:05:51,360",
+"en": "Well, it was none other than the difference between the Microsoft and System V ABIs. And with that our intrepid crew of the mystery machine has solved the last mystery in our mystery listery and it's time for all the cool cats and swingers to party out",
+"ja": ""
+}
+]
+}

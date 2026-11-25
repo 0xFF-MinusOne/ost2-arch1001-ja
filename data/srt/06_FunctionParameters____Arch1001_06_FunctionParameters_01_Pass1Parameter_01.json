@@ -1,0 +1,12 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_01_Pass1Parameter_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:24,560",
+"en": "so thus far we've seen calling a function and we've seen local variables and now we're going to expand that by calling a function that takes a parameter so what do you think i'm going to want out of you in this exercise the same thing we do every exercise step through the assembly draw stack diagram and try to take over the world",
+"ja": ""
+}
+]
+}

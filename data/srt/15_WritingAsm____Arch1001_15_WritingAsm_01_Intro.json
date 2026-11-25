@@ -1,0 +1,75 @@
+{
+"source": "15_WritingAsm/__Arch1001_15_WritingAsm_01_Intro.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:30,400",
+"en": "now there are actually certain times when you as a programmer may have to write something in assembly this is pretty common if you're writing some low-level code like firmware operating systems or drivers because frequently you'll be called upon to interact directly with the hardware and there won't be any C mechanism for interacting with your specific hardware for your specific architecture obviously there's nothing in C that says how to interact with a control register on a Intel platform versus an arm",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:28,240",
+"end": "00:00:57,600",
+"en": "platform versus a mips platform or for instance if you were writing a cryptographic library then you might want access to some accelerated crypto assembly instructions that the particular architecture might make available Intel has such as instructions as do other platforms or maybe you're just trying to really super performance optimize some code and you want full control and you want to be able to run some tests and find out what the fastest way to run a particular function is",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:56,160",
+"end": "00:01:22,400",
+"en": "these are all reasons why you might go down to the assembly level for the purposes of this class and for helping you understand assembly and being able to experiment and learning to fish for yourself for the purposes of this class we like being able to write raw assembly just because it helps you experiment and see for instance if you write this assembly instruction you can step through the code and see how the see what the net results of that assembly instruction were and just as a",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:21,680",
+"end": "00:01:47,920",
+"en": "warning though different assemblers support different syntaxes that are all slightly different than what you might actually see when you're disassembling something consequently you'll frequently find yourself having to search for how to correct how to write a particular assembly instruction or how to write a particular sequence of instructions in the particular assembler now there's generally two ways that you could write assembly there's inline assembly and there's out-of-band",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:46,399",
+"end": "00:02:19,440",
+"en": "assembly inline is where you actually just place the assembly directly in line with some C or C++ code gcc supports this if you use inline assembly in GNU assembler or gas syntax and visual studio used to support inline assembly for 32-bit code but it doesn't support it anymore for 64-bit code so if you were writing 32-bit code you could still use inline assembly but for the purposes of this class since we want to focus on 64-bit we're not going to cover that so standalone assembly on the other hand is",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:17,280",
+"end": "00:02:48,080",
+"en": "where you put all of your assembly into a standalone a separate file not inside of the main C file that you're working on and then you have the assembler compile it and then that compiled object file gets linked in with the main binary this is the path we actually have to use for visual studio if we want to write 64-bit assembly very frequently beyond the fact that you know a given assembler might write something slightly different there's a lot of different helper mechanisms that the assembly will",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:44,879",
+"end": "00:03:19,200",
+"en": "assembler will build in things to allow someone who has to write all of their code in assembly to have you know easier ways to access you know global memory or easier ways to call into functions so masm is the thing that visual studio is actually going to use the microsoft assembler nasm is a very popular alternative network assembler i think frequently i would use yasm back in the day which was yet another assembler the key benefit of something like nasm is that it is cross-platform which means",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:17,599",
+"end": "00:03:51,040",
+"en": "that if you wrote something in nasm you could potentially compile it on Windows or Linux another very good capability that you might want to make use of at some point is the capability to emit raw bytes into an assembly stream and so this basically says instead of writing a human readable form of you know add rax, 1 you will write you know some specific bytes that should turn into and be interpreted by the processor as add rax, 1 this is a great way for you to actually check your understanding of",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:50,319",
+"end": "00:04:16,479",
+"en": "the manual so after you're able to read the manual you can now see like here are the different ways that you can write bytes and create particular assembly instructions so this will be one of the labs we'll do in a little bit is just writing bytes and seeing whether or not you generate the right assembly instruction that you expected and that'll tell you whether or not you're interpreting the Intel manual correctly very occasionally this is also useful for if you can't find the right syntax from",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:15,599",
+"end": "00:04:36,240",
+"en": "a particular assembler and you just you know you want to stop fighting you want to stop searching around for the right syntax and you just say look I know what I'm trying to do I know what the Intel manual says the right bytes are to create this assembly instruction and so you just create it manually by spitting out the bytes and the CPU is just fine with that",
+"ja": ""
+}
+]
+}

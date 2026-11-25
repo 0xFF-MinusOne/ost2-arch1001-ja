@@ -1,0 +1,803 @@
+{
+"source": "14_RTFM/_Arch1001_14_RTFM.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "READ THE FUN MANUAL!",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド4",
+"en": "Guess what?I have repeatedly misled you!",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド4",
+"en": "Simplification is misleading",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド4",
+"en": "Time to learn the fascinating truth…",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド4",
+"en": "Time to RTFM!",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド5",
+"en": "Read The Fun Manuals",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド5",
+"en": "http://www.intel.com/products/processor/manuals/",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド5",
+"en": "Vol.1 is a summary of life, the universe, and everything about x86",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド5",
+"en": "Vol. 2a-d explains all the instructions",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド5",
+"en": "Vol. 3a-d are all the gory details for all the extra stuff they’ve added in over the years (MultiMedia eXtentions - MMX, Virtual Machine eXtentions - VMX, virtual memory, 16/64 bit modes, system management mode, etc)",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド5",
+"en": "Reminder to use the pre-downloaded Nov 2020 version of the manual which we've been using as the standardized reference throughout this class, so we’re all looking at the same information",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド5",
+"en": "We’re primarily looking at Vol. 2 in this class",
+"ja": ""
+},
+{
+"i": 22,
+"where": "ノート5",
+"en": "Googling is fine to start with, but eventually you need to learn to read the manuals to get the details from the authoritative source",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド6",
+"en": "Interpreting the Instruction Reference Pages",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド6",
+"en": "The correct way to interpret these pages is given in the Intel Manual 2a, Sections 2.1 & 2.2",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド6",
+"en": "I will give yet another simplification for now, and have a deeper dive be optional material",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド6",
+"en": "Moral of the story is that you have to RTFM to RTFM ;)",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド7",
+"en": "AND - Bitwise AND",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド7",
+"en": "C binary operator \"&\" (not &&, that's logical AND)",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド7",
+"en": "Destination operand can be r/mX or register",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド7",
+"en": "Source operand can be r/mX or register or immediate (No source and destination as r/mXs)",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド7",
+"en": "AND",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド7",
+"en": "and al, bl",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド7",
+"en": "AND",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド7",
+"en": "and al, 0x42",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド7",
+"en": "Book page 75",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド7",
+"en": "What",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド7",
+"en": "I Said:",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド8",
+"en": "What",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド8",
+"en": "The",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド8",
+"en": "Manual",
+"ja": ""
+},
+{
+"i": 51,
+"where": "スライド8",
+"en": "Says",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド9",
+"en": "Opcode Column",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド9",
+"en": "Represents the literal byte value(s) which correspond to the given instruction",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド9",
+"en": "In this case, if you were to see a 0x24 followed by a byte, or 0x25 followed by 4 bytes, you would know they were specific forms of the AND instruction",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド9",
+"en": "For more detail, see Intel Vol. 2a section 3.1.1.1",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド9",
+"en": "“Opcode Column in the Instruction Summary Table (Instructions without VEX Prefix)”",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド10",
+"en": "If it was 0x25, how would you know whether it should be followed by 2 bytes (imm16) or 4 bytes (imm32)?",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド10",
+"en": "The length of the operand depends on if the processor is in 16-bit, 32-bit, or 64-bit mode",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド10",
+"en": "Each mode has a default operand size (i.e. the size of the value)",
+"ja": ""
+},
+{
+"i": 63,
+"where": "ノート10",
+"en": "There are many instructions which are “overloaded” with equivalent 16 bit and 32 bit versions shown in the manual.",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド11",
+"en": "For 64-bit mode, the default operand size is 32-bits for most instructions and the default address size is 64-bits",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド11",
+"en": "This means the default interpretation will usually be the ones with the r/m32, r32, imm32, or in this case a specific register like EAX, unless explicitly overridden with special instruction prefixes",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド11",
+"en": "These are talked about later in optional material",
+"ja": ""
+},
+{
+"i": 68,
+"where": "ノート11",
+"en": "There are many instructions which are “overloaded” with equivalent 16 bit and 32 bit versions shown in the manual.",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド12",
+"en": "Instruction Column",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド12",
+"en": "The human-readable mnemonic which is used to represent the instruction.",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド12",
+"en": "This will frequently contain special encodings such as the “r/mX format” which I’ve previously discussed",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド12",
+"en": "For more detail, see Intel Vol. 2a section 3.1.1.3",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド12",
+"en": "“Instruction Column in the Opcode Summary Table”",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド13",
+"en": "\"Operand Encoding\" Column",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド13",
+"en": "Indicates what forms the operands can take",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド13",
+"en": "For more detail, see Intel Vol. 2a section 3.1.1.4",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド13",
+"en": "“Operand Encoding Column in the Instruction Summary Table”",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド14",
+"en": "Whether or not the opcode is valid in 64 bit mode",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド14",
+"en": "For more detail, see Intel Vol. 2a section 3.1.1.5",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド14",
+"en": "“64/32-bit Mode Column in the Instruction Summary Table”",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド14",
+"en": "Should say \"Valid\" and \"Invalid\"",
+"ja": ""
+},
+{
+"i": 87,
+"where": "スライド15",
+"en": "Compatibility/Legacy Mode Column",
+"ja": ""
+},
+{
+"i": 88,
+"where": "スライド15",
+"en": "Whether or not the opcode is valid in 32/16 bit code",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド15",
+"en": "For more detail, see Intel Vol. 2a section 3.1.1.5",
+"ja": ""
+},
+{
+"i": 91,
+"where": "スライド15",
+"en": "“64/32-bit Mode Column in the Instruction Summary Table”",
+"ja": ""
+},
+{
+"i": 93,
+"where": "スライド15",
+"en": "Should say \"Valid\" and \"Invalid\"",
+"ja": ""
+},
+{
+"i": 94,
+"where": "スライド16",
+"en": "Description Column",
+"ja": ""
+},
+{
+"i": 95,
+"where": "スライド16",
+"en": "Simple description of the action performed by the instruction",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド16",
+"en": "Typically this just conveys the flavor of the instruction, but the majority of the details are in the main description text",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド16",
+"en": "See Intel Vol. 2a section 3.1.1.7",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド16",
+"en": "“Description Column in the Instruction Summary Table”",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド18",
+"en": "Further AND variations",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド18",
+"en": "Looking at some other forms, we now see those “r/mX” things I told you about",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド18",
+"en": "The main thing you need to know is that any time you see a r/mX, it can be either a register or memory value.",
+"ja": ""
+},
+{
+"i": 103,
+"where": "スライド18",
+"en": "Looking at the opcode column, we can infer that /r is probably a register placeholder, but what is the REX or REX.W?",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド18",
+"en": "As mentioned before, the in-depth understanding of the opcode column is in optional material",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド19",
+"en": "Which Description Is Buggy?",
+"ja": ""
+},
+{
+"i": 107,
+"where": "スライド20",
+"en": "Which Description Is Buggy?",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド20",
+"en": "Bugs!🐞🐜🐛",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド20",
+"en": "The point of the \"REX variants, is to allow 64 bit code to access 64-bit only byte registers like SPL, BPL, SIL, DIL, and R8L-R15L",
+"ja": ""
+},
+{
+"i": 114,
+"where": "ノート20",
+"en": "Switch to ODA to show example encoding. E.g. \"20 C0\" and then \"40 20 C0\" to show they're the same. And then \"40 20 C4\" through C5 followed by \"41 20 C0\" through CF (for r8l-",
+"ja": ""
+},
+{
+"i": 115,
+"where": "スライド22",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド22",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 117,
+"where": "スライド23",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド23",
+"en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド23",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 120,
+"where": "スライド24",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
+"ja": ""
+},
+{
+"i": 121,
+"where": "スライド24",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 122,
+"where": "ノート24",
+"en": "note to scornwell: maybe a simple game here like:",
+"ja": ""
+},
+{
+"i": 123,
+"where": "ノート24",
+"en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
+"ja": ""
+},
+{
+"i": 124,
+"where": "ノート24",
+"en": "“What is the word-sized access register for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 125,
+"where": "ノート24",
+"en": "“What is the 16 bit access for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド25",
+"en": "AND Details",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド29",
+"en": "Less Obvious",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド29",
+"en": "It turns out that for instructions that set status flags (e.g. arithmetic operations), the hardware just does the operation and sets flags as if the operands were both unsigned and signed",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド29",
+"en": "Basically the hardware doesn’t know or care about whether the humans are currently interpreting the bits as signed or unsigned. That’s the compiler’s problem to sort out.",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド29",
+"en": "The compiler must emit instructions which treat the bits as signed or unsigned based on what’s specified in the high level language",
+"ja": ""
+},
+{
+"i": 136,
+"where": "スライド32",
+"en": "Jcc Revisited",
+"ja": ""
+},
+{
+"i": 137,
+"where": "スライド32",
+"en": "If you look closely, you will see that there are multiple mnemonics for the same opcodes. The opcodes prove they're the same instructions",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド32",
+"en": "Which mnemonic is displayed is disassembler-dependent",
+"ja": ""
+},
+{
+"i": 139,
+"where": "スライド33",
+"en": "Jcc Revisited",
+"ja": ""
+},
+{
+"i": 140,
+"where": "スライド33",
+"en": "A \"short\" control flow displacement is always specified by a signed 8-bit number",
+"ja": ""
+},
+{
+"i": 141,
+"where": "スライド33",
+"en": "A \"near\" control flow displacement could be a signed 16-bit (except when running in 64-bit mode) or signed 32-bit number",
+"ja": ""
+},
+{
+"i": 145,
+"where": "スライド34",
+"en": "Jcc Revisited",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド34",
+"en": "The \"Operation\" section is now a little more complicated w/ its own conditional control flow pseudocode!",
+"ja": ""
+},
+{
+"i": 147,
+"where": "スライド34",
+"en": "This probably should be updated to have a \"IF 64-bit Mode\" like JMP does...",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド37",
+"en": "There's no \"call short\"",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド37",
+"en": "\"Absolute indirect\" form calculates an absolute address, using either just an address in a register, or an address calculated with the r/m64 \"base + index*scale + displacement\" form",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド38",
+"en": "\"Far\" control flow transfer involves the specification of a \"segment selector\". We learn about those in Arch2001",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド39",
+"en": "That's all Arch2001 stuff!",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド40",
+"en": "Because of the implications of the different distance variants, privilege transitions, different execution modes, CET, and, the pseudocode for the call instruction is about 9.75 pages long!",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド42",
+"en": "RET supports both \"near\" & \"far\" control flow transfer. But you'll almost only ever see the near return (0xC3)",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド42",
+"en": "This also shows that second form of RET I mentioned where it can also add some number of bytes to the stack pointer",
+"ja": ""
+},
+{
+"i": 165,
+"where": "スライド42",
+"en": "About 10 pages of Operation pseudocode here too :-/",
+"ja": ""
+},
+{
+"i": 168,
+"where": "スライド44",
+"en": "The typical 8/16/32 byte relative displacements as well as absolute indirect",
+"ja": ""
+},
+{
+"i": 169,
+"where": "スライド44",
+"en": "~5 pages of pseudocode. It's almost like control flow transfer is hard!",
+"ja": ""
+},
+{
+"i": 170,
+"where": "スライド45",
+"en": "Also supports the far displacement we don't know about yet",
+"ja": ""
+},
+{
+"i": 173,
+"where": "スライド48",
+"en": "Ok. That's enough for now",
+"ja": ""
+},
+{
+"i": 174,
+"where": "スライド49",
+"en": "MiniExercise:",
+"ja": ""
+},
+{
+"i": 175,
+"where": "スライド49",
+"en": "Go change the MulDivExample.c to use a signed \"long long\" variable instead of \"unsigned long long\"",
+"ja": ""
+},
+{
+"i": 176,
+"where": "スライド49",
+"en": "Who doth appear, and why?",
+"ja": ""
+},
+{
+"i": 177,
+"where": "スライド49",
+"en": "Read and understand the code",
+"ja": ""
+},
+{
+"i": 178,
+"where": "スライド50",
+"en": "Exercise:",
+"ja": ""
+},
+{
+"i": 179,
+"where": "スライド50",
+"en": "How do these instructions behave when using 16 or 32 bit values?",
+"ja": ""
+},
+{
+"i": 180,
+"where": "スライド51",
+"en": "Exercise:",
+"ja": ""
+},
+{
+"i": 181,
+"where": "スライド51",
+"en": "What happens if you divide a large 16 bit value by 1?",
+"ja": ""
+},
+{
+"i": 182,
+"where": "スライド51",
+"en": "That doesn't seem like it will fit into AL...",
+"ja": ""
+}
+]
+}

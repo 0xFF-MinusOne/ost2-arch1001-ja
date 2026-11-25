@@ -1,0 +1,61 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_19_ArrayLocalVariable2.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:05,920",
+"en": "our next example is ArrayLocalVariable 2.",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:03,679",
+"end": "00:00:40,000",
+"en": "that was originally there to introduce you to rep stos the repeated store to strings so we have a single local variable a which is an int we have an array of shorts which is 64 long 64 is 0x40 times 2 is 0x80 so the total size of this array should be 0x80 and the fact that we're zero initializing it is what's going to lead to the rep stos to zero initialize everything inside of there a gets 0x5eaf00d and a is then truncated down to a short size so just 0xf00d goes into b of 1 before b of 1 is",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:38,879",
+"end": "00:01:19,520",
+"en": "returned so let's compile it and debug it so what do we see here we see typical function prolog allocation of 18 bytes on the stack lea of rbp minus 90. so that gives us a sense of given that the array is 0x80 big 0x90 is probably somewhere down where the array starts out that's being moved into rdx and then we have what looks like initialization of the required parameters for the rep stos eax is the value to write ecx is the number of times to write and rdi is the destination so the fact",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:16,799",
+"end": "00:02:00,159",
+"en": "that we are only writing 10 times tells us that we are probably writing 0x8 bytes at a time 8 times 10 80 into this value and so that's represented in this AT&T syntax here instead of saying a byte pointer instead of saying you know qword pointer it's saying repeat store to string rax that's the 8 byte register to the memory pointed to by rdi let's go ahead and step through this set up the function prolog allocate some space on the stack 0x18 and then set up our get the pointer to the very base of this",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:57,520",
+"end": "00:02:33,599",
+"en": "array that we're expecting to initialize and then we continue over this and now we will see rcx which was sex set to 0x10 is going to be decremented each time through the loop and so you notice I use the ni the next instruction it's not going to step over this again that only used for stepping over call instructions so it's going to loop loop loop and it's going to do this 10 times 0x10 times so 16 times so now that the array is initialized 0x5eaf00d goes into rbp minus 4 so that's going to",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:31,599",
+"end": "00:03:12,319",
+"en": "be the a variable and there we go we see 0x5eaf00d right there and then that's going to be pulled out put into eax and then because it was cast down to a short it's going to use only the ax 16-bit register and put it into rbp minus 0x8e so this suggests that minus 0x8e is where b of 1 is and minus 0x90 would be where b of 0 was so step over that and then the last thing it does is because b of one is returned although the return type is set to short in main the return register in order to make sure",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:10,640",
+"end": "00:03:48,480",
+"en": "that the return register eax doesn't have you know garbage in the upper bits it's going to mov with zero extension from a word which is 16 bits to a long which is 32 bits to make sure that it clears out the upper bits of eax there you go you get 0xf00d in eax rax and then you just leave and exit out of the function so for to look at what that looks like on the stack it looks like this got the return address out of main saved rbp at the beginning and then 0x5eaf00d in a right at rbp minus 4 some padding",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:45,040",
+"end": "00:04:05,040",
+"en": "and then at rbp minus 0x90 we have b of 0 b of 1 got filled in with 0xf00d and the rest of this is all zero initialized what's interesting here kind of is that that whole allocation of 18 for rsp means that rsp is kind of pointing at the end of this but the majority of it is down in the red zone",
+"ja": ""
+}
+]
+}

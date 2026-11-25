@@ -1,0 +1,119 @@
+{
+"source": "13_Linux_Assembly_Examples/_Arch1001_13_Linux_19_ArrayLocalVariable2.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ArrayLocalVariable2.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "with GCC",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 9,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 11,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "ArrayLocalVariable2.c",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "a = 0x5eaf00d;",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "b[1] = (short)a;",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド3",
+"en": "Zero-initializing the array",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド4",
+"en": "The stack looks like this at line 0x00005555`5555515d in func():",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド4",
+"en": "a = 5eaf00d`undef",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド4",
+"en": "Red zone",
+"ja": ""
+}
+]
+}

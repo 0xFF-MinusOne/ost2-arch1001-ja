@@ -1,0 +1,68 @@
+{
+"source": "07_ControlFlow/__Arch1001_07_ControlFlow_03_IfExample2.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,320",
+"end": "00:00:30,320",
+"en": "now in IfExample2, the only substantive thing we've actually changed about the code is that instead of a signed integer we are now using an unsigned integer and the net result of that on our assembly is we actually see some new jump conditional codes we see below and we see above instead of greater than and sorry less than and greater than there's still this jne but we've seen that before. So this is what the Bangle taught us about below, above,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:28,880",
+"end": "00:00:32,640",
+"en": "greater than, less than.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:30,320",
+"end": "00:00:59,280",
+"en": "Below and above are the unsigned notion, so that makes sense, we just declared an unsigned integer instead of a signed integer that we're going to use in our comparisons. So we can start to develop some inference from this tiny change. If there are different conditions for unsigned versus signed, and that leads to different assembly such as jump above versus jump greater than.",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:00:56,879",
+"end": "00:01:09,439",
+"en": "This implies that the compiler emits different code depending on whether or not the programmer declared the variables as unsigned versus signed.",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:07,119",
+"end": "00:01:23,200",
+"en": "And ultimately a reverse engineer or a decompiler can use those different assembly instructions to infer whether the variables were likely to be unsigned or signed based in the original high-level language.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:20,880",
+"end": "00:01:52,159",
+"en": "What's less obvious because I sort of skipped over it when I was talking about things like add and subtract is that it turns out that the instructions which set status flags such as the arithmetic operations like add and subtract the hardware behind the scenes does the operation as if the operands were both unsigned and signed so basically the hardware doesn't care about whether the humans are going to later on choose to interpret the bits as signed or unsigned it just does operations like subtract",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:01:51,840",
+"end": "00:02:26,400",
+"en": "and sets status flags all of those status flags not just zero and sign but the overflow flag, the parity flag and so forth it just sets them as if both the operands were signed and they were unsigned and then it ultimately allows the compiler to just go ahead and sort it out oh well I can see that the human at the high level when I'm parsing the tokens of the particular syntax of the particular high level language the compiler just figures out the human means to say this is signed so I should emit the",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:02:23,440",
+"end": "00:02:37,680",
+"en": "signed instructions, signed comparisons so that's ultimately the only takeaway that I'm going to want you to have from IfExample2 is that the compiler emits different instructions based on whether it's signed or unsigned.",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:02:35,599",
+"end": "00:02:44,319",
+"en": "But now go ahead and still step through the assembly, make sure that you get what's going on there.",
+"ja": ""
+}
+]
+}

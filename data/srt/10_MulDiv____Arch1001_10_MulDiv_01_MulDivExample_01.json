@@ -1,0 +1,61 @@
+{
+"source": "10_MulDiv/__Arch1001_10_MulDiv_01_MulDivExample_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:33,120",
+"en": "so in order to avoid having our multiplies turned into shifts let's go ahead and use some non-powers of two so we've got defected times detectable divided by too bad so sad that's going to lead to the generation of a div instruction and an imul because as we said before visual studio really likes signed multiplies over unsigned multiplies so the unsigned divide instruction has three basic forms which I'm showing you all of just to show sort of the progression as things have extended",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,160",
+"end": "00:01:14,640",
+"en": "over time the first form was the 16-bit ax divided by an 8-bit r/m8 the quotient went into al and the remainder went into ah then in 32-bit mode there was the 64-bit value edx concatenated with eax so that's the upper 64 bits in edx, lower 64 bits in eax divided by an r/m32 the quotient went to eax and the remainder went into edx and in 64 bit same thing upper 64 bits of 128 value in rdx lower 64 in rax divided by an r/m64.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:12,080",
+"end": "00:01:47,040",
+"en": "quotient goes into rax, remainder goes into rdx if for instance you're in 32 bit mode but the dividend is actually only 32 bits and there's nothing going to be in edx for instance then the compiler could just you know zero out the upper bits as we see in the assembly that's generated for this example you can see there's an xor that zeros out the register and as expected if the divisor is 0 a divide by zero exception is raised because we're not allowed to divide by zero so quick simple examples in that 16-bit",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:46,560",
+"end": "00:02:01,280",
+"en": "version ax let's say ax had the value 0x8 divided by an r/m8 which happens to be cx then 8 divided by 3 is 2, remainder 2.",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:58,159",
+"end": "00:02:36,319",
+"en": "or the longer version 8 divided by 5 is 1, remainder 3. now the disassembler might actually write it like this you know div rax, rcx but the actual form it's the only thing that's actually being specified is the r/m64 or the r/m32 these divide instructions always hard code that they must have the value in rdx, rax, edx, eax, etc they only use that as the thing that's going to be divided you can't specify any other registers to place it into so necessarily the compiler might have to move things",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:33,599",
+"end": "00:03:09,040",
+"en": "into rdx rax before doing the actual division and then just to get out ahead of it the idiv is the signed version of div so if you were to go change the variables in MulDivExample to signed, then you would get an idiv of instead of a div exact same forms exact same hard coding of you know it must be this register combination divided by an r/m64 same place as quotient and remainder and same results in terms of whether or not the compiler is going to you know zero out the upper bits if they're unused so 0xFE",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:05,840",
+"end": "00:03:50,799",
+"en": "now this is the signed divide so 0xFE is -2 divided by 2 gives you -1 remainder 0 or in 64 bits if you had stella yes I'm very sad, I didn't see that there was stella in hex words and so I really wish I would have incorporated this into our balboa blood blood examples maybe next time. If you take stella divided by bold, you get 0x7F with a remainder of 0x82B7. 10 internet points to anyone who can find me some words which when divided by other words yield either a word in the quotient or a word in the remainder so",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:48,879",
+"end": "00:03:58,720",
+"en": "now is the time for all bold students to go forth and step through the assembly and check your understanding",
+"ja": ""
+}
+]
+}

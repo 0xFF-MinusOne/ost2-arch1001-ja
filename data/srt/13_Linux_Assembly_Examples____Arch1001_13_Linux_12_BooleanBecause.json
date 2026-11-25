@@ -1,0 +1,47 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_12_BooleanBecause.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:38,960",
+"en": "we're going to do some examples that should cause boolean operations to appear so let's start with BooleanBecause and as a reminder this was taking 0x50da into i 0xc0ffee into j 0x7ea707a11ed into k and then from the order of operations it would do i and j and then it would not that result and then it would or that result with 0x7ab00 and then it would xor that result with k and store it back into k because this is an xor equals it's basically k xor k stored back into k sorry k xor end",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:36,880",
+"end": "00:01:18,560",
+"en": "result of this store back into k all right so let's compile that and see the assembly so from before we expected that an and would happen first and then a not on the result and then an or with 0x7ab00 and then an xor of k back into the result of all this so let's go ahead and just you know step through and watch the what's the wonder of the math so stack frame setup and then 0x50da into i so i must be at rbp minus 4 j must be at rbp minus 8 and k 0x7ea707a11ed into rax but then rax goes",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:16,799",
+"end": "00:01:21,200",
+"en": "into rbp minus 10.",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:18,560",
+"end": "00:02:06,880",
+"en": "so step step step writing some stuff there and then pulling it back out so we're gonna take the i and we're going to put in the eax and we're going to and that with the j and then put that result back into eax so step 0x50da and added together is going to yield 0x50ca and then notted 0xffffaf35 and ored with 0x7ab00 and no meaningful change there did i it's going back in the same register yes it is so none of the bits sort of were different there faf3 yup same thing all right and then mov eax to eax",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:04,560",
+"end": "00:02:17,920",
+"en": "whole bunch of nothing going on there thanks to unoptimized compilation now xor rax with rbp minus 10.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:15,120",
+"end": "00:02:48,000",
+"en": "that was the 0x7ea707a11ed that was the k value so this was the result and it's taking the result right here and xoring it with the k value and then it's going to store it back into k and sorry to be clear it's taking this value out of memory xoring it with the result that we have thus far and storing it back in because you know the operations are this xor that into that step and then plucking it out of that and putting in an rax so we can return it and that is the net result",
+"ja": ""
+}
+]
+}

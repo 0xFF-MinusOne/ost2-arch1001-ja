@@ -1,0 +1,26 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_01_SingleLocalVariable_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:34,320",
+"en": "so now we're going to expand on our example from before with having a function called another function and then let's add a single local variable to that other function so we're going to assign hex scalable to an integer i here's going to be the assembly for that but now in the class i'm going to start having you go through this assembly and see what's actually changing on the stack so that you can understand now for instance how variables are stored on the stack to do this you should go into your",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,640",
+"end": "00:01:05,360",
+"en": "visual studio solution right click on single local variable and select set as startup project then when you go ahead and just start the debugger it will start that project so what i want you to do for this example this exercise is i want you to step through this line right here which is where scalable gets assigned to i and i want you to draw a stack diagram for what all changes throughout the program execution from the very beginning until you step through this particular line so create a stack diagram like this",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:04,559",
+"end": "00:01:23,280",
+"en": "fill it in figure out what is there where i is that kind of thing so go ahead and stop and step through the assembly and draw a stack diagram we're going to be doing this a lot for all of the upcoming examples",
+"ja": ""
+}
+]
+}

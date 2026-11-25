@@ -1,0 +1,12 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_20_ThereWillBe0xB100d.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:36,640",
+"en": "now I know ThereWillBe0xb100d was probably one of your favorite examples but I'm here to tell you that that is a very boring example here because the use of rep stos in that case in order to you know set the thing to 0xCCs was just something that is visual studio runtime debugging exclusive so when we compile this and we debug it the output is that boring version of just doing exactly what you expect just putting 42 into the array sorry",
+"ja": ""
+}
+]
+}

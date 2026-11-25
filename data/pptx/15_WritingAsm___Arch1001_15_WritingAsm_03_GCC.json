@@ -1,0 +1,221 @@
+{
+"source": "15_WritingAsm/_Arch1001_15_WritingAsm_03_GCC.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Writing Assembly: GCC",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons \"Share Alike\" license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "GCC Inline Assembly 1",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "GCC uses GNU Assembler (gas) syntax == AT&T syntax",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "asm(\"instructions separated by \\n\");",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド3",
+"en": "\"je myLabel\\n\"",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド3",
+"en": "\"and %ecx, %eax\");",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド3",
+"en": "Further reading on gas syntax http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html",
+"ja": ""
+},
+{
+"i": 25,
+"where": "ノート3",
+"en": "http://www.cs.virginia.edu/~clc5q/gcc-inline-asm.pdf",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド4",
+"en": "GCC Inline Assembly 2",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド4",
+"en": "How to use C variables (aka \"extended asm\"):",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド4",
+"en": "output operands   :              /* optional */",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド4",
+"en": "input operands    :              /* optional */",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド4",
+"en": "list of clobbered registers      /* optional */",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド4",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド4",
+"en": "//value into register from C variable",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "//value into C variable from register",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド5",
+"en": "Writing Bytes to Get Asm",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド5",
+"en": "You can specify exactly the bytes you want to use by using the \".byte\" keyword, to place bytes to be interpreted as code or data",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド5",
+"en": "Examples:",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド5",
+"en": "asm(\".byte 0x90\"); is \"nop\"",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド5",
+"en": "asm(\".byte 0x55\"); is \"push %rbp\"",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド5",
+"en": "asm(\".byte 0x48 ; .byte 0x89 ; .byte 0xE5\"); is \"mov %rsp, %rbp\"",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド6",
+"en": "Lab: RTFM && WTFI",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド6",
+"en": "Read The Fun Manual and Write The Fun Instructions!",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド6",
+"en": "Write raw bytes to create the following assembly sequence:",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド6",
+"en": "sahf ; What's that? IDK, RTFM!",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド6",
+"en": "and $0x31337, %eax",
+"ja": ""
+}
+]
+}

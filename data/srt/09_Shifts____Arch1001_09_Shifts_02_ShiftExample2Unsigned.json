@@ -1,0 +1,33 @@
+{
+"source": "09_Shifts/__Arch1001_09_Shifts_02_ShiftExample2Unsigned.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,024",
+"end": "00:00:30,013",
+"en": "ShiftExample2Unsigned.c is trying to lay a simple truth on you and that truth is, you may see shifts in the assembly when no one wrote any shifts in the C So if a multiply by a power of 2 or a divide by a power of 2 exists in the C, then the compiler may just turn it into a shift left or a shift right. This particular assembly was compiled with a optimization Unlike all of our past,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,013",
+"end": "00:00:57,062",
+"en": "assembly this was set to maximize speed so that it would generate much smaller assembly code because we don't really care about all of this indexing into argv[1] and calling atoi() and all of that just to get this number so you can go ahead and change the optimization back to no optimization if you'd like to step through a more complicated version But the basic point is just to see a correspondence between multiply by 8 This is a shift left by 2 to the power of 3,",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:57,062",
+"end": "00:01:19,058",
+"en": "which is 8, and divide by 16 This is a shift right by 2 to the power of 4, 16, and that's the only take away I have for you Multiplies and divides by powers of two compilers prefers shifts but you should still, as always, step through the assembly and check your understanding again If you'd like to make a little more complicated on yourself,",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:19,058",
+"end": "00:01:25,076",
+"en": "go ahead and go to the properties of the project and set the optimization back to disabled",
+"ja": ""
+}
+]
+}

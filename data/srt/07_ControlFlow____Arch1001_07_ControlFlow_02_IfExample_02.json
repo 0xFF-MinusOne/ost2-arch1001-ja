@@ -1,0 +1,54 @@
+{
+"source": "07_ControlFlow/__Arch1001_07_ControlFlow_02_IfExample_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:32,079",
+"en": "so the takeaways from IfExample.c is that conditional logic like if statements turns into jcc jump condition code type jumps, where it says if this condition is true I shall jump to the address specified, if not I will fall through and just go to the next assembly instruction. But here you can see that it'll eventually run into this unconditional jump which will bounce it down towards the end of the function. Very frequently when you see checks that are involving equality or inequality such as we have",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:31,679",
+"end": "00:00:37,680",
+"en": "here that's going to turn into a cmp instruction.",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:35,200",
+"end": "00:00:41,360",
+"en": "And cmp again is just a sub instruction where you throw away the result.",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:00:39,760",
+"end": "00:00:50,160",
+"en": "So it's going to take this, it's going to subtract that, but then it's not going to store it back into memory. It's just going to set the flags and throw the result away.",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:00:48,239",
+"end": "00:01:11,760",
+"en": "And after it set those flags it's ultimately the rflags register, which these conditional jump instructions are checking for whether or not they're going to take the jump. Okay, so we just picked up two quote unquote new assembly instructions: the family of jcc and cmp. So where does jcc show up on the pie chart?",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:08,080",
+"end": "00:01:45,119",
+"en": "Multiple places: we've got at 1% js jump sign. So I said sign bit is one of the bits I want you to care about, that's if the most significant bit of result is one then the signed flag will be set. And jnz and jz so the zero flag jumps if it's zero flag is not set to 1 and jumps if zero flag is set to 1. So you can see even just statistically like my intuition from my personal experience of sign and zero flag are the things that I really care about most of the time kind of reflected here in the fact that",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:01:43,439",
+"end": "00:01:59,600",
+"en": "these assembly instructions dealing with sign and zero flags are some of the most common. Then we also have cmp coming in at 5% of the code because typically there's going to be cmp right before these conditional jump instructions.",
+"ja": ""
+}
+]
+}

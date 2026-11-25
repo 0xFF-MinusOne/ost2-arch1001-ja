@@ -1,0 +1,47 @@
+{
+"source": "02_FirstAsm_NOP/__Arch1001_02_NOP.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:31,679",
+"en": "all right well i want to get you to your first assembly instruction asap and so here we go first assembly instruction is NOP or a no-op no operation doesn't take any registers doesn't take any values it doesn't do anything it's just no operation so frequently you will see the NOP assembly instruction added to for instance pad or align bytes so you might see it between functions inside of some compiled assembly specifically because intel has optimization guidance that has to do",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,000",
+"end": "00:01:00,079",
+"en": "with like oh the functions should start on you know a 16 byte aligned address or whatever 8 byte aligned address and so the compiler will stick in some no op instructions in the middle they're not actually going to be executed they're just there to pattern align things in some other architectures sometimes this might be used to just delay time so it just takes up some cycle time and does nothing also it's worth knowing that no op actually has some value to attackers when they try to make their",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:58,399",
+"end": "00:01:31,200",
+"en": "exploits more reliable but that's going to be covered in a different class all right so some late breaking news and late breaking to me anyways i went you know many many years before i knew this fact so i wanted to give it to you early a little bit of interesting trivia that the one byte no op instruction is an alias mnemonic for the exchange eax eax instruction or rax rax now in our 64-bit extended architecture so i never actually looked in the assembly manual for no op because",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:29,280",
+"end": "00:01:58,320",
+"en": "there's no point right and i just told you what a no-op does once you know that a no-up does nothing you know that it's really just there for padding or time delay there's no real point to look in the assembly manual but i had an attendee of a previous class point this out to me that he had looked in the in assembly manual and that there was this interesting bit of trivia so exchange is not actually part of this class not officially something you're going to learn but it's pretty simple it just exchanges the",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:56,240",
+"end": "00:02:28,160",
+"en": "value between two registers so whatever's in the register on this side exchanges with that exchange with that so you know it's pretty easy to understand what exchange does and if you're exchanging eax with eax or rax with rax you exchange your register with itself clearly that does absolutely nothing and just a brief note about the NOP instruction usually when people talk about NOP they're referring to 0x90 the canonical version of NOP is a single byte 0x90.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:25,520",
+"end": "00:02:56,319",
+"en": "but in reality intel actually specifies that there can be different forms of NOP between one and nine bytes long and a little bit in this class we're actually going to see an example of a multibyte NOP that appears in one of the hello world examples so there you go we're going to have this accumulating count of assembly instructions you know as you go along and then boom you know NOP and ta-dah you now know six percent of all assembly instructions found in a web browser pretty cool",
+"ja": ""
+}
+]
+}

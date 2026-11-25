@@ -1,0 +1,12 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_02_ThereWillBe0xb100d_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:25,760",
+"en": "so even when you step through the assembly and draw a stack diagram you may still not know exactly what's going on so if I might make a modest proposal I suggest that you increment the buffer index to the point where it goes past the end of the buffer and just go ahead and run that code and see what happens",
+"ja": ""
+}
+]
+}

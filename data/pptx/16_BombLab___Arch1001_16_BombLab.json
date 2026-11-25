@@ -1,0 +1,167 @@
+{
+"source": "16_BombLab/_Arch1001_16_BombLab.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "The Binary Bomb Lab!",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Binary Bomb Lab",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "From CMU architecture class:",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "http://csapp.cs.cmu.edu/",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Though I originally had it in the easier University of Minnesota variant",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "Thanks to Randal E. Bryant & David R. O’Hallaron for providing the source code so it could be ported between various architectures",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "The textbook for the class which the bomb lab is a part of is “Computer Systems: A Programmer's Perspective, 3rd Edition, Prentice Hall, 2016; Bryant and O'Hallaron”",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド4",
+"en": "Binary Bomb Lab 2",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド4",
+"en": "Goal is to to determine the program’s desired input, to stop it from exploding",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド5",
+"en": "Phase 1 Walkthrough",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド6",
+"en": "If you already know a thing or two about asm (and were just here for the 64 bit update), let’s see how far you can get how fast if you play it on expert mode, without symbol information. Execute the following command in the directory where the bomb resides:",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド6",
+"en": "Ubuntu: strip ./bomb",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド6",
+"en": "Windows: del ./bomb.pdb",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド6",
+"en": "This is more like what you will actually see with malware. You’re not going to get symbols in that case.",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド6",
+"en": "Now go ahead and see how fast you can go through the rounds ;)",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド7",
+"en": "Hints:",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド7",
+"en": "Standard C library documentation is your friend!",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド7",
+"en": "Remember to stay focused on your goal! Do you need to understand every piece of the code? Or do you just need to know the exit condition for the level, and walk backwards from that?",
+"ja": ""
+}
+]
+}

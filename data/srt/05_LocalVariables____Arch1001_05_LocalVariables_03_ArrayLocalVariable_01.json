@@ -1,0 +1,320 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_03_ArrayLocalVariable_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:33,200",
+"en": "now let's see some more examples of local variable usage which will actually cause new assembly instructions to appear so in this thing array local variable we've got three variables we've got short a we've got an integer array b which is six integers long and we've got a long long c and so we initialize some of these variables and you know as i'm talking to my wife in hex as I often do I say hey babe you know balboa bled blood and she's like true true and so we go ahead and allocate",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,719",
+"end": "00:01:10,799",
+"en": "these we take a and we stick it into b of one we take b of one and we add it to c put it into b of four and we return b of four as short this is the assembly that gets generated and we've got three new assembly instructions imul which is multiplication sign multiplication movsx which is signed extend which is move with sine extension and movzx which is move with zero extension all right the first one imul or signed multiply the first thing to know is that visual studio seems to really like",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:08,320",
+"end": "00:01:41,360",
+"en": "signed multiply over unsigned multiply which is just mul and so that's kind of just a visual studioism when you try to create a multiply even if you're using all unsigned values it'll still prefer imul all over mul this is actually a way that you can kind of infer that code was generated with this particular compiler for instance now there are three forms of imul the first one takes a single operand the second one takes two operands and the third one takes three operands and it's the first one",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:40,320",
+"end": "00:02:10,319",
+"en": "that's actually a little bit complicated because the fact that it has a single operand it's not just multiplying that register by itself instead there's a variety of forms which implicitly take different sizes of rax and rdx or eax and edx etc so there's like this implicit thing where you just kind of have to memorize which registers are used implicitly based on the size and we'll see a little bit more about that in a second the two and the three operand ones behave a little more as",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:08,959",
+"end": "00:02:43,040",
+"en": "you would expect so for instance this one takes the register multiplies it by this and stores it back into there this one takes this register memory location stores multiplies it by the immediate and stores it back into this so it's the typical sort of you know source and destination and source from this operand but that said the fact that this can actually take three operands is seemingly unique amongst what we might consider the basic assembly instruction set not the sort of add-on set like mmx avx etc",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:40,560",
+"end": "00:03:09,360",
+"en": "but amongst very simple basic assembly instructions this is the only one that i know of that actually takes three operands now in previous versions of the class i kind of left it at that and then i moved on to some examples now in previous versions of the class i would just sort of leave it at that those three example forms that i showed on the previous slide but because i want to sort of test you rigorously later on using our darkmathemagic games i'm going to go ahead and show you all the",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:07,680",
+"end": "00:03:34,799",
+"en": "possible forms just so that you can have them on the slides without having had to go all the way into the manual because we don't learn about looking things up in the manual until quite late in the class so i'll show you all the different forms which you know could be grouped into five groups or three groups it kind of just depends on how you decide to break it up i'm going to put it into five groups just so that i have more space on slots now this first group are the versions that have a single operand and",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:33,440",
+"end": "00:04:12,239",
+"en": "these are the ones where i said they have implicit usage of eax al rax etc so what you'll actually see is imol and then an rm8 so that's going to be an 8-bit register or a 8-bit a value calculated from memory that'll only be plugging 8-bits out of that memory location now implicitly if you ever see a 8-bit sized imul or you know 8-bit register being used in the imul what's happening is it will implicitly use al the least significant byte of the rax register and multiply it by that",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:09,280",
+"end": "00:04:40,080",
+"en": "eight bit register or eight bit value that came out of memory and then it'll store it back into the ax register so ax is 16 bits this is eight so eight times eight going into a 16 bit register there's no sort of danger of truncation or anything like that because you've got something that's twice the size of the two things being multiplied and then the same basic structure continues for the rest of the assembly instructions if it's a 16 bit value you take the 16 bit least significant 16 bits of the rax",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:38,720",
+"end": "00:05:17,759",
+"en": "register ax times the 16 bit value and you store it into this 32 bit value the concatenation of dx for the most significant 16 bits and ax for the least significant 16 bits 32-bit form takes 32-bit register times 32-bit value stores it into a 64-bit output which is the concatenation of edx for the most significant bytes and eax really significant and again same thing 64-bit times 64-bit into 128-bit output then there are the two operand values but here the form is 16-bit value times 16-bit",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:14,960",
+"end": "00:05:50,160",
+"en": "value stored back into 16-bit value and so that obviously can potentially lead to truncation because you can just multiply two values and they're going to be you know greater than the maximum space available in 16 bits and then that's going to be stored but in a truncated form back into this output so 16 times 16 into 16 32 times 32 into 32 64 x 64 into 64. so these can cause truncation so now group three is going to have three operands and there's going to be a version with eight bits a version with 16 bits and a",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:48,320",
+"end": "00:06:21,440",
+"en": "version with 32 bits but we are only going to put the 8-bit form on this first slide so in the 8-bit form you take this 16-bit value you have an 8-bit immediate value and that's going to be sine extended up to 16 bits so then you're going to basically be multiplying this treat it as if it was assigned value times the 16 bit value and stored into a 16 bit value so that means that you can have truncation just like in the two operand form same thing with 32 and 64 bits you just take an 8 bit value",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:18,720",
+"end": "00:06:49,120",
+"en": "and sign extend it up to a 32-bit value multiply it by that and store it into that sign extended up to a 64-bit value multiply it by that and store it into that so this again can obviously cause truncation right so if this value in 64-bit register was you know 1 minus the maximum value and you multiplied by 2 then it's obviously going to you know be larger than the possible 64-bit value now this is again three operands but it's just going to be a 16-bit and there's actually only one variation",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:06:47,360",
+"end": "00:07:20,720",
+"en": "on this there's only one thing that takes a 16-bit immediate value and that'll be a 16-bit register memory times the 16-bit value stored into a 16-bit register finally the last three-operand form is a 32-bit immediate there is nothing that takes a 64-bit immediate so this is again you know later on when you learn to read the fun manual you can go and verify this for yourself by checking it out but the forms are take a 32-bit value multiply by 32-bit store in a 32-bit so that can truncate",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:17,599",
+"end": "00:07:47,360",
+"en": "and take a 32-bit value not a 64-bit sign extend it up to 64-bits multiply by the 64-bit register and then store it into the different 64-bit register so this could be a register or memory rather but this can only be a register so those are all the possible forms that you could see for the multiply later on so feel free to come back to this slide when you do the darkmathemagic later on now let's see some quick examples from each of those groups so for instance let's start with the single",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:07:46,240",
+"end": "00:08:28,080",
+"en": "operand form so again imul with a rm8 implicitly it's always going to take the rm8 times al and store it into ax so if these were our registers starting out so rax happens to be fully filled in r12 it's zero zero zero eighty four if you saw the assembly instruction imo r12b that would mean you're using the byte size the least significant byte of r12 and so when you have an iml with a rm8 implicitly you're using this form and that means you're going to need to take al the least significant byte",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:08:24,000",
+"end": "00:09:00,000",
+"en": "77 times r12b the least significant byte which is 84 but this is now again assigned to multiply and if this is signed to multiply then this value 84 is a negative number so we've actually got a negative value times a positive value so negative times positive is going to be a negative value and that will be stored into ax so the end result here is that all the rest of this register is actually going to be left alone and just the ax least significant 16 bits are going to be updated with this value",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:08:58,160",
+"end": "00:09:38,240",
+"en": "now let me pop out into the calculator quick to show you how you could calculate this for yourself so we said 77 is a positive value but 84 is a negative value so let's go ahead and take 84 and let's two's complement that to get the negative value or sorry to flip the sign because it is a negative value so let's get the positive value so 84 as a one byte value is actually 7c as a positive value so negative 7c is 84 in one byte two's complement form so 7c is one of the values and",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:09:35,200",
+"end": "00:10:09,120",
+"en": "77 is the other so if i did 7c which is now the positive form of this negative value times 77 that would be giving me a value that's you know a positive value but i said negative times positive should be a negative value at the end so i need to two's complement this again to flip it back to negative and that's going to be you know ax is just going to be 16 bits and so we just care about the c 6 5 c and that's what we get here now later on in the class we're going to learn about how to write inline assembly",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:10:08,640",
+"end": "00:10:49,040",
+"en": "but just again because i wanted to kind of show this to you because this is one of the elements that people had the most trouble with on some of the games let's go ahead and look at that in inline assembly so inside of your project there is scratchpad asm and there's the my asm project and so i just did a move of this value into rax move of 84 into r12 and then an imul by r12b so if i go ahead and run that through the debugger i can go ahead and bring up the registers window to show you on the top",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:10:48,399",
+"end": "00:11:26,959",
+"en": "here rax has the value that i moved in from right here r12 has the value 0084 that i moved in right here and now i'm going to issue the imul r12b and if i just go ahead and step and i can see that these least significant 16 bits of rax just changed all the rest is all the same right so 60 99 66 all that's all the same but just these bits right here change that's kind of why this is highlighted in red it's telling you this register changed and other stuff didn't except you know rrp",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:11:25,279",
+"end": "00:11:58,000",
+"en": "because you stepped forward and you know nothing else changed their flags changed so that's just to show you that what i said in the calculator lines up with what actually happens in the assembly so let's go ahead and stop that and i'll move on to what's going to be my next example here and back to the slides okay so that was an example of a single operand form of imul again signed multiply so you have to take into account whether or not the things that are being multiplied are negative values like this",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:11:55,839",
+"end": "00:12:31,040",
+"en": "or positive values okay next example this is a two operand form and so if we see imul with an r32 and an rm32 then the actual mathematical operation is a signed version of that r32 times the rm32 stored back into the r32 so again truncation is possible so now in this case if we have imul doing r12d so the dword sized the 32-bit sized version of r12 well this is no longer interpreted as a negative value because it's not a one byte form it's a four byte form and the four byte form has zero zero",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:12:30,399",
+"end": "00:12:37,680",
+"en": "zero zero so this is just going to be positive 84.",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:12:34,399",
+"end": "00:13:11,120",
+"en": "then rax taking the eax size the 32-bit value size this is going to be a9 blah blah blah blah but that is going to be a negative value in 32-bit form something starting with a has the most significant bit set you know it's greater than 7 so it's going to be a negative value so this is going to be a positive times a negative value so again a positive value times a negative value is going to lead to a negative value so what's going to come out of this is 0061 0 4 1 5 c in r 12 because it's storing",
+"ja": ""
+},
+{
+"i": 25,
+"start": "00:13:09,360",
+"end": "00:13:38,720",
+"en": "it's taking this times that storing it back into that so let's go ahead and look at that in the calculator to confirm this so i'm going to take this value right here this is my negative value i'm going to go ahead and put that in i'm going to two's complement it to get back to the positive value i'm going to multiply that times 84 which is a positive value all right that gives me something but we said positive times negative well i just flipped to the sign of the negative to a",
+"ja": ""
+},
+{
+"i": 26,
+"start": "00:13:37,120",
+"end": "00:14:18,160",
+"en": "positive so i need to flip the result back to get back to the negative and then that leaves me with this value now this value is bigger than the 32-bit register which is going to be stored back into so we need to you know just in our calculator the hardware will obviously do this itself we need to and it with 32 ones one two three four five six seven eight f's equals 32 ones and that gives us 61 d041 5c 61d0415c and again we can reconfirm that in the debugger as well if we'd like",
+"ja": ""
+},
+{
+"i": 27,
+"start": "00:14:16,240",
+"end": "00:14:56,320",
+"en": "same values in the registers just a different multiply signed multiply r12 dword size times eax all right here's the values go ahead and step over and the result is stored back into r12 and so we have 61 d041 5c so let's go ahead and move on to the last example all right now we have a three operand form so we're going to do a 64-bit we're going to take 64-bit times 32-bit which is going to be sign extended up to 64-bits and then it's going to be multiplied by that and stored into this",
+"ja": ""
+},
+{
+"i": 28,
+"start": "00:14:54,320",
+"end": "00:15:26,160",
+"en": "so what would that be in this case well we've got 84 which actually isn't even going to play into anything r12 is just going to be the output register but you can see it's not actually used in the multiply so it's just going to be rax times this immediate value and that's going to yield this and so that is just a straight up multiply this value times that value which you can sign extend it but it's just a positive value so it's still just going to be one two three four and so we put it in and that's the",
+"ja": ""
+},
+{
+"i": 29,
+"start": "00:15:25,040",
+"end": "00:16:00,639",
+"en": "output so let's go ahead and calculate that this times one two three four one two three four and we get e5 blah blah blah blah blah and over in the debugger same thing oops we're not gonna because i changed that to negative so as i was fiddling with masm i was noticing that i really didn't like it when i chose you know negative constants like if i put that in there it'll just straight up not compile so let's go ahead and do that just to show you it really doesn't like negative values for these immediates for",
+"ja": ""
+},
+{
+"i": 30,
+"start": "00:15:59,680",
+"end": "00:16:35,360",
+"en": "some reason and the reason seems to be that like syntactically it wants you to put negative values in front of it instead of just using the you know two's complement form of it but anyways you know so you could put a negative on there and you know it would be negative one two three four and then it would be sign extended up to that but just to complete our example here let's see that we see the same thing all right oops let's go ahead and step over and let's not continue so step over and what is the value in",
+"ja": ""
+},
+{
+"i": 31,
+"start": "00:16:30,560",
+"end": "00:17:06,559",
+"en": "r12 e5 a35 blah blah 2a2c e5 a3 5 blah blah blah 2a 2c so for the heck of it let's just go ahead and make that a negative value go ahead and stop negative and so you can see that you know it's just a negative 32-bit value right there when we go ahead and run that if we look at the disassembly we should see the actual value this is the negative one two three four negative one two three four you can see that it put that in there for us let's go ahead and look at the bytes just to prove that",
+"ja": ""
+},
+{
+"i": 32,
+"start": "00:17:04,079",
+"end": "00:17:43,120",
+"en": "that's a 32-bit value that's in the code stream not a 64-bit value so if i look at the raw assembly bytes here i can actually see that this value this negative value one two three four five six seven eight these eight bytes right here e d c b e d c c these are actually built into this stream e d c b e d c so the assembly instruction actually only has the capability to bake in a 32-bit value here it doesn't have a form that supports a 64-bit value in the assembly stream but again we haven't really covered",
+"ja": ""
+},
+{
+"i": 33,
+"start": "00:17:40,960",
+"end": "00:18:09,760",
+"en": "uh you know how these assembly bytes stuff so i'm going to go ahead and pull the wool over your eyes again so anyways if we did that and we stepped over it we would just get some different value right different multiplication different value but the key thing is that you saw it was you know sign extended up to a 64-bit value all right so that's my much longer treatment of the signed multiply assembly instruction hopefully should be a lot more useful to you later on when you're called upon to do the",
+"ja": ""
+},
+{
+"i": 34,
+"start": "00:18:07,840",
+"end": "00:18:42,240",
+"en": "various versions of multiply in the dark mathemagic game now the other two assembly instructions that we saw in this example code were move with zero extend and move with sine extent now these are typically used to move small C types into large C types so if you're you know moving a signed value from a short like we have in the example code into a integer which is 32 bit value so 16 bit value to a 32-bit value if the short is signed then the value needs to be reflected as a signed value",
+"ja": ""
+},
+{
+"i": 35,
+"start": "00:18:40,799",
+"end": "00:19:08,400",
+"en": "in the 32-bit value that means you're going to want to move a sign extent on the other hand if it was an unsigned short being moved into a 32-bit value then you would move with zero extend basically saying you know don't try to treat this as a signed thing so these moves support all the same sort of register to register register to memory memory to register immediate to memory immediate to register forms that you see in a normal move but like i just said there's this different notion of zero",
+"ja": ""
+},
+{
+"i": 36,
+"start": "00:19:06,559",
+"end": "00:19:38,559",
+"en": "extension and sign extension and at its most basic form zero extension means that when the cpu when it's taking some small register and moving it to a big register will just fill in the upper bits with all zeros so 16 bit register to a 32-bit register then it's going to automatically fill in all zeroes in the upper 16 bits on the other hand sign extension is a thing where the compiler has to generate to the right assembly instruction so that things are treated as if they're signed you know if the high level",
+"ja": ""
+},
+{
+"i": 37,
+"start": "00:19:36,960",
+"end": "00:20:05,919",
+"en": "language wanted them signed the low-level assembly language needs to treat them as if they're signed and what that means is if you had a 16-bit register and you were moving it to a 32-bit register if the value in that register in the high-level programming language was treated as a signed value it needs to keep its sign which means if it was positive it should stay positive if it was negative it should say negative so you can imagine okay i've got a 16 bit value 0xffff right what is that that's negative",
+"ja": ""
+},
+{
+"i": 38,
+"start": "00:20:05,200",
+"end": "00:20:38,880",
+"en": "one so if i take the 16-bit value 0xffff negative one and i move it to a 32-bit register that better not just turn into a positive sixteen thousand all of a sudden it should stay negative one and to stay negative one the compiler the assembly instructions have to say okay what's the most significant value of 0xffff what's the most significant bit it's one and so it's sine extends that one into the upper bits of the larger 32-bit value which means you get ffffff you know you get",
+"ja": ""
+},
+{
+"i": 39,
+"start": "00:20:35,600",
+"end": "00:21:09,600",
+"en": "eight f's rather than four f's so that still it's treated as a negative one in subsequent assembly instructions and then one extra little bit that i'm again adding in based on you know student feedback is that there is technically another form of the sign extension movsxd and so this has to do with sign extending dword values up to 64-bit values so 32-bit values up to 64-bit values technically the move sign extension only deals with taking 8 and 16-bit values making them longer",
+"ja": ""
+},
+{
+"i": 40,
+"start": "00:21:08,320",
+"end": "00:21:33,280",
+"en": "whereas if you want to start with a 32-bit value it is this i'm not actually going to give it its own star both for the fact that i don't want to renumber everything and also just because it's a simple variant on one of the existing assembly instructions we've seen but it matters because you know if you're looking at the assembly and you see hey you never told me about movsxd well let's just move this on extend but you happen to have a 32-bit value rather than 8 or 16.",
+"ja": ""
+},
+{
+"i": 41,
+"start": "00:21:31,520",
+"end": "00:22:09,200",
+"en": "and what's weird here is that there is no move 0 extend dword it's always just move 0 extend so there's some asymmetry here that signed has a variant and the zero extension doesn't so let's see a quick example of move with zero extent versus moveless sign extent just to make it a little more concrete let's say i had the value food face and i moved it into 32-bit register eax then if i move with zero extend eax 32-bit value into rbx 64-bit value zero extend means just take the upper 32-bits and treat it as zero",
+"ja": ""
+},
+{
+"i": 42,
+"start": "00:22:06,799",
+"end": "00:22:36,799",
+"en": "on the other hand this value eax still has food face if i run move sign extension dword because the eax is 32-bit value food face move with sign extension means look at the most significant bit of this 32-bit value if it's one put all the ones up here so that it's still treated as a negative value because if it's one here it means it must have been a negative value and you want it to stay negative so fill in all ones up here so that the larger value is treated as negative as well if",
+"ja": ""
+},
+{
+"i": 43,
+"start": "00:22:34,880",
+"end": "00:23:06,720",
+"en": "i had something where it was you know move 0x000dface if this was a zero even though i was using a sign extension if this is zero then it would just fill in zeros up here because the most significant bit would be zero and it would just fill it in all right well those are how the imul and move the sign extension and move with zero extension assembly instructions work now what i need you to do is go ahead and step through the assembly as before you know show where the local variables",
+"ja": ""
+},
+{
+"i": 44,
+"start": "00:23:04,080",
+"end": "00:23:14,559",
+"en": "are and you know try to get a sense of what's initialized and what's uninitialized",
+"ja": ""
+}
+]
+}

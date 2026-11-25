@@ -1,0 +1,293 @@
+{
+"source": "06_FunctionParameters/_Arch1001_06_FunctionParameters_07_SpecialMaths.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "SpecialMaths.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "SpecialMaths.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "//reminder: atoi() converts an",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "//ASCII string to an integer",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド3",
+"en": "return 2*argc + a;",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド3",
+"en": "With command line arguments, 2 function parameters, and special maths known to generate particular asm as a teachable moment :)",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド3",
+"en": "000000014000101A  ret",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド4",
+"en": "“r/mX” Addressing Reminder",
+"ja": ""
+},
+{
+"i": 32,
+"where": "スライド4",
+"en": "In Intel syntax, most of the time square brackets [] means to treat the value within as a memory address, and fetch the value at that address (like dereferencing a pointer)",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド4",
+"en": "An “r/mX” can take 4 forms:",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド4",
+"en": "For X = 1, 2, 4, or 8",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド4",
+"en": "For Y of 1 byte (0-2^8) or 4 bytes (0-2^32)",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "Book page 123",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "THE EXCEPTION THAT PROVES THE RULE!",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド5",
+"en": "Uses the mX form (really just \"m\" in the manual) but is the exception to the rule that the square brackets [] syntax means dereference!",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド5",
+"en": "Frequently used with pointer arithmetic, sometimes for just arithmetic in general",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド5",
+"en": "rax = 0x1015, not the value at 0x1015",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド5",
+"en": "Book page 112",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド6",
+"en": "Setting command line arguments",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド7",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド7",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド8",
+"en": "SpecialMaths.c takeaways",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド8",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド8",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド8",
+"en": "//reminder: atoi() converts an",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド8",
+"en": "//ASCII string to an integer",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド8",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド8",
+"en": "return 2*argc + a;",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド8",
+"en": "When a compiler sees “special math” that can be computed in the form “a + b*X + Y” (derived from the “r/mX” form, where X = {1, 2, 4, 8}, and Y = {0-2^32-1}), then it can compute the result faster if it uses the LEA instruction, rather than a IMUL instruction for instance.",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド8",
+"en": "More evidence that pass-by-register function arguments are being stored onto the stack at some point (this time both ecx and rdx)",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド9",
+"en": "Instructions we now know (12)",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド11",
+"en": "Windows Visual Studio 2019 Community",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド11",
+"en": "Disassembled with Visual C++",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド11",
+"en": "You should be able to read & understand",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド11",
+"en": "Hello World's assembly now!",
+"ja": ""
+},
+{
+"i": 136,
+"where": "ノート11",
+"en": "Is the same as this assembly when compiled from within Windows Visual Studio, and disassembled from within Visual Studio.",
+"ja": ""
+}
+]
+}

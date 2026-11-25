@@ -1,0 +1,197 @@
+{
+"source": "08_BooleanLogic/_Arch1001_08_BooleanLogic_02_ForLoopNoRet.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ForLoopNoRet.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド3",
+"en": "000000014000102A  call 00000001400010B0",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド3",
+"en": "000000014000102F  jmp  000000014000100E",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド3",
+"en": "ForLoopNoRet.c - simple for loop",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド3",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド3",
+"en": "for(i = 0; i < 10; i++){",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド4",
+"en": "Single source/destination operand can be r/mX",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド4",
+"en": "Increase or decrease the value by 1",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド4",
+"en": "When optimized, compilers will tend to favor not using inc/dec, as directed by the Intel optimization guide. So their presence may be indicative of hand-written, or un-optimized code",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド4",
+"en": "Modifies OF, SF, ZF, AF, PF, and CF flags",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド4",
+"en": "Book page 59",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド5",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド5",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド6",
+"en": "ForLoopNoRet.c Takeaways",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド6",
+"en": "For loops will be some combination of a JCC (to determine if the exit condition is met yet), and an absolute JMP (to return from the end to the conditional checking code)",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド6",
+"en": "In the absence of an explicit return value VS & GCC default to returning 0",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド6",
+"en": "000000014000102A  call 00000001400010B0",
+"ja": ""
+},
+{
+"i": 93,
+"where": "スライド6",
+"en": "000000014000102F  jmp  000000014000100E",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド6",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド6",
+"en": "for(i = 0; i < 10; i++){",
+"ja": ""
+},
+{
+"i": 109,
+"where": "スライド7",
+"en": "Instructions we now know (21)",
+"ja": ""
+},
+{
+"i": 120,
+"where": "スライド7",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド8",
+"en": "not",
+"ja": ""
+}
+]
+}

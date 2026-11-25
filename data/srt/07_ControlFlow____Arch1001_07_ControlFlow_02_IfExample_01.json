@@ -1,0 +1,229 @@
+{
+"source": "07_ControlFlow/__Arch1001_07_ControlFlow_02_IfExample_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:30,400",
+"en": "so we've seen all of the unconditional control flow that we're going to cover in this class now let's look at some conditional control flow in this example we have if statements and that is going to translate into a bunch of new assembly instructions so we've got a compare instruction and we've got some jump not equal jump less than or equal jump greater than or equal so we can tell just based on those names that they have to do with this equality check the greater than check and the less than check",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:28,720",
+"end": "00:00:58,960",
+"en": "so i'm going to call these jcc instructions for a family of instructions jump based on some conditional code not equal less than or equal greater than or equal now it doesn't exactly help you out right now but i just want to let you know that if you're taking this class on your way towards something like the reverse engineering classes later on most reverse engineering tools or multi-tools they will have a nicer control flow graph form of showing conditional control flow so for instance this jump not equal jump",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:57,920",
+"end": "00:01:27,920",
+"en": "not zero it'll say okay if this jump is taken it goes this way and if not it goes that way if this jump is taken it goes this way and if not it goes that way so this is sort of the common control flow graph and it makes it a lot easier to read rather than just looking at straight line assembly so we're going to lump all of these jcc instructions the jump if condition code is met we'll just call this assembly instruction 14 for our purposes of counting assembly that you know there's actually going to be many many",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:26,240",
+"end": "00:01:56,320",
+"en": "different instructions here but I don't want to inflate the amount of counting in the class so unlike the normal jump instruction here if and only if a condition is true the jump is taken and if the condition is false then it'll proceed through to the next instruction when you look at the Intel assembly manual you'll actually see four full pages of conditional jump types a bunch of them are just different names for the same thing for instance jump not equal is the same thing as jump",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:55,280",
+"end": "00:02:28,239",
+"en": "not zero because they're both checking the zero flag and whether or not it's equal to zero but this means we're going to have to do a little bit of a side quest to understand what the zero flag is so thus far we've only talked about Intel general purpose registers now we're going to introduce a new special purpose register the rflags register and so it says in the manual in 64-bit mode eflags is extended to 64 bits and called rflags. The upper 32 bits of rflags register is reserved.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:25,840",
+"end": "00:02:30,239",
+"en": "The lower 32 bits of rflags is eflags.",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:28,239",
+"end": "00:02:59,360",
+"en": "all this is basically saying is dear people who are learning x86-64 we've extended the register but we're not actually using it for anything so you can mostly just think about it as the eflags register that you already knew and love from 32-bit assembly and just to show this this did extend based on the flags register that originally existed back in the 8086 it was extended for 32-bit it was extended again for 64-bit but as it says here it's all zeros so there's no actual purpose to",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:02:57,920",
+"end": "00:03:32,640",
+"en": "the extra bits so the rflags register holds many different single-bit flags and for right now I'm only going to want you to focus on two of them there's going to be a flag called the zero flag and if the result of some operation is zero the zero flag will be set to one not to zero so zero flag is one if the result is zero and then there's the sign flag. The sign flag is set to one if the most significant bit of the result of some operation is one so the sign bit we say that in signed",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:31,200",
+"end": "00:04:00,959",
+"en": "values the sign bit is the most significant bit because in the division of the two halves of you know the 8-bit range the 32-bit range the 64-bit range when you divide the two halves the most significant bit is always one if it's a negative value that you're dealing with. So, I'm going to cover all the other flags in some optional material but these are the really big ones these are the important things that you know you should know by heart so here's our eflags, rflags,",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:03:58,799",
+"end": "00:04:29,120",
+"en": "flags register and here is what the Intel manual says about it so in this class we're mostly going to be focusing on these status flags so S over here in this column for status flags and like I just said it is the sign flag and the zero flag which are bits 7 and 6 which are the things I want you to know by heart here's the rest of the flags: overflow flag, auxiliary carry flag, parity flag,",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:27,840",
+"end": "00:05:00,240",
+"en": "carry flag these matter for getting a true deep understanding of what exactly is going on on the hardware but in practice I personally have never had to memorize how they're used for different jump conditional code assembly instructions and just as an FYI we will be returning to the rflags register in a future class to cover some additional flags that are instead system flags. So I went ahead and added this one extra 64-bit register to our set of registers we've been looking at so far",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:04:58,160",
+"end": "00:05:23,520",
+"en": "so here's some examples from the manual of how exactly the conditional code checking is done for particular things so I said jump 0 or jump equal is jumping if and only if the zero flag is one. Jump not zero is if the zero flag is zero. Jump less than or equal is if the zero flag is 1 or the sign flag is not equal to the overflow flag.",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:05:21,919",
+"end": "00:05:29,120",
+"en": "All right so then you can see these other things use the sign flag, overflow flag, carry flag and so forth...",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:05:27,680",
+"end": "00:05:54,479",
+"en": "So I said I don't really want you to care about that because in practice especially right now when you're just you know learning assembly you can pretty much just you know look at the assembly instruction see the values that were computed beforehand and if you don't have a sense of what's going to happen whether it's going to take the jump or not take the jump you can always just you know step in the debugger and see which way it goes. And later on I'll be giving you the way that I look at the assembly code",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:05:52,400",
+"end": "00:06:00,880",
+"en": "that allows me to basically just ignore what specific flags are checked for what specific conditional codes.",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:05:58,319",
+"end": "00:06:36,000",
+"en": "Now within those conditional codes here is sort of the translation of the mnemonics: if it's like a ja a jump above then above is an unsigned notion for values so it means basically if you have 0xfffffff and you're comparing it to zero 0xffff is above zero because it's unsigned whereas if it was signed and you were dealing with 0xfff that would be a negative value and so that would not be greater than because it would actually be negative. Negative is not greater than 0.",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:06:33,120",
+"end": "00:06:44,560",
+"en": "so above and below are the unsigned notions and greater than or less than are the signed notions.",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:06:41,440",
+"end": "00:07:16,400",
+"en": "e is equal, sometimes some disassemblers will use z instead of e so you should know that those two translate between each other. And n is not so you could have jump above or you could have jump not above and jump not above would be the same thing as jump below or equal and if we rearrange those... Boom! Crystal Bangle unlocked! The Bangle below and above not greater than less than or equal. I did the rflags side quest and all I got was this Crystal Bangle.",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:07:14,080",
+"end": "00:07:25,199",
+"en": "Now before assembly instructions like jcc can actually jump or not jump, something needs to set those status flags in the rflags register.",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:07:23,680",
+"end": "00:07:54,319",
+"en": "This is typically done with something like a cmp assembly instruction, test which we'll we will learn about later or whatever instructions are already in line, because things like add and subtract actually do have flag setting side effects I just left that out of the descriptions of add and subtract earlier and we'll come back to it when we cover the optional material about all the different flags that get set on different conditions. So we'll see cmp now and we'll see test later.",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:07:52,400",
+"end": "00:08:17,520",
+"en": "cmp the comparison is performed by subtracting the second operand from the first operand and then setting the status flags in the same manner as the sub instruction. So cmp is actually a subtract instruction but the difference from the subtract instruction is that you might have two operands and the result goes back into the register that's on the left hand side.",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:08:15,440",
+"end": "00:08:32,560",
+"en": "In the case of cmp, you do not store the result of the subtraction you just set the flags and then you throw the result away so you will very frequently see cmp instructions immediately preceding things like jump conditional code instructions.",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:08:30,080",
+"end": "00:08:56,160",
+"en": "So here's my little animated guide for why I can get away with not needing to care about what all the different status flags are checked in all the different four pages of assembly mnemonics. If you see something like cmp dword pointer, so it's pulling a value out of memory at rsp+4, it's comparing this to eax, and it's doing a jump not equal afterwards, or a jump less than or equal or jump above equal.",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:08:54,800",
+"end": "00:09:11,040",
+"en": "Then the way that I typically think about these is first of all that jump not equal is a not equal check less than or equal is a signed less than or equal check and above or equal is a signed greater than or equal check. Sorry, unsigned greater than or equal check.",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:09:10,000",
+"end": "00:09:21,120",
+"en": "Right it would see greater than or equal if it was being signed but you know in terms of how we talk about these symbols that's the greater than or equal check.",
+"ja": ""
+},
+{
+"i": 25,
+"start": "00:09:18,560",
+"end": "00:09:31,120",
+"en": "So you start by translating the jump conditional code into some particular math operation and then you just stick it in between these two things.",
+"ja": ""
+},
+{
+"i": 26,
+"start": "00:09:28,240",
+"end": "00:09:38,160",
+"en": "So, is the memory pointed to by rsp+4 not equal to eax? If so, take the jump.",
+"ja": ""
+},
+{
+"i": 27,
+"start": "00:09:34,880",
+"end": "00:09:51,120",
+"en": "Is the memory pointed to by rsp+4 less than or equal in a signed interpretation eax? If so, jump. Is it greater than or equal in an unsigned notion? If so, jump.",
+"ja": ""
+},
+{
+"i": 28,
+"start": "00:09:48,560",
+"end": "00:09:59,040",
+"en": "So this is basically how I get away with not caring about the particular of individual instructions.",
+"ja": ""
+},
+{
+"i": 29,
+"start": "00:09:56,000",
+"end": "00:10:03,600",
+"en": "So cmp, jne, say oh not equal. Is this not equal to that?",
+"ja": ""
+},
+{
+"i": 30,
+"start": "00:10:00,959",
+"end": "00:10:14,720",
+"en": "Then jump. You always have to keep in mind the signedness and also a warning for later on when we learn AT&T syntax, the operands are actually backwards in AT&T syntax.",
+"ja": ""
+},
+{
+"i": 31,
+"start": "00:10:11,920",
+"end": "00:10:32,880",
+"en": "So you can't just directly jam in the operation, without flipping it, so that's kind of annoying. So, now it's time for you to go ahead and step through the code and make sure you understand the interpretation of those conditional jump instructions",
+"ja": ""
+}
+]
+}

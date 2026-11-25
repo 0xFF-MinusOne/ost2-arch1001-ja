@@ -1,0 +1,227 @@
+{
+"source": "08_BooleanLogic/_Arch1001_08_BooleanLogic_03_BitmaskExample.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "BitmaskExample.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "BitmaskExample.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "int a = 0x1301;",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "if(a & b){",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド3",
+"en": "000000014000101A  and  ecx,eax",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "“Computes the bit-wise AND of first operand (source 1 operand) and the second operand (source 2 operand) and sets the SF, ZF, and PF status flags according to the result.”",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド4",
+"en": "Like CMP - sets flags, and throws away the result",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド5",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド5",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド6",
+"en": "BitmaskExample.c Takeaways",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド6",
+"en": "Conditions depending on bit tests (which is often expressed with boolean logic instructions) will often see the RFLAGS set with the TEST instruction. TEST is like AND, but throws the results away",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド6",
+"en": "The unreachable jmp here is because it’s unoptimized code so the compiler is following a simpler set of asm construction rules",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド6",
+"en": "int a = 0x1301;",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド6",
+"en": "if(a & b){",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド6",
+"en": "000000014000101A  and  ecx,eax",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド7",
+"en": "Instructions we now know (22)",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド7",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド8",
+"en": "not",
+"ja": ""
+},
+{
+"i": 154,
+"where": "スライド9",
+"en": "GREAT KID, DON’T GET COCKY",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド9",
+"en": "YOU BASICALLY JUST LEARNED HOW",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド9",
+"en": "TO PRONOUNCE THE ALPHABET!",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド11",
+"en": "Letter: mov",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド11",
+"en": "Letter: test",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド11",
+"en": "Letter: je",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド11",
+"en": "Word: “if-equal”",
+"ja": ""
+},
+{
+"i": 161,
+"where": "スライド11",
+"en": "Word: “test-bits”",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド11",
+"en": "Word: “move mem to reg",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド11",
+"en": "Sentence: “If variable has bit 8 set, go somewhere, else continue.”",
+"ja": ""
+}
+]
+}

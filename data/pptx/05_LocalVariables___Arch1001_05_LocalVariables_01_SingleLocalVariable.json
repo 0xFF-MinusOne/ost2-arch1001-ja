@@ -1,0 +1,281 @@
+{
+"source": "05_LocalVariables/_Arch1001_05_LocalVariables_01_SingleLocalVariable.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "SingleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "SingleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド3",
+"en": "Adding a single local variable",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド4",
+"en": "Right click on the next project and select \"Set as StartUp Project\" as you move between class examples to make them launch when you run the debugger. Its text will go bold after.",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド5",
+"en": "SingleLocalVariable.c Stack",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド5",
+"en": "If we step through line 0000000140001004 in func(), the stack looks like this:",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド6",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド6",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド7",
+"en": "SingleLocalVariable.c Stack",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド7",
+"en": "If we step through line 0000000140001004 in func(), the stack looks like this:",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド7",
+"en": "undef`5CA1AB1E",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド7",
+"en": "Because the asm only wrote a  “dword ptr” (4 bytes) worth of memory at this location, so the top 4 bytes are untouched and thus undefined",
+"ja": ""
+},
+{
+"i": 93,
+"where": "スライド8",
+"en": "A Little Bit About r/mX Forms",
+"ja": ""
+},
+{
+"i": 94,
+"where": "スライド8",
+"en": "That I Skipped",
+"ja": ""
+},
+{
+"i": 95,
+"where": "スライド8",
+"en": "In Intel Syntax, for r/mX memory descriptions, it will use things like \"qword ptr\", \"dword ptr\", or \"word ptr\" to indicate the size of the data being operated on (8, 4, and 2 bytes respectively)",
+"ja": ""
+},
+{
+"i": 99,
+"where": "スライド9",
+"en": "An Easy Way to See What Memory Changes",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド9",
+"en": "You can click into the VS memory window and edit memory to initialize uninitialized memory, and then see what actually changes",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド10",
+"en": "SingleLocalVariable.c Takeaways",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド10",
+"en": "Local variables lead to an allocation of space on the stack, within the function where the variable is scoped to",
+"ja": ""
+},
+{
+"i": 103,
+"where": "スライド10",
+"en": "In VS there is an over-allocation of space for local variables",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド10",
+"en": "0x18 reserved for only 0x4 (int) worth of data",
+"ja": ""
+},
+{
+"i": 125,
+"where": "スライド11",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド11",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 127,
+"where": "スライド11",
+"en": "What’s up with the sub/add 0x28 in main()?",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド11",
+"en": "Why is VS over-allocating space for a single local variable?",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド12",
+"en": "Simple Stack Diagram 3",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド12",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 136,
+"where": "スライド12",
+"en": "int a = 3*y;",
+"ja": ""
+},
+{
+"i": 137,
+"where": "スライド12",
+"en": "printf(\"bar returned %d\", a);",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド12",
+"en": "return a;",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド12",
+"en": "int a",
+"ja": ""
+},
+{
+"i": 161,
+"where": "スライド12",
+"en": "“return address” to return",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド12",
+"en": "from bar() to foo()",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド12",
+"en": "“return address” to return",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド12",
+"en": "from foo() to main()",
+"ja": ""
+},
+{
+"i": 166,
+"where": "スライド12",
+"en": "“return address” to return",
+"ja": ""
+},
+{
+"i": 167,
+"where": "スライド12",
+"en": "from main() to invoke_main()",
+"ja": ""
+}
+]
+}

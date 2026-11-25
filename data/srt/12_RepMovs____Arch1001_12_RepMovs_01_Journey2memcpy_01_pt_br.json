@@ -1,0 +1,33 @@
+{
+"source": "12_RepMovs/__Arch1001_12_RepMovs_01_Journey2memcpy_01_pt_br.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:43,360",
+"en": "OST apresenta Brendan Fraser em jornada até o centro da memcpy portanto JornadaParaOCentroDeMemcpy.c vamos nos aprofundar em memcpy olhando a instrução elusiva rep movs portanto, temos uma estrutura aqui que pacote de pragma 1 para esmagar tudo isso, temos 2 instâncias da estrutura que nós definir uma única variável como 0xff e, em seguida memcpy de a para b para que possamos confirmar quando ele for realmente copiado é claro que retornamos 0xAce0fBa5e portanto, aqui está a assembly e eu quero que você",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:40,719",
+"end": "00:01:09,200",
+"en": "passo para o desconhecido. memcpy é uma função de biblioteca esta não é nossa fonte de codificação mas quero que você entre no vista do assembly e cavar nele até encontrar o rep movs portanto, o rep movs é o assembly e as instruções que estamos buscando aqui acabamos de aprender sobre os rep stos e assim por diante isso estará de alguma forma relacionado a isso agora tradicionalmente na aula presencial Eu tinha apenas, você sabe, levado as pessoas através do código-fonte e explicou",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:08,080",
+"end": "00:01:39,040",
+"en": "em slides isso é necessário porque, normalmente, esse exemplo vem no final da aula e preciso me certificar de que recebemos o toda a aula foi concluída mas é muito melhor para o seu aprendizado experiência se aqueles de vocês que são ousados agora optar por fazer esse exercício você mesmo antes de lhe mostrar a solução, então o que eu preciso que você pare percorrer o assembly memcpy e encontrar os rep movs agora, em particular, você está provavelmente vai precisar, mas não devo",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:37,360",
+"end": "00:02:12,239",
+"en": "dizer que provavelmente você vai precisar para modificar a estrutura a fim de forçar o o assembly memcpy no caminho certo que, em última análise leva você ao rep movs e para torná-lo ainda mais desafiador Quando você finalmente encontrar os rep movs, eu quero que você escreva pseudocódigo do caminho que leva a ele muito bem, agora aventureiros ousados mais uma vez no abismo você",
+"ja": ""
+}
+]
+}

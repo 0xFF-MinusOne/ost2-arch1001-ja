@@ -1,0 +1,152 @@
+{
+"source": "03_Stack/__Arch1001_03_TheStack_02_PushPop.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:32,480",
+"en": "so let's learn some simple assembly instructions which operate on the stack and so if we go back and look at our hello world example when compiled and disassembled on mac os we start with the very first assembly instruction push and later on we see a pop instruction so i said that data gets pushed and popped onto and off of the stack and so those sound like they probably have to do with that also seeing the same assembly on a linux compiled and disassembled thing we also see push and pop and so while we may not yet",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,800",
+"end": "00:01:03,120",
+"en": "know exactly what they do we know that they're perfectly balanced as all things should be but we did not actually see push and pop in the visual studio generated assembly so what's up with that well i'm going to start a mystery list of different things that we're going to have to come back to later so for now we're going to say you know we don't know exactly why gcc or clangs hello worlds have push and pop instructions but visual studio doesn't but by putting this on the list i promise",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:01,359",
+"end": "00:01:35,840",
+"en": "we'll get back to it later and explain it but for now let's just understand how the assembly instructions work so the first one push pushes a quad word or eight bytes onto the stack so when a push occurs it automatically decrements the stack pointer rsp by eight because you've just pushed eight bytes of data onto the stack and so the stack goes towards low addresses the enemy's plate is down and so rsp needs to go down by eight now in 64-bit execution mode there are a couple different versions of push",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:35,040",
+"end": "00:02:07,920",
+"en": "the first one is that you can just push the value from a 64-bit register and the second one is you can push a 64-bit value from memory where the memory is given in a special form called rmx that i'll talk about next there's also actually a version which can push a 32-bit immediate or just constant value onto the stack but that gets into complicated exceptions so i'm intentionally simplifying and we're going to just pretty much ignore that version of push and pretend these are the only two versions",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:06,479",
+"end": "00:02:42,319",
+"en": "but later on when you learn to read the manual you can go back and see all the you know caveats that have to go along with that which is why i skipped it so the rmx form of addressing so i completely made up this term rmx to refer to places in the intel manual where you see it saying rm8 rm16 rm32 or rm64 so for instance in the push the manual is ultimately the the true source of like you know what is possible and what is not you know here's those instructions that push immediate constants that i said",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:41,040",
+"end": "00:03:17,280",
+"en": "i want to ignore because they have to deal with a bunch of caveats but the thing i want to focus on is rmx form so push has an rm16 an rm32 and an rm64 and certain versions of it like that 32 are not actually valid in 64-bit mode but you're going to learn to read this read the manual later on in this class so for now we just say when i talk about the assembly instructions i'll just say you know it takes an rmx form so what is an rmx form well it is a way to specify either a register or a memory",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:14,480",
+"end": "00:03:49,840",
+"en": "value and again either you know 8 16 32 or 64 bits long so syntactically i have to tell you that in intel syntax square brackets means to treat the value within as a memory address and fetch the value from that address and pull it out so it's like dereferencing a pointer so later on here i'll show you some square bracket forms so rmx could just turn into a plane register like rbx it could be a square bracket form where it says take the value in rbx treat it as a memory address",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:47,519",
+"end": "00:04:18,239",
+"en": "dereference it the square brackets are dereference it and pull the value out of that and that's the value which is going to be used instead so we won't use the value of rbx we'll use the value pointed to by rbx so that's those are the two simple forms just you know use the literal value in a register or use the value if you take that register treat it as address and grab from that address but rmx is complicated and it has more complicated forms such as register take the register and then add",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:17,199",
+"end": "00:04:52,960",
+"en": "some other register multiplied by some x the x can be literally the number one two four eight it can't have any other values and in this form you can essentially think of it like the first value is a base the second value is an index and the x is a scale where you're essentially scaling by one two four eight and then the most complicated form is this base plus index time scale plus displacement so some base added to some value times one two four eight and then plus a displacement",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:51,120",
+"end": "00:05:29,120",
+"en": "now there's then further two different forms of this where the y could be encoded in the assembly instruction as a single byte value so you've got you know 0 to 255 or it could be encoded in a 4 byte value so 0 to 4 billion so rmx is pretty complicated way of addressing memory locations but you can see how they can kind of reach into and pluck from memory kind of anywhere within a large four gigabyte space at a time so also you can imagine that this base plus index time scale plus displacement has natural",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:27,440",
+"end": "00:06:01,840",
+"en": "applicability to things like multi-dimensional arrays uh arrays of structs and so forth right so if you had you know a simple 4x4 array you can imagine that the base would start at the base the zero zeroth entry in the thing and if you are trying to get to you know square brackets one square brackets zero that square brackets one implies that you know you've gone a full four values into the thing and now you're at the fifth value and so the displacement might be four times you know whatever",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:59,680",
+"end": "00:06:30,479",
+"en": "the size of your elements is and so you've essentially skipped four times that forward and then the index would be zero and the scale would be again you know whatever the size is of the elements of the array so this this can be useful for that and that's why intel made this more complicated version of addressing so this is rmx is going to be a recurring thing throughout the class and in the future when i'm giving you your very simplified view of how assembly instructions work if i say that it supports access to",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:28,240",
+"end": "00:06:58,400",
+"en": "memory i basically mean that memory is going to be encoded as an rmx form when i say rmx i mean something that could be as simple as that simple r of a register or could be as complicated as this base plus index time scale plus displacement so here's a couple quick examples of that you could have push straight up just normal register and push take that register grab to memory grab some value out of memory and then push it onto the stack and the same thing for different versions of the same thing",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:06:57,120",
+"end": "00:07:26,479",
+"en": "and you could fill in any sort of different general purpose register for these encoding values all right one other thing that is specific to my version of the class i use this back tick symbol when i'm writing 64-bit numbers in the class this is a thing that is only used on windebug which is not a debugger that we're actually going to be using in this class but i find it super useful because when you start writing 64-bit numbers you can lose track of whether you have the right",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:24,800",
+"end": "00:07:57,599",
+"en": "number of digits or not so if i write something like hex one two three four five six seven eight one two three four five six seven eight with the back tick in the middle that's just to indicate it's a 64 bit value and that helps me keep track of that i'm writing the right number of digits so what would the push instruction actually do when it's executed so let's imagine that we have something like push rax let's say the register rax was holding the value 3 and rsp pointing at the top of the stack let's say it was",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:07:55,280",
+"end": "00:08:32,959",
+"en": "pointing at 14fe08 so here's the location in memory here's the current value at the top of the stack and the stack grows towards low addresses so if this is what the stack looked like before then after the execution of the push rax assembly instruction we will see that first of all the rsp value changed so it went from 14 fe 0 8 to 14 fe 0 0 because the stack pointer is automatically decremented by eight it's gone from here down to here and furthermore it is now still pointing",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:08:31,039",
+"end": "00:09:04,080",
+"en": "at the top of the stack the last bit of data that is actually used on the stack which is the three that was pushed as part of the push rax all right so how do we balance out that push well we have the pop assembly instruction so it pops a value from the stack and so in 64-bit mode it can either pop into a 64-bit register or it can pop into a memory address as given in rmx form so what would it look like if we executed an assembly instructions such as pop rax well rax might have some value before",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:09:02,000",
+"end": "00:09:38,000",
+"en": "the pop and rsp would have some value before the pop but after the assembly instruction is actually executed then the three from the stack is going to be popped off into the rax register overriding what was already there and automatically as a side effect of the pop assembly instruction rsp will be incremented by eight and so this went from 14 f e 0 0 to 14 fe 0 8. furthermore this location for our purposes is now considered undefined i said before in reality data does exist past the end of the stack and",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:09:36,320",
+"end": "00:10:05,120",
+"en": "so this three value will literally be here still it's not like the you know compil it's not like the compiler generates assembly instructions in order to like zero this value it's not like the hardware automatically zeros the value the memory is still there it's just that properly executing compilers should never access memory beyond the top of the stack so quick throwback to the 32-bit world because even though this class is about 64-bit assembly i do want you to still get a sense of how",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:10:02,880",
+"end": "00:10:36,880",
+"en": "32-bit assembly works if you are executing in 32-bit mode push and pop will add and remove 32-bit values at a time rather than 64-bits and thus they increment or decrement rsp by 4 rather than eight similarly if you happen to be executing in 16-bit mode because i said that intel still supports backwards compatibility and actually still starts up in 16-bit mode it's gonna be the same thing two bytes at a time instead of four bytes at a time so great we now know two more assembly instructions",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:10:34,240",
+"end": "00:10:46,240",
+"en": "so we knew no op and we now know push and we now know pop and just like that three assembly instructions were already well over twenty percent and we're well on our way to mastery of assembly",
+"ja": ""
+}
+]
+}

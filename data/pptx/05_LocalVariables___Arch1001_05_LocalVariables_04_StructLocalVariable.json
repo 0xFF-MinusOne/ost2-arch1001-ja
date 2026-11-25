@@ -1,0 +1,245 @@
+{
+"source": "05_LocalVariables/_Arch1001_05_LocalVariables_04_StructLocalVariable.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "StructLocalVariable.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "StructLocalVariable.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Accessing a struct local variable",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "short a;",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド3",
+"en": "foo.a = 0xbabe;",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド3",
+"en": "foo.b[1] = foo.a;",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド4",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド4",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド5",
+"en": "Based on the asm, we can infer the stack looks like this:",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド5",
+"en": "00000000`0012FE9A",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド5",
+"en": "foo.a = 0xbabe",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド5",
+"en": "Note how there’s no wasted space this time since the “int a” 4 byte value is next to the 6 short 2 byte values, which all added up just happen to be 4 shy of 16 bytes total. Hence why c is accessed with “[rsp+10h]”",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド5",
+"en": "I’m cheating here and not using only 0x8-sized entries, for clarity",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド5",
+"en": "I’m cheating here and not using only 0x8-sized entries, for clarity",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド5",
+"en": "I’m cheating here and not using only 0x8-sized entries, for clarity of array indices’ address",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド6",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド6",
+"en": "padding, a = babe (2 bytes)",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド6",
+"en": "4-byte-granularity addresses",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド6",
+"en": "MS' struct alignment & padding rules here:",
+"ja": ""
+},
+{
+"i": 125,
+"where": "スライド7",
+"en": "THE PRAGMAS",
+"ja": ""
+},
+{
+"i": 127,
+"where": "スライド7",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド8",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド8",
+"en": "b[0] 2 LSBs = undef, a = babe (2 bytes)",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド8",
+"en": "4-byte-granularity addresses",
+"ja": ""
+},
+{
+"i": 165,
+"where": "スライド9",
+"en": "StructLocalVariable.c Takeaways",
+"ja": ""
+},
+{
+"i": 166,
+"where": "スライド9",
+"en": "Fields in a struct must be stored in the same order they are defined in the high level language. And they will appear with the uppermost field at the lowest address, and all subsequent fields higher.",
+"ja": ""
+},
+{
+"i": 168,
+"where": "スライド9",
+"en": "short a;",
+"ja": ""
+},
+{
+"i": 175,
+"where": "スライド9",
+"en": "foo.a = 0xbabe;",
+"ja": ""
+},
+{
+"i": 177,
+"where": "スライド9",
+"en": "foo.b[1] = foo.a;",
+"ja": ""
+},
+{
+"i": 203,
+"where": "スライド10",
+"en": "StructLocalVariable.c Takeaways",
+"ja": ""
+},
+{
+"i": 205,
+"where": "スライド10",
+"en": "short a;",
+"ja": ""
+}
+]
+}

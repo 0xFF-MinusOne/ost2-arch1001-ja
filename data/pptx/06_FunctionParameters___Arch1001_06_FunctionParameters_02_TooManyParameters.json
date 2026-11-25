@@ -1,0 +1,245 @@
+{
+"source": "06_FunctionParameters/_Arch1001_06_FunctionParameters_02_TooManyParameters.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "TooManyParameters.c",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド3",
+"en": "000000014000100A  mov  qword ptr [rsp+10h],rdx",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド3",
+"en": "000000014000103A  mov  eax,dword ptr [rsp]",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド4",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド4",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 57,
+"where": "ノート4",
+"en": "Step until the 0x38 is about to be deallocated, and let me know what the stack looks like. Try to identify where variables a, b, and c are on the stack, and what's undefined.",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド5",
+"en": "The stack looks like this at line 0000000140001031 in func():",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド5",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド5",
+"en": "A pattern emerges! Say hello to the Microsoft “shadow store”!",
+"ja": ""
+},
+{
+"i": 94,
+"where": "スライド6",
+"en": "\"The x64 Application Binary Interface (ABI) uses a four-register fast-call calling convention by default. Space is allocated on the call stack as a shadow store for callees to save those registers.\"",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド6",
+"en": "\"The caller must always allocate sufficient space to store four register parameters, even if the callee doesn't take that many parameters.\"",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド6",
+"en": "\"Any parameters beyond the first four must be stored on the stack after the shadow store before the call.\"",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド7",
+"en": "\"The stack will always be maintained 16-byte aligned, except within the prolog (for example, after the return address is pushed) ...\" [1]",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド7",
+"en": "I left out further exceptions which you can go read on your own if you'd like",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド8",
+"en": "\"Who knows what evil lies in the",
+"ja": ""
+},
+{
+"i": 105,
+"where": "スライド8",
+"en": "hearts stacks of men compilers?\"",
+"ja": ""
+},
+{
+"i": 106,
+"where": "ノート8",
+"en": "http://ifanboy.com/wp-content/uploads/2011/10/The-Shadow-Alex-Ross-Cover-1.jpg",
+"ja": ""
+},
+{
+"i": 107,
+"where": "スライド9",
+"en": "TooManyParameters.c takeaways",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド9",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド9",
+"en": "int func(uint64 a, uint64 b, uint64 c, uint64 d, uint64 e){",
+"ja": ""
+},
+{
+"i": 111,
+"where": "スライド9",
+"en": "int i = a+b-c+d-e;",
+"ja": ""
+},
+{
+"i": 144,
+"where": "スライド9",
+"en": "Microsoft compiler specifically implements a \"calling convention\" that not only passes the first 4 arguments through registers, but also reserves “shadow store” for them on the stack.",
+"ja": ""
+},
+{
+"i": 145,
+"where": "スライド9",
+"en": "“The callee has the responsibility of dumping the register parameters into their shadow space if needed.”",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド9",
+"en": "Compiler reserves this space even if no function parameters are passed to another function",
+"ja": ""
+},
+{
+"i": 148,
+"where": "ノート9",
+"en": "You can confirm that the typical sub rsp, 0x28 that you see is due to shadow space reservation by just changing func() to only take 4 parameters instead of 5, and seeing that it only reserves 0x28 again instead of 0x38 like seen here. But if you then add a local variable, which should technically fit in the reserved stack space (just like this 5th parameter should have), it will again bump it up to 0x38. Still not sure what’s up with the over-allocation of stack space in general (possibly just 0x10 alignment)…",
+"ja": ""
+}
+]
+}

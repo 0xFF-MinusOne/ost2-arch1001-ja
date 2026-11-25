@@ -1,0 +1,124 @@
+{
+"source": "04_CallASubroutine1/__Arch1001_04_CallASubroutine1_02_SingleStepping.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:30,880",
+"en": "so now for this first example only i want to give you sort of a slideware virtual debugging version of stepping through the assembly code and seeing what all changes so we're going to basically go through all of this code we're going to see what changes on the stack we're going to see what changes in the registers and so i have a particular key here that will apply to all these upcoming slides so this blue x or blue text will mean that that has been an assembly instruction which has just been executed",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:29,119",
+"end": "00:01:02,879",
+"en": "we haven't actually executed any of them yet red values for modified values as a result of a particular assembly instruction execution and green for the starting values before anything has actually happened here so let's assume that the rip is set for one four zero zero ten ten aka the start of main and no assembly instruction has been executed yet so what are the initial values that we see and we'll say has one i mean these values are taken from the debugger later on so that they completely correspond to",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:02,320",
+"end": "00:01:40,079",
+"en": "that but rax has one rsp is set to 14fe08 so somewhere up here on the stack and it has a particular value stored in it right now which is going to actually be the return address because we're saying we're on this line but we haven't actually executed it which means someone somewhere had to call main and when they call main a return address got placed onto the stack so that we can get back to whatever that code was that called main so rsp starts here all right now blue x we have executed sub rsp28",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:38,320",
+"end": "00:02:16,239",
+"en": "so that's going to take rsp current value minus 28 and store the value back into rsp so rsp was up here and now subtracts or goes down by hex 28 and we can see the corresponding change over here in the rsp register next assembly instruction call func and the particular address that funk is at is fourteen zero zero one one zero zero and so the side effect of the call assembly instruction we said is that a return address will get placed onto the stack so what is the return address one",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:12,959",
+"end": "00:02:47,840",
+"en": "four thousand ten nineteen one four thousand ten nineteen is the address of the assembly instruction after the call assembly instruction so call we'll jump to function and when function returns back it's going to not go back to the call because that would cause an infinite loop it's going to go back to the assembly instruction after the call so rsp moved down it was up here and then it moved down by eight because of this return address being pushed onto the stack value change there as well all right",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:46,239",
+"end": "00:03:23,680",
+"en": "next assembly instructions so you can see that the rip has moved up here to 14 00 0 1000 now when this assembly instruction is executed it's not going to do anything to the stack no changes there no changes here but it is going to change the value of eax or rax to hex beef now you can't tell in this particular example but we you saw that the assembly moved it to eax not rax and so in reality when you move a value to eax it's going to actually zero extend the value so basically it's going to fill in",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:22,159",
+"end": "00:03:56,000",
+"en": "the top 32 bits with zeros now previous versions of the class had you know just happened to have a nice rax value that showed that you were smashing the upper bits but this one it doesn't show so i just have to point it out to you and here's the section from the manual that says if you have a 32-bit operand uh it's going to zero extend into a 64-bit result in the general purpose register now one quick point i want to make this zero extension only applies when you're writing to registers",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:53,519",
+"end": "00:04:29,759",
+"en": "not to memory so if you move 32 bits into memory only 32 bits are going to change when you're moving this you know 32-bit operand the eax of a assembly instruction that's you know moving into a register then the code is then the hardware is going to behave as per the manual says and it's going to stick zeros into the upper 32 bits all right and then so just pausing here briefly we are having executed this assembly line we've put hex beef into eax rax and so what is the state of the",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:28,479",
+"end": "00:05:02,880",
+"en": "stack right now well we said that the beginning of the stack was this return address back to whatever function was executing before main so this is part of the frame of the function that executed before main and then we have main which had you know some undefined big chunk of allocation that it did this rsp28 so hex 28 worth of space right here and then when main called to funk it pushed a return address onto the stack so we consider those return addresses part of the calling functions frame",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:05:00,639",
+"end": "00:05:35,280",
+"en": "so caller was right here was the function before main so the return address is part of its frame the caller here is main and so the return address is part of mains frame but we actually never see func make use of its stack frame in any way because it's such a trivially simple function it just moves a value into eax or rax which is the return register by convention and then it's gonna return so basically there's never even a stack frame for function all right back to execution well return",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:34,240",
+"end": "00:06:07,120",
+"en": "is now going to execute and so it's going to pop the value off the top of the stack what was that value it was this address of the assembly instruction after call so it's going to pop that value into rip so that the next code is going to execute here rather than you know for instance just falling through to here and then we're going to consider that undefined because the popping automatically increments rsp by 8 and so now rsp is pointing right here next assembly instruction to execute is",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:06:05,759",
+"end": "00:06:40,160",
+"en": "the one at 14 000 1019 the move assembly instruction so you can see it doesn't even care what was returned in rax it's just going to immediately collaborate with 0xf00d instead no changes to the stack on this particular assembly instruction and then add rsp plus 28 so we saw subtract here and then it's balancing it out so rather than using a bunch of push push push push push pop pop pop it's just subtracting the stack pointer down and adding the stack pointer back up to balance it out",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:39,360",
+"end": "00:07:18,639",
+"en": "so that the next assembly instruction ret can pop the return address off the stack and go back to whichever function called main and that value was 14000 1349 and again automatically as part of that return is the increment of rsp plus 8. so a couple of notes about that call of subroutine one the first is that obviously func is basically dead code it returns a value that is never used and practically speaking if you had any sort of optimizations on the compiler would know that this thing",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:07:16,880",
+"end": "00:07:47,039",
+"en": "only ever returns hex food and it would just optimize it all out and throw it away but that's specifically why we turn off some of the compiler optimization so that we can show you simple assembly for simple c code also we don't really know why it did that sub rsp 28 and add rsp 28 didn't seem to have a lot of point to it you could imagine that for instance when it was right here it could have just not done that and then allowed main to you know push a return address here instead of like",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:46,400",
+"end": "00:08:17,919",
+"en": "jumping down jumping back up so we're going to consider that yet another mystery for our mystery listery and we'll come back to that later on after we've learned a little bit more about how function calling works okay and building up our simple stack diagram a little bit more this is the same assembly code as we showed before and so what is the first thing that's going to go on to the stack it's going to be the return address of the thing that invokes maine which happens to be called invoke main",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:08:14,639",
+"end": "00:08:49,680",
+"en": "push that onto the stack then main is going to have its own sort of notional frame and when main calls to foo it's going to have a return address pushed onto the stack when foo calls to bar it's going to have a return address pushed onto the stack and bar will have notionally a frame which will have some stuff stored in it that we don't know about yet so again this is the slightly more complex version now that we know about calling functions in C equals call ret assembly instructions we know that the",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:08:47,839",
+"end": "00:09:21,360",
+"en": "stack frames are going to have return addresses inside the stack frame of whichever function calls the next function okay so we relatively quickly just added five new assembly instructions and so boom boom boom oh move was a lot look at that look at all that well that's not bad like we already only a couple of modules in already know well over 50 of the assembly instructions that exist in web browsers so we are just chugging along at an incredible pace",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,647 @@
+{
+"source": "00_Intro/_Arch1001_00_Intro.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "About this class",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "When you’re “done” with this class…you’re not done.",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "You’ve just begun.",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "I want peers who can do what I can do, and ultimately exceed me",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Mastery requires spending significant time outside of class honing your skills",
+"ja": ""
+},
+{
+"i": 15,
+"where": "ノート3",
+"en": "Alright, before we start this class in earnest, I want to set the stage by way of my motivation for why I’m teaching this class. What it really comes down to is that I want peers who know what I know, can do what I can do, and can ultimately exceed me. I want more cool kids doing cool work that I can watch a presentation of and say “that’s cool!”",
+"ja": ""
+},
+{
+"i": 17,
+"where": "ノート3",
+"en": "But I’ve obviously got a bit of a head start on you if you’re going to exceed me, yes? Which is why you need to understand that while I want to help get you to my level ASAP, that’s not going to happen if you just watch this class and then call it a day. Mastery of these skills will require spending significant time outside of class honing your skills. Like, hundreds to thousands of hours. Obviously that’s why your best option is to get a job which lets you get paid to keep honing your skills. That’s how I got my thousands of hours in after all.",
+"ja": ""
+},
+{
+"i": 19,
+"where": "ノート3",
+"en": "So anyway, I just wanted you to know before you’re more than 1 slide into this class, that these videos are not the end, they’re just the beginning. I have high expectations of the students who start down our learning paths, and I hope that you’ll rise to meet them.",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド4",
+"en": "About the Class",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド4",
+"en": "The intent of this class is to expose you to the most commonly generated assembly instructions, and the most frequently dealt with architecture hardware.",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド4",
+"en": "64 bit instructions/hardware",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド4",
+"en": "Implementation of a Stack",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド4",
+"en": "Common debugging/disassembling tools",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド4",
+"en": "Many things will therefore be intentionally left out or deferred to later classes.",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド4",
+"en": "Floating point/vector instructions/hardware",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド4",
+"en": "16 bit instructions/hardware",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド4",
+"en": "Complicated or rare instructions",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド4",
+"en": "Instruction pipeline, alternate modes of operation, hardware virtualization, etc (see other classes for those)",
+"ja": ""
+},
+{
+"i": 30,
+"where": "ノート4",
+"en": "Alright, so what are we going to learn in this class? The main thing is that I want you to learn above the most common assembly, registers, how the stack works, and what kind of tools you need in order to keep learning after class.",
+"ja": ""
+},
+{
+"i": 31,
+"where": "ノート4",
+"en": "This means that I’m explicitly leaving out less common things like floating point instructions and registers, complicated and rare instructions, and many other things which will instead show up in more advanced classes.",
+"ja": ""
+},
+{
+"i": 32,
+"where": "スライド5",
+"en": "About the Class 2",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド5",
+"en": "The hope is that the material covered will be provide the required background to delve deeper into areas which may have seemed daunting previously.",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド5",
+"en": "Because I can’t anticipate the needs of all job classes, if there are specific areas which you think would be useful to certain job types, let me know. The focus areas are currently primarily influenced by my security background, but I would like to make the class as widely applicable as possible.",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド6",
+"en": "Optional Book (64 bit)",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド6",
+"en": "“Introduction to 64 Bit Assembly Programming for Linux and OS X: Third Edition” by Ray Seyfarth",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド6",
+"en": "Optional book for the class, to give you alternative explanations to my own",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド6",
+"en": "When you see “Book” page references in the bottom of slides, it is referring to this book.",
+"ja": ""
+},
+{
+"i": 39,
+"where": "ノート6",
+"en": "FYI there’s an optional book for the class. There’s no strong need for it, in that you can always just google around if something’s not clear to you, but I wanted there to be a consistent single-author alternative explanation to mine, incase you wanted it.",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド7",
+"en": "Miss Alaineous",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド7",
+"en": "It’s called x86 because of the progression of Intel chips from 8086, 80186, 80286, etc.",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド7",
+"en": "Originally 16-bit architecture. Later evolved to 32 and 64-bit, but kept the backwards compatibility. The hardware actually starts up in 16 bit before software transitions it to 32 or 64 bit operation.",
+"ja": ""
+},
+{
+"i": 43,
+"where": "ノート7",
+"en": "OK, a few quick miscellaneous points:",
+"ja": ""
+},
+{
+"i": 44,
+"where": "ノート7",
+"en": "The name x86 comes from the fact that Intel’s first chip to use this instruction set had a model number of 8086. Then they came out with the 80186, 80286 and so forth.",
+"ja": ""
+},
+{
+"i": 45,
+"where": "ノート7",
+"en": "The 8086 was a 16-bit architecture, which means it had 16-bit registers, a 16-bit memory space, etc. Later on when Intel expanded it to 32 bit and then later 64 bit, they always kept the backwards compatibility. So in reality when most hardware first powers on, it is actually running in 16 bit mode. Which we’ll talk about more in a future advanced architecture class.",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド8",
+"en": "Miss Alaineous 2",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド8",
+"en": "Intel originally wanted to break from x86 when moving to 64 bit. This was IA64 (Intel Architecture 64 bit) aka Itanium. However, AMD decided to extend x86 to 64 bits itself, leading to the AMD64 architecture. When Itanium had very slow adoption, Intel decided to bite the bullet and license the 64 bit extensions from AMD.",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド8",
+"en": "In the Intel manuals you will see the 64 bit extensions referred to as IA32e or EMT64 or Intel 64 (but never IA64. Again, that's Itanium, a completely different architecture).",
+"ja": ""
+},
+{
+"i": 49,
+"where": "ノート8",
+"en": "Now when Intel originally was going to move from 32 bit to 64 bit, they were actually going to make a whole new architecture with all new instructions. This was known as Itanium, or IA64. But in parallel AMD decided to just extend 32 bit x86 to 64 bits in a fairly straightforward way. In the end Itanium didn’t really get widespread adoption, and Intel was forced to backpedal and license the 64 bit extensions from AMD.",
+"ja": ""
+},
+{
+"i": 50,
+"where": "ノート8",
+"en": "In the Intel manuals this has a bunch of different names like IA32e, EMT64, and Intel 64.",
+"ja": ""
+},
+{
+"i": 51,
+"where": "スライド9",
+"en": "Miss Alaineous 3",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド9",
+"en": "You might sometimes see it called amd64 or x64 by MS or some linux distributions",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド9",
+"en": "In this class we're going to go with x86-64",
+"ja": ""
+},
+{
+"i": 54,
+"where": "ノート9",
+"en": "Other names you might seen in Linux distributions or from Microsoft are amd64 or x64. But in this class we’re going to call it x86-64.",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド10",
+"en": "Where is x86-64 used?",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド10",
+"en": "More powerful (but thus power-hungry) systems such as PCs, servers, and even super-computers",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド10",
+"en": "Minimal adoption on phones or embedded systems. Intel does have the entire Atom line of lower-power chips targeted towards embedded systems though (and they’re starting to focus more on performance per Watt, which is where ARM has always been better)",
+"ja": ""
+},
+{
+"i": 58,
+"where": "ノート10",
+"en": "So where is x86-64 used? Well you probably know that it’s mostly used in applications which need high computational power, such as PCs, servers, and even super-computers. With very high probability, the machine you’re watching this class on is an x86-64 machine. But the ARM-based systems, like Microsoft Surface or Apple’s M1 Macs - which I helped design the SecureBoot system for - are coming to give Intel a run for it’s money in the PC space.",
+"ja": ""
+},
+{
+"i": 60,
+"where": "ノート10",
+"en": "Intel has some chips which are more focused on power-constrained devices, like embedded systems, but they make up a tiny fraction of Intel’s chip volume.",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド11",
+"en": "What you’re going to learn:",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド11",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 67,
+"where": "ノート11",
+"en": "So what are you going to learn in this class? Well, we’re going to be learning assembly by looking at simple C programs and seeing how the compiler outputs the equivalent assembly. So for instance you’ll learn that this simple Hello World program…",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド12",
+"en": "Is the same as…",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド12",
+"en": "Windows Visual Studio 2019 Community",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド12",
+"en": "Disassembled with Visual C++",
+"ja": ""
+},
+{
+"i": 78,
+"where": "ノート12",
+"en": "Is the same as this assembly when compiled from within Windows Visual Studio, and disassembled from within Visual Studio.",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド13",
+"en": "which could be viewed as…",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド13",
+"en": "Windows Visual Studio 2019 Community",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド13",
+"en": "Disassembled with Ghidra 9.2",
+"ja": ""
+},
+{
+"i": 93,
+"where": "ノート13",
+"en": "Which could look like this, if you happened to disassemble the same program with a different disassembler like Ghidra.",
+"ja": ""
+},
+{
+"i": 95,
+"where": "スライド14",
+"en": "1149:\tf3 0f 1e fa          \tendbr64",
+"ja": ""
+},
+{
+"i": 99,
+"where": "スライド14",
+"en": "1158:\te8 f3 fe ff ff       \tcallq  1050 <puts@plt>",
+"ja": ""
+},
+{
+"i": 105,
+"where": "スライド14",
+"en": "116e:\t66 90                \txchg   %ax,%ax",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド14",
+"en": "which is equivalent to…",
+"ja": ""
+},
+{
+"i": 107,
+"where": "スライド14",
+"en": "Ubuntu 20.04, GCC 9.3.0",
+"ja": ""
+},
+{
+"i": 108,
+"where": "スライド14",
+"en": "Disassembled with “objdump -d”",
+"ja": ""
+},
+{
+"i": 109,
+"where": "ノート14",
+"en": "We’ll also learn that the same Hello World can look different when compiled by a different compiler like GCC on Ubuntu Linux.",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド15",
+"en": "which is equivalent to…",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド15",
+"en": "0000000100003f5f\tleaq\t0x38(%rip), %rdi        ## literal pool for: \"Hello World!\\n\"",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド15",
+"en": "0000000100003f68\tcallq\t0x100003f7e ## symbol stub for: _printf",
+"ja": ""
+},
+{
+"i": 124,
+"where": "スライド15",
+"en": "0000000100003f7c\tretq",
+"ja": ""
+},
+{
+"i": 126,
+"where": "スライド15",
+"en": "Disassembled from command line with “otool -tV”",
+"ja": ""
+},
+{
+"i": 127,
+"where": "ノート15",
+"en": "Or when compiled by Clang on macOS 11.",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド16",
+"en": "But it all boils down to…",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド16",
+"en": ".text:000000014000100B call    printf",
+"ja": ""
+},
+{
+"i": 135,
+"where": "スライド16",
+"en": "Windows Visual Studio 2019 Community, /GS option turned off",
+"ja": ""
+},
+{
+"i": 136,
+"where": "スライド16",
+"en": "Disassembled with IDA Freeware 7 (with some omissions for fitting on screen)",
+"ja": ""
+},
+{
+"i": 137,
+"where": "ノート16",
+"en": "But at the end of the day the simplest version remains this 6-instruction version, here shown disassembled by yet another disassembler, IDA. We can see the basic outline of what’s going on here. We see something referencing the string “Hello World”, we see a call to the printf() function. And we see the number hex 1234 which is what this version of Hello World returned at the end. The rest of the assembly, well we’ve got no idea yet what’s going on there.",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド17",
+"en": "Take Heart!",
+"ja": ""
+},
+{
+"i": 139,
+"where": "スライド17",
+"en": "By one measure, only 14 assembly instructions account for 90% of code!",
+"ja": ""
+},
+{
+"i": 141,
+"where": "スライド17",
+"en": "You’ve already seen 10 common instructions, just in the hello world variations! (And 2 special security instructions we’ll talk about later.)",
+"ja": ""
+},
+{
+"i": 142,
+"where": "スライド17",
+"en": "I think that knowing about 20-30 (not counting variations) is good enough that you will have the check the manual very infrequently",
+"ja": ""
+},
+{
+"i": 143,
+"where": "ノート17",
+"en": "But take heart! By one measure, only 14 assembly instructions account for 90% of code! And you’ve already seen 10 common instructions just in the different versions of Hello World that different compilers generate!",
+"ja": ""
+},
+{
+"i": 145,
+"where": "ノート17",
+"en": "My personal experience is that if you know about 30 instructions, you will be able to read most code, and only need to hit up the manual very infrequently.",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド18",
+"en": "Take Heart!",
+"ja": ""
+},
+{
+"i": 147,
+"where": "スライド18",
+"en": "Check out this newer reference!",
+"ja": ""
+},
+{
+"i": 149,
+"where": "ノート18",
+"en": "And since that BlackHat reference from 2006 might seem like it’s getting a bit stale, here’s a newer reference from 2011 which also showed that you really don’t need to know that many instructions to know most of the code used in common application types!",
+"ja": ""
+},
+{
+"i": 151,
+"where": "ノート18",
+"en": "For instance, we will see literally every assembly instruction, and more, which is cited in this frequency breakdown of a web browser’s instructions!",
+"ja": ""
+},
+{
+"i": 152,
+"where": "スライド19",
+"en": "Outcomes",
+"ja": ""
+},
+{
+"i": 153,
+"where": "スライド19",
+"en": "By the end of this class you should…",
+"ja": ""
+},
+{
+"i": 154,
+"where": "スライド19",
+"en": "Know the x86-64 general purpose registers, and their 32 and 16 bit sub-register names",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド19",
+"en": "Understand how data like local variables or return addresses are stored on the stack",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド19",
+"en": "Understand function calling conventions",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド19",
+"en": "Be comfortable writing C code in an IDE (like Visual Studio) and reading and stepping through the disassembly (so you can find new instructions)",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド19",
+"en": "Be able to read assembly well enough to determine the expected inputs to influence the control flow for an opaque binary (the infamous “Binary Bomb lab”)",
+"ja": ""
+},
+{
+"i": 159,
+"where": "ノート19",
+"en": "Alright, so what’s the final outcome going to be from this class?",
+"ja": ""
+},
+{
+"i": 160,
+"where": "ノート19",
+"en": "By the end I expect that you should know all the x86-64 general purpose registers, and the older 32 and 16 bit register names, which can still be accessed by 64 bit code.",
+"ja": ""
+},
+{
+"i": 161,
+"where": "ノート19",
+"en": "<just read the rest of the slide>",
+"ja": ""
+},
+{
+"i": 163,
+"where": "ノート19",
+"en": "Alright, well I think that’s quite enough of my face for now. I’m going to go ahead and disappear from a good chunk of the future videos, because <lean towards camera> it’s very annoying to have to keep talking into the camera, making virtual eye contact, while not looking down at my slides. But don’t worry, I’ll *pop* back in from time to time when I want to use my phase for *emphasis* <make funny face> ;)",
+"ja": ""
+}
+]
+}

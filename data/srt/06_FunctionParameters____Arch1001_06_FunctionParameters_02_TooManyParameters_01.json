@@ -1,0 +1,12 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_02_TooManyParameters_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:17,920",
+"en": "so now we're going to look at the so-called too manyparameters.c too many parameters for who and for what i don't know you tell me go ahead and step through the assembly and draw a stack diagram and we will see a very interesting pattern emerge",
+"ja": ""
+}
+]
+}

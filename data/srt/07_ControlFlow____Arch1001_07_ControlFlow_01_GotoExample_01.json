@@ -1,0 +1,89 @@
+{
+"source": "07_ControlFlow/__Arch1001_07_ControlFlow_01_GotoExample_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,004",
+"end": "00:00:22,006",
+"en": "Now it's time to talk about control flow, of which there are two forms Conditional control flow where you go somewhere if the condition is met Which is, for instance, if statements or if else's also switches and loops where it decides whether it's going to continue in the loop or exit the loop based on some condition There's also unconditional control flow where it always goes somewhere no matter what This is,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:22,006",
+"end": "00:00:48,057",
+"en": "for instance, function calls like we saw before and the goto statement in C or exceptions and interrupts, which are not going to be things that we're going to cover in this class But we will cover in a future class So we've already seen that function Calls for unconditional control flow turn into call/ret instructions So let's go ahead and see how goto manifests Here's our goto example You can see it's very simple Basically,",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:48,057",
+"end": "00:01:01,001",
+"en": "you get into main() and it immediately goes to mylabel and it prints out, goto for the win So clearly the skipped portion is never, ever going to be executed And what does that look like in the assembly?",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:01,016",
+"end": "00:01:15,038",
+"en": "Well, that introduces a new assembly instruction jump, which will learn about next jump, will unconditionally change the rip The instruction pointer to a given address And how do you specify the given address?",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:15,038",
+"end": "00:01:40,029",
+"en": "Well, there's multiple ways There is a short relative addressing form where rip is going to be rip of the next instruction So it's not math based on the current instruction are happy, but instead the next instruction or the location After this instruction, rip equals the next instruction, plus one bite sign extended 64 bit displacement So this basically just means one bite,",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:01:40,003",
+"end": "00:01:58,024",
+"en": "which can be positive or negative, and it's going to be signed extended When you're doing the actual math on the 64 bit register The most common place where you'll see a short relative jump would be, for instance, small loops where it's just going to be jumping a small amount of assembly instructions backwards We're not going to see it in visual studio,",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:01:58,024",
+"end": "00:02:28,045",
+"en": "but some disassemblers will indicate in the mnemonic Instead of just saying jump, they'll say, jump short, jump far, jump near Whatever the different form of it is also FYI since this jump short can be generated with a very small number of bytes If you actually say jump negative, 2, because the jump negative two instruction is two bytes long because the displacement is relative to the next instruction jump Negative two will just infinite loop continuously jumping back to itself",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:02:29,004",
+"end": "00:02:48,044",
+"en": "We'll talk about this more later when we actually show the bytes that encode assembly instructions But even though you'll see in Visual Studio Jump and then some really long 64 bit address, the reality is this Assembly instruction is not encoded with that 64 bit address baked into it Instead, it's actually saying two bytes,",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:02:48,045",
+"end": "00:03:07,095",
+"en": "one byte to say I'm a jump and one byte to say and I want to jump 0xC bytes forward from the next instruction address Another way That given address for a jump can be specified is the far absolute indirect form But we're going to completely skip this That's much better covered in a future class because it depends on things like segment registers,",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:03:07,095",
+"end": "00:03:25,067",
+"en": "which we don't know about instead behind the scenes, these are going to be the common forms that are used for jump: jump near relative So instead of short relative, it's near relative, and the difference is It's a four byte displacement instead of one byte, so you can obviously jump much further It's again a signed a displacement,",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:03:25,068",
+"end": "00:03:47,044",
+"en": "and it's signed extended because you're doing math on a 64 bit register So basically you can jump two billion bytes forward two billion bytes backwards And then there's the near absolute indirect form In this case, it will have a r/m64 64 r/mX form, which is going to basically say it could jump to a specific address in register It could go pluck,",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:03:47,045",
+"end": "00:04:03,016",
+"en": "address out of memory based on an r/mX form And either way, that's how you're going to get the address of where it should be jumping to next So now you can go ahead and stop and walk through the assembly and make sure that you get that the jump is just jumping to where it's told to jump",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,119 @@
+{
+"source": "04_CallASubroutine1/_Arch1001_04_CallASubroutine1_2_in_VS.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "CallASubroutine1.c in VS",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Let’s do that in a tool",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Visual Studio 2019 Community edition (which I will shorthand as “VisualStudio” or VS)",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Standard Windows development environment",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Available for free, but missing some features that pro developers might want",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "Keep in mind you can’t move community-edition-compiled applications to other systems and get them to run without first installing the “redistributable libraries”",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド4",
+"en": "CallASubroutine1.c takeaways",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド4",
+"en": "In VS (when optimization is turned off), there is an over-allocation of stack space as a result of calling a function",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド4",
+"en": "0x28 reserved with no apparent storage of data on the stack",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド4",
+"en": "But we added it to the Mystery Listery",
+"ja": ""
+}
+]
+}

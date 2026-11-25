@@ -1,0 +1,47 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_05_32bitCallingConventions_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,320",
+"end": "00:00:33,200",
+"en": "so now let's learn about 32-bit stack calling conventions again both because I want you to know 64-bit and 32-bit code after you take this class but also because it'll help exemplify one of the differences between the microsoft and the System V calling conventions and stack usage and 64-bit systems so in 32-bit systems there were many more calling conventions in use you can go see the wikipedia page on calling conventions to see many of them and they all had a variety of names things like cdecl",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,560",
+"end": "00:01:01,039",
+"en": "or C declaration which is the default used by most C code and in the 64-bit calling conventions I said that it's common that you know the callers and callees are responsible for sort of cleaning up the stack there's an interesting difference here in that cdecl is just always the caller cleans up the stack so if you push some parameters onto the stack you are also responsible for cleaning them up microsoft on windows 32 APIs used a different calling convention called standard call which was not the",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:59,680",
+"end": "00:01:34,000",
+"en": "standard at all standard call not the standard at all yeah that rhymes it must be true and in that calling convention if the caller pushed a bunch of arguments onto the stack then the callee inside the Win32 API was actually responsible for cleaning up the stack way back when we were learning about the call and return assembly instructions I said that return actually has another form where it can pop something off of the stack into rip but can also add to the stack that is the place Win32 APIs calling",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:32,240",
+"end": "00:02:05,159",
+"en": "convention using standard call that is the place that you are most likely to find that particular form of the ret instruction and as I already alluded to function parameters are pushed onto the stack from right to left pushed right to left so that ultimately when you look at the stack from bottom to top you see the bottom one is the leftmost and the rightmost one is on the top higher address so what I need you to do is go see for yourself how this 32-bit calling convention looks",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:02,960",
+"end": "00:02:37,599",
+"en": "to do that i recommend you take TooManyParameters.c go and change all those uint64s in there to ints you don't have to it's just going to make it a little bit cleaner but feel free to try it both ways change all these function parameters to ints and then go up to here in your visual studio pull it down and set it to win32 instead of x64 this will cause it to compile as 32-bit code start the debugger make sure that you set your memory window for esp and auto refresh instead of rsp",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:36,080",
+"end": "00:03:00,239",
+"en": "otherwise it'll give you an error and set it to 4 byte size because in 32 bit code pointers are 4 bytes and then yeah just go ahead and step through the assembly and draw a stack diagram as usual probably want to use 4 byte sizes instead of 8 byte sizes because we're dealing with 32-bit code",
+"ja": ""
+}
+]
+}

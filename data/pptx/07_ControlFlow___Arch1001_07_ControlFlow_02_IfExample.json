@@ -1,0 +1,701 @@
+{
+"source": "07_ControlFlow/_Arch1001_07_ControlFlow_02_IfExample.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "IfExample.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "IfExample.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "int a = -1, b = 2;",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "if(a == b){",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "if(a > b){",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド3",
+"en": "if(a < b){",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド3",
+"en": "000000014000101A  jne  0000000140001023",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド3",
+"en": "000000014000102A  jle  0000000140001033",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド3",
+"en": "000000014000103A  jge  0000000140001043",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド3",
+"en": "Jcc",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド4",
+"en": "Ghost of Xmas Future:",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド4",
+"en": "Tools you won’t get to use today",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド4",
+"en": "generate a Control Flow Graph (CFG)",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド4",
+"en": "which looks much nicer.",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド4",
+"en": "Not that that helps you. Just sayin’ :)",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド5",
+"en": "Jcc - Jump If Condition Is Met",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド5",
+"en": "If a condition is true, the jump is taken. Otherwise it proceeds to the next instruction",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド5",
+"en": "There are more than 4 pages of conditional jump types! Luckily a bunch of them are synonyms for each other.",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド5",
+"en": "JNE == JNZ (Jump if not equal, Jump if not zero, both check if the Zero Flag (ZF) == 0)",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド5",
+"en": "Book page 93",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド6",
+"en": "Jcc - Jump If Condition Is Met",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド6",
+"en": "If a condition is true, the jump is taken. Otherwise it proceeds to the next instruction",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド6",
+"en": "There are more than 4 pages of conditional jump types! Luckily a bunch of them are synonyms for each other.",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド6",
+"en": "JNE == JNZ (Jump if not equal, Jump if not zero, both check if the Zero Flag (ZF) == 0)",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド6",
+"en": "Book page 93",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド7",
+"en": "Architecture - RFLAGS",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド7",
+"en": "Intel Vol 1 Sec 3.4.3.4 - page 3-18 - Jan 2020 manuals",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド7",
+"en": "“In 64-bit mode, EFLAGS is extended to 64 bits and called RFLAGS. The upper 32 bits of RFLAGS register is reserved. The lower 32 bits of RFLAGS is the same as EFLAGS.”",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド8",
+"en": "Architecture - RFLAGS",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド8",
+"en": "RFLAGS register holds many single bit flags. Will only ask you to remember the following for now:",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド8",
+"en": "Zero Flag (ZF) - Set if the result of some instruction is zero; cleared otherwise.",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド8",
+"en": "Sign Flag (SF) - Set equal to the most-significant bit of the result, which is the sign bit of a signed integer. (0 indicates a positive value and 1 indicates a negative value.)",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド8",
+"en": "Other flags will be optional material",
+"ja": ""
+},
+{
+"i": 88,
+"where": "スライド10",
+"en": "This Class",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド11",
+"en": "This Class",
+"ja": ""
+},
+{
+"i": 106,
+"where": "スライド11",
+"en": "Future Class",
+"ja": ""
+},
+{
+"i": 117,
+"where": "スライド11",
+"en": "IF",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド12",
+"en": "Intel Vol 1 Sec 3.4.3.1 - page 3-21 - May 2012 manuals",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド14",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 1",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド14",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド15",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 2",
+"ja": ""
+},
+{
+"i": 165,
+"where": "スライド15",
+"en": "(note: we didn’t previously have low-byte access to *SP, *BP, *SI, or *DI!)",
+"ja": ""
+},
+{
+"i": 166,
+"where": "スライド15",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 167,
+"where": "スライド16",
+"en": "Architecture - Registers – 8/16/32/64 bit addressing 3",
+"ja": ""
+},
+{
+"i": 168,
+"where": "スライド16",
+"en": "http://www.sandpile.org/x86/gpr.htm",
+"ja": ""
+},
+{
+"i": 169,
+"where": "ノート16",
+"en": "note to scornwell: maybe a simple game here like:",
+"ja": ""
+},
+{
+"i": 170,
+"where": "ノート16",
+"en": "“DIL is the 8 least-significant-bit access for which 64 bit register?” (RDI)",
+"ja": ""
+},
+{
+"i": 171,
+"where": "ノート16",
+"en": "“What is the word-sized access register for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 172,
+"where": "ノート16",
+"en": "“What is the 16 bit access for R14 called?” (R14W)",
+"ja": ""
+},
+{
+"i": 173,
+"where": "スライド17",
+"en": "Some Notable Jcc Instructions",
+"ja": ""
+},
+{
+"i": 174,
+"where": "スライド17",
+"en": "JZ/JE: if ZF == 1",
+"ja": ""
+},
+{
+"i": 175,
+"where": "スライド17",
+"en": "JNZ/JNE: if ZF == 0",
+"ja": ""
+},
+{
+"i": 176,
+"where": "スライド17",
+"en": "JLE/JNG : if ZF == 1 or SF != OF",
+"ja": ""
+},
+{
+"i": 177,
+"where": "スライド17",
+"en": "JGE/JNL : if SF == OF",
+"ja": ""
+},
+{
+"i": 178,
+"where": "スライド17",
+"en": "JBE/JNA: if CF == 1 OR ZF == 1",
+"ja": ""
+},
+{
+"i": 179,
+"where": "スライド17",
+"en": "JB: if CF == 1",
+"ja": ""
+},
+{
+"i": 180,
+"where": "スライド17",
+"en": "Note: Don’t get hung up on memorizing which flags are set for what. More often than not, you will be running code in a debugger, not just reading it. In the debugger you can just look at RFLAGS and/or watch whether it takes a jump.",
+"ja": ""
+},
+{
+"i": 181,
+"where": "スライド18",
+"en": "Some Notable Jcc Instructions 2",
+"ja": ""
+},
+{
+"i": 182,
+"where": "スライド18",
+"en": "Mnemonic translations",
+"ja": ""
+},
+{
+"i": 183,
+"where": "スライド18",
+"en": "A = above, unsigned notion",
+"ja": ""
+},
+{
+"i": 184,
+"where": "スライド18",
+"en": "B = below, unsigned notion",
+"ja": ""
+},
+{
+"i": 185,
+"where": "スライド18",
+"en": "G = greater than, signed notion",
+"ja": ""
+},
+{
+"i": 186,
+"where": "スライド18",
+"en": "L = less than, signed notion",
+"ja": ""
+},
+{
+"i": 187,
+"where": "スライド18",
+"en": "E = Equal (same a Z, zero flag set)",
+"ja": ""
+},
+{
+"i": 188,
+"where": "スライド18",
+"en": "N = Not (like “Not less than:” JNL)",
+"ja": ""
+},
+{
+"i": 189,
+"where": "スライド19",
+"en": "Mnemonic translations",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド19",
+"en": "B = below, unsigned notion",
+"ja": ""
+},
+{
+"i": 191,
+"where": "スライド19",
+"en": "A = above, unsigned notion",
+"ja": ""
+},
+{
+"i": 192,
+"where": "スライド19",
+"en": "N = Not (like “Not less than:” JNL)",
+"ja": ""
+},
+{
+"i": 193,
+"where": "スライド19",
+"en": "G = greater than, signed notion",
+"ja": ""
+},
+{
+"i": 194,
+"where": "スライド19",
+"en": "L = less than, signed notion",
+"ja": ""
+},
+{
+"i": 195,
+"where": "スライド19",
+"en": "E = Equal (same a Z, zero flag set)",
+"ja": ""
+},
+{
+"i": 196,
+"where": "スライド19",
+"en": "Final Fantasy 7",
+"ja": ""
+},
+{
+"i": 197,
+"where": "スライド19",
+"en": "Crystal Bangle",
+"ja": ""
+},
+{
+"i": 198,
+"where": "スライド19",
+"en": "Unlocked!",
+"ja": ""
+},
+{
+"i": 199,
+"where": "スライド19",
+"en": "Some Notable Jcc Instructions 3",
+"ja": ""
+},
+{
+"i": 200,
+"where": "スライド20",
+"en": "Flag Setting",
+"ja": ""
+},
+{
+"i": 201,
+"where": "スライド20",
+"en": "Before you can do a conditional jump, you need something to set the condition status flags for you",
+"ja": ""
+},
+{
+"i": 202,
+"where": "スライド20",
+"en": "Typically done with CMP, TEST, or whatever instructions are already inline and happen to have flag-setting side-effects",
+"ja": ""
+},
+{
+"i": 204,
+"where": "スライド21",
+"en": "“The comparison is performed by subtracting the second operand from the first operand and then setting the status flags in the same manner as the SUB instruction.”",
+"ja": ""
+},
+{
+"i": 205,
+"where": "スライド21",
+"en": "What’s the difference from just doing SUB? Difference is that with SUB the result has to be stored somewhere. With CMP the result is computed, the flags are set, but the result is discarded",
+"ja": ""
+},
+{
+"i": 206,
+"where": "スライド21",
+"en": "Modifies CF, OF, SF, ZF, AF, and PF",
+"ja": ""
+},
+{
+"i": 207,
+"where": "スライド21",
+"en": "Book page 93",
+"ja": ""
+},
+{
+"i": 210,
+"where": "スライド22",
+"en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
+"ja": ""
+},
+{
+"i": 229,
+"where": "スライド23",
+"en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
+"ja": ""
+},
+{
+"i": 251,
+"where": "スライド24",
+"en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
+"ja": ""
+},
+{
+"i": 264,
+"where": "スライド25",
+"en": "Xeno’s Guide to (Mostly) Not Caring About Specific Flags",
+"ja": ""
+},
+{
+"i": 267,
+"where": "スライド25",
+"en": "Is \"[rsp+4] != eax\"?",
+"ja": ""
+},
+{
+"i": 271,
+"where": "スライド25",
+"en": "Is \"[rsp+4] <= eax\"?",
+"ja": ""
+},
+{
+"i": 272,
+"where": "スライド25",
+"en": "(Signed, because “less”, not “below”)",
+"ja": ""
+},
+{
+"i": 276,
+"where": "スライド25",
+"en": "Is \"[rsp+4] >= eax\"?",
+"ja": ""
+},
+{
+"i": 277,
+"where": "スライド25",
+"en": "(Unsigned, because “above”, not “greater”)",
+"ja": ""
+},
+{
+"i": 278,
+"where": "スライド25",
+"en": "Warning: Operands are backwards in AT&T syntax, so you can’t just drop the operation in-between the operands!",
+"ja": ""
+},
+{
+"i": 283,
+"where": "スライド26",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 285,
+"where": "スライド26",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 287,
+"where": "スライド27",
+"en": "IfExample.c Takeaways",
+"ja": ""
+},
+{
+"i": 288,
+"where": "スライド27",
+"en": "Conditional logic, like if statements, manifests in assembly as conditional jumps (Jcc). “If condition true, jump there, else fall through”",
+"ja": ""
+},
+{
+"i": 289,
+"where": "スライド27",
+"en": "Conditions involving in/equality are often checked with a CMP instruction, which is the same thing as a SUB, but it just throws the results away after the relevant RFLAGS bits are set",
+"ja": ""
+},
+{
+"i": 290,
+"where": "スライド27",
+"en": "The RFLAGS bits are fundamentally what are checked by the Jccs",
+"ja": ""
+},
+{
+"i": 297,
+"where": "スライド27",
+"en": "000000014000101A  jne  0000000140001023",
+"ja": ""
+},
+{
+"i": 302,
+"where": "スライド27",
+"en": "000000014000102A  jle  0000000140001033",
+"ja": ""
+},
+{
+"i": 307,
+"where": "スライド27",
+"en": "000000014000103A  jge  0000000140001043",
+"ja": ""
+},
+{
+"i": 314,
+"where": "スライド27",
+"en": "int a = -1, b = 2;",
+"ja": ""
+},
+{
+"i": 315,
+"where": "スライド27",
+"en": "if(a == b){",
+"ja": ""
+},
+{
+"i": 318,
+"where": "スライド27",
+"en": "if(a > b){",
+"ja": ""
+},
+{
+"i": 321,
+"where": "スライド27",
+"en": "if(a < b){",
+"ja": ""
+},
+{
+"i": 326,
+"where": "スライド28",
+"en": "Instructions we now know (15)",
+"ja": ""
+}
+]
+}

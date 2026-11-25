@@ -1,0 +1,33 @@
+{
+"source": "15_WritingAsm/__Arch1001_15_WritingAsm_02_VS_03.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:30,000",
+"en": "now I've got a little bit of a challenge for you I want you to read the fun manual and write the fun instructions so I want you to use the visual studio masm assembly syntax the db followed by the bytes to emit and I want you to create this assembly sequence using only bytes don't write this in assembly and then you know look at the raw bytes I want you to look at the mov assembly instruction in the manual and figure out how you would emit this assembly instruction I want you to look",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:28,560",
+"end": "00:01:04,400",
+"en": "at the sahf assembly instruction which we haven't even covered in class but you now know how to read the fun manual so go read the fun manual find out what it is figure out what bytes you need to emit to do that this one's then going to be a little bit tricky so we've got jump if zero zero flag is set and it's going to jump to my label and so go look at what the manual says about the jump zero assembly instruction and how it formats the target where it's going to jump to and figure out what that target would be",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:01,920",
+"end": "00:01:30,240",
+"en": "based on what this assembly instruction is encoded as so in order to do this you're probably going to first have to figure out what this is how many bytes that is so that you understand how many bytes you're going to have to jump forward and then cap it all off with a return assembly instruction all right so again don't write the assembly in human readable form I want you to just write a whole bunch of bytes in order to create this assembly sequence when you do that you can set breakpoints",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:28,720",
+"end": "00:01:42,640",
+"en": "in your assembly file and then you can just go ahead and compile it run it and look at the disassembly you can see whether or not the disassembler thinks the bytes you put in correspond to what you were trying to actually put in",
+"ja": ""
+}
+]
+}

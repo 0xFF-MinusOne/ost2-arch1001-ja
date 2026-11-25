@@ -1,0 +1,26 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_02_ThereWillBe0xb100d_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:28,560",
+"en": "We now enter the more cinematic portion of this class as OST presents Daniel Day-Lewis in there will be hex blood! So here is the source code of interest. Like the previous example we have a buffer, it's not zero initialized and we simply move 42 into the last element of the buffer and we return 0xb100d. But this generates some very interesting looking assembly,",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:25,359",
+"end": "00:00:31,279",
+"en": "this assembly has a rep stos. Why is that?",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:28,960",
+"end": "00:00:53,440",
+"en": "What's going on? Well the easy way to find out would be to stop, step through the assembly and draw a stack diagram. Perhaps you'll be able to infer what's going on with this code. Perhaps you want to change the source code a little bit in order to make sure you fully understand what's going on on the stack either way now's the time to seize the day",
+"ja": ""
+}
+]
+}

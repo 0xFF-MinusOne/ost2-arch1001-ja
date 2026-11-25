@@ -1,0 +1,203 @@
+{
+"source": "11_RepStos/_Arch1001_11_RepStos_02_ThereWillBe0xb100d.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ThereWillBe0xb100d.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド4",
+"en": "ThereWillBe0xb100d.c",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド5",
+"en": "000000014000102A  imul        rax,rax,27h",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド5",
+"en": "000000014000103A  mov         rcx,rsp",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド5",
+"en": "000000014000103D  lea         rdx,[__xi_z+1A0h (0140006910h)]",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド5",
+"en": "ThereWillBe0xb100d.c",
+"ja": ""
+},
+{
+"i": 63,
+"where": "スライド6",
+"en": "Set rdi - the destination",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド6",
+"en": "Set ecx - the count",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド6",
+"en": "Set eax - the value",
+"ja": ""
+},
+{
+"i": 72,
+"where": "スライド6",
+"en": "Start the repeated store",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド6",
+"en": "So what’s this going to do? Store 0x18 copies of the dword 0xCCCCCCCC starting at rsp",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド6",
+"en": "And that just happens to be 0x60 bytes of 0xCC, the entire \"sub rsp, 0x60\"-reserved stack space!",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド7",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド7",
+"en": "DRAW A STACK DIAGRAM",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド8",
+"en": "ThereWillBe0xb100d.c",
+"ja": ""
+},
+{
+"i": 91,
+"where": "スライド8",
+"en": "Try writing outside the",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド8",
+"en": "bounds of the buffer",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド9",
+"en": "RUN THE CODE",
+"ja": ""
+},
+{
+"i": 98,
+"where": "スライド9",
+"en": "SEE WHAT HAPPENS",
+"ja": ""
+},
+{
+"i": 100,
+"where": "スライド10",
+"en": "Q: Where does the rep stos come from in this example?",
+"ja": ""
+},
+{
+"i": 101,
+"where": "スライド10",
+"en": "A: Compiler-auto-generated code. From the stack frames runtime check option. This is enabled by default in the debug build. Disabling this option removes the compiler-generated code.",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド11",
+"en": "More straightforward without the runtime check",
+"ja": ""
+},
+{
+"i": 110,
+"where": "スライド11",
+"en": "000000014000102A  ret",
+"ja": ""
+},
+{
+"i": 111,
+"where": "ノート11",
+"en": "But still not entirely clear :)",
+"ja": ""
+}
+]
+}

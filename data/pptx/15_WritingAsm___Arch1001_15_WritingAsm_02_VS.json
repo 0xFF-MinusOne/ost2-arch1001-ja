@@ -1,0 +1,263 @@
+{
+"source": "15_WritingAsm/_Arch1001_15_WritingAsm_02_VS.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Writing Assembly: GCC",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "A subset of assembly instructions can be inserted into C code by using VS compiler intrinsics",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "These look like C functions calls, but the compiler substitutes them with literal assembly instructions",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "Examples:",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "Many more (mostly relevant to Arch2001):",
+"ja": ""
+},
+{
+"i": 18,
+"where": "スライド3",
+"en": "http://msdn.microsoft.com/en-us/library/hh977022.aspx",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド3",
+"en": "VisualStudio Intrinsics",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド4",
+"en": "VisualStudio Assembly",
+"ja": ""
+},
+{
+"i": 21,
+"where": "スライド4",
+"en": "Visual Studio supports inline assembler for 32-bit code, but not x86-64",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド4",
+"en": "Hand-written assembly must be written in MASM (Microsoft Assembler syntax) in a separate .asm file, with exported function names, and then called from your C code and linked to by the linker",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド4",
+"en": "How to create a basic project is shown on the site, but one has been provided already in the \"scratchpad_asm\" project",
+"ja": ""
+},
+{
+"i": 24,
+"where": "スライド5",
+"en": "Writing Bytes to Get Asm",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド5",
+"en": "You can emit bytes directly in the instruction stream in MASM by just writing \"db XXh\" and then the byte you want to emit. E.g.",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド5",
+"en": "Or",
+"ja": ""
+},
+{
+"i": 29,
+"where": "スライド5",
+"en": "db 04h, 01h",
+"ja": ""
+},
+{
+"i": 30,
+"where": "スライド5",
+"en": "Would create the instruction \"add al, 1\"",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド6",
+"en": "Writing Bytes to Get Asm 2",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド6",
+"en": "Writing instructions via raw bytes can be used to test your understanding of instruction encoding as specified in the manual",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド6",
+"en": "Also sometimes useful if you can't find the correct syntax for the specific assembler you're using, but you know exactly what instruction you want",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド6",
+"en": "Just put it into scratchpad_asm, run it in the debugger, and then confirm what you expect happens after you step past the instruction",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド7",
+"en": "Misc MASM Syntax Issue",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド7",
+"en": "MASM doesn't like immediates that start with an alphabet character. They must be preceded by a zero",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド7",
+"en": "\"mov rax, E09966C1A977E177h\" yields a compile error",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド7",
+"en": "\"mov rax, 0E09966C1A977E177h\" is OK",
+"ja": ""
+},
+{
+"i": 41,
+"where": "スライド7",
+"en": "This also applies to raw bytes",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド7",
+"en": "\"DB C3h\" errors out",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド7",
+"en": "\"DB 0C3h\" is OK",
+"ja": ""
+},
+{
+"i": 44,
+"where": "スライド9",
+"en": "Lab: Create a Project With MASM",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド9",
+"en": "This will show how to get Visual Studio to play nice with MASM files",
+"ja": ""
+},
+{
+"i": 46,
+"where": "スライド10",
+"en": "Lab: RTFM && WTFI!",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド10",
+"en": "Read The Fun Manual and Write The Fun Instructions!",
+"ja": ""
+},
+{
+"i": 48,
+"where": "スライド10",
+"en": "Write raw bytes to create the following assembly sequence:",
+"ja": ""
+},
+{
+"i": 50,
+"where": "スライド10",
+"en": "sahf ; What's that? IDK, RTFM!",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド10",
+"en": "and eax, 0x31337",
+"ja": ""
+}
+]
+}

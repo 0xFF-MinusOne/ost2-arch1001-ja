@@ -1,0 +1,572 @@
+{
+"source": "14_RTFM/___Arch1001_14_RTFM_pt_br.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:32,800",
+"en": "então adivinhe o que eu enganei repetidamente você porque a simplificação é enganosa e aqueles que querem ser os verdadeiros mestres de seu próprio destino deve saber o que está por baixo, então é hora para conhecer a fascinante verdade é hora de ler o manual de diversão é isso mesmo, leia os manuais da diversão O manual da Intel está disponível aqui o volume 1 é um resumo da vida do universo e tudo sobre o x86 basicamente, é apenas uma visão geral volumes 2a 2d explicar todos os várias",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,720",
+"end": "00:00:59,600",
+"en": "instruções de assembly propriamente ditas incluindo todas as extensões de assembly e nos volumes 3 a até 3d, é aqui que se encontram todos os detalhes sangrentos detalhes sobre você sabe tudo existe de fato, portanto, volume 1 resumo é bom mas você realmente precisa se concentrar no volume 3 antes de você realmente entender como que as coisas que funcionam portanto, como um lembrete rápido, nós... todos os números de volume e referências e tudo são da versão de novembro de 2019, que",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:58,079",
+"end": "00:01:26,400",
+"en": "vem com essa classe e vamos procurar principalmente no volume 2. Agora, a maneira correta de interpretar essas páginas que eu vou que estou lhe mostrando é dado em manual Intel 2a seções 2.1 e 2.2 então, na verdade, vou até dar uma simplificação adicional para esta próxima parte e vou deixá-la para alguns materiais extras opcionais se você realmente quero mergulhar mesmo que seja um material que você não conhece estritamente necessário saber, a menos que você seja você sabe como tentar escrever um desmontador ou",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:24,960",
+"end": "00:01:49,840",
+"en": "algo assim, talvez você esteja ajustando manualmente algum código de shell, então talvez você precisa saber disso, a maioria das pessoas não sabem precisa saber portanto, vou tê-lo disponível, mas você sabe não estou sugerindo que a maioria das pessoas precise para dar uma olhada então, na verdade, você precisa fazer RTFM para fazer RTFM, mas Vou lhe dar o básico, ou seja, o seguinte Eu disse sobre a instrução, você conhece três pontos e dois exemplos corretos é tão simples e aqui está o que o manual da Intel diz",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:01:48,079",
+"end": "00:02:20,640",
+"en": "sobre o e instrução é um pouco mais complicado, então precisamos de aprender a entender como ler esse tipo de tabela, então vamos percorrer uma coluna de cada vez coluna opcode que representará os bytes muito literais que você veja emitidos por um compilador para especificar uma instrução de assembly específica, portanto, se você viu 24 e então você viu um único byte que seria sempre a e instrução pegando esse byte único, seja ele qual for um dois três quatro cinco seis sete oito",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:18,720",
+"end": "00:02:47,440",
+"en": "esse byte único como um byte imediato e a inseri-lo no com o al registrador por outro lado, se você tivesse 0x25, então você saberia que em vez disso, ele vai para o registro ax em vez de al e é de 16 bytes imediato ou acho que poderia ser um imediato de 32 bits que deveria ter dito 16-bit immediate lá mas como você realmente sabe o diferença entre esses dois, certo?",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:02:44,160",
+"end": "00:03:17,360",
+"en": "uma CPU quando ela está lendo byte após byte tentando descobrir como fazer decodificar estas instruções de montagem como ele sabe se 25 deve ter dois bytes depois dele para um 16 bit ou quatro bytes depois dele para valores de 32 bits bem, a resposta é que ele na verdade, depende de qual modo o processador está sendo executado no momento, portanto, se fosse executando no modo de 16 bits, então ele esperaria 2 bytes após 25 e se estivesse no modo de 32 ou 64 bits, ele espera 4 bytes depois dele para que cada modo",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:15,120",
+"end": "00:03:45,519",
+"en": "na verdade, tem um tamanho de operando padrão e que vai basicamente diz ao processador o que ele deveria estar esperando agora, na realidade bem, em primeiro lugar, o modo de 64 bits o tamanho padrão do operando é, na verdade, 32 bits em vez de 64 bits portanto, em geral, quando você está lendo através do manual você deve esperar que o 64-bit sempre estará usando o imediato de 32 bits e registradores de 32 bits, a menos que isso aconteça estar usando alguns para forçá-lo a usar um prefixo de instrução",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:03:44,400",
+"end": "00:04:12,400",
+"en": "valor de 64 bits então eu falo sobre essas instruções prefixos mais tarde mas basicamente ele pode usar qualquer um destes não quero me antecipar e falar sobre esta coluna então, tudo bem, a instrução é uma coluna básica legível por humanos tipo mnemônico de como será a instrução de assembly portanto, se esses são os bytes que você conhecer um o processador da CPU verá que você sabe que o disassembler está mastigando essas são as interpretações que um o disassembler tentaria mostrar a um humano",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:11,519",
+"end": "00:04:45,280",
+"en": "quando você sabe interpretar a sequência de bytes como 24 seguido de 1 byte ou 25 seguido por 4 bytes, então é isso que o humano espera e isso imm que está representando um impacto imediato e você pode ver que temos um tamanho de 8 bits e 16 bits tamanho de 32 bits e assim por diante e apenas o tamanho de 32 bits dessa coluna é frequentemente, onde você verá o r/mX especificado de modo que r/m8 a r/m16 r/m32 veremos um exemplo disso daqui a pouco bit ok a coluna de codificação do operando",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:04:42,000",
+"end": "00:05:19,280",
+"en": "tem uma pequena representação textual de como você codificaria os vários então aqui porque ele está lidando com com imediatamente é um I e, portanto, o I está basicamente dizendo que, para esses operandos sempre será al ax eax rax e é um 8 16 imediato 32 8 16 ou 32 para o segundo pessoalmente, não gosto muito do operando achar esta coluna muito útil você sabe, quero dizer claramente que isso mostra que você sei que é um rm é um this this is outra forma de dizer rm32 é um rm32 que o operando 1 é lido de",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:17,600",
+"end": "00:05:49,759",
+"en": "o operando 2 é lido e, em seguida, é gravado de volta no operando 1 essa coluna em particular foi, na verdade adicionado aos manuais algum tempo depois que comecei a lecionar x86 portanto, não tenho nenhum uso especial para mas talvez você consiga tudo bem, a coluna de modo de 64 bits especifica se uma determinada instrução de montagem é válido no modo de 64 bits isso tem a ver com o fato de às vezes ser mais velho versões das instruções de assembly canibalizados para versões alternativas versões de 64 bits das",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:05:49,120",
+"end": "00:06:20,080",
+"en": "coisas mas basicamente você pode fazer o seguinte para descobrir se é ou não é possível codificar isso uh quando estiver executando no modo de 64 bits às vezes, por exemplo você sabe que os valores de 16 bits não serão possível no modo de 64 bits portanto, isso deve ser dito como do manual aqui e o V e o I deveriam, na verdade, ser válido e inválido e você poderá ver coisas como N.E. dizendo que não é codificável N.S. não suportado, portanto, este é o interpretação desta coluna",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:06:18,400",
+"end": "00:06:44,960",
+"en": "basicamente a mesma interpretação um pouco menos opções porque está se referindo ao formulário antigo, portanto, válido inválido e não codificável geralmente o não codificável nesta coluna e válido nesta coluna significa que isto é notícia uma nova forma de instrução que foi adicionado especificamente para o modo de 64 bits por isso, obviamente, pode imaginar que quando está a executar o modo de 32 bits, teria tinha um registo imediato de 32 e um registo de 32 bits mas quando se está a executar",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:06:42,880",
+"end": "00:07:11,280",
+"en": "o modo de 32 bits não pode ser acedido um registo de 64 bits porque está basicamente voltando a alguns velhos basicamente voltando a alguns velhos antes das extensões de 64 bits que não tinha noção do registo rax então a coluna de descrição é normalmente mais tempo forma da instrução de montagem que é não será formatado mais ou menos como a instrução de assembly vai parecer que está apenas a dizer-lhe o que o é a operação que é efectuada será mais longo do que inferir baseado neste, mas será muito mais curto",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:07:10,880",
+"end": "00:07:44,479",
+"en": "do que uma forma longa de parágrafos legíveis por humanos de descrição que é dada a seguir ordenação dos quadros agora, se olharmos para alguns dos o resto destas formas de instruções podemos ver agora que estes r/mX's aparecem as coisas a que chamo um r/mX e que eu disse o X é para poderia ser um r/m8 poderia ser um r/m16 pode ser um r/m32 pode ser um r/m64, agora só estou a ver uma rápida retrospetiva da questão do código de acesso no anterior, tivemos, sabe números como 20 e, de seguida, um",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:07:41,840",
+"end": "00:08:15,039",
+"en": "agora adicionámos um /r que /r vai especificar de alguma forma um registo e isso vai ser um byte que especifica o registo so 22 e um byte para especificar um registo dar-lhe-á as instruções com um r/m8 e um r mas também há esta forma que tem um rex e um rex.w estas são as coisas que força para ser de 64 bits e não estou vou falar demasiado sobre eles agora novamente que vai para a opção material quando nós realmente aprofundar esta secção, por isso, como eu estava olhando através do",
+"ja": ""
+},
+{
+"i": 17,
+"start": "00:08:13,120",
+"end": "00:08:42,000",
+"en": "e instruções para falar sobre isso convosco, eu estava a reparar que, bem, eu provavelmente quer falar sobre a diferença entre sabe que há um existe um r/m8 imediato e um r/m8 imediato e provavelmente vai ver isso e dizer “ok, qual é a diferença qual é o objetivo o que é que se passa aqui e a diferença entre os dois coisas foi apenas este byte rex que eu disse que não queria falar sobre mas preciso de vos dar algum tipo de sabor para dizer qual é a diferença aqui quando é que eu vou ver isto quando é que eu vou",
+"ja": ""
+},
+{
+"i": 18,
+"start": "00:08:40,320",
+"end": "00:08:54,720",
+"en": "vou ver isso e quando estiver a ver através destes de repente, vejo que está bem, bem, isto afirma e r/m8 e immediate 8 e isso é um r/m8 e imediato, ok, isso faz sentido.",
+"ja": ""
+},
+{
+"i": 19,
+"start": "00:08:51,720",
+"end": "00:09:23,200",
+"en": "r/m8 r8 é um registo de 8 bits com um registo de 8 bits valor de memória de volta para a memória de registo valor e depois esta forma é a mesma coisa r/m8 r8 mas de repente, diz r/m64 e diz sinal de r8 alargado a 64 bits, pelo que isso é um pouco estranho e estou a ver outro versão do mesmo para aqui onde, em vez de ir registar a memória vamos potencialmente memória para o registrador qual é o problema com isto e depois eu disse ok bem talvez seja um erro de digitação talvez é algo que não compreendo",
+"ja": ""
+},
+{
+"i": 20,
+"start": "00:09:22,640",
+"end": "00:09:56,640",
+"en": "o instruções de assembly, por isso vamos ver na add em vez disso, a add tem muitas das mesmas formulários como e tem este imediato 8 e um r/m8 muito bem, estes dois basicamente coincidem, é obteve um r/m8 e um 8 imediato e sinal de adição imediato alargado 8 a r/m8 o que significa que assinar estender um código de 8 bits quando se está a interagir com outro valor de 8 bits tudo bem, isso não faz nenhum mas estes também fazem sentido portanto, estes são simplesmente adicionar r/m8 r8 a r/m8 adicionar r/m8 a",
+"ja": ""
+},
+{
+"i": 21,
+"start": "00:09:53,920",
+"end": "00:10:30,640",
+"en": "r8, portanto, basicamente para tentar interpretar este tipo de coisas, eu era como tudo bem bem, vamos lá ver o que é que uma o disassembler diz sobre tudo isto por isso, para fazer um teste básico desta situação, eu disse ok, bem, eu quero entender o diferença entre tu sabes 20 com registo e rex 20 com a registadores vamos disassemble isso no oda o disassembler em linha onlinedisassembler.com dissemos que 20 e alguns bytes são iguais an e al e, neste caso Eu fiz tudo para que 20 nalgum byte vá para",
+"ja": ""
+},
+{
+"i": 22,
+"start": "00:10:28,320",
+"end": "00:10:48,800",
+"en": "especificar um tipo de registo 8 e um r/m8 então o byte de soma eu fui e olhei para ele numa mesa que sabem que eu vou falaremos mais tarde no curso opcional material chegou a 20 e c0 é um e al, al pode mudar isso para 20 e 1.",
+"ja": ""
+},
+{
+"i": 23,
+"start": "00:10:44,480",
+"end": "00:11:25,360",
+"en": "agora é uma operação com o registrador CL e AL no CL c2 entra em dl c3 vai para bl e c4 vai para ah então é isso mesmo interpretação vamos acrescentar um byte rex que, mais uma vez sabe que falarei disso mais tarde, mas estou apenas a tentar perceber o que está a acontecer aqui portanto, 0x40 é um byte rex mas o desmontador diz que isto é de facto uma instrução inc e esta é uma instrução e, por isso, é porque o tenho definido para i386 o forma de 32 bits do x86, pelo que preciso de definir esse",
+"ja": ""
+},
+{
+"i": 24,
+"start": "00:11:25,040",
+"end": "00:11:43,760",
+"en": "para 64-bit e, de repente, a vai transformar em e al, al ok assim 40 20 c0 is e al, al e 20 c0 is e al, al então o que é que se passa exatamente aqui?",
+"ja": ""
+},
+{
+"i": 25,
+"start": "00:11:42,240",
+"end": "00:12:14,440",
+"en": "o que está realmente a acontecer aqui é que se tiver o byte rex e se entrar num determinado intervalo especificamente o intervalo mais ou menos mencionado aqui ah, bh, ch, e dh estas pequenas estrelas que eram aqui diziam que no modo 64-bit o r/m8 não pode ser codificado para aceder ao seguinte byte regista se o prefixo rex for utilizado ah, bh, ch, dh portanto, o que está a acontecer aqui é que se eu usar um rex prefixo e eu tenho 20 c4 que, sem o prefixo rex, se transforma em",
+"ja": ""
+},
+{
+"i": 26,
+"start": "00:12:13,200",
+"end": "00:12:57,680",
+"en": "em e al ah mas com o prefixo rex como o manual nos avisou, não podemos acesso ah porque decidiram reutilizá-lo para spl ponteiro de pilha baixo que é o menos byte significativo do ponteiro de pilha por isso, basicamente, desviaram quatro versões quatro destas coisas para ah, bh, ch, dh eles sequestrou-o para spl bpl sil e dil se eu passar por isso agora, de repente, estou a cair para al novamente por isso, vamos avançar e voltar atrás para vamos optar por c0 e 41. e agora esta coisa em particular",
+"ja": ""
+},
+{
+"i": 27,
+"start": "00:12:55,680",
+"end": "00:13:33,920",
+"en": "ainda de novo com um byte rex assim e t 20 c0 foi e al, al se eu puser um byte de rex lá, então de repente de repente, está a aceder ao r8b, pelo que o o byte menos significativo de r8 para que pode ver como este byte rex é forçamento ter acesso a registos de 64 bits por exemplo portanto, r8b mais 1 r9b mais 2 r10b, etc. e seria de esperar continuaria através de o nosso 15b, pelo que, tendo em conta que o disam o disassembler está me dizendo que você sabe este 20 com você conhece algum byte rex e você",
+"ja": ""
+},
+{
+"i": 28,
+"start": "00:13:32,720",
+"end": "00:14:00,720",
+"en": "saber qualquer byte para qualquer registro que ainda esteja acessando o formato de byte sou levado a concluir que esses são bugs certo, é que o manual está errado não tem nada a ver com um r/m64 eu tinha um byte rex Eu tinha 20 Eu tinha alguns registro e foi, você sabe disassembling como uh, você conhece 8 bytes e 8 bytes valor lamentável de 8 bits e 8 bits certo para que você saiba, é claro, que o o disassembler também pode estar errado, mas você sabe que estou inclinado a escolher o",
+"ja": ""
+},
+{
+"i": 29,
+"start": "00:13:59,360",
+"end": "00:14:25,760",
+"en": "mesma interpretação do manual está errado e o o disassembler está certo portanto, você definitivamente não deve esperar por isso para ser o caso de o manual está completamente livre de erros até mesmo você sabe que a carga desses muitos anos que a Intel tem divulgado há na verdade, alguns outros bugs que estavam na versão anterior versões dessa classe para 32 bits e assim por diante que eu tinha que apontar à medida que avançava portanto, em caso de dúvida, teste-o para depois",
+"ja": ""
+},
+{
+"i": 30,
+"start": "00:14:24,000",
+"end": "00:14:52,320",
+"en": "se você optar por leia alguns dos materiais opcionais sobre como fazer, por exemplo emitir bytes brutos em seu código e ter eles são transformados em montagem então você sabe que pode usá-lo para ou você pode usar um teste on-line disassembler, como acabei de fazer então, no final do dia, quando eu estava falando sobre você sabe, ok 22 e registrar versus rex 22 e registrar eles dizem que fazem exatamente a mesma operação qual é a diferença qual é o objetivo a questão é que esse byte rex é",
+"ja": ""
+},
+{
+"i": 31,
+"start": "00:14:50,480",
+"end": "00:15:21,600",
+"en": "essencialmente apenas para que você possa obter acesso a esses registros estendidos de 64 bits spl, bpl, sil e assim por diante, porque, como um lembrete, esses spl, bpl, sil, dil estes não existiam de fato no modo de 16 ou 32 bits, eles eram extensões que foram adicionadas quando eles fizeram as extensões de 64 bits que eles disseram para todos esses novos registros r8 a r15 queremos ter acesso a eles em 64 32 16 e 8 bits de cada vez, então vamos em frente e estendê-lo para que essas coisas possam",
+"ja": ""
+},
+{
+"i": 32,
+"start": "00:15:21,040",
+"end": "00:15:28,959",
+"en": "também ser acessado 8 bits por vez e, portanto, nós você sabe como chamar esse registro de r4?",
+"ja": ""
+},
+{
+"i": 33,
+"start": "00:15:25,519",
+"end": "00:15:57,759",
+"en": "e faça r4 ou r4d ou r4w ou r4b ou esse oda de disassembler específico decidiram chamá-lo de spl, bpl, sil, dil, portanto, essa é mais uma das aqueles lugares onde você pode ter dois nomes diferentes para o mesmo registro e assim como podemos ter dois nomes para instruções de assembly e é cabe ao desmontador decidir como ele quer representá-lo e um pouco mais sobre as coisas você verá no manual haverá uma descrição seção que, como eu disse, será a longo formar parágrafos de texto legível por humanos",
+"ja": ""
+},
+{
+"i": 34,
+"start": "00:15:56,399",
+"end": "00:16:21,120",
+"en": "haverá uma operação seção que fala sobre a operação e esta é uma das formas mais simples possíveis que você pode ter conhecer o destino e a origem é atribuído ao destino e os sinalizadores afetam os afetados então, aqui diz que o sinalizador de estouro e cf os sinalizadores são apagados portanto, sempre liberado pela instrução and o sinalizador de sinal zero e o sinalizador de paridade são definidos de acordo com o resultado portanto, é de se esperar que o sinalizador é definido se o bit mais significativo for",
+"ja": ""
+},
+{
+"i": 35,
+"start": "00:16:20,800",
+"end": "00:16:50,800",
+"en": "1 o sinalizador zero é definido se o resultado for 0 sinalizador de paridade ainda não fiz o material opcional portanto, não sei se já contei a você sobre isso ou não portanto, ignore isso por enquanto, e o estado do sinalizador af é indefinido então, só de ler essa descrição rapidamente ele diz que executa um bitwise e operação no destino primeira e segunda operação da fonte operandos e armazena os resultados para o destino local do operando operando de origem pode ser imediatos",
+"ja": ""
+},
+{
+"i": 36,
+"start": "00:16:48,000",
+"end": "00:17:14,000",
+"en": "registros ou local de memória de destino pode ser um registro ou local de memória entretanto, dois operandos de memória não podem ser usado em uma instrução, portanto, essa é a coisa que eu lhe disse repetidamente durante a aula em memória para memória movimentos sem memória para memória e, acrescenta xors qualquer coisa do gênero e depois é apenas lhe dizendo o que é e faz com que cada bit do resultado é definido como 1 se o bit correspondente do primeiro e do segundo operando são 1",
+"ja": ""
+},
+{
+"i": 37,
+"start": "00:17:12,079",
+"end": "00:17:38,080",
+"en": "caso contrário, ele é definido como 0 e diz o seguinte a instrução pode ser usada com a trava para permitir que ele seja executado atomicamente bem, não sabemos o que o o prefixo de bloqueio é mas você sabe que eu lhe direi que é um prefixo que pode permitir que as coisas sejam executadas atômicamente mas voltaremos às instruções prefixos mais tarde, o bloqueio é basicamente semelhante ao representante dos rep movs I disse movimentos é uma instrução real por si só e rep é um prefixo",
+"ja": ""
+},
+{
+"i": 38,
+"start": "00:17:36,000",
+"end": "00:18:05,360",
+"en": "lock é outro prefixo que você não vê com frequência, mas voltaremos a esse assunto e o abordaremos quando cobrimos os prefixos de instrução e, no modo de 64 bits, as instruções o tamanho padrão da operação é de 32 bits, ou seja o que eu disse há pouco e usando o rex na forma de rex.r, não temos sabe o que é isso, mas permite o acesso a registros adicionais assim, você terá acesso a, você sabe, os extensões de 64 bits usando o prefixo rex na forma de rex.w promove operações para 64 bits",
+"ja": ""
+},
+{
+"i": 39,
+"start": "00:18:03,280",
+"end": "00:18:25,760",
+"en": "então eu disse que o padrão é 32 bits, mas há uma maneira de substituí-lo e forçar o para ser de 64 bits, portanto caberia ao compilador saber especificamente como formatá-los rex e para cuspir os prefixos prefixo para gerar uma instrução de assembly onde o onde o processador tratará o como uma operação de 64 bits então, aí está, eu passei por isso, sabe?",
+"ja": ""
+},
+{
+"i": 40,
+"start": "00:18:23,760",
+"end": "00:18:31,760",
+"en": "um exemplo o e exemplo no manual de instruções, para que você possa agora estou pronto para ir, certo?",
+"ja": ""
+},
+{
+"i": 41,
+"start": "00:18:30,000",
+"end": "00:19:04,320",
+"en": "você perde e diz que leu toda o assembly instruções não, não, você quer mais, você tem tudo bem, algo parecido o suficiente o suficiente para e é adicionado, então o que temos aqui como se tivéssemos que se deparar com isso no manual, o que seria vemos que primeiro tentaríamos procurar por agrupamentos de instruções de assembly portanto, temos alguns formulários aqui que têm imediato 8 em al adicionando esses 16 em um eixo de 32 bits em um registro de 32 bits e um registrador de 32 bits em",
+"ja": ""
+},
+{
+"i": 42,
+"start": "00:19:02,160",
+"end": "00:19:35,039",
+"en": "um registrador de 64 bits portanto, poderíamos supor que isso pode ser você conhece algum bug, talvez eles quisessem tem imediato 64. mas vou apenas lhe dizer que não se trata de um bug eles só podem suportar um imediato de 32 bits sendo adicionados para um registro de 64 bits quando é codificado nesta forma agora, há outros formulários aqui que por exemplo, você saberia tomar um registro de 64 bits e adicioná-lo a um registro de 64 bits local de memória qualquer em termos práticos, o que isso significa",
+"ja": ""
+},
+{
+"i": 43,
+"start": "00:19:32,559",
+"end": "00:20:00,320",
+"en": "é que você nunca fará uma adição que é codificado com uma constante de 64 bits na instrução add, mas você poderia usar desligado e usar uma instrução mov para mover um constante de 64 bits em um registro de 64 bits e então você poderia usar algo como isto ou isto para adicionar o registro que tem a constante de 64 bits nele contida para usar algum outro registro, ok, então em termos de agrupamento, o que tínhamos?",
+"ja": ""
+},
+{
+"i": 44,
+"start": "00:19:56,320",
+"end": "00:20:28,320",
+"en": "este al, ax, eax, rax e tínhamos o tamanhos imediatos e, portanto, isso foi literalmente codificado como deve ser al deve ser ax, então isso não é muito legal e genérico mas você pode ver que ele tem um tipo de número de opcode baixo, portanto que provavelmente é um dos originais instruções de assembly de o 8086, então temos uma versão mais genérica forma das coisas imediato 8 em um valor arbitrário selecionou r/m8 para que pudesse ser qualquer um dos registros de 8 bits pode ser",
+"ja": ""
+},
+{
+"i": 45,
+"start": "00:20:26,000",
+"end": "00:20:55,679",
+"en": "um local de memória especificando 8 bits então temos outro desses, que é exatamente a mesma instrução de assembly, mas há uma pequena estrela lá com rex e, portanto, estou lhe dizendo que é apenas para o caso de você querer acessar o r/m8 do novo 64-bit versões e está falando sobre o sinal estendido aqui de novo com você sabe imediato este é o este é o versão que eu realmente copiei e gostei eu cortei essa coisa é o único que gosta desse sinal estendido não deveria estar lá certo, então se o primeiro agrupamento fosse 8, 16,",
+"ja": ""
+},
+{
+"i": 46,
+"start": "00:20:54,960",
+"end": "00:21:29,440",
+"en": "32 em registros codificados no segundo o agrupamento se parece com 8, 16, 32 em registros específicos e temos um agrupamento do que parece ser como sempre 8 bits imediato 8 bits em 16, 32, 64. Portanto, isso adicionará e esses sinais são legitimamente estendidos porque faz sentido dizer seu sinal estendendo um valor de 8 bits e adicionando-o a um valor de 16 bits, de modo que faz sentido 8 mais 32 faz sentido 8 mais 64 faz sentido portanto, isso levaria o que quer que fosse seu",
+"ja": ""
+},
+{
+"i": 47,
+"start": "00:21:27,600",
+"end": "00:21:58,480",
+"en": "é o bit mais significativo e estendê-lo até é de 16 bits de largura 32 bits de largura 64 bits de largura e fazer a adição no próximo tipo de agrupamento que temos é um r8, portanto, tudo isso foi imediato até agora, portanto, todos esses são códigos rígidos literais onde essas constantes codificadas as constantes serão codificado na instrução real fluxo agora temos registro de registros adicionar um registro 8 a um r/m8 para que possa ser registrado em registro poderia ser registro",
+"ja": ""
+},
+{
+"i": 48,
+"start": "00:21:55,760",
+"end": "00:22:30,159",
+"en": "mais a memória de volta à memória, a mesma coisa novamente com as estrelas, onde, se você quiser para acessar a versões estendidas dos registros de 8 bits portanto, temos 8, 16, 32s em 8, 16, 32s e como agora é um registro, podemos fazer um registro 64 adicionado a um r/m64 e o agrupamento final temos aqui é apenas o outro lado, portanto, se essas coisas em última análise, pode armazenar na memória esses itens também podem ser lidos em última instância da memória e armazenar em um registrador",
+"ja": ""
+},
+{
+"i": 49,
+"start": "00:22:26,960",
+"end": "00:23:02,480",
+"en": "somente assim r/m8 8, 16, 32, 64 em 8, 16 e 32s, e 64s portanto, embora esse tipo de instrução as mesas podem parecer assustadoras, mas na realidade são apenas você conhece um grupo de não sei um, dois, três quatro cinco agrupamentos diferentes de instruções de assembly cinco pequenas variações da mesma instrução de adição e apenas multiplicado pelo número de tamanhos que estão disponíveis agora se lermos o descrição do manual é basicamente como o e no sentido de que apenas diz que você sabe que vai",
+"ja": ""
+},
+{
+"i": 50,
+"start": "00:23:00,080",
+"end": "00:23:31,039",
+"en": "adicionar esse destino e a origem e armazená-lo no destino memória de registro ou registro imediato de memória não pode ter duas memórias, portanto não há memória para memória, mas esta parte aqui, que é eu destaquei é algo que acabei de lhe dizer de improviso quando chegamos a seção de fluxo de controle diz que a instrução de adição executa adição de números inteiros ok, ele avalia o resultado para ambos os operandos inteiros assinados e não assinados e define os sinalizadores cf e overflow para",
+"ja": ""
+},
+{
+"i": 51,
+"start": "00:23:29,679",
+"end": "00:23:54,080",
+"en": "indicam um transporte estouro no sinal ou não sinal resultados, respectivamente então, basicamente, ele está dizendo que se o transporte é definido depois que esse sinalizador isso significaria que você sabe quando somando as duas coisas, ficou muito grande para caber no registro se você estivesse operando com valores assinados e o sinalizador de transbordamento era grande demais para caber no registro se você estava operando com valores sem sinal portanto, ele define os dois corretamente com base em você",
+"ja": ""
+},
+{
+"i": 52,
+"start": "00:23:53,440",
+"end": "00:24:25,679",
+"en": "saiba que ele diz ele avalia os resultados para ambos os e operações sem sinal operandos uh e o sinalizador sf indica o sinal do resultado assinado direito assim interpretado como se o se o resultado final tiver o maior significativo definido, ele definirá o sinalizador de sinal no registro eflags mais você quer mais você tem vamos falar sobre o fluxo de controle especificamente o jcc o salto se o código de condição for atendido, todos os bem, aqui está uma lista gigante das instruções de montagem e somente",
+"ja": ""
+},
+{
+"i": 53,
+"start": "00:24:24,640",
+"end": "00:24:59,840",
+"en": "fica mais longo e isso é apenas a partir do primeiro página do jcc no manual, mas se você olhar atentamente para a coluna opcode, você perceberá que algumas coisas se repetem tanto que 74 para mim e 74 para o jz ambos apenas verificam se o sinalizador zero é set 77 para o ja 77 para jnbe ambos verificam se o sinalizador de transporte é igual a 0 e o sinalizador zero é igual a 0, portanto, isso é uma espécie de a prova do que eu disse anteriormente existe diferentes mnemônicos para o mesmo",
+"ja": ""
+},
+{
+"i": 54,
+"start": "00:24:57,520",
+"end": "00:25:27,520",
+"en": "instrução essencial e cabe ao disassembler para decidir em que direção ele será exibido também se você consultar o manual, verá que há descrições que dizem salto curto contra salto próximo e depois mesmo para saltos próximos, parece haver dois formas há uma deslocamento relativo de 16 bits e um deslocamento relativo de 32 bits mas eles têm esse pequeno extra comentário aqui que diz que esse 16-bit o deslocamento não é compatível com 64 bits modo e também diz que não é suportado no",
+"ja": ""
+},
+{
+"i": 55,
+"start": "00:25:25,840",
+"end": "00:25:47,840",
+"en": "coluna de 64 bits portanto, o manual é, na verdade, você sabe multiplicado por você sabe portanto, você tem duas formas diferentes de cada operando que você tiver depois mais curto versus próximo e você tem duas formas do próximo, portanto, é apenas multiplicando o número de combinações de controle condicional de fluxo portanto, para 64 bits, sempre será um deslocamento relativo de 32 bits, e daí?",
+"ja": ""
+},
+{
+"i": 56,
+"start": "00:25:46,480",
+"end": "00:26:20,559",
+"en": "isso significa que é um número assinado de 32 bits, o que significa que ele pode saltar 2 bilhões para frente ou 2 bilhões para trás ou se for um valor de 8 bits que você conhece 127 para frente ou 128 para trás, mais abaixo no manual se você observar a seção de operação agora você pode ver que é muito mais complicado do que era para o e ou a adição agora, de repente, temos condicional você conhece o pseudocódigo tentando para explicar o que está acontecendo você sabe se a condição foi atendida",
+"ja": ""
+},
+{
+"i": 57,
+"start": "00:26:17,039",
+"end": "00:26:49,200",
+"en": "então você sabe que o temp eip é igual ao eip sinal de mais estendido do destino, mas se o tamanho do operando é 16, então você sabe que mascarar o bit para que ele seja apenas um 16 valor do bit agora, claramente, o eip não é realmente o que é será usado se você estiver em 64 bits portanto, esse é novamente o modo o manual está um pouco desatualizado impreciso, provavelmente deveria haver um modo if de 64 bits como o jump página do manual tem, mas talvez eles achem que você entendeu a essência do assunto",
+"ja": ""
+},
+{
+"i": 58,
+"start": "00:26:45,919",
+"end": "00:27:20,000",
+"en": "certo, então o ponto básico do eip versus rip é de qualquer forma você toma o destino você toma o deslocamento relativo e você o adiciona à instrução ponteiro neste pequeno trecho aqui onde está falando sobre limites de segmentos de código que não conhecemos, não vamos aprender até a próxima aula, mas veremos que isso continuará ocorrendo no contexto do fluxo de controle mais uma chamada muito boa instruções de assembly tudo bem, isso é todas as formas possíveis, mas vamos se formos pela metade de cada vez, temos um",
+"ja": ""
+},
+{
+"i": 59,
+"start": "00:27:18,240",
+"end": "00:27:54,159",
+"en": "chamada relativa 16 uma chamada relativa 32 chamada r/m16 r/m32 r/m64 ok, esta é uma chamada perto de nós falou um pouco sobre curto versus próximo há pouco curto era o formato de 8 bits próximo era o de 16 ou 32, portanto, são 16 ou 32 chamar de próximo é um deslocamento relativo portanto, será mais ou menos a metade a largura dos bits eles não têm pouco, isso não é válido em 64 bits texto aqui mesmo, porque eles dizem isso aqui mesmo, não há suporte para 16 bits deslocamento não suportado em",
+"ja": ""
+},
+{
+"i": 60,
+"start": "00:27:51,840",
+"end": "00:28:21,440",
+"en": "modo de 64 bits é muito bom saber disso é a única linha que você realmente tem para se preocupar com e, se lermos o resumo descrição diz para ligar para perto deslocamento relativo em relação ao próxima instrução então, basicamente, para a matemática, você não está vai levar o endereço em que a instrução de chamada está você vai pegar o endereço após a instrução de chamada e, em seguida você adicionará o deslocamento de 32 bits que é um sinal estendido para 64 bits e você o tratará como uma assinatura",
+"ja": ""
+},
+{
+"i": 61,
+"start": "00:28:19,200",
+"end": "00:28:51,039",
+"en": "portanto, você está indo em seguida Instruções de assembly mais algum valor estendido de 32 bits assinado ou menos algum sinal de valor estendido de 32 bits todas essas instruções de assembly do jcc que vimos eram sempre relativos deslocamentos mas agora a chamada tem outro formato de deslocamento, ele pode receber um r/m16, 32, 64 ok, bem, nenhuma dessas opções é válida, portanto 64 bits, portanto para 64. sempre será um r/m64 chamada endereço indireto próximo e absoluto fornecido",
+"ja": ""
+},
+{
+"i": 62,
+"start": "00:28:50,559",
+"end": "00:29:22,240",
+"en": "por r/m64. portanto, indireto absoluto absoluto significa que é muito literalmente qualquer número que você encontrar esse é o endereço para o qual você irá é chamado de indireto porque como um r/m64, ele será especificado em um registro e, portanto, há realmente outras coisas que foram endereços absolutos onde é literalmente como se estivesse codificado no assembly instruções que você conhece pular para este endereço absoluto, mas aqui é absolutamente indireto porque estamos indireta por meio de um registro ou",
+"ja": ""
+},
+{
+"i": 63,
+"start": "00:29:20,240",
+"end": "00:29:50,480",
+"en": "você conhece o significado de r/m64 que pode ser algum valor de memória portanto, é claro que isso pode ser feito no forma típica r/m64 de base mais índice escala de tempo mais cálculo de deslocamento para algum endereço e, em seguida, chamar a chamada, ou seja, você sabe, basta ir até lá endereço e empurre o próximo assembly endereço de instruções na pilha agora a outra metade das instruções de chamada que eu meio que cortei saiu de lá um segundo atrás é que há algo chamado de chamada",
+"ja": ""
+},
+{
+"i": 64,
+"start": "00:29:47,760",
+"end": "00:30:15,679",
+"en": "longe, por isso tivemos curto tivemos perto tivemos um parente próximo, tivemos perto indireto absoluto há uma chamada distante e que tem como absoluto em que é apenas um endereço chamada distante absoluta indireta, portanto, algum tipo de indireção por meio de outra coisa mas, basicamente, quero lhe dizer que por enquanto, você precisa ignorar a chamada para longe dependem de itens chamados segmentação ou seletores de segmentos e não sabemos nada sobre eles ainda, mas você pode aprender sobre eles mais tarde",
+"ja": ""
+},
+{
+"i": 65,
+"start": "00:30:15,440",
+"end": "00:30:24,559",
+"en": "sobre em arquitetura 2001. portanto, sempre que você estiver pesquisando nos manuais depois desse vídeo, você vê alguma referência?",
+"ja": ""
+},
+{
+"i": 66,
+"start": "00:30:22,320",
+"end": "00:30:46,640",
+"en": "para seletores distantes ou de segmento ou portões ou portões de chamada e coisas do gênero ainda não sabemos sobre isso, apenas Ignore-o por enquanto, francamente, é em sua maioria, você conhece o tipo de sistema operacional as pessoas que precisam lidar com isso no espaço do usuário, você normalmente não vai ver que não será muito 0 pode haver algum sistema operacional casos específicos em que poderia ser aparecem, mas, na maioria das vezes, você realmente você está aprendendo assembly, mas na verdade não está",
+"ja": ""
+},
+{
+"i": 67,
+"start": "00:30:45,039",
+"end": "00:31:13,760",
+"en": "precisa se preocupar com isso por enquanto certo, então na descrição há você conhece toda uma seção gigante de descrição mas, de todos eles, é o mais próximo chamada com a qual nos importamos e todo o resto isso é coisa da arquitetura de 2001, portanto você pode tentar ler a descrição, mas ele tem todos essas diversas permutações de coisas que não conhecemos mas sobre os quais você pode aprender em 2001 aém disso, a seção de operações é louco de longo pseudocódigo, são quase 10 páginas de",
+"ja": ""
+},
+{
+"i": 68,
+"start": "00:31:12,799",
+"end": "00:31:42,399",
+"en": "pseudocódigo falando sobre se isso ou aquilo ou aquilo outro ou isso ou aquilo e, portanto, precisa lidar com coisas como você conhece as diferentes distâncias de se você sabe que está você está usando 16 bits relativos em relação a um relativo de 32 bits tem a ver com privilégios diferentes traduções de nível se você está ou não indo do espaço do usuário para o espaço do kernel tem que lidar com o novo fluxo de controle tecnologia de aplicação ele precisa lidar com as diferentes formas",
+"ja": ""
+},
+{
+"i": 69,
+"start": "00:31:39,519",
+"end": "00:31:50,960",
+"en": "de se você estiver no modo de 64 bits no modo de 32 bits modo de 16 bits portanto, há muito mais coisas para se pensar está brincando comigo?",
+"ja": ""
+},
+{
+"i": 70,
+"start": "00:31:48,000",
+"end": "00:32:15,279",
+"en": "não vou fazer isso, acho que terminamos não, tudo bem, temos mais ok instrução de montagem de retorno não muito muitas formas disso, temos um próximo ao retorno ao procedimento de chamada distante retornar oh longe de nos importarmos com isso, não nos importamos saber sobre isso, então, basicamente, apenas um retorno temos um quase retorno com um pop 16 bytes adicionais imediatos da pilha então, eu lhe disse antes que você soubesse na maioria das vezes, o retorno é apenas o que está no",
+"ja": ""
+},
+{
+"i": 71,
+"start": "00:32:14,320",
+"end": "00:32:43,679",
+"en": "topo da pilha e volta para esse endereço define rip para esse endereço mas eu também disse que há um menor forma de cena onde você pode especificar uma constante e que muitos bytes também serão você sabe que, adicionado ao rsp, ele diz estouro imm16 bytes, mas eles não estão aparecendo em qualquer registro ou algo do tipo eles são basicamente descartados, você está adicionando ao ponteiro da pilha e aqui, novamente, o fluxo de controle é difícil, portanto se você observar as operações",
+"ja": ""
+},
+{
+"i": 72,
+"start": "00:32:42,320",
+"end": "00:33:17,120",
+"en": "seção do manual você veria cerca de 10 páginas aqui tratando com todos os tipos de condições diferentes casos de retorno só para dizer uau, esse cara é exigentes ok, o que mais temos mais controle de fluxo jmp instrução de assembly jump curto pular perto pular perto salto relativo próximo ao absoluto indireto salto próximo salto indireto absoluto próximo indireto absoluto ok, então temos tamanhos diferentes deslocamentos para saber até onde ele vai salto relativo 8 relativo 16 relativo 32 oh 16",
+"ja": ""
+},
+{
+"i": 73,
+"start": "00:33:14,799",
+"end": "00:33:45,279",
+"en": "não é válido no modo de 64 bits e temos os formulários indiretos em que você especifica algum r/m 16, 32, 64, mas nem o 16 nem o 32 são válidos no modo de 64 bits portanto, para todos os efeitos, há são exatamente três instruções jmp quando você está no modo de 16 bits, portanto, temos o jump curto para rip mais um deslocamento de 8 bits que é um sinal estendido de 64 bits para que você saiba mais 127 menos 128 a mesma coisa para um arquivo de 32 bits de valor e ambos são relativos",
+"ja": ""
+},
+{
+"i": 74,
+"start": "00:33:44,000",
+"end": "00:34:15,040",
+"en": "deslocamentos, o que significa que é codificado na instrução de assembly de fluxo e há a versão que tem um que é especificado pelo registrador compilador assim ff e alguma codificação específica de um o registro lhe dará um salto indireto absoluto, portanto, r/m64 it e isso calculará um endereço e um endereço absoluto onde você deseja que o rip seja definido para ser definido a apenas 5 páginas de pseudocódigo para falar sobre como exatamente um jmp funciona, então é mais fácil do que call and ret",
+"ja": ""
+},
+{
+"i": 75,
+"start": "00:34:12,639",
+"end": "00:34:24,699",
+"en": "mas o fluxo de controle ainda é difícil, há também esse deslocamento distante, mas novamente não sei sobre isso, então vamos pular mais, certo?",
+"ja": ""
+},
+{
+"i": 76,
+"start": "00:34:21,839",
+"end": "00:34:50,240",
+"en": "mas este é o último cbw, cwde, cdqe esses são as coisas que eu basicamente disse que não vejo muito, eu não me importo muito e eu disse que você realmente não precisa saber eles, mas você sabe estamos voltando, estamos lendo o manual, portanto, se eu dissesse ei, dê uma olhada nisso e veja como eles funcionam bem, você pode ir e ver como eles trabalho e, na verdade, eles são bastante simples, é basicamente você sabe pegar um único byte essas são as versões em bytes que convertem bytes",
+"ja": ""
+},
+{
+"i": 77,
+"start": "00:34:49,040",
+"end": "00:35:24,880",
+"en": "para palavra portanto, esses são, em última análise, bonitos simples, são apenas coisas como converter um byte em uma palavra, ou seja, 8 bits em 16 bits é apenas um sinal extensão de 16 bits para 32 bits é apenas uma extensão de sinal 32 a 64. é apenas uma extensão do sinal e e há estes ligeiramente diferentes versões que parecem mais como um legado, no sentido de que você conhece de 16 a 32 mas você está usando o dx concatenado com o ax 32 a 64, mas você está fazendo ea edx concatenado com eax e",
+"ja": ""
+},
+{
+"i": 78,
+"start": "00:35:21,119",
+"end": "00:35:47,119",
+"en": "64 a 128, mas é a forma concatenada agora você pode imaginar que essas formas têm maior probabilidade de serem usados se você estiver lidar com essas coisas, como dividir as instruções corretamente porque o a instrução div foi tinha algumas formas em que estava implicitamente sempre operando com esses dados concatenados formas mas não há realmente nada que indique como esses as coisas realmente funcionam, é apenas o seno se estende de um valor curto para um longo mas agora você pode ver",
+"ja": ""
+},
+{
+"i": 79,
+"start": "00:35:45,520",
+"end": "00:36:16,160",
+"en": "como você poderia entrar no manual que poderia ler, poderia ver, sabe coisas que você entende coisas que você não entende entender ainda como o rex, mas você poderia pelo menos ter uma esperança de compreendê-lo porque é disso que trata esta seção sobre como fornecer as ferramentas de que você precisa a fim de sair e ler coisas novas que você nunca viu antes e entendê-los bem, então parece que como Kylo satisfeito a essa altura assim como eu, então um pequeno exercício que eu que tenho para você após esta seção",
+"ja": ""
+},
+{
+"i": 80,
+"start": "00:36:12,720",
+"end": "00:36:32,079",
+"en": "é ir para o MulDivExample.c e em vez disso, altere-o para um long long assinado do tipo de arquivo não assinado long e você sabe quem aparece e o quê aparece a instrução de assembly e por que você deveria ler o código e compreender e você procurará as instruções de assembly se você ainda não o viu antes",
+"ja": ""
+}
+]
+}

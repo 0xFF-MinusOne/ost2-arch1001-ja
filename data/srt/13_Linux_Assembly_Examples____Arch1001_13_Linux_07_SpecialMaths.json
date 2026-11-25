@@ -1,0 +1,124 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_07_SpecialMaths.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:35,840",
+"en": "okay the next example is SpecialMaths which before we went into specifically to see whether or not the special math form that we chose would cause an lea instruction to be generated because basically we said the math like this visual studio would prefer to create an lea so that it could do the base plus index time scale plus displacement so let's see if we get the same thing again so let's compile it and debug it okay so standard function prolog although this time we see that it is",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:35,040",
+"end": "00:01:11,920",
+"en": "choosing to subtract from rsp so it's not going to be using the red zone for its stack frame it's going to create a more explicit one so actually I just realized we need to exit out because this takes an argvv of 1 so I was right to be doing this so we need to pass a argv of 1 into this thing so some number that's going to be passed to atoi and it from a string to an integer so let's pick a completely random number and let's restart it all right so stepping in all right right before subtracting 0x20 from the stack",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:08,880",
+"end": "00:01:52,159",
+"en": "let's step one more and now we have the stack pointer down at df40 and the base pointer at df60 so the first thing that's going to be done is moving edi to rbp minus 14. now we didn't see edi get set with anything because edi is one of the command was one of the arguments to the function main right so this main took an argc and an argv pointer to a pointer right so edi is the first argument it's going to be the argc so if we step over this we will see that edi or rdi was 2 and it was set to rbp minus 14. oh",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:49,840",
+"end": "00:02:32,319",
+"en": "i forgot to put my display i'm going to put a display of we're gonna make these as let's do 8 bytes because this next thing's gonna be a pointer because it's putting rdi so 8 bytes at a time let's go with 4 giant words in hex at rbp minus 0x20 so this right there is rbp minus 8 10 and then 14. it's the most significant bytes of that particular 8 byte value so that's the 2 that just got written the argc and next the argv which is a char star star it's a pointer to a pointer array is going to",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:30,800",
+"end": "00:02:40,400",
+"en": "be put at rbp minus 20. so step over that and that's the value put to rbp minus 20.",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:38,879",
+"end": "00:03:15,120",
+"en": "now if we wanted to see what our argv of 0 and argv of 1 looked like because we know it's a two element array we could take this and we could display it as two pointers so let's display two giant word pointers at that particular address and this is basically going to be argv of 0 and this is going to be argv of 1 we know that by convention argv of 0 is typically in for normal programs it's filled in with the name of the func of the executable that's actually running so if we examined this as a string and",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:13,680",
+"end": "00:03:48,959",
+"en": "then we put that address in we would expect to see the name of the executable and indeed that's what we see the full path to the name of the executable because we just let it be the default a.out and then we expect that this argv of 1 should be a string version of the number that we passed as the first parameter 31337 all right so that's what we would expect the argv of 0 and argv of 1 they're getting stored off into this saved area on the stack so let's keep on trucking it's going to pull out the argv",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:46,400",
+"end": "00:04:21,280",
+"en": "and put it into rax and then it's going to add 8 to that so basically the argv is going to be this and then add 8 means it's basically indexing in from argv of 0 which is what you'd get if you just took that address directly to argv of 1 so step over that add 8 and now it's going to actually dereference that address because basically it's holding the address pointing to argv of 1 but it needs to dereference that to get the pointer out the pointer that is pointing to the actual string",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:17,359",
+"end": "00:04:53,680",
+"en": "so step over that that's in rax now and as you know again just to confirm to display that as a string that is the string for argv 1 like we would expect that's being passed as the first argument into atoi and so to be the first argument it needs to be moved from rax into rdi the register that's used for passing the first argument so step to that and then let's step over let's do next instruction to step over this call to ati atoi and then the rax value after atoi is the return value and so 7a69 is",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:52,360",
+"end": "00:05:29,039",
+"en": "31337 in hex so going back and looking at our source code for a second the output of atoi was put into a and then we're going to expect two times argc plus a coming up next okay so it's going to take the output of the atoi and put it into a so this would be where we would expect the a variable let's do that and we see it right there and then now rbp minus 14 is where the argc was stored before when it was storing the parameters passed into the function so it's pulling that out getting argc",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:26,880",
+"end": "00:06:05,120",
+"en": "back out putting into rax and then now it does have an lea but it's not the same sort of lea as we saw before whereas before visual studio set the base to the a and the index equal to the argc and the scale to be 2 because 2 times argc this is essentially doing argc plus argc it's doing argc plus argc plus 1 or times 1 rather uh and so that's basically just the 2 times argc using an lea as opposed to a multiply and so be it that's certainly one way you could do it and then it puts it into",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:06:02,880",
+"end": "00:06:44,160",
+"en": "edx and we can see that it's going to then take the value that it is stored for a pull it out and do the addition so this was the 2 argc going into eax or sorry edx and then that plus eax is going to be the plus a so step over that step over that and we'll just say rdx is 4, 2 times 2 step over that that's our 31337 and just add them together and the result goes into rax and so 7a 6d and then now we have a new assembly instruction leave leave before the return so what is this doing",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:42,639",
+"end": "00:07:16,160",
+"en": "now let's take a quick look at the stack again just to make sure so what leave does is it's basically very simply just taking what would be two assembly instructions and putting them into one that's the benefits of a complex architecture so basically you frequently would see in the past for unoptimized code that you know some compilers would generate instruction like move rbp to rsp and pop rbp because basically however much down the stack pointer has moved for creating the stack frame",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:07:14,160",
+"end": "00:07:45,759",
+"en": "if the rbp is always pointing at the base of the stack frame then you just move the stack pointer up to the base and then you pop off the saved rbp so what did our stack frame look like in this example well basically there's the return address to get outside of main there's the saved rbp right at the beginning of maine and then the first thing it did was sub rsp 0x20 so it went down by 0x20 allocated some space you got space for a which gets the a to atoi output and you've got the argc and argv the first",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:43,680",
+"end": "00:08:14,000",
+"en": "and second parameter passed into main stored in this function parameter passing storage area red zone it's not touched at all in this code so basically you can see that the leave instruction by doing basically setting rsp equal to rbp it slides the rbp r sorry slides the rsp back up to here and then now the pop rbp is just going to take this old value and stick it back in before the return instruction just goes back to the previous code so basically you can just think of it like a",
+"ja": ""
+},
+{
+"i": 15,
+"start": "00:08:12,000",
+"end": "00:08:48,080",
+"en": "leave is tearing down the stack frame all in one assembly instruction before you call the return instruction in order to return back to where you came from of course that doesn't exactly make thanos happy because he likes to see a good push at the beginning of a function and a pop at the end but you know so be it so we got another assembly instruction 31 and boom let the confetti fly and this is something that we'll see in other functions because this just happens to be something that",
+"ja": ""
+},
+{
+"i": 16,
+"start": "00:08:43,680",
+"end": "00:08:48,080",
+"en": "gcc prefers to generate",
+"ja": ""
+}
+]
+}

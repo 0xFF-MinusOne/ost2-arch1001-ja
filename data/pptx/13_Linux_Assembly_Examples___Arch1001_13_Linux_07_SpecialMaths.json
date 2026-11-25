@@ -1,0 +1,173 @@
+{
+"source": "13_Linux_Assembly_Examples/_Arch1001_13_Linux_07_SpecialMaths.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "SpecialMaths.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "with GCC",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 9,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 11,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "SpecialMaths.c",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド3",
+"en": "int a;",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "return 2*argc + a;",
+"ja": ""
+},
+{
+"i": 19,
+"where": "スライド3",
+"en": "With command line arguments, 2 function parameters, and special maths known to generate particular asm as a teachable moment :)",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド3",
+"en": "0x000055555555516a <+33>: callq  0x555555555050 <atoi@plt>",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド4",
+"en": "The stack looks like this at line 0x00005555`55555175 in func():",
+"ja": ""
+},
+{
+"i": 45,
+"where": "スライド4",
+"en": "a = atoi(argv[1])",
+"ja": ""
+},
+{
+"i": 73,
+"where": "スライド4",
+"en": "Red zone",
+"ja": ""
+},
+{
+"i": 75,
+"where": "スライド5",
+"en": "LEAVE - Exit a function",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド5",
+"en": "It's literally just the same thing as the two instructions you'd typically expect to see right before you return from a function that using stack frames:",
+"ja": ""
+},
+{
+"i": 80,
+"where": "スライド5",
+"en": "Book page 113",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド6",
+"en": "DON'T MAKE IT",
+"ja": ""
+},
+{
+"i": 85,
+"where": "スライド7",
+"en": "Instructions we now know (31)",
+"ja": ""
+},
+{
+"i": 96,
+"where": "スライド7",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 139,
+"where": "スライド8",
+"en": "not",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,26 @@
+{
+"source": "09_Shifts/__Arch1001_09_Shifts_03_ShiftExample3Signed_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,160",
+"end": "00:00:32,239",
+"en": "so the takeaways from ShiftExample3Signed.c is that as usual compilers will prefer shifts over multiplies and divides when you're dealing with powers of two if it is a signed variable which is being operated on then the compiler must generate different instructions such as the arithmetic shift right in order to maintain the signedness as it's being shifted to the right and it might have to do some other things like cdq in order to make sure the math all works out but i said for now we don't really care",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:30,320",
+"end": "00:01:07,760",
+"en": "about cdq you could have obviously played around with it and you know seen and inferred what exactly is going on but because cdq is not the kind of thing that i ran into a lot or when i did run into it really didn't matter that much i'm leaving this as something to be read in the fun manual later on after you learn how to read the fun manual so two more assembly instructions of course one of them happens to be the same as the other and there we go shift arithmetic left and shift arithmetic right it is no longer",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:03,520",
+"end": "00:01:07,760",
+"en": "shifty time today",
+"ja": ""
+}
+]
+}

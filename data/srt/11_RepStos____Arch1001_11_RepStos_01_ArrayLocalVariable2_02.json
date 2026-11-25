@@ -1,0 +1,33 @@
+{
+"source": "11_RepStos/__Arch1001_11_RepStos_01_ArrayLocalVariable2_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:39,120",
+"en": "so I said rep stos is basically a memset in a box and so that memset is being used in furtherance of the zero initialization setting all of the b of 64 to 0 so as I gave you a hint push edi at the beginning pop rdi sorry push rdi at the beginning pop rdi at the end that doesn't smell like seafood that smells like callee save register to me allocate some space on the stack calculate an address put it into rax, move rax to rdi well that is probably the destination for the rep stos that's probably the",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:37,760",
+"end": "00:01:21,920",
+"en": "beginning of the b, b[0] for instance then xor eax, eax well that's going to zero out the rax register which means that the value which is going to be stored each time in the rep stos is going to be 0 and it's going to store one byte at a time because you can see it's a byte pointer so it's copying one byte of 0 to rdi and how many times is it doing it it's copying it 0x80 times because 0x80 is 2 times 64 is 128 128 in hex is hex 80. so there you go these setup instructions and these nut",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:18,799",
+"end": "00:01:58,399",
+"en": "and this knock down instruction the rep stos are going to zero initialize the entire b[64] short array and after that it's just the kind of stuff that we have seen previously in arraylocalvariable there's indexing into b[1], here b is a array of shorts so move 2 the size of a short multiply by 1 the index of the array and you know do the access assignment and eventual return value well another one bites the dust we have added a new assembly instruction rep stos to our assembly bag of tricks",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:53,520",
+"end": "00:01:58,399",
+"en": "number 29 as other",
+"ja": ""
+}
+]
+}

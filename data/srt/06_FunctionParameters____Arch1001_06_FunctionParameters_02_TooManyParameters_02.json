@@ -1,0 +1,47 @@
+{
+"source": "06_FunctionParameters/__Arch1001_06_FunctionParameters_02_TooManyParameters_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,240",
+"end": "00:00:38,960",
+"en": "so what did you see in your stack by the time that all of that addition gets assigned to \"i\" what you should have seen is something like this a return address as usual for whoever called main some stack padding some undefined space and then five four three two one these are our function parameters that main is passing to func another return address and then some padding and some padding and the result of that math so here we have that 0x20 chunk of memory that we always see getting allocated right before the",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:37,600",
+"end": "00:01:13,760",
+"en": "return address showing up and holding the first four parameters that were passed into the function and why is it too many parameters because if you have more than four parameters you're ultimately going to see a fifth a sixth the seventh value pushed onto the stack as opposed to passed in a register and fed back into memory so this is what we call the microsoft shadow store why do we call it that because from the microsoft documentation the x64 abi uses a four register fast call calling convention by",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:11,360",
+"end": "00:01:44,159",
+"en": "default space is allocated on the call stack as a shadow store for callees to save those registers so it's passing four parameters in four registers but it's all also allocating space for the callee to save those registers back to the shadow store if it wants the caller must always allocate sufficient space to store these four register parameters even if the callee doesn't take that many parameters so that explains why before when we saw the simplest function with zero parameters calling",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:42,880",
+"end": "00:02:22,400",
+"en": "another function that we actually saw this hex 28 worth of allocation eight for padding and space for four eight byte registers and any parameter beyond the first form must be stored on the stack after the shadow store before the call so that is why we see 0x55 being pushed onto the stack before in such a way that it ultimately shows up here above the shadow store so who knows what evil lies in the stacks of compilers the shadow knows so the takeaway from too many parameters is that microsoft has a something it",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:20,480",
+"end": "00:02:50,480",
+"en": "calls a calling convention where it passes the first four arguments to a function through registers but also reserves space on this shadow store on the stack this is also sometimes called the shadow space because there's a quote in there that says the callee has the responsibility of dumping the register parameters into their shadow space if needed so it's ultimately up to the callee as we can see it's func reaching back up and placing the values into the shadow store if necessary",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:49,280",
+"end": "00:03:01,760",
+"en": "and as stated before in the documentation the compiler reserves this space even if no function parameters are passed to another function and even if the callee isn't going to do anything with that space",
+"ja": ""
+}
+]
+}

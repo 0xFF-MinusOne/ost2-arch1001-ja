@@ -1,0 +1,61 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_09_IfExample.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,399",
+"end": "00:00:35,440",
+"en": "our next control flow example is the IfExample so this was a signed integer a negative 1 and a signed integer b positive 2 then it's just checking if a is equal to b well that's not going to be true if a is greater than b well that's not going to be true if a is less than b that will be true so we expect this to always return 3 and to never be able to return 0xdefea7 or 2 or 1 should be unreachable so let's compile this and see what it turns into so looking at the overall function",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:32,880",
+"end": "00:01:07,439",
+"en": "we've got a typical function prologue we've got this negative 1 going into rbp minus 4 we've got 2 going into rbp minus 8 so this is our a and our b respectively then we've got pulling out that a putting it in eax and then doing a comparison now here i want to caution you about the fact that we're in AT&T syntax and stuff is backwards doesn't matter so much in a not equal check but something like the jump less than or equal jump greater than or equal because these are signed checks uh we",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:01:05,360",
+"end": "00:01:35,439",
+"en": "can't just do the thing where we take a less than or equal sign and put it between these two operands because they're basically backwards so you're gonna have to sort of mentally flip them around or you're gonna have to flip around the sign in your head i personally find it just easier to kind of mentally flip these around so is the eax less than or equal to rbp minus 8 so let's go ahead and step through this and we expect it will always return 3 right so step into it step step",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:32,159",
+"end": "00:02:17,680",
+"en": "move the negative 1 to rbp minus 4 well we've got red zone access again so let's go ahead and you know get a basic red zone read set up so display let's do 2 words in hex rbp minus 8 so it's going to be our a and b step there goes our a step there goes our b so a and b now it's pulling it out and it's doing a compare is eax which is negative 1 is that not equal to rbp minus 8 this is our rbp minus 8 so is negative 1 not equal to 2 it is not equal so it's going to take the jump now the way that you have to",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:16,400",
+"end": "00:02:50,480",
+"en": "kind of see these is that the original source code had a if equal return 1 so if equal it would essentially fall through here and stick 1 into the return register and then you know it's gonna just exit out this fff sorry 555171 you can see it multiple places that's basically the end of the assembly it's basically just going to exit out the function because someone's already set a return value so all they have to do is you know tear it down and exit out if these were equal it would fall through",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:48,319",
+"end": "00:03:22,959",
+"en": "are they not equal well yes negative 1 is not equal to 2 so it takes the jump and skips over the returning of 1 so that it can live to compare another day so takes the jump now once again plucks it out puts it in the eax now we have a less than or equal check so is negative 1 less than or equal to 2 it is less than or equal to 2 and so it's going to take the jump it's not going to fall through and return 2 so step step step and it took the jump it didn't fall through to return 2 so",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:22,000",
+"end": "00:03:42,480",
+"en": "now we should be getting close to our returning of 3 which we expect so same thing take the negative 1 put it into the register and compare it so is negative 1 greater than or equal to 2 and the answer is no it is not so it's going to go ahead and fall through and return 3.",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:39,519",
+"end": "00:04:07,920",
+"en": "so step step step it doesn't take the jump it moves 3 to eax rax and now it jumps to the end and this helps us jump over this dead code that shouldn't be reachable should never be possible to return 0xdefea7 and so at this address that's where everyone else was jumping to this is just the exiting out of the function tearing it all down so step unconditional jump and now exit out of the function",
+"ja": ""
+}
+]
+}

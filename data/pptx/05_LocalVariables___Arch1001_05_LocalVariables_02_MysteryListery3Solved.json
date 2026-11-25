@@ -1,0 +1,377 @@
+{
+"source": "05_LocalVariables/_Arch1001_05_LocalVariables_02_MysteryListery3Solved.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "Mystery Listery 1 Solved!",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド3",
+"en": "What’s up with the sub/add 0x28 in main()?",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド3",
+"en": "Why is VS over-allocating space for a single local variable?",
+"ja": ""
+},
+{
+"i": 15,
+"where": "スライド4",
+"en": "SingleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド4",
+"en": "Adding a single local variable",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド5",
+"en": "SingleLocalVariable2.c",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド5",
+"en": "int i = 0x7a11;",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド5",
+"en": "int j = 0x7a1e;",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド5",
+"en": "0000000140001004  mov         dword ptr [rsp],07A11h",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド5",
+"en": "0000000140001024  mov         dword ptr [rsp+20h],7A1Eh",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド5",
+"en": "Functions with a single local variable",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド6",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド6",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド7",
+"en": "undef`00007a1e",
+"ja": ""
+},
+{
+"i": 130,
+"where": "スライド7",
+"en": "undef`00007a11",
+"ja": ""
+},
+{
+"i": 174,
+"where": "スライド8",
+"en": "undef`00007a1e",
+"ja": ""
+},
+{
+"i": 190,
+"where": "スライド8",
+"en": "undef`00007a11",
+"ja": ""
+},
+{
+"i": 203,
+"where": "スライド9",
+"en": "\"The stack will always be maintained 16-byte aligned, except within the prolog (for example, after the return address is pushed) ...\" [1]",
+"ja": ""
+},
+{
+"i": 205,
+"where": "スライド9",
+"en": "I left out further exceptions which you can go read on your own if you'd like",
+"ja": ""
+},
+{
+"i": 238,
+"where": "スライド10",
+"en": "undef`00007a1e",
+"ja": ""
+},
+{
+"i": 254,
+"where": "スライド10",
+"en": "undef`00007a11",
+"ja": ""
+},
+{
+"i": 267,
+"where": "スライド10",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 268,
+"where": "スライド10",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 269,
+"where": "スライド10",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 270,
+"where": "スライド10",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 302,
+"where": "スライド11",
+"en": "undef`00007a1e",
+"ja": ""
+},
+{
+"i": 318,
+"where": "スライド11",
+"en": "undef`00007a11",
+"ja": ""
+},
+{
+"i": 331,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 332,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 333,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 334,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 335,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 336,
+"where": "スライド11",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 337,
+"where": "スライド13",
+"en": "DoubleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 367,
+"where": "スライド14",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 369,
+"where": "スライド14",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 374,
+"where": "スライド15",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 386,
+"where": "スライド15",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 397,
+"where": "スライド16",
+"en": "TripleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 407,
+"where": "スライド16",
+"en": "Adding a single local variable",
+"ja": ""
+},
+{
+"i": 420,
+"where": "スライド16",
+"en": "000000014000103A  add         rsp,28h",
+"ja": ""
+},
+{
+"i": 431,
+"where": "スライド17",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 433,
+"where": "スライド17",
+"en": "DRAW A STACK DIAGRAM!",
+"ja": ""
+},
+{
+"i": 438,
+"where": "スライド18",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 450,
+"where": "スライド18",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 452,
+"where": "スライド18",
+"en": "16-byte-stack-alignment padding",
+"ja": ""
+},
+{
+"i": 465,
+"where": "スライド19",
+"en": "TOO-LARGE LOCAL VARIABLE",
+"ja": ""
+},
+{
+"i": 469,
+"where": "スライド20",
+"en": "Mystery Listery",
+"ja": ""
+},
+{
+"i": 470,
+"where": "スライド20",
+"en": "Why do the GCC/Clang HelloWorlds have balanced Push/Pop instructions but Visual Studio doesn’t?",
+"ja": ""
+},
+{
+"i": 471,
+"where": "スライド20",
+"en": "What’s up with the sub/add 0x28 in main()?",
+"ja": ""
+},
+{
+"i": 472,
+"where": "スライド20",
+"en": "Why is VS over-allocating space for a single local variable?",
+"ja": ""
+}
+]
+}

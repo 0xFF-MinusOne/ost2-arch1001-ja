@@ -1,0 +1,110 @@
+{
+"source": "13_Linux_Assembly_Examples/__Arch1001_13_Linux_17_ShiftExample3Unsigned.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:30,160",
+"en": "so before we see this example just a reminder that ShiftExample2 was the unsigned version and ShiftExample3 is the signed version everything is exactly the same except the variables are signed instead of unsigned when we did this in visual studio it introduced a new instruction cdq which I said we didn't really care about but you can read about later on and so it basically went from being a very trivial shift shift logical right shift logical left sorry shift logical left shift logical",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:29,840",
+"end": "00:00:58,320",
+"en": "right very trivial 2 instructions to being a shift logical left because shift arithmetic left is the same thing no real difference there and then 4 instructions instead leading to a shift arithmetic right and I just kind of hand waved and said I don't care about this instruction and you know this is just needed to make the math work out and I kind of left it at that gonna do similar thing this time except this time I'm gonna you know ask you to go prove to yourself that the math works",
+"ja": ""
+},
+{
+"i": 2,
+"start": "00:00:55,760",
+"end": "00:01:28,000",
+"en": "out and investigate the corner case that leads to the necessity of this math but this time it's there's no cdq because i said that's kind of visual studio likes that but we do have a new instruction cmovns so what is this well this is a conditional move instruction so it's actually a cmovcc using my previous statement like jcc where you have a jump and a conditional code and the conditional code can be those things like equals not equals greater less than or equal blah blah blah",
+"ja": ""
+},
+{
+"i": 3,
+"start": "00:01:24,560",
+"end": "00:02:06,799",
+"en": "not signed so a cmovns is a conditional mov if the sign flag is not set so what does it mean to be a conditional move well it just means that if the condition holds the move happens and if not then it doesn't happen so yay we picked up another instruction and yeah we get another star on our big star chart so let's see this example in practice so go cd to ShiftExample3 nothing up my sleeve it is what we expected just a signed version of this compile it and debug it now because of the optimization we again",
+"ja": ""
+},
+{
+"i": 4,
+"start": "00:02:05,360",
+"end": "00:02:38,319",
+"en": "have the string to unsign strtol which is just going to give us back our 31337 so let's go ahead and step all the way over that now we have 31337 in rax and here you can see that it looks like they didn't actually choose to use a shift left they chose to use an lea which multiplies by 8 so there's the implicit you know index time scale and they're just having the index in rax so this is just going to be rax times 8 so it's just instead of using the multiply instruction instead of using the shift",
+"ja": ""
+},
+{
+"i": 5,
+"start": "00:02:37,680",
+"end": "00:03:11,280",
+"en": "instruction this compiler chose to use a lea which is perfectly valid so it does that and the net result goes into rdx and so that's 8 times 31337 and now this is this sort of sequence of instructions where i'm going to ask you to to go investigate the edge cases to confirm that you know the math makes sense to you but let's just walk through what exactly it's doing first so rdx holds the value which was just multiplied by 8 it's going to add 0xf to that and this is an lea not a",
+"ja": ""
+},
+{
+"i": 6,
+"start": "00:03:09,920",
+"end": "00:03:50,000",
+"en": "movv so it's just going to add 0xf to that and store it into eax so let's step over that we have this value plus 0xf in rax now it's going to do a test instruction and we said test is like an and instruction so it's going to and edx with itself so edx the lower 32 bits of this with itself and then it's going to do a conditional mov non-sign flag set so this anded with itself is always going to be basically itself and so the check later on for the conditional if not sign flag set means essentially it's",
+"ja": ""
+},
+{
+"i": 7,
+"start": "00:03:49,519",
+"end": "00:04:25,520",
+"en": "checking is the sign flag currently set in the value in edx and we can see it's not set because this value is too small it would need to be you know something with 1 of the most significant bit but if we really want to you know double check that we can do for instance info registers eflags and see what the eflags is set to the sign flag is not currently set in eflags let's go ahead and do this test and look at the register again and the parity flag just got set but the sign flag is still not set",
+"ja": ""
+},
+{
+"i": 8,
+"start": "00:04:23,199",
+"end": "00:04:58,880",
+"en": "which means conditional mov if the sign flag is not set will actually happen so this mov will happen it's going to mov edx value which is the value before that addition of 0xf to it back over the top of eax clevering out and you know ignoring what happened there with the adding of 0xf so let's do that and there we go 0x3d348 moved into rax into eax 0x3d348 and now it's doing a shift arithmetic write by 4 bits because the most significant bit was not set it's not really going to make any",
+"ja": ""
+},
+{
+"i": 9,
+"start": "00:04:57,520",
+"end": "00:05:29,039",
+"en": "difference it's just going to truncate it down 0x3d34. and then finally it's done with this function this add of 8 is just like in the previous example there's no standard function prolog epilogue here for stack frame usage with the base pointer and so it's just compensating back for the eight that it subtracted at the beginning so this is where I said I want you to investigate let's you know restart this thing let's restart it with some negative value instead for the input argument so let's go with",
+"ja": ""
+},
+{
+"i": 10,
+"start": "00:05:26,560",
+"end": "00:05:31,919",
+"en": "negative 32.",
+"ja": ""
+},
+{
+"i": 11,
+"start": "00:05:29,039",
+"end": "00:06:09,919",
+"en": "I'm going to restart we're going to step over the strtol we're going to confirm it gives us something that looks like a negative 32 it looks about like a negative 32 to me it's certainly negative now it's going to multiply that value by 8 and that looks like about a negative 256 to me because 0x100 is 256 and added to that would make it overflow so or make it be 0 rather well it's the same thing it's overflowing to 0 and so then now we have this math that like adds 0xf to this and puts it into eax",
+"ja": ""
+},
+{
+"i": 12,
+"start": "00:06:06,800",
+"end": "00:06:48,560",
+"en": "so step so now we got fs and 0f then we got the test for the sign flag and so again info registers oops i might say info register eflag but whatever so sign flag is not set before the test let's do this assembly instruction and let's look at the eflags again and the sign flag is now set after that test instruction because indeed the most significant bit of rdx of edx is set to 1 so the sign flag is set in the result of that so this conditional mov if not signed flag is not going to happen because it only",
+"ja": ""
+},
+{
+"i": 13,
+"start": "00:06:46,639",
+"end": "00:07:20,160",
+"en": "does it if the sign flag is not set and the sign flag is currently set so this is basically going to be skipped nothing's going to happen we're not going to you know clobber the value in rax with the previous value that we had down here so step yep no change same thing as before and now it's doing a shift arithmetic right by 4 on this and so all that does is get rid of that 0xf that it just added to it so like I said I want you to you know play around with this example and convince yourself that there is some",
+"ja": ""
+},
+{
+"i": 14,
+"start": "00:07:18,240",
+"end": "00:07:41,199",
+"en": "corner case that this adding of 0xf is specifically trying to handle in order to make sure that it generates the correct assembly instructions with the sequence and that it would not generate the correct assembly instructions without the sequence basically the adding of 0xf and then the conditional moving based on whether the sign flag is set",
+"ja": ""
+}
+]
+}

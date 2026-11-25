@@ -1,0 +1,329 @@
+{
+"source": "09_Shifts/_Arch1001_09_Shifts_03_ShiftExample3Signed.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ShiftExample3Signed.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "That’s the power of love sign!",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 16,
+"where": "スライド3",
+"en": "unsigned int a, b, c;",
+"ja": ""
+},
+{
+"i": 17,
+"where": "スライド3",
+"en": "a = atoi(argv[0]);",
+"ja": ""
+},
+{
+"i": 22,
+"where": "スライド3",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド3",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド3",
+"en": "a = atoi(argv[0]);",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド3",
+"en": "\"The power of sign, is a curious thing!",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド3",
+"en": "Make one man weep, make another man sing!\"",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド3",
+"en": "It's about integer overflow vulnerabilities! :D",
+"ja": ""
+},
+{
+"i": 36,
+"where": "ノート3",
+"en": "http://4.bp.blogspot.com/-FAaWCtna3mw/Tc69R-mPbFI/AAAAAAAABxA/Nriylz_dc20/s1600/hlhlfr.jpeg",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド4",
+"en": "ShiftExample3Signed.c",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド4",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド4",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 43,
+"where": "スライド4",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド4",
+"en": "0000000140001011  and  edx,0Fh",
+"ja": ""
+},
+{
+"i": 61,
+"where": "スライド4",
+"en": "Note: Compiled with /O2 “Maximize Speed”, to clear away a bit of cruft",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド5",
+"en": "0000000140001021  and         edx,0Fh",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド5",
+"en": "Vs",
+"ja": ""
+},
+{
+"i": 83,
+"where": "スライド5",
+"en": "Changed",
+"ja": ""
+},
+{
+"i": 84,
+"where": "スライド5",
+"en": "CDQ is added as an VS-ism. It’s necessary for the math to work out, but I feel like I’ve only run into it once ever in the wild. So I don’t consider it that important for beginners to know and I’m skipping it. But you can feel free to come back and read this code once we’ve gone through the RTFM section.",
+"ja": ""
+},
+{
+"i": 86,
+"where": "スライド6",
+"en": "Can be explicitly used with the C “>>” operator, if operands are signed",
+"ja": ""
+},
+{
+"i": 87,
+"where": "スライド6",
+"en": "First operand (source and destination) is an r/mX",
+"ja": ""
+},
+{
+"i": 88,
+"where": "スライド6",
+"en": "Second operand is either cl (lowest byte of ecx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
+"ja": ""
+},
+{
+"i": 89,
+"where": "スライド6",
+"en": "It divides the register by 2 for each place the value is shifted. More efficient than a divide instruction",
+"ja": ""
+},
+{
+"i": 90,
+"where": "スライド6",
+"en": "Each bit shifted off the right side is placed in CF",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド7",
+"en": "Actually behaves exactly the same as SHL!",
+"ja": ""
+},
+{
+"i": 117,
+"where": "スライド7",
+"en": "First operand (source and destination) is an r/mX",
+"ja": ""
+},
+{
+"i": 118,
+"where": "スライド7",
+"en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
+"ja": ""
+},
+{
+"i": 119,
+"where": "スライド7",
+"en": "It multiplies the register by 2 for each place the value is shifted. More efficient than a multiply instruction",
+"ja": ""
+},
+{
+"i": 120,
+"where": "スライド7",
+"en": "Each bit shifted off the left side is placed in CF",
+"ja": ""
+},
+{
+"i": 149,
+"where": "スライド8",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 151,
+"where": "スライド8",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 153,
+"where": "スライド9",
+"en": "ShiftExample3Signed.c Takeaways",
+"ja": ""
+},
+{
+"i": 154,
+"where": "スライド9",
+"en": "Compilers still prefer shifts for mul/div over powers of 2",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド9",
+"en": "But when the operands are signed rather than unsigned, it must use different instructions, and potentially do more work to deal with a signed multiply",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド9",
+"en": "CDQ isn’t super important for beginners to know, left as an exercise for the reader to RTFM for later ;)",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド9",
+"en": "0000000140001021  and  edx,0Fh",
+"ja": ""
+},
+{
+"i": 168,
+"where": "スライド9",
+"en": "#include <stdlib.h>",
+"ja": ""
+},
+{
+"i": 172,
+"where": "スライド9",
+"en": "int a, b, c;",
+"ja": ""
+},
+{
+"i": 173,
+"where": "スライド9",
+"en": "a = atoi(argv[1]);",
+"ja": ""
+},
+{
+"i": 178,
+"where": "スライド10",
+"en": "Instructions we now know (26)",
+"ja": ""
+},
+{
+"i": 189,
+"where": "スライド10",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 228,
+"where": "スライド11",
+"en": "not",
+"ja": ""
+}
+]
+}

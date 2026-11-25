@@ -1,0 +1,209 @@
+{
+"source": "09_Shifts/_Arch1001_09_Shifts_01_ShiftExample1.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "ShiftExample1.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 11,
+"where": "スライド3",
+"en": "ShiftExample1.c",
+"ja": ""
+},
+{
+"i": 28,
+"where": "スライド3",
+"en": "unsigned int a, b, c;",
+"ja": ""
+},
+{
+"i": 35,
+"where": "スライド4",
+"en": "Can be explicitly used with the C “<<” operator",
+"ja": ""
+},
+{
+"i": 36,
+"where": "スライド4",
+"en": "First operand (source and destination) is an r/mX",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド4",
+"en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド4",
+"en": "It multiplies the register by 2 for each place the value is shifted. More efficient than a multiply instruction",
+"ja": ""
+},
+{
+"i": 39,
+"where": "スライド4",
+"en": "Bits shifted off the left hand side are “shifted into” (set) the carry flag (CF)",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "For purposes of determining if the CF is set at the end, think of it as n independent 1 bit shifts",
+"ja": ""
+},
+{
+"i": 53,
+"where": "スライド4",
+"en": "Book page 77-81",
+"ja": ""
+},
+{
+"i": 55,
+"where": "スライド5",
+"en": "Can be explicitly used with the C “>>” operator",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド5",
+"en": "First operand (source and destination) is an r/mX",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド5",
+"en": "Second operand is either cl (lowest byte of rcx), or a 1 byte immediate. The 2nd operand is the number of places to shift",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド5",
+"en": "It divides the register by 2 for each place the value is shifted. More efficient than a divide instruction",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド5",
+"en": "Bits shifted off the right hand side are “shifted into” (set) the carry flag (CF)",
+"ja": ""
+},
+{
+"i": 60,
+"where": "スライド5",
+"en": "For purposes of determining if the CF is set at the end, think of it as n independent 1 bit shifts",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド6",
+"en": "THE ASSEMBLY",
+"ja": ""
+},
+{
+"i": 79,
+"where": "スライド6",
+"en": "CHECK YOUR UNDERSTANDING",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド7",
+"en": "ShiftExample1.c Takeaways:",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド7",
+"en": "Shifts in C are shifts in asm :P",
+"ja": ""
+},
+{
+"i": 97,
+"where": "スライド7",
+"en": "unsigned int a, b, c;",
+"ja": ""
+},
+{
+"i": 103,
+"where": "スライド8",
+"en": "Instructions we now know (24)",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド8",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 153,
+"where": "スライド9",
+"en": "not",
+"ja": ""
+},
+{
+"i": 162,
+"where": "スライド9",
+"en": "But wait, there’s more!",
+"ja": ""
+}
+]
+}

@@ -1,0 +1,12 @@
+{
+"source": "10_MulDiv/__Arch1001_10_MulDiv_01_MulDivExample_02.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,000",
+"end": "00:00:29,199",
+"en": "so the takeaways from MulDivExample is that when it's a multiply or divide that is not a power of 2, the compiler will go ahead and use multiply and divide instructions and as before visual studio really prefers imul over mul the unsigned multiply even when you're dealing with unsigned operands two new assembly instructions to the pile div and idiv and where do they show up well we already know we exhausted everything on the pie chart so two more others div and idiv",
+"ja": ""
+}
+]
+}

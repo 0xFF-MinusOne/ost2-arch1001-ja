@@ -1,0 +1,503 @@
+{
+"source": "12_RepMovs/_Arch1001_12_RepMovs_01_Journey2memcpy.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "JourneyToTheCenterOfMemcpy.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 9,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 13,
+"where": "スライド4",
+"en": "JourneyToTheCenterOfMemcpy.c",
+"ja": ""
+},
+{
+"i": 14,
+"where": "スライド4",
+"en": "#include <stdio.h>",
+"ja": ""
+},
+{
+"i": 23,
+"where": "スライド4",
+"en": "#define uint64 unsigned long long",
+"ja": ""
+},
+{
+"i": 25,
+"where": "スライド4",
+"en": "mystruct_t a, b;",
+"ja": ""
+},
+{
+"i": 26,
+"where": "スライド4",
+"en": "a.var1 = 0xFF;",
+"ja": ""
+},
+{
+"i": 27,
+"where": "スライド4",
+"en": "memcpy(&b, &a, sizeof(mystruct_t));",
+"ja": ""
+},
+{
+"i": 31,
+"where": "スライド4",
+"en": "mov  dword ptr [a],0FFh",
+"ja": ""
+},
+{
+"i": 33,
+"where": "スライド4",
+"en": "lea  rdx,[a]",
+"ja": ""
+},
+{
+"i": 40,
+"where": "スライド4",
+"en": "STEP INTO THE UNKNOWN!",
+"ja": ""
+},
+{
+"i": 42,
+"where": "スライド5",
+"en": "Find REP MOVS!",
+"ja": ""
+},
+{
+"i": 47,
+"where": "スライド6",
+"en": "THE MEMCPY ASSEMBLY",
+"ja": ""
+},
+{
+"i": 49,
+"where": "スライド6",
+"en": "FIND REP MOVS",
+"ja": ""
+},
+{
+"i": 51,
+"where": "スライド6",
+"en": "WRITE DOWN PSEUDOCODE",
+"ja": ""
+},
+{
+"i": 52,
+"where": "スライド6",
+"en": "FOR THE PATH THAT LEADS TO IT",
+"ja": ""
+},
+{
+"i": 54,
+"where": "スライド7",
+"en": "We'll Do It Live!",
+"ja": ""
+},
+{
+"i": 56,
+"where": "スライド8",
+"en": "Repeat Move Data String to String",
+"ja": ""
+},
+{
+"i": 57,
+"where": "スライド8",
+"en": "MOVS is one of number of instructions that can have the “rep” prefix added to it, which repeat a single instruction multiple times.",
+"ja": ""
+},
+{
+"i": 58,
+"where": "スライド8",
+"en": "MOVS is actually its own instruction which can be called without the REP instruction prefix",
+"ja": ""
+},
+{
+"i": 59,
+"where": "スライド8",
+"en": "All rep operations use *cx register as a “counter” to determine how many times to loop through the instruction. Each time it executes, it decrements *cx. Once *cx == 0, it continues to the next instruction",
+"ja": ""
+},
+{
+"i": 62,
+"where": "スライド8",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 64,
+"where": "スライド9",
+"en": "Repeat Move Data String to String",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド9",
+"en": "REP MOVS stores 1, 2, 4, or 8 bytes at a time",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド9",
+"en": "Either fill 1 byte from [si] to [di] with or fill 1/2/4/8 bytes at a time from [*si] to [*di]",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド9",
+"en": "Moves the *di and *si registers forward 1/2/4/8 at a time, so that the repeated store operation is storing into consecutive locations.",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド9",
+"en": "So there are 3 pieces which must happen before the actual rep movs occurs:",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド9",
+"en": "Set *si to the start source",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド9",
+"en": "Set *di to the start destination",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド9",
+"en": "Set *cx to the number of times to store",
+"ja": ""
+},
+{
+"i": 74,
+"where": "スライド9",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 76,
+"where": "スライド10",
+"en": "Repeat Move Data String to String",
+"ja": ""
+},
+{
+"i": 77,
+"where": "スライド10",
+"en": "Note: Unlike MOV, MOVS can move memory to memory…but only between [*si] and [*di]",
+"ja": ""
+},
+{
+"i": 78,
+"where": "スライド10",
+"en": "A lot of people don’t pay attention to the fact that it’s REP MOVS, not REP MOV (even though you may say it like “rep-move”)",
+"ja": ""
+},
+{
+"i": 81,
+"where": "スライド10",
+"en": "Book page 101-102",
+"ja": ""
+},
+{
+"i": 82,
+"where": "スライド11",
+"en": "VS\nCaller-saved",
+"ja": ""
+},
+{
+"i": 92,
+"where": "スライド11",
+"en": "VS \nCallee-saved",
+"ja": ""
+},
+{
+"i": 102,
+"where": "スライド11",
+"en": "System V",
+"ja": ""
+},
+{
+"i": 104,
+"where": "スライド11",
+"en": "Caller-saved",
+"ja": ""
+},
+{
+"i": 114,
+"where": "スライド11",
+"en": "System V",
+"ja": ""
+},
+{
+"i": 116,
+"where": "スライド11",
+"en": "Callee-saved",
+"ja": ""
+},
+{
+"i": 127,
+"where": "スライド11",
+"en": "Caller vs. Callee-save Regs",
+"ja": ""
+},
+{
+"i": 128,
+"where": "スライド12",
+"en": "High level pseudo-code approximation",
+"ja": ""
+},
+{
+"i": 129,
+"where": "スライド12",
+"en": "(how interesting…it’s like I went in reverse of the normal software engineering process…)",
+"ja": ""
+},
+{
+"i": 131,
+"where": "スライド12",
+"en": "if(len <= 0x10)",
+"ja": ""
+},
+{
+"i": 132,
+"where": "スライド12",
+"en": "goto 00007FFB76491350 // 2x MOV",
+"ja": ""
+},
+{
+"i": 133,
+"where": "スライド12",
+"en": "if(len <= 0x20)",
+"ja": ""
+},
+{
+"i": 134,
+"where": "スライド12",
+"en": "goto 00007FFB76491330 // AHHHH! MOVUPS! IDEKWTFBBQ!",
+"ja": ""
+},
+{
+"i": 136,
+"where": "スライド12",
+"en": "if(src >= dst)",
+"ja": ""
+},
+{
+"i": 138,
+"where": "スライド12",
+"en": "else { // if (src < len)",
+"ja": ""
+},
+{
+"i": 139,
+"where": "スライド12",
+"en": "if(dst < (src+dst)) // if (src < dst < (src + len)",
+"ja": ""
+},
+{
+"i": 140,
+"where": "スライド12",
+"en": "goto 00007FFB764915F0",
+"ja": ""
+},
+{
+"i": 142,
+"where": "スライド12",
+"en": "if (len < 0x80){",
+"ja": ""
+},
+{
+"i": 143,
+"where": "スライド12",
+"en": "goto 00007FFB76491530 // AHHHH! MOVUPS! IDEKWTFBBQ!",
+"ja": ""
+},
+{
+"i": 146,
+"where": "スライド12",
+"en": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!",
+"ja": ""
+},
+{
+"i": 147,
+"where": "スライド12",
+"en": "goto 00007FFB76491480 // not taken ¯\\_(ツ)_/¯",
+"ja": ""
+},
+{
+"i": 149,
+"where": "スライド12",
+"en": "goto 00007FFB764912D0 // HERE BE REP MOVS!",
+"ja": ""
+},
+{
+"i": 152,
+"where": "スライド13",
+"en": "High level pseudo-code approximation",
+"ja": ""
+},
+{
+"i": 153,
+"where": "スライド13",
+"en": "(how interesting…it’s like I went in reverse of the normal software engineering process…)",
+"ja": ""
+},
+{
+"i": 155,
+"where": "スライド13",
+"en": "if(len <= 0x10)",
+"ja": ""
+},
+{
+"i": 156,
+"where": "スライド13",
+"en": "goto 00007FFB76491350 // 2x MOV",
+"ja": ""
+},
+{
+"i": 157,
+"where": "スライド13",
+"en": "if(len <= 0x20)",
+"ja": ""
+},
+{
+"i": 158,
+"where": "スライド13",
+"en": "goto 00007FFB76491330 // AHHHH! MOVUPS! IDEKWTFBBQ!",
+"ja": ""
+},
+{
+"i": 159,
+"where": "スライド13",
+"en": "if (src < dst)",
+"ja": ""
+},
+{
+"i": 160,
+"where": "スライド13",
+"en": "if(dst < (src+len)) // Uh oh, overlap!",
+"ja": ""
+},
+{
+"i": 161,
+"where": "スライド13",
+"en": "goto 00007FFB764915F0 // not taken",
+"ja": ""
+},
+{
+"i": 163,
+"where": "スライド13",
+"en": "if (len < 0x80){",
+"ja": ""
+},
+{
+"i": 164,
+"where": "スライド13",
+"en": "goto 00007FFB76491530 // AHHHH! MOVUPS! IDEKWTFBBQ!",
+"ja": ""
+},
+{
+"i": 167,
+"where": "スライド13",
+"en": "if( ((*(char *)(7FFB764B43BCh)) & 0x2) == 0) // ?!",
+"ja": ""
+},
+{
+"i": 168,
+"where": "スライド13",
+"en": "goto 00007FFB76491480 // not taken ¯\\_(ツ)_/¯",
+"ja": ""
+},
+{
+"i": 170,
+"where": "スライド13",
+"en": "goto 00007FFB764912D0 // HERE BE REP MOVS!",
+"ja": ""
+},
+{
+"i": 181,
+"where": "スライド14",
+"en": "This Class",
+"ja": ""
+},
+{
+"i": 193,
+"where": "スライド15",
+"en": "Instructions we now know (30)",
+"ja": ""
+},
+{
+"i": 204,
+"where": "スライド15",
+"en": "AND/OR/XOR/NOT",
+"ja": ""
+},
+{
+"i": 246,
+"where": "スライド16",
+"en": "not",
+"ja": ""
+}
+]
+}

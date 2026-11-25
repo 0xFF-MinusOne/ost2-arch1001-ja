@@ -1,0 +1,19 @@
+{
+"source": "05_LocalVariables/__Arch1001_05_LocalVariables_04_StructLocalVariable_01.srt",
+"units": [
+{
+"i": 0,
+"start": "00:00:00,080",
+"end": "00:00:34,239",
+"en": "let's see a slight variation on the previous example where we were allocating three things on the stack as local variables this time we're going to take those same three things the short a the int b six elements and c let's put them into a struct and let's instead allocate a struct as a local variable on our stack once again we're going to say that you know babe balboa bled blood and we're going to do the same sort of math a going into b of 1 b of 1 being added to c and put back into b of 4 and returning",
+"ja": ""
+},
+{
+"i": 1,
+"start": "00:00:33,200",
+"end": "00:00:49,520",
+"en": "b of 4 as a short so something slightly different here only way you're going to be able to see it is by stopping stepping through the assembly and drawing a stack diagram go ahead and take that on now",
+"ja": ""
+}
+]
+}

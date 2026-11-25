@@ -1,0 +1,143 @@
+{
+"source": "13_Linux_Assembly_Examples/_Arch1001_13_Linux_02_SingleLocalVariable.pptx",
+"units": [
+{
+"i": 0,
+"where": "スライド1",
+"en": "Architecture 1001:",
+"ja": ""
+},
+{
+"i": 2,
+"where": "スライド1",
+"en": "SingleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 3,
+"where": "スライド1",
+"en": "with GCC",
+"ja": ""
+},
+{
+"i": 4,
+"where": "スライド1",
+"en": "Xeno Kovah – 2021",
+"ja": ""
+},
+{
+"i": 5,
+"where": "スライド1",
+"en": "xeno@darkmentor.com",
+"ja": ""
+},
+{
+"i": 6,
+"where": "スライド2",
+"en": "All materials is licensed under a Creative Commons “Share Alike” license.",
+"ja": ""
+},
+{
+"i": 7,
+"where": "スライド2",
+"en": "http://creativecommons.org/licenses/by-sa/4.0/",
+"ja": ""
+},
+{
+"i": 8,
+"where": "スライド2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 9,
+"where": "スライド2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 10,
+"where": "ノート2",
+"en": "Attribution condition: You must indicate that derivative work",
+"ja": ""
+},
+{
+"i": 11,
+"where": "ノート2",
+"en": "\"Is derived from Xeno Kovah's 'Architecture 1001: x86-64 Assembly’ class, available at https://ost.fyi\"",
+"ja": ""
+},
+{
+"i": 12,
+"where": "スライド3",
+"en": "SingleLocalVariable.c",
+"ja": ""
+},
+{
+"i": 20,
+"where": "スライド3",
+"en": "Adding a single local variable",
+"ja": ""
+},
+{
+"i": 34,
+"where": "スライド3",
+"en": "0x000055555555514a <+13>:\tcallq  0x555555555129 <func>",
+"ja": ""
+},
+{
+"i": 37,
+"where": "スライド4",
+"en": "SingleLocalVariable.c Stack",
+"ja": ""
+},
+{
+"i": 38,
+"where": "スライド4",
+"en": "If we step through line 0x5555`55555131 in func(), the stack looks like this:",
+"ja": ""
+},
+{
+"i": 65,
+"where": "スライド5",
+"en": "\"The 128-byte area beyond the location pointed to by %rsp is considered to",
+"ja": ""
+},
+{
+"i": 66,
+"where": "スライド5",
+"en": "be reserved and shall not be modified by signal or interrupt handlers. Therefore,",
+"ja": ""
+},
+{
+"i": 67,
+"where": "スライド5",
+"en": "functions may use this area for temporary data that is not needed across function",
+"ja": ""
+},
+{
+"i": 68,
+"where": "スライド5",
+"en": "calls. In particular, leaf functions may use this area for their entire stack frame,",
+"ja": ""
+},
+{
+"i": 69,
+"where": "スライド5",
+"en": "rather than adjusting the stack pointer in the prologue and epilogue. This area is",
+"ja": ""
+},
+{
+"i": 70,
+"where": "スライド5",
+"en": "known as the red zone.\"",
+"ja": ""
+},
+{
+"i": 71,
+"where": "スライド5",
+"en": "From System V ABI: https://raw.githubusercontent.com/wiki/hjl-tools/x86-psABI/x86-64-psABI-1.0.pdf",
+"ja": ""
+}
+]
+}
